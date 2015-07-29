@@ -7,6 +7,9 @@
 //
 
 #import "DSLocaleManager.h"
+#import "GlobalDefine.h"
+#import "AGUIKitDefine.h"
+#import "NSObject+Singleton.h"
 
 #define kLocaleIdentifier @"kLocaleIdentifier"
 #define kLocaleIdentifierBundle @"kLocaleIdentifierBundle"
@@ -20,7 +23,7 @@ static NSBundle *_instanceDSLocaleManagerBundle;
     NSString *languageID = [self deviceLanguageID];
     if (![self bAvailableLanguageID:languageID]) languageID = @"en";
     [self setLanguageID:languageID];
-    TLOG(@"languageID after -> %@", languageID);
+//    TLOG(@"languageID after -> %@", languageID);
 }
 
 
@@ -54,7 +57,7 @@ static NSBundle *_instanceDSLocaleManagerBundle;
 }
 
 + (BOOL)bAvailableLanguageID:(NSString *)languageID{
-    NSArray *arr =  [AGConfigurationCoordinator singleton].availableLanguages;
+    NSArray *arr =  [AGUIKitDefine singleton].availableLanguages;
     for (int i=0; i<[arr count]; i++) {
         NSString *tmpLanguageID = [[arr objectAtIndex:i] identifier];
         //        LOG_DEBUG(@"targetLocaleID -> %@ localeID -> %@", localeIdentifier, tmpLocaleID);

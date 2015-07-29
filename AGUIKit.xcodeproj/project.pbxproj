@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A8E84B51B68576600F48CDD /* liblibOpen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8E84B41B68576600F48CDD /* liblibOpen.a */; };
-		4A8E85A91B68587D00F48CDD /* libAGNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8E85A81B68587D00F48CDD /* libAGNetwork.a */; };
 		4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E887F1B686E9100F48CDD /* AGAssembler.m */; };
 		4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88811B686E9100F48CDD /* AGStyleCoordinator.m */; };
 		4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88A11B686E9100F48CDD /* AGButtonItem.m */; };
@@ -221,6 +219,17 @@
 		4A8E8B521B69029A00F48CDD /* AGPresentableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89CE1B68D6AE00F48CDD /* AGPresentableViewController.h */; };
 		4A8E8B531B69029A00F48CDD /* AGTabBarViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E893D1B686E9100F48CDD /* AGTabBarViewController.h */; };
 		4A8E8B541B69029A00F48CDD /* DSTabBarViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E893F1B686E9100F48CDD /* DSTabBarViewController.h */; };
+		4A8E8B581B69060600F48CDD /* DSLocaleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8B571B69060600F48CDD /* DSLocaleManager.m */; };
+		4A8E8B591B69061400F48CDD /* DSLocaleManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8B561B69060600F48CDD /* DSLocaleManager.h */; };
+		4A8E8B5A1B69061400F48CDD /* AGCellInnerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A3D1B68F99400F48CDD /* AGCellInnerView.h */; };
+		4A8E8B5B1B69061400F48CDD /* AGLabelStyleSubtitleTextCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A3F1B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.h */; };
+		4A8E8B5C1B69061400F48CDD /* AGLabelStyleTextCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A411B68F99400F48CDD /* AGLabelStyleTextCell.h */; };
+		4A8E8B5D1B69061400F48CDD /* AGQuantityPickerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E899F1B687D2000F48CDD /* AGQuantityPickerView.h */; };
+		4A8E8B5E1B69061500F48CDD /* AGQuantitySelector.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89A11B687D2000F48CDD /* AGQuantitySelector.h */; };
+		4A8E8B611B69084E00F48CDD /* DSButtonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */; };
+		4A8E8B621B6908D800F48CDD /* DSButtonCreator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */; };
+		4A8E8B631B69093600F48CDD /* AGQuantityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89A01B687D2000F48CDD /* AGQuantityPickerView.m */; };
+		4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89A21B687D2000F48CDD /* AGQuantitySelector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +239,13 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A8E8B621B6908D800F48CDD /* DSButtonCreator.h in CopyFiles */,
+				4A8E8B591B69061400F48CDD /* DSLocaleManager.h in CopyFiles */,
+				4A8E8B5A1B69061400F48CDD /* AGCellInnerView.h in CopyFiles */,
+				4A8E8B5B1B69061400F48CDD /* AGLabelStyleSubtitleTextCell.h in CopyFiles */,
+				4A8E8B5C1B69061400F48CDD /* AGLabelStyleTextCell.h in CopyFiles */,
+				4A8E8B5D1B69061400F48CDD /* AGQuantityPickerView.h in CopyFiles */,
+				4A8E8B5E1B69061500F48CDD /* AGQuantitySelector.h in CopyFiles */,
 				4A8E8AEC1B69029A00F48CDD /* AGUIKitDefine.h in CopyFiles */,
 				4A8E8AED1B69029A00F48CDD /* AGAssembler.h in CopyFiles */,
 				4A8E8AEE1B69029A00F48CDD /* AGTextCoordinator.h in CopyFiles */,
@@ -343,8 +359,6 @@
 /* Begin PBXFileReference section */
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8E848C1B684E5300F48CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A8E84B41B68576600F48CDD /* liblibOpen.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibOpen.a; path = ../3rd/libOpen/liblibOpen.a; sourceTree = "<group>"; };
-		4A8E85A81B68587D00F48CDD /* libAGNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAGNetwork.a; path = ../3rd/AGNetwork/libAGNetwork.a; sourceTree = "<group>"; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
 		4A8E88801B686E9100F48CDD /* AGStyleCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGStyleCoordinator.h; sourceTree = "<group>"; };
@@ -564,6 +578,10 @@
 		4A8E8A7A1B68FE8800F48CDD /* AGPortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPortraitView.m; sourceTree = "<group>"; };
 		4A8E8A7C1B68FFC600F48CDD /* AGTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTitleCell.h; sourceTree = "<group>"; };
 		4A8E8A7D1B68FFC600F48CDD /* AGTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTitleCell.m; sourceTree = "<group>"; };
+		4A8E8B561B69060600F48CDD /* DSLocaleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLocaleManager.h; sourceTree = "<group>"; };
+		4A8E8B571B69060600F48CDD /* DSLocaleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLocaleManager.m; sourceTree = "<group>"; };
+		4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSButtonCreator.h; sourceTree = "<group>"; };
+		4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSButtonCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,8 +589,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A8E85A91B68587D00F48CDD /* libAGNetwork.a in Frameworks */,
-				4A8E84B51B68576600F48CDD /* liblibOpen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,8 +601,6 @@
 				4A8E847D1B684E5300F48CDD /* AGUIKit */,
 				4A8E848A1B684E5300F48CDD /* AGUIKitTests */,
 				4A8E847C1B684E5300F48CDD /* Products */,
-				4A8E84B41B68576600F48CDD /* liblibOpen.a */,
-				4A8E85A81B68587D00F48CDD /* libAGNetwork.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -601,6 +615,10 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */,
+				4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */,
+				4A8E8B561B69060600F48CDD /* DSLocaleManager.h */,
+				4A8E8B571B69060600F48CDD /* DSLocaleManager.m */,
 				4A8E89D11B68D9CD00F48CDD /* AGUIKitDefine.h */,
 				4A8E89D21B68D9CD00F48CDD /* AGUIKitDefine.m */,
 				4A8E887E1B686E9100F48CDD /* AGAssembler.h */,
@@ -1098,6 +1116,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8E8B631B69093600F48CDD /* AGQuantityPickerView.m in Sources */,
+				4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */,
 				4A8E8A701B68FBE500F48CDD /* AGLineProgressCell.m in Sources */,
 				4A8E89731B686E9100F48CDD /* AGTextfieldCellStyleNoTitle.m in Sources */,
 				4A8E899A1B686E9100F48CDD /* DSTabBarViewController.m in Sources */,
@@ -1148,6 +1168,7 @@
 				4A8E89551B686E9100F48CDD /* AGEndTimeCell.m in Sources */,
 				4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */,
 				4A8E89B71B68CED800F48CDD /* AGHeaderViewStyleDefault.m in Sources */,
+				4A8E8B611B69084E00F48CDD /* DSButtonCreator.m in Sources */,
 				4A8E89DB1B68DBF800F48CDD /* DSAlertUtil.m in Sources */,
 				4A8E8A721B68FBE500F48CDD /* AGLineProgressView.m in Sources */,
 				4A8E89561B686E9100F48CDD /* AGExpirationDateCell.m in Sources */,
@@ -1172,6 +1193,7 @@
 				4A8E8A711B68FBE500F48CDD /* AGLineProgressInnerView.m in Sources */,
 				4A8E898B1B686E9100F48CDD /* AGDateSelector.m in Sources */,
 				4A8E8A341B68F7FF00F48CDD /* AGViewController+Separator.m in Sources */,
+				4A8E8B581B69060600F48CDD /* DSLocaleManager.m in Sources */,
 				4A8E89741B686E9100F48CDD /* AGTextfieldCellStyleNumber.m in Sources */,
 				4A8E89B61B68CED800F48CDD /* AGHeaderViewStyleDarkCompact.m in Sources */,
 				4A8E8A7B1B68FE8800F48CDD /* AGPortraitView.m in Sources */,
@@ -1295,11 +1317,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"../3rd/**",
+					../3rd/libOpen,
+					../3rd/AGNetwork,
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-llibOpen",
 					"-lAGNetwork",
+					"-llibOpen",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1313,11 +1337,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"../3rd/**",
+					../3rd/libOpen,
+					../3rd/AGNetwork,
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-llibOpen",
 					"-lAGNetwork",
+					"-llibOpen",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -15,6 +15,7 @@
 - (NSString *)sessionRoleCode;
 
 @property (nonatomic, strong) Class loginUIClass;
+@property (nonatomic, strong) NSArray *availableLanguages;
 @property (nonatomic, strong) UINavigationController *rootViewController;
 @property (nonatomic, copy) BOOL (^loggedRoleIsRetailCustomerBlock)(void);
 @property (nonatomic, copy) NSString *(^sessionRoleCodeBlock)(void);
