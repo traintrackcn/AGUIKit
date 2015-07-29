@@ -861,6 +861,40 @@
 }
 
 
+#pragma mark - decorators
+
++ (void)decorateCircleMaskForView:(UIView *)view radius:(CGFloat)radius{
+    //    CGSize imgSize = view.frame.size;
+    //    TLOG(@"imgSize %f %f", imgSize.width, imgSize.height);
+    //    CALayer *mask = [CALayer layer];
+    //    mask.contents = (id)[[UIImage imageNamed:maskName] CGImage];
+    //    mask.frame = CGRectMake(0, 0, imgSize.width, imgSize.height);
+    
+    //    int radius = 95.0/2.0;
+    CAShapeLayer *circle = [CAShapeLayer layer];
+    // Make a circular shape
+    circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
+                                             cornerRadius:radius].CGPath;
+    // Center the shape in self.view
+    //    circle.position = CGPointMake(CGRectGetMidX(view.frame)-radius,
+    //                                  CGRectGetMidY(view.frame)-radius);
+    
+    // Configure the apperence of the circle
+    circle.fillColor = [UIColor blackColor].CGColor;
+    //    circle.strokeColor = [UIColor blackColor].CGColor;
+    //    circle.lineWidth = 0;
+    
+    // Add to parent layer
+    //    [self.view.layer addSublayer:circle];
+    
+    
+    CALayer *vLayer = [view layer];
+    [vLayer addSublayer:circle];
+    vLayer.mask = circle;
+    vLayer.masksToBounds = YES;
+}
+
+
 @end
 
 

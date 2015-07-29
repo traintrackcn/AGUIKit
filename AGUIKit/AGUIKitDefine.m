@@ -10,10 +10,12 @@
 
 @implementation AGUIKitDefine
 
-
-
 - (BOOL)loggedRoleIsRetailCustomer{
     return self.loggedRoleIsRetailCustomerBlock();
+}
+
+- (NSString *)sessionRoleCode{
+    return self.sessionRoleCodeBlock();
 }
 
 @end

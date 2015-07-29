@@ -191,4 +191,9 @@
 + (UIColor *)colorTheme;
 + (UIColor *)colorDisabled;
 
+
+#pragma mark - decorators
+
++ (void)decorateCircleMaskForView:(UIView *)view radius:(CGFloat)radius;
+
 @end
