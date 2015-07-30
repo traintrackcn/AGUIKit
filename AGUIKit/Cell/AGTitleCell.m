@@ -22,10 +22,6 @@
     return self;
 }
 
-- (CGFloat)paddingLR{
-    return 15.0;
-}
-
 #pragma mark - assemblers
 
 - (void)assemble{
@@ -40,13 +36,16 @@
 
 - (void)setValue:(id)value{
     [super setValue:value];
-    
 }
 
 #pragma mark - styles
 
 - (UIFont *)contentFont{
     return [AGStyleCoordinator fontTextCellContent];
+}
+
+- (CGFloat)paddingLR{
+    return 15.0;
 }
 
 @end

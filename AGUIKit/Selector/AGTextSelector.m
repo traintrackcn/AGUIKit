@@ -12,23 +12,20 @@
 #import "AGVCConfiguration.h"
 #import "AGSelectorItem.h"
 #import "DSValueUtil.h"
-#import "AGTextCell.h"
+//#import "AGTextCell.h"
 #import "AGButtonCell.h"
 #import "AGViewController+Datasource.h"
 #import "AGButtonItem.h"
+#import "GlobalDefine.h"
+#import "AGTextCellStyleTitleOnly.h"
 
-typedef NS_ENUM(NSInteger, Section) {
-    SectionItem,
-    SectionButton,
-    SectionCount
-};
 
 @interface AGTextSelector(){
     NSArray *itemsFirstLettersSorted;
     NSArray *itemsSorted;
-    UITableView *tableV;
-    UILabel *titleV;
-    UIView *layoutV;
+//    UITableView *tableV;
+//    UILabel *titleV;
+//    UIView *layoutV;
 }
 
 @end
@@ -47,52 +44,43 @@ typedef NS_ENUM(NSInteger, Section) {
     _items = items;
     [self sortItems];
     
-    NSInteger num = self.SectionCount - 1;
-    for (NSInteger section = 0; section < num; section++) {
-        [self.config setCellCls:[AGTextCell class] inSection:section];
+//    TLOG(@"SectionCount -> %d", self.SectionCount);
+//    TLOG(@"itemsSorted -> %@", itemsSorted);
+    
+    for (NSInteger section = 0; section < self.SectionCount; section++) {
+        [self.config setCellCls:[AGTextCellStyleTitleOnly class] inSection:section];
     }
     
-    [self.config setCellCls:[AGButtonCell class] inSection:self.SectionButton];
+    
+    [self reloadVisibleIndexPaths];
 }
 
-#pragma mark - properties
-
-- (NSInteger)SectionButton{
-    return itemsSorted.count + 1;
-}
+#pragma mark - Sections
 
 - (NSInteger)SectionCount{
-    return self.SectionButton + 1;
+    return itemsSorted.count;
 }
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSections{
+    return self.SectionCount;
+}
+
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-    
-    if (section == self.SectionButton) {
-        return 1;
-    }else{
-        NSArray *tmpItems = [itemsSorted objectAtIndex:section];
-        return tmpItems.count;
-    }
-    
-    return 0;
-    
+    NSArray *tmpItems = [itemsSorted objectAtIndex:section];
+    return tmpItems.count;
 }
 
 
 
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath{
+//    NSInteger section = indexPath.section;
     id value;
     
-    NSInteger section = indexPath.section;
+    value = [self titleAtIndexPath:indexPath];
     
-    if (section == self.SectionButton) {
-        value = @[[AGButtonItem instanceWithTitle:@"Cancel" target:self action:@selector(didTapCancel:)] ];
-    }else{
-        value = [self titleAtIndexPath:indexPath];
-    }
-    
+    TLOG(@"value -> %@", value);
     
     return value;
 }

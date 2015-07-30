@@ -230,6 +230,12 @@
 		4A8E8B621B6908D800F48CDD /* DSButtonCreator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */; };
 		4A8E8B631B69093600F48CDD /* AGQuantityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89A01B687D2000F48CDD /* AGQuantityPickerView.m */; };
 		4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89A21B687D2000F48CDD /* AGQuantitySelector.m */; };
+		4A8E8DF91B6915D200F48CDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8DF81B6915D200F48CDD /* main.m */; };
+		4A8E8DFC1B6915D200F48CDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8DFB1B6915D200F48CDD /* AppDelegate.m */; };
+		4A8E8DFF1B6915D200F48CDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8DFE1B6915D200F48CDD /* ViewController.m */; };
+		4A8E8E021B6915D200F48CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E8E001B6915D200F48CDD /* Main.storyboard */; };
+		4A8E8E041B6915D200F48CDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E8E031B6915D200F48CDD /* Images.xcassets */; };
+		4A8E8E071B6915D200F48CDD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E8E051B6915D200F48CDD /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -358,7 +364,6 @@
 
 /* Begin PBXFileReference section */
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A8E848C1B684E5300F48CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
 		4A8E88801B686E9100F48CDD /* AGStyleCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGStyleCoordinator.h; sourceTree = "<group>"; };
@@ -582,10 +587,27 @@
 		4A8E8B571B69060600F48CDD /* DSLocaleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLocaleManager.m; sourceTree = "<group>"; };
 		4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSButtonCreator.h; sourceTree = "<group>"; };
 		4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSButtonCreator.m; sourceTree = "<group>"; };
+		4A8E8DF41B6915D200F48CDD /* AGUIKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGUIKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A8E8DF71B6915D200F48CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A8E8DF81B6915D200F48CDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A8E8DFA1B6915D200F48CDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A8E8DFB1B6915D200F48CDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A8E8DFD1B6915D200F48CDD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4A8E8DFE1B6915D200F48CDD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4A8E8E011B6915D200F48CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A8E8E031B6915D200F48CDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A8E8E061B6915D200F48CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4A8E84781B684E5300F48CDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A8E8DF11B6915D200F48CDD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -599,7 +621,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8E847D1B684E5300F48CDD /* AGUIKit */,
-				4A8E848A1B684E5300F48CDD /* AGUIKitTests */,
+				4A8E8DF51B6915D200F48CDD /* AGUIKitDemo */,
 				4A8E847C1B684E5300F48CDD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -608,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8E847B1B684E5300F48CDD /* libAGUIKit.a */,
+				4A8E8DF41B6915D200F48CDD /* AGUIKitDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -647,22 +670,6 @@
 				4A8E89321B686E9100F48CDD /* ViewController */,
 			);
 			path = AGUIKit;
-			sourceTree = "<group>";
-		};
-		4A8E848A1B684E5300F48CDD /* AGUIKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				4A8E848B1B684E5300F48CDD /* Supporting Files */,
-			);
-			path = AGUIKitTests;
-			sourceTree = "<group>";
-		};
-		4A8E848B1B684E5300F48CDD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4A8E848C1B684E5300F48CDD /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4A8E889F1B686E9100F48CDD /* Button */ = {
@@ -1042,6 +1049,30 @@
 			path = PortraitView;
 			sourceTree = "<group>";
 		};
+		4A8E8DF51B6915D200F48CDD /* AGUIKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E8DFA1B6915D200F48CDD /* AppDelegate.h */,
+				4A8E8DFB1B6915D200F48CDD /* AppDelegate.m */,
+				4A8E8DFD1B6915D200F48CDD /* ViewController.h */,
+				4A8E8DFE1B6915D200F48CDD /* ViewController.m */,
+				4A8E8E001B6915D200F48CDD /* Main.storyboard */,
+				4A8E8E031B6915D200F48CDD /* Images.xcassets */,
+				4A8E8E051B6915D200F48CDD /* LaunchScreen.xib */,
+				4A8E8DF61B6915D200F48CDD /* Supporting Files */,
+			);
+			path = AGUIKitDemo;
+			sourceTree = "<group>";
+		};
+		4A8E8DF61B6915D200F48CDD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E8DF71B6915D200F48CDD /* Info.plist */,
+				4A8E8DF81B6915D200F48CDD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1063,6 +1094,23 @@
 			productReference = 4A8E847B1B684E5300F48CDD /* libAGUIKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		4A8E8DF31B6915D200F48CDD /* AGUIKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A8E8E141B6915D200F48CDD /* Build configuration list for PBXNativeTarget "AGUIKitDemo" */;
+			buildPhases = (
+				4A8E8DF01B6915D200F48CDD /* Sources */,
+				4A8E8DF11B6915D200F48CDD /* Frameworks */,
+				4A8E8DF21B6915D200F48CDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AGUIKitDemo;
+			productName = AGUIKitDemo;
+			productReference = 4A8E8DF41B6915D200F48CDD /* AGUIKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1075,6 +1123,9 @@
 					4A8E847A1B684E5300F48CDD = {
 						CreatedOnToolsVersion = 6.4;
 					};
+					4A8E8DF31B6915D200F48CDD = {
+						CreatedOnToolsVersion = 6.4;
+					};
 				};
 			};
 			buildConfigurationList = 4A8E84761B684E5300F48CDD /* Build configuration list for PBXProject "AGUIKit" */;
@@ -1083,6 +1134,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 4A8E84721B684E5300F48CDD;
 			productRefGroup = 4A8E847C1B684E5300F48CDD /* Products */;
@@ -1090,9 +1142,23 @@
 			projectRoot = "";
 			targets = (
 				4A8E847A1B684E5300F48CDD /* AGUIKit */,
+				4A8E8DF31B6915D200F48CDD /* AGUIKitDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A8E8DF21B6915D200F48CDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A8E8E021B6915D200F48CDD /* Main.storyboard in Resources */,
+				4A8E8E071B6915D200F48CDD /* LaunchScreen.xib in Resources */,
+				4A8E8E041B6915D200F48CDD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		4A8E8B551B6902A400F48CDD /* lipo */ = {
@@ -1230,7 +1296,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4A8E8DF01B6915D200F48CDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A8E8DFF1B6915D200F48CDD /* ViewController.m in Sources */,
+				4A8E8DFC1B6915D200F48CDD /* AppDelegate.m in Sources */,
+				4A8E8DF91B6915D200F48CDD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A8E8E001B6915D200F48CDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A8E8E011B6915D200F48CDD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4A8E8E051B6915D200F48CDD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A8E8E061B6915D200F48CDD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4A8E848D1B684E5300F48CDD /* Debug */ = {
@@ -1316,18 +1411,20 @@
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"../3rd/**",
 					../3rd/libOpen,
 					../3rd/AGNetwork,
+					../3rd/thirdPartyOpenResources,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lAGNetwork",
 					"-llibOpen",
 					"-ObjC",
+					"-lthirdPartyOpenResources",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\"";
 			};
 			name = Debug;
 		};
@@ -1336,18 +1433,47 @@
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"../3rd/**",
 					../3rd/libOpen,
 					../3rd/AGNetwork,
+					../3rd/thirdPartyOpenResources,
 				);
 				OTHER_LDFLAGS = (
 					"-lAGNetwork",
 					"-llibOpen",
 					"-ObjC",
+					"-lthirdPartyOpenResources",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\"";
+			};
+			name = Release;
+		};
+		4A8E8E151B6915D200F48CDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AGUIKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A8E8E161B6915D200F48CDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AGUIKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1371,6 +1497,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4A8E8E141B6915D200F48CDD /* Build configuration list for PBXNativeTarget "AGUIKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A8E8E151B6915D200F48CDD /* Debug */,
+				4A8E8E161B6915D200F48CDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AGSelector.h"
-@class AGVCConfiguration;
-@interface AGTextSelector : AGSelector
+#import "AGViewController.h"
+//@class AGVCConfiguration;
+@interface AGTextSelector : AGViewController
 
 + (instancetype)instance;
 
