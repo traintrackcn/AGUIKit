@@ -16,18 +16,9 @@
 #pragma mark - texts
 + (NSString *)titleClose;
 + (NSString *)textBack;
-+ (NSString *)textValidating;
-+ (NSString *)textSaving;
-+ (NSString *)textProcessing;
-+ (NSString *)textKeywordIsEmpty;
 + (NSString *)textOK;
 + (NSString *)textPermissionError;
 + (NSString *)contentSessionExpired;
-+ (NSString *)contentNetworkError;
-+ (NSString *)contentCheckYourConnection;
-+ (NSString *)contentUndergoingMaintenance;
-+ (NSString *)textServerMaintenance;
-+ (NSString *)textOopsSomethingWrong;
 + (NSString *)titleBought;
 + (NSString *)textCreate;
 + (NSString *)textDone;
@@ -267,10 +258,6 @@
 + (NSString *)lblTotalPrice;
 + (NSString *)lblTraining;
 
-+ (NSString *)msgThreeDot;
-+ (NSString *)msgAllAreLoaded;
-+ (NSString *)msgLoadingMore;
-
 + (NSString *)contentRegistrationAgreement;
 + (NSString *)contentRegistrationInstruction;
 + (NSString *)contentSettingUpAutoship;
@@ -279,13 +266,5 @@
 + (NSString *)contentCouponCodeIsUnavailable;
 
 
-#pragma mark - labels
-
-+ (NSString *)lblNumberOfActiveDistributors;
-+ (NSString *)lblNumberOfDistributors;
-+ (NSString *)lblNumberOfActiveRetailCustomers;
-+ (NSString *)lblNumberOfRetailCustomers;
-+ (NSString *)lblInactiveDownlines;
-+ (NSString *)lblMore;
 
 @end

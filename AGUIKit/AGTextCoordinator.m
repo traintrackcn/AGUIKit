@@ -90,21 +90,8 @@
     return @"Back";
 }
 
-+ (NSString *)textValidating{
-    return @"Validating";
-}
 
-+ (NSString *)textSaving{
-    return @"Saving";
-}
 
-+ (NSString *)textProcessing{
-    return @"Processing";
-}
-
-+ (NSString *)textKeywordIsEmpty{
-    return @"Keyword Is Empty";
-}
 
 + (NSString *)textOK{
     return @"OK";
@@ -120,13 +107,8 @@
 
 
 
-+ (NSString *)textServerMaintenance{
-    return @"Server Maintenance";
-}
 
-+ (NSString *)textOopsSomethingWrong{
-    return @"Oops... Something wrong! ";
-}
+
 
 + (NSString *)textReviewOrder{
     return @"Review Order";
@@ -914,17 +896,7 @@
     return @"Training";
 }
 
-+ (NSString *)msgThreeDot{
-    return @"...";
-}
 
-+ (NSString *)msgAllAreLoaded{
-    return @"All are loaded.";
-}
-
-+ (NSString *)msgLoadingMore{
-    return @"Loading More ...";
-}
 
 #pragma mark - contents
 
@@ -952,21 +924,11 @@
     return @"No Gift Cards Found";
 }
 
-+ (NSString *)contentNetworkError{
-    return @"Network Error";
-}
 
 + (NSString *)contentSponsorIDIsNotAvailable{
     return @"Sponsor Id doesn't exist";
 }
 
-+ (NSString *)contentCheckYourConnection{
-    return @"Can't connect. Please check your internet connection.";
-}
-
-+ (NSString *)contentUndergoingMaintenance{
-    return @"We are currently undergoing maintenance.";
-}
 
 + (NSString *)contentSettingUpAutoship{
     return @"Set up a recurring Autoship order";
@@ -984,30 +946,6 @@
     return @"Coupon code is unavailable";
 }
 
-#pragma mark - labels
 
-+ (NSString *)lblNumberOfActiveDistributors{
-    return [self textForKey:@"lbl-number-of-active-distributors"];
-}
-
-+ (NSString *)lblNumberOfDistributors{
-    return [self textForKey:@"lbl-number-of-distributors"];
-}
-
-+ (NSString *)lblNumberOfActiveRetailCustomers{
-    return [self textForKey:@"lbl-number-of-active-retail-customers"];
-}
-
-+ (NSString *)lblNumberOfRetailCustomers{
-    return [self textForKey:@"lbl-number-of-retail-customers"];
-}
-
-+ (NSString *)lblInactiveDownlines{
-    return [self textForKey:@"lbl-inactive-downlines"];
-}
-
-+ (NSString *)lblMore{
-    return @"More";
-}
 
 @end

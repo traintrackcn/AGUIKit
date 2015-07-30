@@ -13,7 +13,7 @@
 #import "DSDeviceUtil.h"
 #import "DSValueUtil.h"
 #import "NSObject+Singleton.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 
 //#pragma mark - class NSString (PrivateAdditions)
 
@@ -186,7 +186,7 @@
 //    NSString *dKey = [NSString stringWithFormat:@"d-%@",key];
     
     if ([self isNotColorValue:value]) { // is a shortcut
-        if ([AGUIKitDefine singleton].loggedRoleIsRetailCustomer) {
+        if ([AGUIDefine singleton].sessionRoleIsRetailCustomer) {
             return [self colorForKey:value];
         }else{
             NSString *colorKeyForD = [NSString stringWithFormat:@"d-%@",value];
@@ -267,7 +267,7 @@
     NSString *value = [self valueFromCollection:collection forKey:key];
     
     if ([self isNotColorValue:value]) { // is a shortcut
-        if ([AGUIKitDefine singleton].loggedRoleIsRetailCustomer) {
+        if ([AGUIDefine singleton].sessionRoleIsRetailCustomer) {
             return [self rgbForKey:value];
         }else{
             NSString *colorKeyForD = [NSString stringWithFormat:@"d-%@",value];

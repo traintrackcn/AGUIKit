@@ -24,7 +24,7 @@
 #import "AGRemoterResultError.h"
 #import "AGMonitor.h"
 #import "AGRemoterResult.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 #import "NSObject+singleton.h"
 
 
@@ -76,7 +76,7 @@
     if ([DSValueUtil isAvailable:roleCodeBeforeDisappeared]){
         // if role changed then reload current view
 //        TLOG(@"roleCodeBeforeDisappeared -> %@ [AGSession singleton].roleCode -> %@", roleCodeBeforeDisappeared, [AGSession singleton].roleCode);
-        if (![roleCodeBeforeDisappeared isEqualToString:[AGUIKitDefine singleton].sessionRoleCode]){
+        if (![roleCodeBeforeDisappeared isEqualToString:[AGUIDefine singleton].sessionRoleCode]){
 //            [self reloadVisibleIndexPaths];
             [self setFlagDoReload:YES];
         }
@@ -91,7 +91,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    roleCodeBeforeDisappeared = [AGUIKitDefine singleton].sessionRoleCode;
+    roleCodeBeforeDisappeared = [AGUIDefine singleton].sessionRoleCode;
 }
 
 

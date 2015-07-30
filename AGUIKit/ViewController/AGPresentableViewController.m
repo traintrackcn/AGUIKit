@@ -8,7 +8,7 @@
 
 #import "AGPresentableViewController.h"
 //#import "AGRootViewController.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 #import "NSObject+Singleton.h"
 #import "GlobalDefine.h"
 
@@ -17,7 +17,7 @@ static NSMutableDictionary* _singletonsAGPresentableViewController;
 @implementation AGPresentableViewController
 
 + (AGViewController *)baseViewController{
-    return (AGViewController *)[AGUIKitDefine singleton].rootViewController;
+    return (AGViewController *)[AGUIDefine singleton].rootViewController;
 }
 
 + (UIViewController *)basePresentedViewController{

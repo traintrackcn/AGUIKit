@@ -7,10 +7,10 @@
 //
 
 #import "MKInfoPanel.h"
-//#import "AGRootViewController.h"
 #import "SVProgressHUD.h"
 #import "DSAlertUtil.h"
 #import "AGTextCoordinator.h"
+#import "AGUITextKeyDefine.h"
 
 static const CGFloat DS_SECONDS_HIDE_AFTER = 3.0f;
 
@@ -56,12 +56,12 @@ static DSAlertUtil *___instanceDSAlertUtil;
 
 - (void)showAlertShoppingServiceUnavailable{
     NSString *msg = @"Shopping service is unavailable.";
-    [self showAlertWithTitle:@"Warning" message:msg tag:ViewTagShoppingService cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [self showAlertWithTitle:[AGTextCoordinator textForKey:KEY_LBL_WARNING] message:msg tag:ViewTagShoppingService cancelButtonTitle:[AGTextCoordinator textForKey:KEY_LBL_OK] otherButtonTitles:nil];
 }
 
 
 - (void)showAlertWarningMessage:(NSString *)msg{
-    [self showAlertWithTitle:@"Warning" message:msg tag:ViewTagWarning cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [self showAlertWithTitle:[AGTextCoordinator textForKey:KEY_LBL_WARNING] message:msg tag:ViewTagWarning cancelButtonTitle:[AGTextCoordinator textForKey:KEY_LBL_OK] otherButtonTitles:nil];
 }
 
 
@@ -75,19 +75,19 @@ static DSAlertUtil *___instanceDSAlertUtil;
 
 
 + (void)showSVPKeywordIsEmpty{
-    [SVProgressHUD showErrorWithStatus:[AGTextCoordinator textKeywordIsEmpty]];
+    [SVProgressHUD showErrorWithStatus:[AGTextCoordinator textForKey:KEY_MSG_KEYWORK_IS_EMPTY]];
 }
 
 + (void)showSVPProcessing{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textProcessing] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_PROCESSING] maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPSaving{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textSaving] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_SAVING] maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPValidating{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textValidating] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_VALIDATING] maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPStatusForCustomText:(NSString *)text{
@@ -110,17 +110,17 @@ static DSAlertUtil *___instanceDSAlertUtil;
 #pragma mark - kinds of panels
 
 + (void)showGlobalPanelErrorConnectionError{
-    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator contentNetworkError]
-                     subtitle:[AGTextCoordinator contentCheckYourConnection]];
+    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_NETWORK_ERROR]
+                     subtitle:[AGTextCoordinator textForKey:KEY_MSG_CHECK_YOUR_CONNECTION]];
 }
 
 + (void)showGobalPanelErrorCannotReachHost{
-     [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textServerMaintenance]
-                      subtitle:[AGTextCoordinator contentUndergoingMaintenance]];
+     [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_SERVER_MAINTENANCE]
+                      subtitle:[AGTextCoordinator textForKey:KEY_MSG_UNDERGOING_MAINTENANCE]];
 }
 
 + (void)showGlobalPanelErrorOops{
-    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:@"title-oops"] subtitle:[AGTextCoordinator textOopsSomethingWrong]];
+    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_OOPS] subtitle:[AGTextCoordinator textForKey:KEY_MSG_OOPS_SOMETING_WRONG]];
 }
 
 //+ (void)showGlobalPanelErrorOops{

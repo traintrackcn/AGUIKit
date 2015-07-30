@@ -8,7 +8,7 @@
 
 #import "AGViewController+LoginUI.h"
 #import "AGViewController+Assembler.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 #import "NSObject+singleton.h"
 #import "AGPresentableViewController.h"
 
@@ -19,7 +19,7 @@
     dummyCell = [self assembleDummyCellAtIndex:SectionDummyCellLoginUI];
     
     
-    [[AGUIKitDefine singleton].loginUIClass presentWithDelegate:dummyCell];
+    [[AGUIDefine singleton].loginViewControllerClass presentWithDelegate:dummyCell];
 }
 
 - (void)didDismissLoginUI{

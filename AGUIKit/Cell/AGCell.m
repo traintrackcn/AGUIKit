@@ -13,7 +13,7 @@
 #import "DSValueUtil.h"
 #import "NSObject+Singleton.h"
 #import "DSDeviceUtil.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 #import "GlobalDefine.h"
 
 @implementation AGCell
@@ -151,7 +151,7 @@
     if ([DSValueUtil isAvailable:naviC]){
         [self pushViewController:viewController fromNaviC:naviC];
     }else{
-        [self pushViewController:viewController fromNaviC:[AGUIKitDefine singleton].rootViewController];
+        [self pushViewController:viewController fromNaviC:[AGUIDefine singleton].rootViewController];
     }
     
 }

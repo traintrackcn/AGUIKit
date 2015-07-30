@@ -8,7 +8,7 @@
 
 #import "DSLocaleManager.h"
 #import "GlobalDefine.h"
-#import "AGUIKitDefine.h"
+#import "AGUIDefine.h"
 #import "NSObject+Singleton.h"
 
 #define kLocaleIdentifier @"kLocaleIdentifier"
@@ -57,7 +57,7 @@ static NSBundle *_instanceDSLocaleManagerBundle;
 }
 
 + (BOOL)bAvailableLanguageID:(NSString *)languageID{
-    NSArray *arr =  [AGUIKitDefine singleton].availableLanguages;
+    NSArray *arr =  [AGUIDefine singleton].availableLanguages;
     for (int i=0; i<[arr count]; i++) {
         NSString *tmpLanguageID = [[arr objectAtIndex:i] identifier];
         //        LOG_DEBUG(@"targetLocaleID -> %@ localeID -> %@", localeIdentifier, tmpLocaleID);
