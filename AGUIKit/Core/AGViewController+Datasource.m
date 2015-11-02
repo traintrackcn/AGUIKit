@@ -17,8 +17,8 @@
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-//    AGSectionUnit *unit = [self.config unitOfSection:section];
-//    if (unit) return unit.numberOfRows;
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) return unit.numberOfRows;
     return 0;
 }
 

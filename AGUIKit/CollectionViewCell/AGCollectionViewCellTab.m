@@ -92,7 +92,7 @@
 - (void)setValue:(id)aValue{
     [super setValue:aValue];
 //    TLOG(@"value -> %@", self.value);
-    [titleL setText:[DSValueUtil toString:self.value.value].uppercaseString];
+    [titleL setText:[DSValueUtil toString:[(AGCollectionViewCellValue *)self.value value]].uppercaseString];
 }
 
 

@@ -72,7 +72,7 @@
         [_textLabel setTextColor:[AGStyleCoordinator colorCellTitleSelected]];
         [_textLabel setNumberOfLines:0];
         [_textLabel setAdjustsFontSizeToFitWidth:YES];
-        [_textLabel setFont:[AGStyleCoordinator fontTextCellTitle]];
+        [_textLabel setFont:[AGStyleCoordinator fontWithSize:16]];
 //        [AGDebugUtil makeBorderForView:_textLabel];
     }
     return _textLabel;
@@ -86,7 +86,7 @@
 //        CGFloat h = self.height;
         _detailTextLabel = [super detailTextLabel];
         [_detailTextLabel setTextColor:[AGStyleCoordinator colorCellTitleSelected]];
-        [_detailTextLabel setFont:[AGStyleCoordinator fontTextCellContent]];
+        [_detailTextLabel setFont:[AGStyleCoordinator fontWithSize:16]];
         [_detailTextLabel setAdjustsFontSizeToFitWidth:YES];
         [_detailTextLabel setNumberOfLines:0];
         [_detailTextLabel setTextAlignment:NSTextAlignmentRight];

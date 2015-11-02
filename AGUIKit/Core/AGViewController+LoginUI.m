@@ -16,9 +16,10 @@
 
 
 - (void)presentAssociatedLoginUI{
+    
+    if (![AGUIDefine singleton].loginViewControllerClass) return;
+    
     dummyCell = [self assembleDummyCellAtIndex:SectionDummyCellLoginUI];
-    
-    
     [[AGUIDefine singleton].loginViewControllerClass presentWithDelegate:dummyCell];
 }
 

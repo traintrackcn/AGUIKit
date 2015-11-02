@@ -12,16 +12,21 @@
 
 }
 
+#pragma mark - view controller actions
+- (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC;
+- (void)pushViewController:(UIViewController *)viewController;
+
 #pragma mark - components
 - (UITableView *)tableView;
 @property (nonatomic, strong) UIView *borderBottomView;
 
 #pragma mark - styles
 + (CGFloat)height;
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat paddingLR;
 
 #pragma mark - properties
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) id associatedViewController;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, strong) id value;
 

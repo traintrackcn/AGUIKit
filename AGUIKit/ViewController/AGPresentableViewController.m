@@ -57,11 +57,11 @@ static NSMutableDictionary* _singletonsAGPresentableViewController;
 
 
 - (void)presentAnimated:(BOOL)animated{
-//    TLOG(@"self.availableViewController  -> %@ %@", self.class.availableViewController, self);
+    TLOG(@"self.availableViewController  -> %@ %@", self.class.availableViewController, self);
 //    if (self.class.availableViewController isKindOfClass:[self class]]) return;
     [self.class.availableViewController presentViewController:self animated:animated completion:nil];
     
-    [self retainInstance];  //in some situation, will be auto deallocated before presenting
+    [self retainInstance];  //in some situations, will be auto deallocated before presenting
 }
 
 

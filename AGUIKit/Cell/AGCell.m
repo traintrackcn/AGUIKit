@@ -104,6 +104,17 @@
     return NO;
 }
 
+- (BOOL)isContentViewLoaded{
+    if (self.contentView.subviews.count == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)isContentViewBlank{
+    return !self.isContentViewLoaded;
+}
+
 #pragma mark - assemblers
 
 - (void)assemble{
@@ -146,9 +157,9 @@
 }
 
 - (void)pushViewController:(UIViewController *)viewController{
-    UINavigationController *naviC = (UINavigationController *)[[self associatedViewController] parentViewController ];
-//    TLOG(@"naviC -> %@", naviC);
-    if ([DSValueUtil isAvailable:naviC]){
+    UINavigationController *naviC = [[self associatedViewController] defaultNavigationController ];
+    TLOG(@"naviC -> %@", naviC);
+    if (naviC){
         [self pushViewController:viewController fromNaviC:naviC];
     }else{
         [self pushViewController:viewController fromNaviC:[AGUIDefine singleton].rootViewController];
@@ -340,13 +351,13 @@
 - (void)setHeight:(CGFloat)height{
     _height = height;
     CGFloat h = [self.config cellHeightAtIndexPath:self.indexPath];
-    TLOG(@"h -> %f height -> %f", h, height);
+//    TLOG(@"h -> %f height -> %f", h, height);
     if (h != height) {
         [self.config setCellHeight:height atIndexPath:self.indexPath];
         
-//        if (![DSDeviceUtil iOS8AndAbove]) {
+        if (![DSDeviceUtil iOS8AndAbove]) {
             [self.associatedViewController reloadVisibleIndexPaths];
-//        }
+        }
         
     }
 }
@@ -356,6 +367,8 @@
 }
 
 - (CGFloat)height{
+//    CGFloat h = [self.config cellHeightAtIndexPath:self.indexPath];
+//    TLOG(@"h -> %f", h);
     if (_height) return _height;
     return [self.class height];
 }

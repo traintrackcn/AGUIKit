@@ -14,4 +14,9 @@
 - (void)resizeWithMaxSize:(CGSize)maxSize;
 - (void)moveTo:(CGPoint)pos;
 
+- (void)applyShadow;
+
+
+- (void)setUnderlineForText:(NSString *)text underlineStyle:(NSUnderlineStyle)underlineStyle underlineColor:(UIColor *)underlineColor textColor:(UIColor *)textColor;
+
 @end

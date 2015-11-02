@@ -65,6 +65,8 @@
 - (AGVCConfiguration *)config;
 - (UITableView *)tableView;
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue;
+- (BOOL)isContentViewLoaded;
+- (BOOL)isContentViewBlank;
 
 #pragma mark - styles
 
@@ -86,6 +88,7 @@
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) BOOL isOptional;
 @property (nonatomic, assign) BOOL isLastRow;
+@property (nonatomic, assign) BOOL isFirstRow;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *errorMsg;
 @property (nonatomic, strong) NSString *tipMsg;

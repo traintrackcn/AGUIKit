@@ -144,21 +144,56 @@
 #pragma mark - layout
 
 - (void)layoutViews{
+    [self layoutDefault];
+    [self layoutAccordingToTabBarController];
+}
+
+- (void)layoutDefault{
     CGRect frame = self.view.frame;
     
     if (![DSDeviceUtil iOS8AndAbove]) {
-//        CGFloat w = [DSDeviceUtil bounds].size.width;
-//        CGFloat h = [DSDeviceUtil bounds].size.height;
+        //        CGFloat w = [DSDeviceUtil bounds].size.width;
+        //        CGFloat h = [DSDeviceUtil bounds].size.height;
         frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-            TLOG(@"%@ frame -> %@ %@ %d",NSStringFromClass(self.class) ,NSStringFromCGRect(frame), self.navigationController, self.navigationController.navigationBar.hidden);
+        TLOG(@"%@ frame -> %@ %@ %d",NSStringFromClass(self.class) ,NSStringFromCGRect(frame), self.navigationController, self.navigationController.navigationBar.hidden);
     }
     
-    [tableV setFrame:frame];
-//    [AGDebugUtil makeBorderForView:tableV];
+    [self.tableView setFrame:frame];
+    //    [AGDebugUtil makeBorderForView:tableV];
     [overlayContentView setFrame:frame];
-//    TLOG(@"tableViewContentInsetTop -> %f", self.tableViewContentInsetTop);
-//    TLOG(@"frame -> %@", NSStringFromCGRect(frame));
+    //    TLOG(@"tableViewContentInsetTop -> %f", self.tableViewContentInsetTop);
+    //    TLOG(@"frame -> %@", NSStringFromCGRect(frame));
 }
+
+- (void)layoutAccordingToTabBarController{
+//    TLOG(@"self.parentViewController -> %@", self.parentViewController);
+    if ([self.parentViewController isKindOfClass:[UITabBarController class]]) {
+        UIEdgeInsets contentInset = self.tableView.contentInset;
+        CGFloat top = contentInset.top;
+        CGFloat bottom = 50.0;
+        [self.tableView setContentInset:UIEdgeInsetsMake(top, 0, bottom, 0)];
+    }
+}
+
+#pragma mark - view controller transitions
+
+- (UINavigationController *)defaultNavigationController{
+    UINavigationController *naviC = self.parentViewController.navigationController;
+    
+    if (!naviC) {
+        naviC = self.navigationController;
+    }
+    
+    return naviC;
+}
+
+- (void)pushViewController:(AGViewController *)viewController{
+    [self.defaultNavigationController pushViewController:viewController animated:YES];
+}
+
+//- (void)presentViewController:(AGViewController *)viewController{
+//}
+
 
 #pragma mark - update table view actions
 

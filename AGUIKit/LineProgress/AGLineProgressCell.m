@@ -64,7 +64,7 @@
         CGFloat y = ([self.class height] - self.titleH - self.subtitleH - self.progressH - self.spacing*2)/2;
         
         _titleView = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.titleH)];
-        [_titleView setFont:[AGStyleCoordinator fontTextCellTitle]];
+        [_titleView setFont:[AGStyleCoordinator fontWithSize:16]];
         [_titleView setAdjustsFontSizeToFitWidth:YES];
         
         

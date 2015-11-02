@@ -28,6 +28,8 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 - (NSInteger)value;
 - (void)setValue:(NSInteger)value;
 
+- (UIColor *)borderColor;
+
 @property (nonatomic, assign) NSInteger minValue;
 @property (nonatomic, assign) NSInteger maxValue;
 

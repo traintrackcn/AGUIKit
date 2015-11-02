@@ -58,9 +58,11 @@
         
         NSInteger numberOfRows = [self numberOfRowsInSection:section];
         BOOL bLastRow = (idx+1 == numberOfRows)?YES:NO;
+        BOOL bFirstRow = idx == 0?YES:NO;
     
         [cell setIndexPath:indexPath];
         [cell setIsLastRow:bLastRow];
+        [cell setIsFirstRow:bFirstRow];
         [cell setTitle: [self.config cellTitleOfIndexPath:indexPath] ];
         [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
         [cell setValue:value];
@@ -81,11 +83,13 @@
         TLOG(@"exception -> %@", exception);
     }
     
+//    TLOG(@"cls -> %@ value -> %@", cls, value);
+    
     if ([DSValueUtil isAvailable:value]){
         AGHeaderView *v = [[cls alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [cls height])];
-        [v setValue:value];
-        [v setDelegate:self];
+        [v setAssociatedViewController:self];
         [v setSection:section];
+        [v setValue:value];
         return v;
     }
     

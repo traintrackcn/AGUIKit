@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 - (void)cancelAllRequests;
 
+
 - (CGFloat)tableViewContentInsetTop;
 
 #pragma mark - table view stuffs
@@ -51,6 +52,13 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - associated cell ops
 - (void)setValueForAssociatedCell:(id)value;
 
+
+
+#pragma mark - transfer to other views
+
+- (UINavigationController *)defaultNavigationController;
+- (void)pushViewController:(AGViewController *)viewController;
+//- (void)presentViewController:(AGViewController *)viewController;
 
 
 #pragma mark - view lifecycle

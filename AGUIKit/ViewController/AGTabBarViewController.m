@@ -37,8 +37,7 @@ typedef NS_ENUM(NSInteger, Section) {
         [self.config setCellCls:[AGTabBarCell class] inSection:SectionTabBar];
         [self.config setCellCls:[AGHorizontalViewControllersCell class] inSection:SectionContent];
         
-        CGFloat cellH = [DSDeviceUtil bounds].size.height - AG_STATUS_BAR_HEIGHT - AG_NAVIGATION_BAR_HEIGHT - [AGTabBarCell height];
-        [self.config setCellHeight:cellH atFirstIndexPathInSection:SectionContent];
+        
         
     }
     return self;
@@ -52,6 +51,21 @@ typedef NS_ENUM(NSInteger, Section) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateContentCellH{
+    CGFloat cellH = [DSDeviceUtil bounds].size.height - AG_STATUS_BAR_HEIGHT - AG_NAVIGATION_BAR_HEIGHT ;
+    
+    if ([self isSectionTabBarAvailable]) {
+        cellH -= [AGTabBarCell height];
+    }
+    
+    [self.config setCellHeight:cellH atFirstIndexPathInSection:SectionContent];
+}
+
+
+- (void)willReloadVisibleIndexPaths{
+    [self updateContentCellH];
 }
 
 #pragma mark - table view stuff
@@ -90,9 +104,18 @@ typedef NS_ENUM(NSInteger, Section) {
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-    if (section == SectionTabBar) return 1;
+    if (section == SectionTabBar) {
+        if ([self isSectionTabBarAvailable]) return 1;
+    }
     if (section == SectionContent) return 1;
     return 0;
+}
+
+#pragma mark - 
+
+- (BOOL)isSectionTabBarAvailable{
+    if(titleValueArr && titleValueArr.count>1) return YES;
+    return NO;
 }
 
 #pragma mark - events

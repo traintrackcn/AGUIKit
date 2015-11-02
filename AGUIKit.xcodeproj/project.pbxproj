@@ -235,6 +235,9 @@
 		4A8E8E041B6915D200F48CDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E8E031B6915D200F48CDD /* Images.xcassets */; };
 		4A8E8E071B6915D200F48CDD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E8E051B6915D200F48CDD /* LaunchScreen.xib */; };
 		4A8E8E211B6A346A00F48CDD /* AGUIDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8E1F1B6A346A00F48CDD /* AGUIDefine.m */; };
+		4A8E8E2F1B6AF4BC00F48CDD /* AGUIDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8E1E1B6A346A00F48CDD /* AGUIDefine.h */; };
+		4A8E8E301B6AF4BC00F48CDD /* AGUITextKeyDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8E201B6A346A00F48CDD /* AGUITextKeyDefine.h */; };
+		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -244,6 +247,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A8E8E2F1B6AF4BC00F48CDD /* AGUIDefine.h in CopyFiles */,
+				4A8E8E301B6AF4BC00F48CDD /* AGUITextKeyDefine.h in CopyFiles */,
 				4A8E8B621B6908D800F48CDD /* DSButtonCreator.h in CopyFiles */,
 				4A8E8B591B69061400F48CDD /* DSLocaleManager.h in CopyFiles */,
 				4A8E8B5A1B69061400F48CDD /* AGCellInnerView.h in CopyFiles */,
@@ -596,6 +601,8 @@
 		4A8E8E1E1B6A346A00F48CDD /* AGUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUIDefine.h; sourceTree = "<group>"; };
 		4A8E8E1F1B6A346A00F48CDD /* AGUIDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGUIDefine.m; sourceTree = "<group>"; };
 		4A8E8E201B6A346A00F48CDD /* AGUITextKeyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUITextKeyDefine.h; sourceTree = "<group>"; };
+		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
+		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +665,7 @@
 				4A8E89BB1B68D29200F48CDD /* Tip */,
 				4A8E89A81B68CED800F48CDD /* Header */,
 				4A8E889F1B686E9100F48CDD /* Button */,
+				4AB3F1D71B88CAFA008DC70F /* TableRow */,
 				4A8E88A21B686E9100F48CDD /* Cell */,
 				4A8E8A3C1B68F99400F48CDD /* CellInnerView */,
 				4A8E89001B686E9100F48CDD /* CollectionViewCell */,
@@ -1081,6 +1089,15 @@
 			path = Define;
 			sourceTree = "<group>";
 		};
+		4AB3F1D71B88CAFA008DC70F /* TableRow */ = {
+			isa = PBXGroup;
+			children = (
+				4AB3F1D81B88CB56008DC70F /* DATableRow.h */,
+				4AB3F1D91B88CB56008DC70F /* DATableRow.m */,
+			);
+			path = TableRow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1250,6 +1267,7 @@
 				4A8E8A481B68F99400F48CDD /* AGLabelStyleTextCell.m in Sources */,
 				4A8E8A471B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.m in Sources */,
 				4A8E89C41B68D29200F48CDD /* AGLoadingTipCell.m in Sources */,
+				4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */,
 				4A8E89721B686E9100F48CDD /* AGTextfieldCellStyleLongNumber.m in Sources */,
 				4A8E896C1B686E9100F48CDD /* AGTextCell.m in Sources */,
 				4A8E89881B686E9100F48CDD /* AGHorizontalUnitsCell.m in Sources */,
@@ -1467,6 +1485,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AGUIKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1479,6 +1498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AGUIKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

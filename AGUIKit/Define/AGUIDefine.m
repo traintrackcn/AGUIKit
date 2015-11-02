@@ -10,6 +10,13 @@
 
 @implementation AGUIDefine
 
+- (NSArray *)availableLanguages{
+    if (_availableLanguages) {
+        return _availableLanguages;
+    }
+    return @[];
+}
+
 - (BOOL)sessionRoleIsRetailCustomer{
     if (self.sessionRoleIsRetailCustomerBlock) {
         return self.sessionRoleIsRetailCustomerBlock();

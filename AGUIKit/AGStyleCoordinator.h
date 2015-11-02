@@ -16,8 +16,10 @@
 + (UIColor *)colorForKey:(NSString *)key;
 + (NSArray *)rgbForKey:(NSString *)key;
 
++ (UIColor *)colorFromRGBValue:(NSString *)value;
+
 - (void)applyGlobalStyle;
-//- (void)applyGlobalNavigationBarBackground;
+- (void)applyGlobalNavigationBarStyle;
 
 @property (nonatomic, strong) UIImage *navigationBarBackgroundImage;
 
@@ -43,16 +45,16 @@
 + (UIFont *)fontProductCellPrice;
 + (UIFont *)fontLoginHeaderCellTitle;
 + (UIFont *)fontLoginHeaderCellSubtitle;
-+ (UIFont *)fontButton;
+//+ (UIFont *)fontButton;
 + (UIFont *)fontTabBarTitleNormal;
 + (UIFont *)fontTabBarTitleHighlight;
-+ (UIFont *)fontTextCellTitle;
+//+ (UIFont *)fontTextCellTitle;
 + (UIFont *)fontOrderCellNumber;
-+ (UIFont *)fontTextCellContent;
+//+ (UIFont *)fontTextCellContent;
 + (UIFont *)fontTextCellSubtitle;
 + (UIFont *)fontProductCellQuanity;
 + (UIFont *)fontQuantityPicker;
-+ (UIFont *)fontHeaderViewTitle;
+//+ (UIFont *)fontHeaderViewTitle;
 + (UIFont *)fontSelectorHeader;
 + (UIFont *)fontMultiLineCellStatus;
 + (UIFont *)fontOptionCellTitle;
@@ -79,6 +81,7 @@
 
 
 + (UIFont *)fontWithSize:(NSInteger)size;
++ (UIFont *)boldFontWithSize:(NSInteger)size;
 
 #pragma mark - for quick pick
 
@@ -190,10 +193,5 @@
 + (UIColor *)colorDarkText;
 + (UIColor *)colorTheme;
 + (UIColor *)colorDisabled;
-
-
-#pragma mark - decorators
-
-+ (void)decorateCircleMaskForView:(UIView *)view radius:(CGFloat)radius;
 
 @end

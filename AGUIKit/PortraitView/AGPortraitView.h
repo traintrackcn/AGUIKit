@@ -10,9 +10,12 @@
 
 @interface AGPortraitView : UIView
 
-//- (instancetype)initWithFrame:(CGRect)frame borderWidth:(CGFloat)borderWidth;
-- (UIColor *)borderColor;
-- (CGFloat)borderWidth;
++ (instancetype)instanceWithFrame:(CGRect)frame borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
+
+
+
+@property (nonatomic, strong) UIColor *borderColor;
+@property (nonatomic, assign) CGFloat borderWidth;
 
 @property (nonatomic, strong) UIImageView *imageView;
 

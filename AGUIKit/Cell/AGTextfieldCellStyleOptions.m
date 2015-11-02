@@ -51,7 +51,7 @@
 //    [contentLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [contentLabel setTextColor:[AGStyleCoordinator colorTextfieldContent]];
     [contentLabel setTextAlignment:NSTextAlignmentRight];
-    [contentLabel setFont:[AGStyleCoordinator fontTextCellContent]];
+    [contentLabel setFont:[AGStyleCoordinator fontWithSize:16]];
     [self.contentView addSubview:contentLabel];
 }
 

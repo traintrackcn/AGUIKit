@@ -58,6 +58,34 @@
     return [[AGStyleCoordinator singleton] rgbForKey:key];
 }
 
++ (UIColor *)colorFromRGBValue:(NSString *)value{
+    return [[AGStyleCoordinator singleton] colorFromRGBValue:value];
+}
+
++ (UIFont *)fontWithSize:(NSInteger)size{
+    UIFont *f = [UIFont fontWithName:@"OpenSans" size:size];
+    if (!f) {
+        f = [UIFont systemFontOfSize:size];
+    }
+    return f;
+}
+
++ (UIFont *)boldFontWithSize:(NSInteger)size{
+    UIFont *f = [UIFont fontWithName:@"OpenSans-Semibold" size:size];
+    if (!f) {
+        f = [UIFont boldSystemFontOfSize:size];
+    }
+    return f;
+}
+
+- (UIFont *)fontWithSize:(NSInteger)size{
+    UIFont *f = [UIFont fontWithName:@"OpenSans" size:size];
+    if (!f) {
+        f = [UIFont systemFontOfSize:size];
+    }
+    return f;
+}
+
 - (id)init{
     self = [super init];
     if (self) {
@@ -83,7 +111,7 @@
 - (UIImage *)navigationBarBackgroundImage{
 //    if (_navigationBarBackgroundImage) {
     NSArray *naviBarBgRGB = [self rgbForKey:@"navigation-bar-background"];
-    TLOG(@"naviBarBgRGB -> %@", naviBarBgRGB);
+//    TLOG(@"naviBarBgRGB -> %@", naviBarBgRGB);
     UIColor *c = [DSImage navigationBarTintColorFromRed:[[naviBarBgRGB objectAtIndex:0] floatValue]
                                                   green:[[naviBarBgRGB objectAtIndex:1] floatValue]
                                                    blue:[[naviBarBgRGB objectAtIndex:2] floatValue]];
@@ -120,16 +148,10 @@
 }
 
 - (void)applyGlobalStyle{
-    
-//    TLOG(@"role -> %@", [AGSession singleton].roleCode);
-    
-    [self applyGlobalNavigationBarStyle];
-   
-    
     //UIBarButtonItem
     [[UIBarButtonItem appearance] setTitleTextAttributes:
                                     @{
-                                      NSFontAttributeName:[self fontForKey:@"bar-button-item-title"]
+                                      NSFontAttributeName:[self fontWithSize:18]
                                       } forState:UIControlStateNormal];
     
     [[UITextField appearance] setTintColor:[self colorForKey:@"input-cursor"]];
@@ -442,9 +464,9 @@
     return [self fontForKey:@"login-header-cell-subtitle"];
 }
 
-+ (UIFont *)fontButton{
-    return [self fontForKey:@"button"];
-}
+//+ (UIFont *)fontButton{
+//    return [self fontForKey:@"button"];
+//}
 
 + (UIFont *)fontTabBarTitleNormal{
     return [self fontForKey:@"tab-bar-title-normal"];
@@ -454,17 +476,17 @@
     return [self fontForKey:@"tab-bar-title-highlight"];
 }
 
-+ (UIFont *)fontTextCellTitle{
-    return [self fontForKey:@"text-cell-title"];
-}
+//+ (UIFont *)fontTextCellTitle{
+//    return [self fontForKey:@"text-cell-title"];
+//}
 
 + (UIFont *)fontOrderCellNumber{
     return [self fontForKey:@"order-cell-number"];
 }
 
-+ (UIFont *)fontTextCellContent{
-    return [self fontForKey:@"text-cell-content"];
-}
+//+ (UIFont *)fontTextCellContent{
+//    return [self fontForKey:@"text-cell-content"];
+//}
 
 + (UIFont *)fontTextCellSubtitle{
     return [self fontForKey:@"text-cell-subtitle"];
@@ -490,9 +512,9 @@
     return [self fontForKey:@"quantity-picker"];
 }
 
-+ (UIFont *)fontHeaderViewTitle{
-    return [self fontForKey:@"header-view-title"];
-}
+//+ (UIFont *)fontHeaderViewTitle{
+//    return [self fontForKey:@"header-view-title"];
+//}
 + (UIFont *)fontSelectorHeader{
     return [self fontForKey:@"selector-header"];
 }
@@ -571,13 +593,6 @@
 
 + (UIFont *)fontLabelStyleSubtitleTextCell{
     return [self fontForKey:@"label-style-subtitle-text-cell"];
-}
-
-#pragma mark - 
-
-+ (UIFont *)fontWithSize:(NSInteger)size{
-    UIFont *f = [UIFont fontWithName:@"OpenSans" size:size];
-    return f;
 }
 
 
@@ -859,41 +874,6 @@
 + (UIColor *)colorDisabled{
     return RGBA(221, 221, 221, 1);
 }
-
-
-#pragma mark - decorators
-
-+ (void)decorateCircleMaskForView:(UIView *)view radius:(CGFloat)radius{
-    //    CGSize imgSize = view.frame.size;
-    //    TLOG(@"imgSize %f %f", imgSize.width, imgSize.height);
-    //    CALayer *mask = [CALayer layer];
-    //    mask.contents = (id)[[UIImage imageNamed:maskName] CGImage];
-    //    mask.frame = CGRectMake(0, 0, imgSize.width, imgSize.height);
-    
-    //    int radius = 95.0/2.0;
-    CAShapeLayer *circle = [CAShapeLayer layer];
-    // Make a circular shape
-    circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
-                                             cornerRadius:radius].CGPath;
-    // Center the shape in self.view
-    //    circle.position = CGPointMake(CGRectGetMidX(view.frame)-radius,
-    //                                  CGRectGetMidY(view.frame)-radius);
-    
-    // Configure the apperence of the circle
-    circle.fillColor = [UIColor blackColor].CGColor;
-    //    circle.strokeColor = [UIColor blackColor].CGColor;
-    //    circle.lineWidth = 0;
-    
-    // Add to parent layer
-    //    [self.view.layer addSublayer:circle];
-    
-    
-    CALayer *vLayer = [view layer];
-    [vLayer addSublayer:circle];
-    vLayer.mask = circle;
-    vLayer.masksToBounds = YES;
-}
-
 
 @end
 

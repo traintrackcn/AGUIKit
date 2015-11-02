@@ -327,7 +327,7 @@
 }
 
 + (NSString *)titleShopping{
-    return @"Shopping";
+    return [self textForKey:@"title-shopping"];
 }
 
 + (NSString *)titleNext{

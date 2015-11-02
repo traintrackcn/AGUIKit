@@ -83,7 +83,7 @@
 }
 
 - (UIFont *)titleFont{
-    return [AGStyleCoordinator fontTextCellTitle];
+    return [AGStyleCoordinator fontWithSize:16];
 }
 
 @end

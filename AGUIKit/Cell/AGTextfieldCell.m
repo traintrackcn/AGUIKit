@@ -72,7 +72,7 @@
     if ([DSValueUtil isAvailable:titleLabel]) return;
 //    CGFloat w = self.frame.size.width/3.0;
     titleLabel = [[UILabel alloc] init];
-    [titleLabel setFont:[AGStyleCoordinator fontTextCellTitle]];
+    [titleLabel setFont:[AGStyleCoordinator fontWithSize:16]];
     [titleLabel setTextColor:[AGStyleCoordinator colorTextfieldTitle]];
     [titleLabel setNumberOfLines:2];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
@@ -127,7 +127,7 @@
     
     [self.inputBox.layer setBorderWidth:1.0];
     [self.inputBox.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
-    
+    [self.inputBox setFont:[AGStyleCoordinator fontWithSize:16]];
 //    [AGDebugUtil makeBorderForView:inputView];
 //    TLOG(@"", <#__args...#>)
 }
@@ -149,6 +149,7 @@
     [self.inputField.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
     [self.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 //    [self.inputField.layer setBorderWidth:1.0];
+    [self.inputField setFont:[AGStyleCoordinator fontWithSize:16]];
 }
 
 - (void)enableNumberPadForInputField{
@@ -235,7 +236,7 @@
     CGSize titleMaxSize = CGSizeMake(self.frame.size.width, self.titleMaxH);
     CGSize titleSize = [titleLabel.text boundingRectWithSize:titleMaxSize
                                                      options:NSStringDrawingUsesLineFragmentOrigin attributes:
-                        @{NSFontAttributeName:[AGStyleCoordinator fontForKey:@"texfield-cell-title"]} context:nil].size;
+                        @{NSFontAttributeName:[AGStyleCoordinator fontWithSize:14]} context:nil].size;
     
     CGRect titleFrame = titleLabel.frame;
     CGFloat y = (self.titleMaxH - titleSize.height)/2.0;
@@ -273,7 +274,7 @@
     
     CGSize titleSize = [titleLabel.text boundingRectWithSize:titleMaxSize
                                                      options:NSStringDrawingUsesLineFragmentOrigin attributes:
-                        @{NSFontAttributeName:[AGStyleCoordinator fontForKey:@"texfield-cell-title"]} context:nil].size;
+                        @{NSFontAttributeName:[AGStyleCoordinator fontWithSize:14]} context:nil].size;
     
 //    TLOG(@"titleMaxSize -> %@ titleSize -> %@", NSStringFromCGSize(titleMaxSize), NSStringFromCGSize(titleSize));
     
@@ -398,7 +399,7 @@
         CGFloat keyboardFrameEndY = keyboardFrameEnd.origin.y;
         CGFloat screenH = [DSDeviceUtil bounds].size.height;
         CGFloat keyboardH = keyboardFrameEnd.size.height;
-//        TLOG(@"Keyboard will change frame -> %@ keyboardFrameEndY -> %f screenH -> %f keyboardH -> %f", note.userInfo, keyboardFrameEndY, screenH, keyboardH);
+        TLOG(@"Keyboard will change frame -> %@ keyboardFrameEndY -> %f screenH -> %f keyboardH -> %f", note.userInfo, keyboardFrameEndY, screenH, keyboardH);
         
         
         UIEdgeInsets insetNew = insetOld;
@@ -407,12 +408,16 @@
         if (screenH != keyboardFrameEndY) {
             insetNew.bottom = keyboardH;
             [self.tableView setContentInset:insetNew];
-            
+            TLOG(@"adjust table view content inset -> %@", NSStringFromUIEdgeInsets(insetNew));
 //            TLOG(@"keyboard is showing up prevKeyboardFrameEndY %f", prevKeyboardFrameEndY);
             if (self.inputIsBox) {
                 [self.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
             }
             
+            if ([DSDeviceUtil isNotIOS8AndAbove]) {
+                [self.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            }
+        
             
         }else{
             [self.tableView setContentInset:insetOld];
@@ -423,6 +428,10 @@
         
         
     }];
+    
+    if ([DSDeviceUtil isNotIOS8AndAbove]) {
+        [self.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 static NSInteger beginEditingNum;

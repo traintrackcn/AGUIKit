@@ -10,10 +10,37 @@
 #import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 #import "AGViewController.h"
+#import "GlobalDefine.h"
+#import "AGUIDefine.h"
+#import "NSObject+Singleton.h"
 
 @implementation AGHeaderView
 
 
+- (void)setAssociatedViewController:(id)associatedViewController{
+    _associatedViewController = associatedViewController;
+//    TLOG(@"associatedViewController -> %@", associatedViewController);
+}
+
+#pragma mark - view controller actions
+
+- (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC{
+    AGViewController *vc = self.associatedViewController;
+    //    TLOG(@"vc -> %@", vc);
+    [vc.view endEditing:YES];
+    [naviC pushViewController:viewController animated:YES];
+}
+
+- (void)pushViewController:(UIViewController *)viewController{
+    UINavigationController *naviC = (UINavigationController *)[[self associatedViewController] parentViewController ];
+    //    TLOG(@"naviC -> %@", naviC);
+    if (naviC){
+        [self pushViewController:viewController fromNaviC:naviC];
+    }else{
+        [self pushViewController:viewController fromNaviC:[AGUIDefine singleton].rootViewController];
+    }
+    
+}
 
 #pragma mark - components
 
@@ -30,8 +57,8 @@
 }
 
 - (UITableView *)tableView{
-    if ([self.delegate isKindOfClass:[AGViewController class]]) {
-        return [(AGViewController *)self.delegate tableView];
+    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
+        return [(AGViewController *)self.associatedViewController tableView];
     }
     return nil;
 }
@@ -44,6 +71,11 @@
 
 + (CGFloat)height{
     return 44.0;
+}
+
+- (CGFloat)height{
+    if (_height) return _height;
+    return [self.class height];
 }
 
 @end

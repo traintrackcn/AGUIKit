@@ -35,7 +35,7 @@
     [contentLabel setTextColor:c];
     //    [contentLabel setBackgroundColor:RGBA(254, 207, 208, 1)];
     [contentLabel setNumberOfLines:0];
-    [contentLabel setFont:[AGStyleCoordinator fontTextCellContent]];
+    [contentLabel setFont:[AGStyleCoordinator fontWithSize:16]];
     [self addSubview:contentLabel];
     
     if ([DSDeviceUtil iOS7AndAbove]) {

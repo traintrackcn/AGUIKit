@@ -21,7 +21,7 @@
         
         
         [self.textLabel setTextColor:[AGStyleCoordinator colorCellTitleUnselected]];
-        [self.textLabel setFont:[AGStyleCoordinator fontTextCellTitle]];
+        [self.textLabel setFont:[AGStyleCoordinator fontWithSize:16]];
         [self.textLabel setAdjustsFontSizeToFitWidth:YES];
     }
     return self;

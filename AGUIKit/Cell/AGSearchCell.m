@@ -69,7 +69,7 @@
 - (void)layoutSearchBar{
     CGFloat w = self.searchBar.frame.size.width;
     CGFloat h = self.searchBar.frame.size.height;
-    [self.searchBar setBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(w, h) fillColor:[AGStyleCoordinator colorSearchFieldBackground]]];
+    [self.searchBar setBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(w, h) fillColor:RGBA(245, 245, 245, 1)]];
 }
 
 #pragma mark - UISearchBarDelegate

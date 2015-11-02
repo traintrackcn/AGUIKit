@@ -29,6 +29,8 @@
         [self setTextColorInner:RGBA(255, 255, 255, 1)];
         [self setTextColorOuter:RGBA(127, 0, 0, 1)];
         [self setBackgroundColor:RGBA(246, 246, 246, 1)];
+        [self setShowTextLabel:YES];
+        [self setBorderColor:RGBA(214, 214, 214, 1)];
     }
     return self;
 }
@@ -37,7 +39,17 @@
 
 - (void)assemble{
     [self assembleInnerView];
-    [self assembleTextLabel];
+    
+    if (self.showTextLabel) {
+        [self assembleTextLabel];
+    }
+    
+    
+    CALayer *l = self.layer;
+    [l setBorderColor:self.borderColor.CGColor];
+    [l setCornerRadius:self.cornerRadius];
+    [l setBorderWidth:1];
+    [self setClipsToBounds:YES];
 }
 
 - (void)assembleInnerView{
@@ -52,7 +64,14 @@
     [innerView setBackgroundColor:self.innerViewBackgroundColor];
 //    [textLabel setTextAlignment:NSTextAlignmentRight];
 //    [AGDebugUtil makeBorderForView:innerView];
-    __block AGLineProgressView *pv = self;
+    __weak AGLineProgressView *pv = self;
+    
+    CALayer *l = innerView.layer;
+    
+    [l setCornerRadius:self.cornerRadius];
+    
+    [innerView setClipsToBounds:YES];
+    
     [innerView setUpdateTextLabelBlock:^(CGRect frame) {
         [pv updateTextLabel];
 //        TLOG(@"frame -> %@", NSStringFromCGRect(frame));
@@ -73,7 +92,7 @@
 //    [textLabel setBackgroundColor:self.innerViewBackgroundColor];
     [textLabel setTextAlignment:NSTextAlignmentRight];
     [textLabel setAdjustsFontSizeToFitWidth:YES];
-    [textLabel setFont:[AGStyleCoordinator fontTextCellContent]];
+    [textLabel setFont:[AGStyleCoordinator fontWithSize:13]];
 //    [AGDebugUtil makeBorderForView:textLabel];
 }
 
@@ -84,6 +103,9 @@
 }
 
 - (void)updateTextLabel{
+    
+    if (!textLabel) return;
+    
     [textLabel setText:[NSString stringWithFormat:@"%@", [self.progress valueForPercent]]];
     
     CGRect frame = textLabel.frame;

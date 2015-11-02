@@ -9,6 +9,7 @@
 #import "AGQuantityPickerView.h"
 #import "DSValueUtil.h"
 #import "AGStyleCoordinator.h"
+#import "GlobalDefine.h"
 
 @interface AGQuantityPickerView(){
     
@@ -53,6 +54,10 @@
     if (self) {
         // Initialization code
         [self assemble];
+        
+        [self.layer setBorderWidth:1];
+        [self.layer setCornerRadius:4.0];
+        [self.layer setBorderColor:self.borderColor.CGColor];
     }
     return self;
 }
@@ -84,9 +89,10 @@
 }
 
 - (UIButton *)plusButton{
-    if ([DSValueUtil isNotAvailable:_plusButton]) {
+    if (!_plusButton) {
         _plusButton = [self assembleButtonWithTitle:@"+" target:self action:@selector(didTapPlusButton:)];
         [_plusButton setFrame:CGRectMake(self.componentSize.width*2, 0, self.componentSize.width, self.componentSize.height)];
+//        [self decorateButton:_plusButton];
     }
     return _plusButton;
 }
@@ -95,9 +101,12 @@
     if ([DSValueUtil isNotAvailable:_minusButton]) {
         _minusButton = [self assembleButtonWithTitle:@"-" target:self action:@selector(didTapMinusButton:)];
         [_minusButton setFrame:CGRectMake(0, 0, self.componentSize.width, self.componentSize.height)];
+//        [self decorateButton:_minusButton];
     }
     return _minusButton;
 }
+
+
 
 - (UILabel *)quantityLabel{
     if ([DSValueUtil isNotAvailable:_quantityLabel]) {
@@ -105,6 +114,8 @@
         [_quantityLabel setTextAlignment:NSTextAlignmentCenter];
         [_quantityLabel setFrame:CGRectMake(self.componentSize.width, 0, self.componentSize.width, self.componentSize.height)];
         [_quantityLabel setFont:[AGStyleCoordinator fontQuantityPicker]];
+        _quantityLabel.layer.borderWidth = 1;
+        _quantityLabel.layer.borderColor = self.borderColor.CGColor;
     }
     return _quantityLabel;
 }
@@ -115,6 +126,12 @@
 
 - (void)setValue:(NSInteger)value{
     [_quantityLabel setText:[NSString stringWithFormat:@"%ld",(long)value]];
+}
+
+#pragma mark - styles
+
+- (UIColor *)borderColor{
+    return RGBA(214, 214, 214, 1);
 }
 
 #pragma mark - interactive actions
