@@ -92,7 +92,10 @@
     if (!_plusButton) {
         _plusButton = [self assembleButtonWithTitle:@"+" target:self action:@selector(didTapPlusButton:)];
         [_plusButton setFrame:CGRectMake(self.componentSize.width*2, 0, self.componentSize.width, self.componentSize.height)];
-//        [self decorateButton:_plusButton];
+        [self decorateButton:_plusButton];
+        
+//        [_plusButton setTitleColor:self.borderColor forState:UIControlStateDisabled];
+//        [_plusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     return _plusButton;
 }
@@ -101,12 +104,17 @@
     if ([DSValueUtil isNotAvailable:_minusButton]) {
         _minusButton = [self assembleButtonWithTitle:@"-" target:self action:@selector(didTapMinusButton:)];
         [_minusButton setFrame:CGRectMake(0, 0, self.componentSize.width, self.componentSize.height)];
-//        [self decorateButton:_minusButton];
+//        [_minusButton setTitleColor:self.borderColor forState:UIControlStateDisabled];
+        
+        [self decorateButton:_minusButton];
     }
     return _minusButton;
 }
 
-
+- (void)decorateButton:(UIButton *)btn{
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:self.borderColor forState:UIControlStateDisabled];
+}
 
 - (UILabel *)quantityLabel{
     if ([DSValueUtil isNotAvailable:_quantityLabel]) {
@@ -126,6 +134,45 @@
 
 - (void)setValue:(NSInteger)value{
     [_quantityLabel setText:[NSString stringWithFormat:@"%ld",(long)value]];
+}
+
+#pragma mark - 
+
+- (void)setMaxValue:(NSInteger)maxValue{
+    _maxValue = maxValue;
+    [self updateButtonStatus];
+}
+
+- (void)setMinValue:(NSInteger)minValue{
+    _minValue = minValue;
+    [self updateButtonStatus];
+}
+
+#pragma mark -
+
+- (void)updateButtonStatus{
+    
+    [self.minusButton setEnabled:YES];
+    [self.plusButton setEnabled:YES];
+    
+    
+    TLOG(@"maxValue -> %d minValue -> %d value -> %d", self.maxValue, self.minValue, self.value);
+    
+    if (self.maxValue == self.minValue) {
+        [self.minusButton setEnabled:NO];
+        [self.plusButton setEnabled:NO];
+        return;
+    }
+    
+    if (self.value == self.maxValue) {
+        [self.plusButton setEnabled:NO];
+        return;
+    }
+    
+    if (self.value == self.minValue) {
+        [self.minusButton setEnabled:NO];
+        return;
+    }
 }
 
 #pragma mark - styles
@@ -148,6 +195,9 @@
         [self dispatchWillChangeValue:valueNew];
     }
     
+    [self setValue:valueNew];
+    [self updateButtonStatus];
+    
 }
 
 - (void)didTapMinusButton:(id)sender{
@@ -158,6 +208,8 @@
     if (valueNew != self.value) {
         [self dispatchWillChangeValue:valueNew];
     }
+    [self setValue:valueNew];
+    [self updateButtonStatus];
 }
 
 #pragma mark - 

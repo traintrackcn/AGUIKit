@@ -97,6 +97,12 @@
     TLOG(@"");
     
     
+//    NSString *myText = @"       foo    ";
+    keyword = [keyword stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//    NSLog(@"old = [%@], trimmed = [%@]", myText, trimmedText);
+    TLOG(@"keyword -> %@", keyword);
+    
+    
     if (keyword.length <3) {
         [DSAlertUtil showSVPErrorForCustomText:@"keyword is too short"];
         return;

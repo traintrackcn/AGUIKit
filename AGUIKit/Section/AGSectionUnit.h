@@ -21,12 +21,13 @@
 - (id)paramterAtIndex:(NSInteger)index;
 - (void)action:(id)action atIndex:(NSInteger)index;
 - (NSInteger)numberOfRows;
+- (void)didSelect:(NSInteger)index;
 
 - (id)headerValue;
 //- (Class)headerClass;
 @property (nonatomic, weak) AGVCConfiguration *config;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) BOOL readonly;
-@property (nonatomic, weak) AGViewController *associatedVC;
+@property (nonatomic, weak) AGViewController *associatedViewController;
 
 @end

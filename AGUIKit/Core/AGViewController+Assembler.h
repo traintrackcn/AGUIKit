@@ -13,7 +13,7 @@
 
 - (void)assemble;
 - (void)assembleTopRefreshControl;
-- (AGCell *)assembleDummyCellAtIndex:(NSInteger)index;
+- (AGCell *)dummyCellInstanceAtIndex:(NSInteger)index;
 - (AGCell *)assembleCellAtIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView;
 - (UIView *)assembleHeaderForSection:(NSInteger)section;
 

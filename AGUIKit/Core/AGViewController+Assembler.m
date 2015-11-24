@@ -23,7 +23,7 @@
     [self didReloadVisibleIndexPaths];
 }
 
-- (AGCell *)assembleDummyCellAtIndex:(NSInteger)index{
+- (AGCell *)dummyCellInstanceAtIndex:(NSInteger)index{
     AGCell *cell = [[AGCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@""];
     [cell setAssociatedViewController:self];
     [cell setIndexPath:[NSIndexPath indexPathForRow:index inSection:SectionDummy]];

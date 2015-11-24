@@ -64,7 +64,7 @@
 
 - (UIImageView *)imageView{
     if (!_imageView) {
-        TLOG(@"self.borderWidth -> %f", self.borderWidth);
+//        TLOG(@"self.borderWidth -> %f", self.borderWidth);
         CGFloat x = self.borderWidth;
         CGFloat y = x;
         CGFloat w = self.frame.size.width - x*2;

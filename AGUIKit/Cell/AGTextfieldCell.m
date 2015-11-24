@@ -399,7 +399,7 @@
         CGFloat keyboardFrameEndY = keyboardFrameEnd.origin.y;
         CGFloat screenH = [DSDeviceUtil bounds].size.height;
         CGFloat keyboardH = keyboardFrameEnd.size.height;
-        TLOG(@"Keyboard will change frame -> %@ keyboardFrameEndY -> %f screenH -> %f keyboardH -> %f", note.userInfo, keyboardFrameEndY, screenH, keyboardH);
+//        TLOG(@"Keyboard will change frame -> %@ keyboardFrameEndY -> %f screenH -> %f keyboardH -> %f", note.userInfo, keyboardFrameEndY, screenH, keyboardH);
         
         
         UIEdgeInsets insetNew = insetOld;

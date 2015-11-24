@@ -237,7 +237,11 @@
 		4A8E8E211B6A346A00F48CDD /* AGUIDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8E1F1B6A346A00F48CDD /* AGUIDefine.m */; };
 		4A8E8E2F1B6AF4BC00F48CDD /* AGUIDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8E1E1B6A346A00F48CDD /* AGUIDefine.h */; };
 		4A8E8E301B6AF4BC00F48CDD /* AGUITextKeyDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8E201B6A346A00F48CDD /* AGUITextKeyDefine.h */; };
+		4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */; };
+		4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */; };
 		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
+		4AF5C96C1BFCB79400B46A88 /* AGObjectPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5C96B1BFCB79400B46A88 /* AGObjectPool.m */; };
+		4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AF5C96A1BFCB79400B46A88 /* AGObjectPool.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -247,6 +251,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */,
+				4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */,
 				4A8E8E2F1B6AF4BC00F48CDD /* AGUIDefine.h in CopyFiles */,
 				4A8E8E301B6AF4BC00F48CDD /* AGUITextKeyDefine.h in CopyFiles */,
 				4A8E8B621B6908D800F48CDD /* DSButtonCreator.h in CopyFiles */,
@@ -601,8 +607,12 @@
 		4A8E8E1E1B6A346A00F48CDD /* AGUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUIDefine.h; sourceTree = "<group>"; };
 		4A8E8E1F1B6A346A00F48CDD /* AGUIDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGUIDefine.m; sourceTree = "<group>"; };
 		4A8E8E201B6A346A00F48CDD /* AGUITextKeyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUITextKeyDefine.h; sourceTree = "<group>"; };
+		4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTextfieldCellStyleLong.h; sourceTree = "<group>"; };
+		4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextfieldCellStyleLong.m; sourceTree = "<group>"; };
 		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
 		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
+		4AF5C96A1BFCB79400B46A88 /* AGObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGObjectPool.h; sourceTree = "<group>"; };
+		4AF5C96B1BFCB79400B46A88 /* AGObjectPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGObjectPool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -644,6 +654,8 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4AF5C96A1BFCB79400B46A88 /* AGObjectPool.h */,
+				4AF5C96B1BFCB79400B46A88 /* AGObjectPool.m */,
 				4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */,
 				4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */,
 				4A8E8B561B69060600F48CDD /* DSLocaleManager.h */,
@@ -739,6 +751,8 @@
 				4A8E88E31B686E9100F48CDD /* AGTextfieldCell.m */,
 				4A8E88E41B686E9100F48CDD /* AGTextfieldCellStyleEditor.h */,
 				4A8E88E51B686E9100F48CDD /* AGTextfieldCellStyleEditor.m */,
+				4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */,
+				4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */,
 				4A8E88E61B686E9100F48CDD /* AGTextfieldCellStyleLongNumber.h */,
 				4A8E88E71B686E9100F48CDD /* AGTextfieldCellStyleLongNumber.m */,
 				4A8E88E81B686E9100F48CDD /* AGTextfieldCellStyleNoTitle.h */,
@@ -1198,7 +1212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ../3rd\n./do_lipo_for_static_lib.sh";
+			shellScript = "cd ../sh\n./do_lipo_for_static_lib.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1282,6 +1296,7 @@
 				4A8E89DD1B68DBF800F48CDD /* UILabel+AGUtil.m in Sources */,
 				4A8E89531B686E9100F48CDD /* AGButtonCell.m in Sources */,
 				4A8E895B1B686E9100F48CDD /* AGMultiLabelsCell.m in Sources */,
+				4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */,
 				4A8E8A711B68FBE500F48CDD /* AGLineProgressInnerView.m in Sources */,
 				4A8E898B1B686E9100F48CDD /* AGDateSelector.m in Sources */,
 				4A8E8A341B68F7FF00F48CDD /* AGViewController+Separator.m in Sources */,
@@ -1290,6 +1305,7 @@
 				4A8E89B61B68CED800F48CDD /* AGHeaderViewStyleDarkCompact.m in Sources */,
 				4A8E8A7B1B68FE8800F48CDD /* AGPortraitView.m in Sources */,
 				4A8E89C61B68D29200F48CDD /* AGTipCell.m in Sources */,
+				4AF5C96C1BFCB79400B46A88 /* AGObjectPool.m in Sources */,
 				4A8E8A741B68FBE500F48CDD /* AGPieChartCell.m in Sources */,
 				4A8E896B1B686E9100F48CDD /* AGTextBoxCell.m in Sources */,
 				4A8E899D1B686FDD00F48CDD /* AGSectionUnit.m in Sources */,

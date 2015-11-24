@@ -12,6 +12,10 @@
 
 }
 
+#pragma mark - dispatchers
+
+- (void)dispatchRequestAction:(id)action;
+
 #pragma mark - view controller actions
 - (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC;
 - (void)pushViewController:(UIViewController *)viewController;

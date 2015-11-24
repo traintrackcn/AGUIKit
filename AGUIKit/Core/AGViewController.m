@@ -26,7 +26,7 @@
 #import "AGRemoterResult.h"
 #import "AGUIDefine.h"
 #import "NSObject+singleton.h"
-
+#import "AGObjectPool.h"
 
 @interface AGViewController () {
     
@@ -281,6 +281,13 @@
 //    [super setTitle:[title uppercaseString]];
 //}
 
+- (AGObjectPool *)objPool{
+    if (!_objPool) {
+        _objPool = [AGObjectPool instance];
+    }
+    return _objPool;
+}
+
 
 #pragma mark - table view delegate
 
@@ -362,6 +369,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    AGSectionUnit *sectionUnit = [self.config unitOfSection:section];
+    if (sectionUnit) [sectionUnit didSelect:idx];
+}
+
 - (AGCell *)cellForException{
     return [[AGCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([AGCell class])];
 }
@@ -428,6 +442,16 @@
 - (void)remoterErrorOccured:(AGRemoterResult *)result{
     [self setRemoteMessagesForError:result.errorParsed];
 }
+
+#pragma mark - dummy cell stuff
+
+- (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index{
+    dummyCell = [self dummyCellInstanceAtIndex:index];
+    [viewController setAssociatedCell:dummyCell];
+    [dummyCell pushViewController:viewController];
+}
+
+
 
 #pragma mark - associated cell ops
 

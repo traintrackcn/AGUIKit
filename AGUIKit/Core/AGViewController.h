@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 @class AGCell;
 @class AGTopRefreshControl;
 @class AGRemoterResultError;
+@class AGObjectPool;
 
 
 @interface AGViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AGRefreshControlDelegate, AGCellDelegate,AGRemoterDelegate>{
@@ -33,7 +34,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 //    NSInteger floatedMessageCount;
     
     
-    AGCell *dummyCell;
+    AGCell *dummyCell; //for retaining instance
 //    BOOL showSeparators;
 }
 
@@ -86,6 +87,10 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)setRemoteMessagesForError:(AGRemoterResultError *)error;
 
 
+#pragma mark - dummy cell stuff
+- (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index;
+
+
 @property (nonatomic, weak) AGCell *associatedCell;
 @property (nonatomic, strong) AGVCConfiguration *config;
 @property (nonatomic, assign) BOOL supportsRefreshControl;
@@ -97,6 +102,8 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 @property (nonatomic, assign) BOOL flagDoReload;
 @property (nonatomic, strong) AGViewController *previousViewController;
+
+@property (nonatomic, strong) AGObjectPool *objPool;
 
 
 @end

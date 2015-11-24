@@ -23,6 +23,7 @@
         [self setSection:section];
         [self setReadonly:NO];
         [config setSectionUnit:self];
+        [self setAssociatedViewController:self.config.target];
     }
     return self;
 }
@@ -51,6 +52,10 @@
 
 - (id)headerValue{
     return nil;
+}
+
+- (void)didSelect:(NSInteger)index{
+    
 }
 
 //- (Class)headerClass{

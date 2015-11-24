@@ -15,23 +15,42 @@
     UILabel *titleLabel;
 }
 
+@property (nonatomic, strong) UIImageView *logoView;
+
 @end
 
 @implementation AGLogoHeaderCell
 
 + (CGFloat)height{
-    return 75;
+    return 92;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [self assembleTitleView];
+//        [self assembleTitleView];
+        
+        [self.contentView addSubview:self.logoView];
     }
     return self;
 }
 
+#pragma mark - components
+
+- (UIImageView *)logoView{
+    if (!_logoView) {
+        CGFloat w = [DSDeviceUtil bounds].size.width;
+        CGFloat h = self.height;
+        _logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+        [_logoView setContentMode:UIViewContentModeScaleAspectFit];
+        
+        [_logoView setImage:[UIImage imageNamed:@"Logo"]];
+    }
+    return _logoView;
+}
+
+#pragma mark -
 
 - (void)applySelectedStyle{
     
