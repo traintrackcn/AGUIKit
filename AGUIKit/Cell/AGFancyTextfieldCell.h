@@ -8,7 +8,7 @@
 
 #import "AGTextfieldCell.h"
 
-@interface AGFancyTextfieldCell : AGTextfieldCell{
+@interface AGFancyTextfieldCell : AGCell{
 //    CGFloat iconW;
     
 }

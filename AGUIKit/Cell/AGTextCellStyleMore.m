@@ -17,9 +17,9 @@
     if (self) {
 //        paddingLR = 15.0;
         [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        [self assembleBottomBorder];
         
         
+        [self.contentView addSubview:self.borderBottomViewStylePaddingL];
         [self.textLabel setTextColor:[AGStyleCoordinator colorCellTitleUnselected]];
         [self.textLabel setFont:[AGStyleCoordinator fontWithSize:16]];
         [self.textLabel setAdjustsFontSizeToFitWidth:YES];

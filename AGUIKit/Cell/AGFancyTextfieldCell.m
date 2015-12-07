@@ -8,8 +8,10 @@
 
 #import "AGFancyTextfieldCell.h"
 #import "DSImage.h"
+#import "AGCell+TextInputDelegate.h"
+#import "DSValueUtil.h"
 
-@interface AGFancyTextfieldCell(){
+@interface AGFancyTextfieldCell() <UITextFieldDelegate, UITextViewDelegate>{
     
 }
 
@@ -24,7 +26,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self assemble];
+        [self.contentView addSubview:self.inputField];
     }
     return self;
 }
@@ -37,9 +39,7 @@
     return 16.0;
 }
 
-- (void)assemble{
-    [self.contentView addSubview:self.inputField];
-}
+
 
 - (void)applySelectedStyle{
     
@@ -49,6 +49,13 @@
 //    [super applyUnselectedStyle];
     
     [self setBackgroundColor:[UIColor clearColor]];
+}
+
+#pragma mark - setters
+
+- (void)setValue:(id)value{
+    [super setValue:value];
+    [self.inputField setText:[DSValueUtil toString:value]];
 }
 
 #pragma mark - texts

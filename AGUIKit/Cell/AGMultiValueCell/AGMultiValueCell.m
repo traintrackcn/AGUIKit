@@ -26,25 +26,14 @@ NSString *AGMultiValueCellContentOffsetDidChange = @"AGMultiValueCellContentOffs
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self assemble];
+        [self.multiValueView setDelegate:self];
+        [self.contentView addSubview:self.multiValueView];
+        [self.contentView addSubview:self.borderBottomViewStylePaddingL];
     }
     return self;
 }
 
-- (void)applySelectedStyle{
-    
-}
 
-
-#pragma mark - assemblers
-
-- (void)assemble{
-    [self.multiValueView setDelegate:self];
-    [self.contentView addSubview:self.multiValueView];
-    
-    
-    [self assembleBottomBorder];
-}
 
 #pragma mark - properties
 
@@ -101,6 +90,12 @@ NSString *AGMultiValueCellContentOffsetDidChange = @"AGMultiValueCellContentOffs
         }
     }
     return item;
+}
+
+#pragma mark - styles
+
+- (void)applySelectedStyle{
+    
 }
 
 @end

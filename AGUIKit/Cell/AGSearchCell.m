@@ -13,6 +13,14 @@
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"
 
+@interface AGSearchCell(){
+    
+}
+
+@property (nonatomic, strong) UISearchBar *searchBar;
+
+@end
+
 @implementation AGSearchCell
 
 + (CGFloat)height{
@@ -23,40 +31,39 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self assembleSearchBar];
+        [self.contentView addSubview:self.searchBar];
     }
     return self;
 }
 
 #pragma mark - assemblers
 
-- (void)assembleSearchBar{
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, [self.class height])];
-    [searchBar setPlaceholder:@"Name or Description"];
-    //  [searchBar setShowsCancelButton:YES];
-    [searchBar setDelegate:self];
-    
-//    [searchBar setTintColor:[UIColor redColor]];
-    
-//
-//    [searchBar setSearchFieldBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(1,[self.class height]-12) fillColor:[AGStyleCoordinator colorForKey:@"search-bar-input-field-background"]] forState:UIControlStateNormal];
-    
-    
-    //    [searchBar setTintColor:[AGStyleCoordinator colorForKey:@"search-bar-button-title"]];
-//    [searchBar setTintColor:[UIColor redColor]];
-    //    [searchBar setShowsScopeBar:YES];
-    //    [searchBar setScopeButtonTitles:@[@"title1", @"title2", @"title3"]];
-    //    [searchBar setBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(10, 10) fillColor:[UIColor redColor]]];
-    //    [searchBar setScopeBarButtonBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(10, 10) fillColor:[UIColor redColor]] forState:UIControlStateNormal];
-    
-    //    UIView *v = [self headerAtSection:SectionProduct];
-    //    TLOG(@"v -> %@", v);
-    //    [v addSubview:searchBar];
-    [self.contentView addSubview:searchBar];
-}
 
 - (UISearchBar *)searchBar{
-    return (UISearchBar *)[self.contentView.subviews objectAtIndex:0];
+    if (!_searchBar){
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, [self.class height])];
+        [_searchBar setPlaceholder:@"Name or Description"];
+        //  [searchBar setShowsCancelButton:YES];
+        [_searchBar setDelegate:self];
+        
+        //    [searchBar setTintColor:[UIColor redColor]];
+        
+        //
+        //    [searchBar setSearchFieldBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(1,[self.class height]-12) fillColor:[AGStyleCoordinator colorForKey:@"search-bar-input-field-background"]] forState:UIControlStateNormal];
+        
+        
+        //    [searchBar setTintColor:[AGStyleCoordinator colorForKey:@"search-bar-button-title"]];
+        //    [searchBar setTintColor:[UIColor redColor]];
+        //    [searchBar setShowsScopeBar:YES];
+        //    [searchBar setScopeButtonTitles:@[@"title1", @"title2", @"title3"]];
+        //    [searchBar setBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(10, 10) fillColor:[UIColor redColor]]];
+        //    [searchBar setScopeBarButtonBackgroundImage:[DSImage rectangleWithSize:CGSizeMake(10, 10) fillColor:[UIColor redColor]] forState:UIControlStateNormal];
+        
+        //    UIView *v = [self headerAtSection:SectionProduct];
+        //    TLOG(@"v -> %@", v);
+        //    [v addSubview:searchBar];
+    }
+    return _searchBar;
 }
 
 #pragma mark - layout ops

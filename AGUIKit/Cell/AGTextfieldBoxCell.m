@@ -19,9 +19,12 @@
 #pragma mark - init
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    [self setInputIsBox:YES];
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     return self;
+}
+
+- (BOOL)inputIsBox{
+    return YES;
 }
 
 @end

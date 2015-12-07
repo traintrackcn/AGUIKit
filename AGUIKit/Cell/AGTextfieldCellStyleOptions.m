@@ -26,7 +26,12 @@
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        [self assemble];
+        
+        [self assembleTitleView];
+        [self assembleContentLabel];
+        [self assembleGC];
+        
+        [self.contentView addSubview:self.borderBottomViewStylePaddingL];
     }
     return self;
 }
@@ -34,13 +39,8 @@
 
 #pragma mark - assemblers
 
-- (void)assemble{
-//    [self assembleTitleContainer];
-    [self assembleTitleView];
-    [self assembleContentLabel];
-//    [self assembleArrow];
-    [self assembleGC];
-    [self assembleBottomBorder];
+- (void)assembleInputView{
+    
 }
 
 - (void)assembleContentLabel{
@@ -55,7 +55,7 @@
     [self.contentView addSubview:contentLabel];
 }
 
-
+#pragma mark - setters
 
 - (void)setValue:(id)value{
     [super setValue:value];

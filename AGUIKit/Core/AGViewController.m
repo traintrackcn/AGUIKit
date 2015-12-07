@@ -63,6 +63,10 @@
 //    [self setExtendedLayoutIncludesOpaqueBars:YES];
     
     [self assemble];
+    
+    // view tap listener
+//    UITapGestureRecognizer *gc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
+//    [self.view addGestureRecognizer:gc];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -140,6 +144,11 @@
 //- (UIStatusBarStyle)preferredStatusBarStyle{
 //    return [AGConfigurationCoordinator singleton].defaultStatusBarStyle;
 //}
+#pragma mark - interactive ops
+
+- (void)didTapView:(id)sender{
+    [self.view endEditing:YES];
+}
 
 #pragma mark - layout
 

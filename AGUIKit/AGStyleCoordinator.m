@@ -91,7 +91,7 @@
     if (self) {
         cache = [NSMutableDictionary dictionary];
         [self loadPlist];
-        [self applyGlobalStyle];
+//        [self applyGlobalStyle];
         
         
         NSArray *fontFamilies = [UIFont familyNames];

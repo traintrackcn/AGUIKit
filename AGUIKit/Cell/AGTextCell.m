@@ -34,18 +34,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [self assemble];
+        [self.contentView addSubview:self.textLabel];
+        [self.contentView addSubview:self.detailTextLabel];
+        [self.contentView addSubview:self.borderBottomViewStylePaddingL];
     }
     return self;
 }
-
-- (void)assemble{
-    [super assemble];
-    [self.contentView addSubview:self.textLabel];
-    [self.contentView addSubview:self.detailTextLabel];
-    [self assembleBottomBorder];
-}
-
 
 //#pragma mark - assemblers
 #pragma mark - dynamic styles

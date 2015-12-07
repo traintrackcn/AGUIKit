@@ -24,19 +24,12 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [self.contentView addSubview:self.textView];
     }
     return self;
 }
 
-- (void)applySelectedStyle{
-    
-}
 
-- (void)assemble{
-    [super assemble];
-    [self.contentView addSubview:self.textView];
-}
 
 #pragma mark - 
 
@@ -45,7 +38,11 @@
     [self.textView setText:text];
 }
 
-#pragma mark -
+#pragma mark - styles
+
+- (void)applySelectedStyle{
+    
+}
 
 + (CGFloat)height{
     return 160;

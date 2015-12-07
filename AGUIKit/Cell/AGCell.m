@@ -15,6 +15,15 @@
 #import "DSDeviceUtil.h"
 #import "AGUIDefine.h"
 #import "GlobalDefine.h"
+#import "AGCellStyleDefine.h"
+
+@interface AGCell(){
+    
+}
+
+
+
+@end
 
 @implementation AGCell
 
@@ -30,7 +39,6 @@
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         [self setBackgroundColor:[UIColor clearColor]];
-        [self assemble];
     }
     return self;
 }
@@ -50,18 +58,6 @@
     }else{
         [self applyUnselectedStyle];
     }
-}
-
-- (void)applySelectedStyle{
-    [self setBackgroundColor:[AGStyleCoordinator colorForKey:@"cell-background-selected"]];
-    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-selected"];
-    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-selected"];
-}
-
-- (void)applyUnselectedStyle{
-    [self setBackgroundColor:[AGStyleCoordinator colorForKey:@"cell-background-unselected"]];
-    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-unselected"];
-    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-unselected"];
 }
 
 #pragma mark - properties
@@ -117,22 +113,9 @@
 
 #pragma mark - assemblers
 
-- (void)assemble{
-    
-}
-
 - (void)assembleGC{
     UITapGestureRecognizer *gc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell)];
     [self addGestureRecognizer:gc];
-}
-
-- (void)assembleBottomBorder{
-    CGFloat x = self.paddingLR;
-    CGFloat y = [self.class height] - 1;
-    CGFloat w = [DSDeviceUtil bounds].size.width - self.paddingLR;
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, 1)];
-    [self.contentView addSubview:v];
-    [v setBackgroundColor:[AGStyleCoordinator colorCellBorder]];
 }
 
 #pragma mark - interactive actions
@@ -298,7 +281,7 @@
 
 - (UIView *)borderTopViewStyleSolid{
     if (!_borderTopViewStyleSolid) {
-        _borderTopViewStyleSolid = [self assembleBorderView];
+        _borderTopViewStyleSolid = [self borderViewInstance];
         CGRect frame = CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, self.borderWidth);
         [_borderTopViewStyleSolid setFrame:frame];
     }
@@ -308,7 +291,7 @@
 - (UIView *)borderBottomViewStyleSolid{
     
     if (!_borderBottomViewStyleSolid) {
-        _borderBottomViewStyleSolid = [self assembleBorderView];
+        _borderBottomViewStyleSolid = [self borderViewInstance];
         [self layoutBorderBottomViewStyleSolid];
     }
     
@@ -321,29 +304,39 @@
 }
 
 
-- (UIView *)borderBottomViewStylePaddingLR{
-    if (!_borderBottomViewStylePaddingLR) {
-        _borderBottomViewStylePaddingLR = [self assembleBorderView];
-        CGFloat y = [self.class height] - self.borderWidth;
+//- (UIView *)borderBottomViewStylePaddingLR{
+//    if (!_borderBottomViewStylePaddingLR) {
+//        _borderBottomViewStylePaddingLR = [self borderViewInstance];
+//        CGFloat y = self.height - self.borderWidth;
+//        CGFloat x = self.paddingLR;
+//        CGFloat w = [DSDeviceUtil bounds].size.width - x*2;
+//        CGFloat h = self.borderWidth;
+//        CGRect frame = CGRectMake(x, y, w, h);
+//        [_borderBottomViewStylePaddingLR setFrame:frame];
+//    }
+//
+//    return _borderBottomViewStylePaddingLR;
+//}
+
+- (UIView *)borderBottomViewStylePaddingL{
+    if (!_borderBottomViewStylePaddingL) {
+        _borderBottomViewStylePaddingL = [self borderViewInstance];
+        CGFloat y = self.height - self.borderWidth;
         CGFloat x = self.paddingLR;
-        CGFloat w = [DSDeviceUtil bounds].size.width - x*2;
+        CGFloat w = [DSDeviceUtil bounds].size.width - x;
         CGFloat h = self.borderWidth;
         CGRect frame = CGRectMake(x, y, w, h);
-        [_borderBottomViewStylePaddingLR setFrame:frame];
+        [_borderBottomViewStylePaddingL setFrame:frame];
     }
-
-    return _borderBottomViewStylePaddingLR;
+    
+    return _borderBottomViewStylePaddingL;
 }
 
 
-- (UIView *)assembleBorderView{
+- (UIView *)borderViewInstance{
     UIView *borderView = [[UIView alloc] init];
     [borderView setBackgroundColor:self.borderColor];
     return borderView;
-}
-
-- (UIView *)borderViewInstance{
-    return [self assembleBorderView];
 }
 
 #pragma mark - styles
@@ -388,5 +381,19 @@
 - (CGFloat)borderWidth{
     return .5f;
 }
+
+
+- (void)applySelectedStyle{
+    [self setBackgroundColor:[AGCellStyleDefine singleton].backgroundColorHighlight];
+    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-selected"];
+    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-selected"];
+}
+
+- (void)applyUnselectedStyle{
+    [self setBackgroundColor:[AGCellStyleDefine singleton].backgroundColorNormal];
+    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-unselected"];
+    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-unselected"];
+}
+
 
 @end

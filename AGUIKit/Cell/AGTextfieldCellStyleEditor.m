@@ -11,12 +11,6 @@
 
 @implementation AGTextfieldCellStyleEditor
 
-
-- (void)assemble{
-    [super assemble];
-//    [arrowV removeFromSuperview];
-}
-
 - (void)activateSelector{
     AGTextfieldEditor *vc = [[AGTextfieldEditor alloc] init];
     [vc setAssociatedCell:self];

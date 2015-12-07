@@ -73,7 +73,7 @@
 - (void)assemble{
     
     [self assembleGC];
-    [self assembleBottomBorder];
+    [self.contentView addSubview:self.borderBottomViewStylePaddingL];
     
     [self assembleLineView];
     [self assembleSeparatorView];

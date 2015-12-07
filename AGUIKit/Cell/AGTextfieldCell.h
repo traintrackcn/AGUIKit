@@ -7,6 +7,7 @@
 //
 
 #import "AGCell.h"
+#import "AGCell+TextInputDelegate.h"
 
 @interface AGTextfieldCell : AGCell <UITextFieldDelegate, UITextViewDelegate>{
 //    UIView *titleContainer;
@@ -16,8 +17,8 @@
 //    CGFloat titleMaxH;
 }
 
-- (UITextField *)inputField;
-- (UITextView *)inputBox;
+//- (UITextField *)inputField;
+//- (UITextView *)inputBox;
 - (CGRect)inputFieldFrame;
 
 #pragma mark - assemblers
@@ -26,14 +27,14 @@
 - (void)assembleInputView;
 - (void)assembleInputField;
 
-- (BOOL)inputIsField;
+//- (BOOL)inputIsField;
+//- (BOOL)inputIsBox;
 
 - (void)enableNumberPadForInputField;
 - (void)enableNumberAndPunctuationPadForInputField;
 
 - (void)layoutInputField;
 
-@property (nonatomic, assign) BOOL inputIsBox;
 @property (nonatomic, assign) CGFloat titleMaxH;
 
 @end

@@ -45,11 +45,8 @@
 
 
 #pragma mark - assemblers
-- (void)assemble;
 - (void)assembleGC;
-- (void)assembleBottomBorder;
 - (void)activateSelector;
-- (UIView *)assembleBorderView;
 - (UIView *)borderViewInstance;
 
 #pragma mark - view controller actions
@@ -71,12 +68,17 @@
 #pragma mark - styles
 
 + (CGFloat)height;
-@property (nonatomic, assign) CGFloat height;
-
 - (CGFloat)paddingLR;
 - (CGFloat)paddingTB;
 - (UIColor *)borderColor;
 - (CGFloat)borderWidth;
+
+
+
+
+@property (nonatomic, assign) CGFloat height;
+
+
 
 #pragma mark - 
 
@@ -110,10 +112,11 @@
 @property (nonatomic, strong) UIView *borderRightViewStyleBlock;
 @property (nonatomic, strong) UIView *borderTopViewStyleSolid;
 @property (nonatomic, strong) UIView *borderBottomViewStyleSolid;
-@property (nonatomic, strong) UIView *borderBottomViewStylePaddingLR;
+//@property (nonatomic, strong) UIView *borderBottomViewStylePaddingLR;
+@property (nonatomic, strong) UIView *borderBottomViewStylePaddingL;
 
 
-
+@property (nonatomic, strong) id obUIKeyboardWillChangeFrameNotification;
 
 
 @end

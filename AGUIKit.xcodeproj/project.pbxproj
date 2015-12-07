@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
+		4A3871E81C15291C00844C8C /* AGCell+TextInputDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */; };
+		4A84F95A1C0EBBAF00879360 /* AGCellStyleDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */; };
+		4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */; };
+		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
 		4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E887F1B686E9100F48CDD /* AGAssembler.m */; };
 		4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88811B686E9100F48CDD /* AGStyleCoordinator.m */; };
 		4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88A11B686E9100F48CDD /* AGButtonItem.m */; };
@@ -251,6 +256,9 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A3871E81C15291C00844C8C /* AGCell+TextInputDelegate.h in CopyFiles */,
+				4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */,
+				4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */,
 				4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */,
 				4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */,
 				4A8E8E2F1B6AF4BC00F48CDD /* AGUIDefine.h in CopyFiles */,
@@ -372,6 +380,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputDelegate.h"; sourceTree = "<group>"; };
+		4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputDelegate.m"; sourceTree = "<group>"; };
+		4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellStyleDefine.h; sourceTree = "<group>"; };
+		4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellStyleDefine.m; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
@@ -765,6 +777,8 @@
 				4A8E88EF1B686E9100F48CDD /* AGTextfieldCellStylePassword.m */,
 				4A8E88F01B686E9100F48CDD /* AGTransparentButtonCell.h */,
 				4A8E88F11B686E9100F48CDD /* AGTransparentButtonCell.m */,
+				4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */,
+				4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1099,6 +1113,8 @@
 				4A8E8E1E1B6A346A00F48CDD /* AGUIDefine.h */,
 				4A8E8E1F1B6A346A00F48CDD /* AGUIDefine.m */,
 				4A8E8E201B6A346A00F48CDD /* AGUITextKeyDefine.h */,
+				4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */,
+				4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -1299,6 +1315,7 @@
 				4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */,
 				4A8E8A711B68FBE500F48CDD /* AGLineProgressInnerView.m in Sources */,
 				4A8E898B1B686E9100F48CDD /* AGDateSelector.m in Sources */,
+				4A84F95A1C0EBBAF00879360 /* AGCellStyleDefine.m in Sources */,
 				4A8E8A341B68F7FF00F48CDD /* AGViewController+Separator.m in Sources */,
 				4A8E8B581B69060600F48CDD /* DSLocaleManager.m in Sources */,
 				4A8E89741B686E9100F48CDD /* AGTextfieldCellStyleNumber.m in Sources */,
@@ -1328,6 +1345,7 @@
 				4A8E89821B686E9100F48CDD /* AGCollectionViewCellViewController.m in Sources */,
 				4A8E89E31B68DD2400F48CDD /* AGManyCellsViewController.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
+				4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
 				4A8E89841B686E9100F48CDD /* AGCollectionViewLayoutHorizontalPages.m in Sources */,
@@ -1451,6 +1469,7 @@
 		4A8E84901B684E5300F48CDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					../3rd/libOpen,
@@ -1473,6 +1492,7 @@
 		4A8E84911B684E5300F48CDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					../3rd/libOpen,
