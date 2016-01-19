@@ -7,6 +7,7 @@
 //
 
 #import "AGTextfieldCellStylePassword.h"
+#import "AGCell+TextInputDelegate.h"
 
 @implementation AGTextfieldCellStylePassword
 

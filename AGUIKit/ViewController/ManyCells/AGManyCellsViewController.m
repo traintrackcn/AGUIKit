@@ -11,7 +11,7 @@
 #import "AGLoadingTipCell.h"
 #import "DSDeviceUtil.h"
 #import "AGRemoteUnit.h"
-#import "AGMonitor.h"
+//#import "AGMonitor.h"
 #import "DSValueUtil.h"
 #import "AGAssembler.h"
 #import "GlobalDefine.h"
@@ -86,7 +86,7 @@
         id metaRaw = [responseData objectForKey:@"meta"];
         meta = [[AGMeta alloc] initWithRaw:metaRaw];
     }@catch (NSException *exception) {
-        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
+//        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
     }
     
     

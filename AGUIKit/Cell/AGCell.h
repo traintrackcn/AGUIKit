@@ -12,6 +12,7 @@
 #import "AGRemoter.h"
 
 @class AGVCConfiguration;
+@class AGObjectPool;
 
 @protocol AGCellDelegate <NSObject>
 
@@ -32,6 +33,8 @@
 
 
 - (void)didTapCell;
+
+- (void)setValueAsArr:(NSArray *)arr;
 
 
 #pragma mark - dispatchers
@@ -86,6 +89,9 @@
 
 #pragma mark - layout ops
 - (void)layoutBorderBottomViewStyleSolid;
+
+
+@property (nonatomic, strong) AGObjectPool *objPool;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) BOOL isOptional;

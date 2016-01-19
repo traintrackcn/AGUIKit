@@ -7,7 +7,7 @@
 //
 
 #import "AGCell.h"
-#import "AGCell+TextInputDelegate.h"
+
 
 @interface AGTextfieldCell : AGCell <UITextFieldDelegate, UITextViewDelegate>{
 //    UIView *titleContainer;
@@ -17,7 +17,7 @@
 //    CGFloat titleMaxH;
 }
 
-//- (UITextField *)inputField;
+- (UITextField *)inputField;
 //- (UITextView *)inputBox;
 - (CGRect)inputFieldFrame;
 

@@ -19,13 +19,13 @@
 
 @implementation AGObjectPool
 
-- (id)objectForKey:(NSString *)key class:(Class)cls{
-    id obj = [self.dic objectForKey:key];
-    if (!obj) {
-        obj = [[cls alloc] init];
-        [self.dic setObject:obj forKey:key];
-    }
-    return obj;
+
+- (void)setObject:(id)object forKey:(nonnull id<NSCopying>)key{
+    [self.dic setObject:object forKey:key];
+}
+
+- (id)objectForKey:(NSString *)key{
+    return [self.dic objectForKey:key];
 }
 
 - (void)dealloc{

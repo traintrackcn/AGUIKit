@@ -22,7 +22,6 @@
 #import "GlobalDefine.h"
 #import "AGRemoter.h"
 #import "AGRemoterResultError.h"
-#import "AGMonitor.h"
 #import "AGRemoterResult.h"
 #import "AGUIDefine.h"
 #import "NSObject+singleton.h"
@@ -492,7 +491,7 @@
     @try {
         [self setValue:value atIndexPath:indexPath];
     }@catch (NSException *exception) {
-        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
+//        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
     }
 }
 

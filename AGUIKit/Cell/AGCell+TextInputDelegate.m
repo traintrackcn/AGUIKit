@@ -27,7 +27,7 @@
 }
 
 - (BOOL)inputIsField{
-    return [self inputIsBox];
+    return ![self inputIsBox];
 }
 
 #pragma mark - UITextfieldDelegate

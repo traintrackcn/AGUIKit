@@ -16,6 +16,7 @@
 #import "AGUIDefine.h"
 #import "GlobalDefine.h"
 #import "AGCellStyleDefine.h"
+#import "AGObjectPool.h"
 
 @interface AGCell(){
     
@@ -47,9 +48,23 @@
 
 - (void)dealloc{
     [_remoter cancelAllRequests];
+    if (self.obUIKeyboardWillChangeFrameNotification) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.obUIKeyboardWillChangeFrameNotification];
+    }
 }
 
+#pragma mark -
+
+- (AGObjectPool *)objPool{
+    if (!_objPool) {
+        _objPool = [AGObjectPool instance];
+    }
+    return _objPool;
+}
+
+
 #pragma mark - properties
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
     [super setSelected:selected animated:animated];
@@ -88,6 +103,13 @@
 
 - (void)setValue:(id)value{
     _value = value;
+    if ([value isKindOfClass:[NSArray class]]) {
+        [self setValueAsArr:(NSArray *)value];
+    }
+}
+
+- (void)setValueAsArr:(NSArray *)arr{
+    
 }
 
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue{

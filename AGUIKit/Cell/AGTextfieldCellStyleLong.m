@@ -7,6 +7,7 @@
 //
 
 #import "AGTextfieldCellStyleLong.h"
+#import "AGCell+TextInputDelegate.h"
 
 @implementation AGTextfieldCellStyleLong
 

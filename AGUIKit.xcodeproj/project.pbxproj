@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
-		4A3871E81C15291C00844C8C /* AGCell+TextInputDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */; };
 		4A84F95A1C0EBBAF00879360 /* AGCellStyleDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */; };
 		4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */; };
 		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
@@ -256,7 +255,6 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
-				4A3871E81C15291C00844C8C /* AGCell+TextInputDelegate.h in CopyFiles */,
 				4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */,
 				4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */,
 				4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */,

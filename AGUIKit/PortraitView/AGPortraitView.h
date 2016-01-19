@@ -13,10 +13,16 @@
 + (instancetype)instanceWithFrame:(CGRect)frame borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
 
 
+- (void)setImage:(UIImage *)img;
+- (void)setUrl:(NSString *)urlStr;
+- (void)setBackgroundColor:(UIColor *)backgroundColor;
 
 @property (nonatomic, strong) UIColor *borderColor;
 @property (nonatomic, assign) CGFloat borderWidth;
 
-@property (nonatomic, strong) UIImageView *imageView;
+
+
+
+
 
 @end

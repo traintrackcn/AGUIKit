@@ -15,4 +15,6 @@
 - (UITextField *)inputField;
 - (UITextView *)inputBox;
 
+
+- (void)didEndEditingWithText:(NSString *)text;
 @end

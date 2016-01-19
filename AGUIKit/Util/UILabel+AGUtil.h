@@ -11,6 +11,12 @@
 @interface UILabel (AGUtil)
 
 - (void)setText:(NSString *)text withTextColor:(UIColor *)textColor exceptTitle:(NSString *)title;
+- (void)setText:(NSString *)text withColor:(UIColor *)color font:(UIFont *)font exceptTitle:(NSString *)title;
+- (void)setTextArr:(NSArray *)arr lastObjectWithColor:(UIColor *)color font:(UIFont *)font;
+- (void)setTextArr:(NSArray *)arr lastObjectWithColor:(UIColor *)color;
+- (void)setTextArr:(NSArray *)arr lastObjectWithFont:(UIFont *)font;
+
+
 - (void)resizeWithMaxSize:(CGSize)maxSize;
 - (void)moveTo:(CGPoint)pos;
 

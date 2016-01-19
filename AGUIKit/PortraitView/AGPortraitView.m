@@ -10,12 +10,17 @@
 #import "GlobalDefine.h"
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"
+#import "AGRemoter.h"
+#import "DSImage.h"
+#import "NSObject+Singleton.h"
 
 @interface AGPortraitView(){
     
 }
 
 @property (nonatomic, strong) UIView *circleView;
+
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -44,6 +49,21 @@
         [self assemble];
     }
     return self;
+}
+
+#pragma mark - ops
+
+- (void)setImage:(UIImage *)img{
+    [self.imageView setImage:img];
+}
+
+- (void)setUrl:(NSString *)urlStr{
+    NSURL *url = [NSURL URLWithString:urlStr];
+    [[AGRemoter singleton] REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor{
+    [self.imageView setBackgroundColor:backgroundColor];
 }
 
 #pragma mark -

@@ -114,7 +114,6 @@
 //    [result setRequest:req];
 //    [result setCode:AGResultCodeUnknown];
     
-//    [AGMonitor logServerExceptionWithResult:result];
     
     isErrorOccurred = YES;
 }

@@ -9,6 +9,8 @@
 #import "AGTextfieldCellStyleNoTitle.h"
 #import "AGAssembler.h"
 #import "AGStyleCoordinator.h"
+#import "AGCell+TextInputDelegate.h"
+
 @implementation AGTextfieldCellStyleNoTitle
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
