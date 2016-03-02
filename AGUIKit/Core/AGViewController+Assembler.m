@@ -76,6 +76,7 @@
 - (UIView *)assembleHeaderForSection:(NSInteger)section{
     Class cls = [self.config headerClsOfSection:section];
     id value = nil;
+//    NSInteger rows = [self numberOfRowsInSection:section];
     
     @try {
         value = [self valueForHeaderOfSection:section];
@@ -85,7 +86,7 @@
     
 //    TLOG(@"cls -> %@ value -> %@", cls, value);
     
-    if ([DSValueUtil isAvailable:value]){
+    if (value){
         AGHeaderView *v = [[cls alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [cls height])];
         [v setAssociatedViewController:self];
         [v setSection:section];
@@ -93,7 +94,7 @@
         return v;
     }
     
-    return [[UIView alloc] init];
+    return [self dummyHeaderView];
 }
 
 

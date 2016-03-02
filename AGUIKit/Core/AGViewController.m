@@ -318,6 +318,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     Class cls = [self.config headerClsOfSection:section];
+    NSInteger rows = [self numberOfRowsInSection:section];
     id value = nil;
     
     @try {
@@ -326,14 +327,8 @@
         
     }
     
-    if ([DSValueUtil isNotAvailable:value]) {
-        return 0;
-    }
-
-    if ([DSValueUtil isAvailable: cls ]) {
-        return [cls height];
-    }
-    
+    if (!value || rows == 0) return 0;
+    if (cls) return [cls height];
     return 0;
 }
 
@@ -369,8 +364,7 @@
     AGCell *cell = [self assembleCellAtIndexPath:indexPath forTableView:tableView];
     
 //    TLOG(@"cell -> %@", [cell class]);
-    if ([DSValueUtil isNotAvailable:cell]) {
-//        TLOG(@"%@ section -> %ld  index -> %ld has exception",NSStringFromClass(self.class), (long)section, (long)idx);
+    if (!cell) {
         return [self cellForException];
     }
     
@@ -457,6 +451,15 @@
     dummyCell = [self dummyCellInstanceAtIndex:index];
     [viewController setAssociatedCell:dummyCell];
     [dummyCell pushViewController:viewController];
+}
+
+#pragma mark - components
+
+- (UIView *)dummyHeaderView{
+    if (!_dummyHeaderView) {
+        _dummyHeaderView = [[UIView alloc] init];
+    }
+    return _dummyHeaderView;
 }
 
 

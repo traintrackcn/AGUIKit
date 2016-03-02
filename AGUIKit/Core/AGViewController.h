@@ -105,5 +105,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 @property (nonatomic, strong) AGObjectPool *objPool;
 
+@property (nonatomic, strong) UIView *dummyHeaderView;
+
 
 @end
