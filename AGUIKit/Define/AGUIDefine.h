@@ -10,11 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "DSDeviceUtil.h"
 
-
-#define FONT_LIGHT_WITH_SIZE(aSize) [UIFont fontWithName:@"HelveticaNeue-Light" size:aSize]
-#define FONT_REGULAR_WITH_SIZE(aSize) [UIFont fontWithName:@"HelveticaNeue" size:aSize]
-#define FONT_MEDIUM_WITH_SIZE(aSize) [UIFont fontWithName:@"HelveticaNeue-Medium" size:aSize]
-
 #define STYLE_NAVIGATION_BAR_HEIGHT 44.0
 #define STYLE_STATUS_BAR_HEIGHT 20.0
 #define STYLE_TAB_BAR_HEIGHT 50.0
