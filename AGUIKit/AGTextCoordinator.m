@@ -13,6 +13,11 @@
 #import "DSLocaleManager.h"
 #import "CHCSVParser.h"
 
+typedef NS_ENUM(NSInteger, CSVFieldIndex) {
+    CSVFieldIndexKey = 0,
+    CSVFieldIndexComment
+};
+
 
 @interface AGTextCoordinator()<CHCSVParserDelegate>{
 }
@@ -29,16 +34,7 @@
 
 @implementation AGTextCoordinator
 
-- (NSMutableDictionary *)dic{
-    if (!_dic) {
-        _dic = [NSMutableDictionary dictionary];
-    }
-    return _dic;
-}
 
-- (NSString *)langID{
-    return [DSLocaleManager languageID];
-}
 
 - (id)init{
     self = [super init];
@@ -48,13 +44,37 @@
     return self;
 }
 
+
+#pragma mark - main ops
+
++ (NSString *)textForKey:(NSString *)key{
+    return [[self singleton] textForKey:key];
+}
+
+- (NSString *)textForKey:(NSString *)key{
+//    NSString *originalKey = [key copy];
+    NSArray *keys = [key componentsSeparatedByString:@","];
+    id value;
+    
+    for (NSInteger i = 0; i < keys.count; i++) {
+        key = [keys objectAtIndex:i];
+        value = [self.dic objectForKey:key];
+        if (value) return value;
+    }
+    
+    return keys.lastObject;
+}
+
+
+#pragma mark - load localized texts
+
 - (void)reload{
     [self setDic:nil];
     [self load];
 }
 
 - (void)load{
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"localization1" withExtension:@"csv"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"localization" withExtension:@"csv"];
     TLOG(@"url -> %@", url);
     
     if (url) {
@@ -98,7 +118,8 @@
     CHCSVWriter *writer = [[CHCSVWriter alloc] initForWritingToCSVFile:path];
 //    TLOG(@"writer -> %@", writer);
     id dic = [self dicFromPlist];
-    if (writer) {
+    
+    if (dic && writer) {
         NSInteger lineIdx = 0;
         for (NSString *key in dic) {
             id value = [dic objectForKey:key];
@@ -152,7 +173,7 @@
             [self setSelectedLangFieldIdx:fieldIndex];
         }
     }else{
-        if (fieldIndex == self.CSVFieldIndexKey) {
+        if (fieldIndex == CSVFieldIndexKey) {
             [self setCurrentLangKey:field];
         }
         
@@ -166,21 +187,19 @@
     TLOG(@"error -> %@", error);
 }
 
-#pragma mark - CSVFieldIndex
 
-- (NSInteger)CSVFieldIndexKey{
-    return 0;
+
+#pragma mark - properties
+
+- (NSMutableDictionary *)dic{
+    if (!_dic) {
+        _dic = [NSMutableDictionary dictionary];
+    }
+    return _dic;
 }
 
-#pragma mark -
-
-+ (NSString *)textForKey:(NSString *)key{
-    return [[self singleton] textForKey:key];
-}
-
-- (NSString *)textForKey:(NSString *)key{
-    if ([self.dic objectForKey:key])  return [self.dic objectForKey:key];
-    return key;
+- (NSString *)langID{
+    return [DSLocaleManager languageID];
 }
 
 @end
