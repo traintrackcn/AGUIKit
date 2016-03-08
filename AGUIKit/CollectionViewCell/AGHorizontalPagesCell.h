@@ -15,11 +15,10 @@
 //    NSArray *items;
 //    UICollectionView *collectionV;
     AGCollectionViewLayout *collectionViewLayout;
+    
+    
 }
 
-//- (void)setDefaultIndex:(NSInteger)index;
-//- (CGFloat)height;
-//- (void)setItems:(NSArray *)theItems;
 
 - (Class)collectionViewCellCls;
 //- (UICollectionView *)collectionView;
@@ -31,6 +30,7 @@
 - (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated;
 
 - (void)didSelectItem:(id)item;
+- (void)didDisplayCell:(id)cell;
 - (void)dispatchSelectedItem;
 
 

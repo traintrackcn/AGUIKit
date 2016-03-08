@@ -12,10 +12,13 @@
 #import "AGCollectionViewCell.h"
 #import "DSDeviceUtil.h"
 #import "DSValueUtil.h"
+#import "GlobalDefine.h"
 
 @interface AGHorizontalPagesCell() <UICollectionViewDataSource, UICollectionViewDelegate>{
     
 }
+
+@property (nonatomic, assign) BOOL switchingIndexByOtherComponents;
 
 @end
 
@@ -86,6 +89,7 @@
 
 
 - (BOOL)selectIndex:(NSInteger)index{
+//    TLOG(@"selectedIndex -> %d index -> %d", selectedIndex, index);
     if(selectedIndex == index) return NO;
     selectedIndex = index;
     return YES;
@@ -94,21 +98,31 @@
 - (void)selectIndexAndDispatchSelectedItem:(NSInteger)index{
     if ([self selectIndex:index]) {
         [self dispatchSelectedItem];
+//        [self didDisplayCellAtIndex:index];
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+        id cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+        [self didDisplayCell:cell];
     }
     
 }
 
+- (void)selectIndexAndScrollToIndex:(NSInteger)index{
+    if ([self selectIndex:index]) {
+        [self setSwitchingIndexByOtherComponents:YES];
+        [self scrollToIndex:index animated:YES];
+//        [self didDisplayCellAtIndex:index];
+//                [self performSelector:@selector(didDisplayCellAtIndex:) withObject:[NSNumber numberWithInt:index] afterDelay:2.0f];
+    }
+}
+
 - (void)dispatchSelectedItem{
-    if ([DSValueUtil isAvailable:self.selectedItem]){
+    if (self.selectedItem){
         [self didSelectItem:self.selectedItem];
     }
 }
 
-- (void)selectIndexAndScrollToIndex:(NSInteger)index{
-    if ([self selectIndex:index]) {
-        [self scrollToIndex:index animated:YES];
-    }
-}
+
 
 - (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated{
     
@@ -119,12 +133,16 @@
     }
 }
 
+- (void)didDisplayCell:(id)cell{
+    
+}
+
 - (void)didSelectItem:(id)item{
     
 }
 
 - (id)selectedItem{
-    if ([DSValueUtil isNotAvailable:self.items]) return nil;
+    if (!self.items) return nil;
     return [self.items objectAtIndex:selectedIndex];
 }
 
@@ -159,12 +177,16 @@
     [self setItems:value];
 }
 
+
 #pragma mark - UICollectionViewDelegate & DataSource
 
-
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (self.switchingIndexByOtherComponents) {
+        [self didDisplayCell:cell];
+        [self setSwitchingIndexByOtherComponents:NO];
+    }
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = indexPath.row;
@@ -186,12 +208,6 @@
     return self.items?self.items.count:0;
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    NSInteger index = indexPath.row;
-//    id item = [items objectAtIndex:index];
-//    TLOG(@"item -> %@", item);
-//}
-
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
 //    CGFloat contentW = scrollView.contentSize.width;
     CGFloat targetContentOffsetX = (*targetContentOffset).x;
@@ -200,5 +216,6 @@
 //    TLOG(@"");
     [self selectIndexAndDispatchSelectedItem:targetIdx];
 }
+
 
 @end
