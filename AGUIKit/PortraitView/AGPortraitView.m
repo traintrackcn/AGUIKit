@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIView *circleView;
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) AGRemoter *remoter;
 
 @end
 
@@ -51,6 +52,11 @@
     return self;
 }
 
+
+- (void)dealloc{
+    return [self.remoter cancelAllImageRequests];
+}
+
 #pragma mark - ops
 
 - (void)setImage:(UIImage *)img{
@@ -59,11 +65,21 @@
 
 - (void)setUrl:(NSString *)urlStr{
     NSURL *url = [NSURL URLWithString:urlStr];
-    [[AGRemoter singleton] REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
+    [self.remoter cancelAllImageRequests];
+    [self.remoter REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
     [self.imageView setBackgroundColor:backgroundColor];
+}
+
+#pragma mark - remote stuff
+
+- (AGRemoter *)remoter{
+    if (!_remoter) {
+        _remoter = [AGRemoter instanceWithDelegate:nil];
+    }
+    return _remoter;
 }
 
 #pragma mark -

@@ -16,7 +16,7 @@
 
 NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControllersCellDidChange";
 
-@interface AGHorizontalViewControllersCell() {
+@interface AGHorizontalViewControllersCell() <UICollectionViewDelegate>{
 }
 
 @end
@@ -40,22 +40,27 @@ NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControlle
     
 }
 
-- (void)willDisplayCellAtIndex:(NSInteger)index{
-    [super willDisplayCellAtIndex:index];
-//    TLOG(@"index -> %d %@", index, items);
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    AGCollectionViewCellViewController *cell = (AGCollectionViewCellViewController *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    TLOG(@"vc -> %@", cell.viewController);
-    if (cell.viewController) {
-        [cell.viewController viewWillAppear:NO];
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    AGCollectionViewCellViewController *vcCell = (AGCollectionViewCellViewController *)cell;
+    AGViewController *vc = vcCell.viewController;
+    TLOG(@"vc -> %@ cell->%@ ", vc, vcCell);
+    if (vc) {
+        [vc viewWillAppear:NO];
     }
 }
 
-#pragma mark - setter
-
-//- (void)setValue:(id)value{
-//    TLOG(@"value -> %@", value);
-//    [super setValue:value];
+//- (void)willDisplayCellAtIndex:(NSInteger)index{
+//    [super willDisplayCellAtIndex:index];
+////    TLOG(@"index -> %d %@", index, items);
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+//    AGCollectionViewCellViewController *cell = (AGCollectionViewCellViewController *)[self.collectionView cellForItemAtIndexPath:indexPath];
+//    TLOG(@"vc -> %@ cell->%@ num -> %@", cell.viewController, cell, [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]]);
+//    if (cell.viewController) {
+//        [cell.viewController viewWillAppear:NO];
+//    }
 //}
 
 @end

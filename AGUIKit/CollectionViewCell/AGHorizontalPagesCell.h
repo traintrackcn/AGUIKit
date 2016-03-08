@@ -33,7 +33,6 @@
 - (void)didSelectItem:(id)item;
 - (void)dispatchSelectedItem;
 
-- (void)willDisplayCellAtIndex:(NSInteger)index;
 
 - (UICollectionViewLayout *)collectionViewLayout;
 

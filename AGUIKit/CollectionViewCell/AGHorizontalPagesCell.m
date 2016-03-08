@@ -88,7 +88,6 @@
 - (BOOL)selectIndex:(NSInteger)index{
     if(selectedIndex == index) return NO;
     selectedIndex = index;
-    [self willDisplayCellAtIndex:index];
     return YES;
 }
 
@@ -134,11 +133,7 @@
     [self selectIndex:0];
 }
 
-#pragma mark - 
 
-- (void)willDisplayCellAtIndex:(NSInteger)index{
-    
-}
 
 #pragma mark - setter
 
@@ -166,12 +161,18 @@
 
 #pragma mark - UICollectionViewDelegate & DataSource
 
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = indexPath.row;
     Class cls = self.collectionViewCellCls;
     NSString *cellId = NSStringFromClass(cls);
     id value = [self.items objectAtIndex:index];
     AGCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    [cell setAssociatedViewController:self.associatedViewController];
     [cell setValue:value];
 //    TLOG(@"idx:%d value:%@", index, value);
     return cell;

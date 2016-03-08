@@ -36,9 +36,6 @@ typedef NS_ENUM(NSInteger, Section) {
         
         [self.config setCellCls:[AGTabBarCell class] inSection:SectionTabBar];
         [self.config setCellCls:[AGHorizontalViewControllersCell class] inSection:SectionContent];
-        
-        
-        
     }
     return self;
 }

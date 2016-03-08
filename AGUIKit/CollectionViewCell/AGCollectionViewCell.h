@@ -10,6 +10,7 @@
 
 //@class AGCollectionViewCellValue;
 @class AGRemoter;
+@class AGViewController;
 
 @interface AGCollectionViewCell : UICollectionViewCell{
 //    AGRemoter *remoter;
@@ -17,5 +18,6 @@
 
 @property (nonatomic, strong) id value;
 @property (nonatomic, strong) AGRemoter *remoter;
+@property (nonatomic, weak) AGViewController *associatedViewController;
 
 @end

@@ -11,6 +11,7 @@
 #import "AGCollectionViewCellValue.h"
 #import "AGStyleCoordinator.h"
 #import "DSValueUtil.h"
+#import "GlobalDefine.h"
 
 @interface AGCollectionViewCellViewController(){
 //    Class vcCls;
@@ -40,6 +41,7 @@
 - (void)assembleVC{
     if ([DSValueUtil isAvailable:self.viewController]) return;
     self.viewController = [[value.viewControllerCls alloc] init];
+    [self.associatedViewController addChildViewController:self.viewController];
     [self.viewController setUserInfo:value.userInfo];
     //refine vc's frame
     CGRect frame = self.frame;
@@ -47,6 +49,10 @@
     [self.viewController.view setFrame:frame];
     
     [self.contentView addSubview:self.viewController.view];
+    
+    TLOG(@"self.associatedViewController -> %@ self.viewController -> %@", self.associatedViewController, self.viewController);
+    
+    
     
 }
 
@@ -65,7 +71,7 @@
 
 - (void)setValue:(id)aValue{
     
-    if ([DSValueUtil isAvailable:value]){
+    if (value){
         if ([value isEqual:aValue]) return;
     }
     
