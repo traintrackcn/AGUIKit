@@ -44,7 +44,9 @@ NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControlle
 - (void)didDisplayCell:(id)cell{
     AGCollectionViewCellViewController *vcCell = (AGCollectionViewCellViewController *)cell;
     AGViewController *vc = vcCell.viewController;
-    if (vc) [vc viewDidAppear:NO];
+    if (vc) {
+        [vc viewWillAppear:NO];
+    }
 }
 
 

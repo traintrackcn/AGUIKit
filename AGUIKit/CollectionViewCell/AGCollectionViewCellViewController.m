@@ -47,8 +47,9 @@
     CGRect frame = self.frame;
     frame.origin = CGPointZero;
     [self.viewController.view setFrame:frame];
-    
+    [self.viewController viewWillAppear:NO];
     [self.contentView addSubview:self.viewController.view];
+    [self.viewController viewDidAppear:NO];
     
     TLOG(@"self.associatedViewController -> %@ self.viewController -> %@", self.associatedViewController, self.viewController);
     
