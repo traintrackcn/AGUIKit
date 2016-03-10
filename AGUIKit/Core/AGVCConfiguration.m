@@ -12,6 +12,7 @@
 #import "AGHeaderViewStyleDefault.h"
 #import "DSValueUtil.h"
 #import "AGStyleCoordinator.h"
+#import "GlobalDefine.h"
 
 @interface AGVCConfiguration(){
     NSMutableDictionary *cellOptionalDic;
@@ -41,6 +42,28 @@
         sectionUnitDic = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+#pragma mark - 
+
+- (void)clearSettingsForSection:(NSInteger)section{
+    [self clearSettingsForSection:section dic:headerClsDic];
+    [self clearSettingsForSection:section dic:cellOptionalDic];
+    [self clearSettingsForSection:section dic:cellClsDic];
+    [self clearSettingsForSection:section dic:cellHeightDic];
+    
+//    TLOG(@"cellHeightDic -> %@", cellHeightDic);
+}
+
+- (void)clearSettingsForSection:(NSInteger)section dic:(NSMutableDictionary *)dic{
+    NSString *prefix = [NSString stringWithFormat:@"section-%ld",(long)section];
+    NSDictionary *tmpDic = [NSDictionary dictionaryWithDictionary:dic];
+    for (NSString *key in tmpDic) {
+//        TLOG(@"prefix -> %@ key -> %@", prefix,key);
+        if ([key rangeOfString:prefix].location != NSNotFound) {
+            [dic removeObjectForKey:key];
+        }
+    }
 }
 
 #pragma mark - input mapper
@@ -172,7 +195,7 @@
 #pragma mark - properties
 
 - (NSString *)keyOfIndexPath:(NSIndexPath *)indexPath{
-    return [NSString stringWithFormat:@"seciton-%ld-index-%ld", (long)indexPath.section, (long)indexPath.row];
+    return [NSString stringWithFormat:@"section-%ld-index-%ld", (long)indexPath.section, (long)indexPath.row];
 }
 
 - (NSString *)keyOfSection:(NSInteger)section{

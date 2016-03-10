@@ -10,6 +10,7 @@
 
 @class AGVCConfiguration;
 @class AGViewController;
+@class AGSectionLoader;
 
 @interface AGSectionUnit : NSObject
 
@@ -25,9 +26,12 @@
 
 - (id)headerValue;
 //- (Class)headerClass;
-@property (nonatomic, weak) AGVCConfiguration *config;
-@property (nonatomic, assign) NSInteger section;
+
+- (AGVCConfiguration *)config;
+- (NSInteger)section;
+
 @property (nonatomic, assign) BOOL readonly;
 @property (nonatomic, weak) AGViewController *associatedViewController;
+@property (nonatomic, weak) AGSectionLoader *associatedSectionLoader;
 
 @end

@@ -12,6 +12,10 @@
 
 }
 
+#pragma mark - interactive ops
+
+- (void)didTap:(id)sender;
+
 #pragma mark - dispatchers
 
 - (void)dispatchRequestAction:(id)action;
@@ -21,8 +25,8 @@
 - (void)pushViewController:(UIViewController *)viewController;
 
 #pragma mark - components
-- (UITableView *)tableView;
 @property (nonatomic, strong) UIView *borderBottomView;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecgonizer;
 
 #pragma mark - styles
 + (CGFloat)height;
@@ -30,6 +34,7 @@
 @property (nonatomic, assign) CGFloat paddingLR;
 
 #pragma mark - properties
+- (UITableView *)tableView;
 @property (nonatomic, weak) id associatedViewController;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, strong) id value;

@@ -10,6 +10,15 @@
 #import "AGVCConfiguration.h"
 //#import "AGHeaderViewStyleDefault.h"
 
+@interface AGSectionUnit(){
+    
+}
+
+@property (nonatomic, weak) AGVCConfiguration *config;
+@property (nonatomic, assign) NSInteger section;
+
+@end
+
 @implementation AGSectionUnit
 
 + (instancetype)instanceWithSection:(NSInteger)section config:(AGVCConfiguration *)config{

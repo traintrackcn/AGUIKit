@@ -23,6 +23,8 @@ enum{
 
 #pragma mark - input properties' dic
 
+- (void)clearSettingsForSection:(NSInteger)section;
+
 - (void)setCellOptionalAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)isCellOptionalAtIndexPath:(NSIndexPath *)indexPath;
 

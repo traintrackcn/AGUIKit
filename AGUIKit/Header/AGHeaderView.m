@@ -56,6 +56,26 @@
     return _borderBottomView;
 }
 
+
+
+
+- (UITapGestureRecognizer *)tapGestureRecgonizer{
+    if (!_tapGestureRecgonizer) {
+        _tapGestureRecgonizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+    }
+    return _tapGestureRecgonizer;
+}
+
+
+#pragma mark - interactive ops
+
+- (void)didTap:(id)sender{
+    
+}
+
+
+#pragma mark - 
+
 - (UITableView *)tableView{
     if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
         return [(AGViewController *)self.associatedViewController tableView];

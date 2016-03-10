@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
+		4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50611C9148F400D8D46A /* AGSectionLoader.m */; };
+		4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50601C9148F400D8D46A /* AGSectionLoader.h */; };
 		4A84F95A1C0EBBAF00879360 /* AGCellStyleDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */; };
 		4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */; };
 		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
@@ -255,6 +257,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */,
 				4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */,
 				4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */,
 				4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */,
@@ -380,6 +383,8 @@
 /* Begin PBXFileReference section */
 		4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputDelegate.h"; sourceTree = "<group>"; };
 		4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputDelegate.m"; sourceTree = "<group>"; };
+		4A6E50601C9148F400D8D46A /* AGSectionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionLoader.h; sourceTree = "<group>"; };
+		4A6E50611C9148F400D8D46A /* AGSectionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSectionLoader.m; sourceTree = "<group>"; };
 		4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellStyleDefine.h; sourceTree = "<group>"; };
 		4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellStyleDefine.m; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -847,6 +852,8 @@
 		4A8E891C1B686E9100F48CDD /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E50601C9148F400D8D46A /* AGSectionLoader.h */,
+				4A6E50611C9148F400D8D46A /* AGSectionLoader.m */,
 				4A8E899B1B686FDD00F48CDD /* AGSectionUnit.h */,
 				4A8E899C1B686FDD00F48CDD /* AGSectionUnit.m */,
 			);
@@ -1283,6 +1290,7 @@
 				4A8E895E1B686E9100F48CDD /* AGCollectionViewLayoutHorizontalLabels.m in Sources */,
 				4A8E89E41B68DD2400F48CDD /* AGMeta.m in Sources */,
 				4A8E898D1B686E9100F48CDD /* AGPeriodSelector.m in Sources */,
+				4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */,
 				4A8E89661B686E9100F48CDD /* AGSearchCell.m in Sources */,
 				4A8E896F1B686E9100F48CDD /* AGTextfieldBoxCell.m in Sources */,
 				4A8E89551B686E9100F48CDD /* AGEndTimeCell.m in Sources */,
