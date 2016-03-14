@@ -56,12 +56,12 @@ static DSAlertUtil *___instanceDSAlertUtil;
 
 - (void)showAlertShoppingServiceUnavailable{
     NSString *msg = @"Shopping service is unavailable.";
-    [self showAlertWithTitle:[AGTextCoordinator textForKey:KEY_LBL_WARNING] message:msg tag:ViewTagShoppingService cancelButtonTitle:[AGTextCoordinator textForKey:KEY_LBL_OK] otherButtonTitles:nil];
+    [self showAlertWithTitle:TEXT_FOR_KEY(KEY_LBL_WARNING) message:msg tag:ViewTagShoppingService cancelButtonTitle:TEXT_FOR_KEY(KEY_LBL_OK) otherButtonTitles:nil];
 }
 
 
 - (void)showAlertWarningMessage:(NSString *)msg{
-    [self showAlertWithTitle:[AGTextCoordinator textForKey:KEY_LBL_WARNING] message:msg tag:ViewTagWarning cancelButtonTitle:[AGTextCoordinator textForKey:KEY_LBL_OK] otherButtonTitles:nil];
+    [self showAlertWithTitle:TEXT_FOR_KEY(KEY_LBL_WARNING) message:msg tag:ViewTagWarning cancelButtonTitle:TEXT_FOR_KEY(KEY_LBL_OK) otherButtonTitles:nil];
 }
 
 
@@ -75,19 +75,19 @@ static DSAlertUtil *___instanceDSAlertUtil;
 
 
 + (void)showSVPKeywordIsEmpty{
-    [SVProgressHUD showErrorWithStatus:[AGTextCoordinator textForKey:KEY_MSG_KEYWORK_IS_EMPTY]];
+    [SVProgressHUD showErrorWithStatus:TEXT_FOR_KEY(KEY_MSG_KEYWORK_IS_EMPTY)];
 }
 
 + (void)showSVPProcessing{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_PROCESSING] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_PROCESSING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPSaving{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_SAVING] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_SAVING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPValidating{
-    [SVProgressHUD showWithStatus:[AGTextCoordinator textForKey:KEY_MSG_VALIDATING] maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_VALIDATING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPStatusForCustomText:(NSString *)text{
@@ -110,17 +110,17 @@ static DSAlertUtil *___instanceDSAlertUtil;
 #pragma mark - kinds of panels
 
 + (void)showGlobalPanelErrorConnectionError{
-    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_NETWORK_ERROR]
-                     subtitle:[AGTextCoordinator textForKey:KEY_MSG_CHECK_YOUR_CONNECTION]];
+    [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_NETWORK_ERROR)
+                     subtitle:TEXT_FOR_KEY(KEY_MSG_CHECK_YOUR_CONNECTION)];
 }
 
 + (void)showGobalPanelErrorCannotReachHost{
-     [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_SERVER_MAINTENANCE]
-                      subtitle:[AGTextCoordinator textForKey:KEY_MSG_UNDERGOING_MAINTENANCE]];
+     [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_SERVER_MAINTENANCE)
+                      subtitle:TEXT_FOR_KEY(KEY_MSG_UNDERGOING_MAINTENANCE)];
 }
 
 + (void)showGlobalPanelErrorOops{
-    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textForKey:KEY_LBL_OOPS] subtitle:[AGTextCoordinator textForKey:KEY_MSG_OOPS_SOMETING_WRONG]];
+    [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_OOPS) subtitle:TEXT_FOR_KEY(KEY_MSG_OOPS_SOMETING_WRONG)];
 }
 
 //+ (void)showGlobalPanelErrorOops{

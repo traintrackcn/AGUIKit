@@ -10,6 +10,18 @@
 		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
 		4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50611C9148F400D8D46A /* AGSectionLoader.m */; };
 		4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50601C9148F400D8D46A /* AGSectionLoader.h */; };
+		4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */; };
+		4A6E507B1C92720E00D8D46A /* DASectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50791C92720E00D8D46A /* DASectionButton.m */; };
+		4A6E507C1C92723900D8D46A /* DASectionButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50781C92720E00D8D46A /* DASectionButton.h */; };
+		4A6E507D1C92723900D8D46A /* AGViewController+SectionComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */; };
+		4A6E50861C9272D500D8D46A /* DACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50851C9272D500D8D46A /* DACell.m */; };
+		4A6E50901C9273B600D8D46A /* DAButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E508B1C9273B600D8D46A /* DAButtonCell.m */; };
+		4A6E50911C9273B600D8D46A /* DAButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E508D1C9273B600D8D46A /* DAButtonFactory.m */; };
+		4A6E50921C9273B600D8D46A /* DAButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E508F1C9273B600D8D46A /* DAButtonItem.m */; };
+		4A6E50931C92765600D8D46A /* DAButtonCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E508A1C9273B600D8D46A /* DAButtonCell.h */; };
+		4A6E50941C92765600D8D46A /* DAButtonFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E508C1C9273B600D8D46A /* DAButtonFactory.h */; };
+		4A6E50951C92765600D8D46A /* DAButtonItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E508E1C9273B600D8D46A /* DAButtonItem.h */; };
+		4A6E50961C92765600D8D46A /* DACell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50841C9272D500D8D46A /* DACell.h */; };
 		4A84F95A1C0EBBAF00879360 /* AGCellStyleDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */; };
 		4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */; };
 		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
@@ -257,6 +269,12 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A6E50931C92765600D8D46A /* DAButtonCell.h in CopyFiles */,
+				4A6E50941C92765600D8D46A /* DAButtonFactory.h in CopyFiles */,
+				4A6E50951C92765600D8D46A /* DAButtonItem.h in CopyFiles */,
+				4A6E50961C92765600D8D46A /* DACell.h in CopyFiles */,
+				4A6E507C1C92723900D8D46A /* DASectionButton.h in CopyFiles */,
+				4A6E507D1C92723900D8D46A /* AGViewController+SectionComponents.h in CopyFiles */,
 				4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */,
 				4A84F95B1C0EBC2900879360 /* AGCellStyleDefine.h in CopyFiles */,
 				4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */,
@@ -385,6 +403,18 @@
 		4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputDelegate.m"; sourceTree = "<group>"; };
 		4A6E50601C9148F400D8D46A /* AGSectionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionLoader.h; sourceTree = "<group>"; };
 		4A6E50611C9148F400D8D46A /* AGSectionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSectionLoader.m; sourceTree = "<group>"; };
+		4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+SectionComponents.h"; sourceTree = "<group>"; };
+		4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+SectionComponents.m"; sourceTree = "<group>"; };
+		4A6E50781C92720E00D8D46A /* DASectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASectionButton.h; sourceTree = "<group>"; };
+		4A6E50791C92720E00D8D46A /* DASectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASectionButton.m; sourceTree = "<group>"; };
+		4A6E50841C9272D500D8D46A /* DACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACell.h; sourceTree = "<group>"; };
+		4A6E50851C9272D500D8D46A /* DACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACell.m; sourceTree = "<group>"; };
+		4A6E508A1C9273B600D8D46A /* DAButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAButtonCell.h; sourceTree = "<group>"; };
+		4A6E508B1C9273B600D8D46A /* DAButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonCell.m; sourceTree = "<group>"; };
+		4A6E508C1C9273B600D8D46A /* DAButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAButtonFactory.h; sourceTree = "<group>"; };
+		4A6E508D1C9273B600D8D46A /* DAButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonFactory.m; sourceTree = "<group>"; };
+		4A6E508E1C9273B600D8D46A /* DAButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAButtonItem.h; sourceTree = "<group>"; };
+		4A6E508F1C9273B600D8D46A /* DAButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonItem.m; sourceTree = "<group>"; };
 		4A84F9581C0EBBAF00879360 /* AGCellStyleDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellStyleDefine.h; sourceTree = "<group>"; };
 		4A84F9591C0EBBAF00879360 /* AGCellStyleDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellStyleDefine.m; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -648,6 +678,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A6E50771C92720E00D8D46A /* SectionButton */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E50781C92720E00D8D46A /* DASectionButton.h */,
+				4A6E50791C92720E00D8D46A /* DASectionButton.m */,
+			);
+			path = SectionButton;
+			sourceTree = "<group>";
+		};
 		4A8E84721B684E5300F48CDD = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +747,12 @@
 		4A8E889F1B686E9100F48CDD /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E508A1C9273B600D8D46A /* DAButtonCell.h */,
+				4A6E508B1C9273B600D8D46A /* DAButtonCell.m */,
+				4A6E508C1C9273B600D8D46A /* DAButtonFactory.h */,
+				4A6E508D1C9273B600D8D46A /* DAButtonFactory.m */,
+				4A6E508E1C9273B600D8D46A /* DAButtonItem.h */,
+				4A6E508F1C9273B600D8D46A /* DAButtonItem.m */,
 				4A8E89A51B68CDA400F48CDD /* AGButton.h */,
 				4A8E89A61B68CDA400F48CDD /* AGButton.m */,
 				4A8E88A01B686E9100F48CDD /* AGButtonItem.h */,
@@ -719,6 +764,8 @@
 		4A8E88A21B686E9100F48CDD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E50841C9272D500D8D46A /* DACell.h */,
+				4A6E50851C9272D500D8D46A /* DACell.m */,
 				4A8E8A7C1B68FFC600F48CDD /* AGTitleCell.h */,
 				4A8E8A7D1B68FFC600F48CDD /* AGTitleCell.m */,
 				4A8E88A31B686E9100F48CDD /* AGAttributedStringCell.h */,
@@ -852,6 +899,9 @@
 		4A8E891C1B686E9100F48CDD /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E50771C92720E00D8D46A /* SectionButton */,
+				4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */,
+				4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */,
 				4A6E50601C9148F400D8D46A /* AGSectionLoader.h */,
 				4A6E50611C9148F400D8D46A /* AGSectionLoader.m */,
 				4A8E899B1B686FDD00F48CDD /* AGSectionUnit.h */,
@@ -1245,6 +1295,7 @@
 				4A8E8B631B69093600F48CDD /* AGQuantityPickerView.m in Sources */,
 				4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */,
 				4A8E8A701B68FBE500F48CDD /* AGLineProgressCell.m in Sources */,
+				4A6E50921C9273B600D8D46A /* DAButtonItem.m in Sources */,
 				4A8E89731B686E9100F48CDD /* AGTextfieldCellStyleNoTitle.m in Sources */,
 				4A8E899A1B686E9100F48CDD /* DSTabBarViewController.m in Sources */,
 				4A8E89611B686E9100F48CDD /* AGMultiValueCellLabel.m in Sources */,
@@ -1263,9 +1314,11 @@
 				4A8E89771B686E9100F48CDD /* AGTransparentButtonCell.m in Sources */,
 				4A8E898F1B686E9100F48CDD /* AGSelector.m in Sources */,
 				4A8E8A301B68F7FF00F48CDD /* AGViewController+Assembler.m in Sources */,
+				4A6E507B1C92720E00D8D46A /* DASectionButton.m in Sources */,
 				4A8E89D01B68D6AE00F48CDD /* AGPresentableViewController.m in Sources */,
 				4A8E895C1B686E9100F48CDD /* AGCollectionViewCellOfMultiHeaderCell.m in Sources */,
 				4A8E89761B686E9100F48CDD /* AGTextfieldCellStylePassword.m in Sources */,
+				4A6E50901C9273B600D8D46A /* DAButtonCell.m in Sources */,
 				4A8E89751B686E9100F48CDD /* AGTextfieldCellStyleOptions.m in Sources */,
 				4A8E89991B686E9100F48CDD /* AGTabBarViewController.m in Sources */,
 				4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */,
@@ -1302,12 +1355,14 @@
 				4A8E89561B686E9100F48CDD /* AGExpirationDateCell.m in Sources */,
 				4A8E8A481B68F99400F48CDD /* AGLabelStyleTextCell.m in Sources */,
 				4A8E8A471B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.m in Sources */,
+				4A6E50911C9273B600D8D46A /* DAButtonFactory.m in Sources */,
 				4A8E89C41B68D29200F48CDD /* AGLoadingTipCell.m in Sources */,
 				4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */,
 				4A8E89721B686E9100F48CDD /* AGTextfieldCellStyleLongNumber.m in Sources */,
 				4A8E896C1B686E9100F48CDD /* AGTextCell.m in Sources */,
 				4A8E89881B686E9100F48CDD /* AGHorizontalUnitsCell.m in Sources */,
 				4A8E89E71B68E08500F48CDD /* AGTextCoordinator.m in Sources */,
+				4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */,
 				4A8E89B41B68CED800F48CDD /* AGHeaderCell.m in Sources */,
 				4A8E896E1B686E9100F48CDD /* AGTextCellStyleTitleOnly.m in Sources */,
 				4A8E897F1B686E9100F48CDD /* AGCollectionViewCellOption.m in Sources */,
@@ -1354,6 +1409,7 @@
 				4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
+				4A6E50861C9272D500D8D46A /* DACell.m in Sources */,
 				4A8E89841B686E9100F48CDD /* AGCollectionViewLayoutHorizontalPages.m in Sources */,
 				4A8E89B31B68CED800F48CDD /* AGHeader3Cell.m in Sources */,
 				4A8E8A371B68F7FF00F48CDD /* AGVCMessagesView.m in Sources */,

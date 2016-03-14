@@ -47,22 +47,49 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 #pragma mark - main ops
 
-+ (NSString *)textForKey:(NSString *)key{
-    return [[self singleton] textForKey:key];
++ (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
+    return [[self singleton] textForKey:key roleCode:roleCode];
 }
 
-- (NSString *)textForKey:(NSString *)key{
++ (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode{
+    return [[self singleton] isAvailableTextKey:key roleCode:roleCode];
+}
+
+- (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
 //    NSString *originalKey = [key copy];
     NSArray *keys = [key componentsSeparatedByString:@","];
     id value;
     
     for (NSInteger i = 0; i < keys.count; i++) {
         key = [keys objectAtIndex:i];
+        
+        if (roleCode) {
+            key = [NSString stringWithFormat:@"%@-%@", key, roleCode.lowercaseString];
+        }
+        
+//        TLOG(@"key -> %@", key);
+        
         value = [self.dic objectForKey:key];
         if (value) return value;
     }
     
     return keys.lastObject;
+}
+
+- (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode{
+    NSArray *keys = [key componentsSeparatedByString:@","];
+    id value;
+    
+    for (NSInteger i = 0; i < keys.count; i++) {
+        key = [keys objectAtIndex:i];
+        if (roleCode) {
+            key = [NSString stringWithFormat:@"%@-%@", key, roleCode.lowercaseString];
+        }
+        
+        value = [self.dic objectForKey:key];
+        if (value) return YES;
+    }
+    return NO;
 }
 
 
@@ -167,7 +194,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     self.currentLineIdx ++;
 }
 - (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex{
-    TLOG(@"field -> %@ %ld", field, (long)fieldIndex);
+//    TLOG(@"field -> %@ %ld", field, (long)fieldIndex);
     if ([self isParsingFirstLine]) {
         if ([field isEqualToString:self.langID]) {
             [self setSelectedLangFieldIdx:fieldIndex];
