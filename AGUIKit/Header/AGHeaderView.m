@@ -59,11 +59,11 @@
 
 
 
-- (UITapGestureRecognizer *)tapGestureRecgonizer{
-    if (!_tapGestureRecgonizer) {
-        _tapGestureRecgonizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+- (UITapGestureRecognizer *)tapGestureRecognizer{
+    if (!_tapGestureRecognizer) {
+        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
     }
-    return _tapGestureRecgonizer;
+    return _tapGestureRecognizer;
 }
 
 

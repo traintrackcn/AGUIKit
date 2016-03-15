@@ -122,6 +122,8 @@
 @property (nonatomic, strong) UIView *borderBottomViewStylePaddingL;
 
 
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+
 @property (nonatomic, strong) id obUIKeyboardWillChangeFrameNotification;
 
 

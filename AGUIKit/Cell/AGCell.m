@@ -136,8 +136,18 @@
 #pragma mark - assemblers
 
 - (void)assembleGC{
-    UITapGestureRecognizer *gc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell)];
-    [self addGestureRecognizer:gc];
+//    TLOG(@"self.tapGestureRecognizer -> %@", self.tapGestureRecognizer);
+    [self addGestureRecognizer:self.tapGestureRecognizer];
+}
+
+
+- (UITapGestureRecognizer *)tapGestureRecognizer{
+//    TLOG(@"_tapGestureRecognizer -> %@", _tapGestureRecognizer);
+    if (!_tapGestureRecognizer) {
+        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell)];
+    }
+//    TLOG(@"_tapGestureRecognizer -> %@", _tapGestureRecognizer);
+    return _tapGestureRecognizer;
 }
 
 #pragma mark - interactive actions

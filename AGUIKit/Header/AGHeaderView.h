@@ -26,7 +26,7 @@
 
 #pragma mark - components
 @property (nonatomic, strong) UIView *borderBottomView;
-@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecgonizer;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 #pragma mark - styles
 + (CGFloat)height;
