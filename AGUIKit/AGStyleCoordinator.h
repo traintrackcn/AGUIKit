@@ -10,17 +10,15 @@
 #import <UIKit/UIKit.h>
 
 
+#define COLOR_FOR_KEY(aKey) [AGStyleCoordinator colorForKey:aKey]
+#define COLOR(aRGB) [AGStyleCoordinator colorFromRGBValue:aRGB]
+
+
 @interface AGStyleCoordinator : NSObject
 
 + (UIColor *)colorForKey:(NSString *)key;
 + (NSArray *)rgbForKey:(NSString *)key;
-
 + (UIColor *)colorFromRGBValue:(NSString *)value;
-
-- (void)applyGlobalStyle;
-- (void)applyGlobalNavigationBarStyle;
-
-@property (nonatomic, strong) UIImage *navigationBarBackgroundImage;
 
 #pragma mark - for quick pick
 

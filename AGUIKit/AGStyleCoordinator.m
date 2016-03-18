@@ -15,20 +15,7 @@
 #import "NSObject+Singleton.h"
 #import "AGUIDefine.h"
 
-//#pragma mark - class NSString (PrivateAdditions)
 
-//@interface NSString (PrivateAdditions)
-//- (NSUInteger)hexValue;
-//@end
-//
-//@implementation NSString (PrivateAdditions)
-//
-//- (NSUInteger)hexValue {
-//	NSUInteger result = 0;
-//	sscanf([self UTF8String], "%x", &result);
-//	return result;
-//}
-//@end
 
 
 #pragma mark - class DSStyle
@@ -79,51 +66,6 @@
     return self;
 }
 
-
-- (UIImage *)navigationBarBackgroundImage{
-//    if (_navigationBarBackgroundImage) {
-    NSArray *naviBarBgRGB = [self rgbForKey:@"navigation-bar-background"];
-//    TLOG(@"naviBarBgRGB -> %@", naviBarBgRGB);
-    UIColor *c = [DSImage navigationBarTintColorFromRed:[[naviBarBgRGB objectAtIndex:0] floatValue]
-                                                  green:[[naviBarBgRGB objectAtIndex:1] floatValue]
-                                                   blue:[[naviBarBgRGB objectAtIndex:2] floatValue]];
-    
-        _navigationBarBackgroundImage = [DSImage rectangleWithSize:CGSizeMake(1.0, 1.0) fillColor:c];
-//    }
-    return _navigationBarBackgroundImage;
-}
-
-
-
-- (void)applyGlobalNavigationBarStyle{
-    
-    [[UINavigationBar appearance] setBackgroundImage:self.navigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    if ([DSDeviceUtil iOS8AndAbove]) {
-        [[UINavigationBar appearance] setTranslucent:YES];
-    }
-    
-    [[UINavigationBar appearance] setTintColor:[self colorForKey:@"navigation-bar-button-title"]];
-    
-    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [self colorForKey:@"navigation-bar-title"],NSForegroundColorAttributeName,
-                                               [UIFont systemFontOfSize:20], NSFontAttributeName,
-                                               nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
-}
-
-- (void)applyGlobalStyle{
-    //UIBarButtonItem
-    [[UIBarButtonItem appearance] setTitleTextAttributes:
-                                    @{
-                                      NSFontAttributeName:[UIFont systemFontOfSize:18]
-                                      } forState:UIControlStateNormal];
-    
-    [[UITextField appearance] setTintColor:[self colorForKey:@"input-cursor"]];
-    [[UITextView appearance] setTintColor:[self colorForKey:@"input-cursor"]];
-    [[UITextField appearance] setFont:[UIFont systemFontOfSize:16]];
-    [[UITextView appearance] setFont:[UIFont systemFontOfSize:16]];
-    
-}
 
 - (void)loadPlist{
     NSString *errorDesc = nil;
@@ -262,24 +204,6 @@
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
 }
 
-//- (UIColor *)colorFromHexValue:(NSString *)value{
-//    return [self colorWithHexString:value];
-//}
-
-
-- (UIFont *)fontFromValue:(NSString *)value forGlobalKey:(NSString *)globalKey{
-    NSArray *arr = [value componentsSeparatedByString:@","];
-    NSString *name = [arr objectAtIndex:0];
-    float size = [[arr objectAtIndex:1] doubleValue];
-//    TLOG(@"name -> %@ size -> %f", name, size);
-    UIFont *f = [UIFont fontWithName:name size:size];
-    if ([DSValueUtil isNotAvailable:f]) {
-        f = [UIFont systemFontOfSize:9];
-    }
-    [self saveToCache:f forGlobalKey:globalKey];
-    return f;
-}
-
 - (UIImage *)imageFromValue:(NSDictionary *)value forGlobalKey:(NSString *)globalKey{
     NSString *imageName = [value objectForKey:@"name"];
     UIEdgeInsets edgeInsets = UIEdgeInsetsFromString([value objectForKey:@"edge-insets"]);
@@ -312,36 +236,6 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-//
-//- (UIColor*)colorWithHexString:(NSString *)hex{
-//	// Remove `#`
-//	if ([[hex substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"#"]) {
-//		hex = [hex substringFromIndex:1];
-//	}
-//	// Invalid if not 3, 6, or 8 characters
-//	NSUInteger length = [hex length];
-//	if (length != 3 && length != 6 && length != 8) {
-//		return nil;
-//	}
-//	
-//	// Make the string 8 characters long for easier parsing
-//	if (length == 3) {
-//		NSString *r = [hex substringWithRange:NSMakeRange(0, 1)];
-//		NSString *g = [hex substringWithRange:NSMakeRange(1, 1)];
-//		NSString *b = [hex substringWithRange:NSMakeRange(2, 1)];
-//		hex = [NSString stringWithFormat:@"%@%@%@%@%@%@ff",
-//			   r, r, g, g, b, b];
-//	} else if (length == 6) {
-//		hex = [hex stringByAppendingString:@"ff"];
-//	}
-//	
-//	CGFloat red = [[hex substringWithRange:NSMakeRange(0, 2)]  hexValue] / 255.0f;
-//	CGFloat green = [[hex substringWithRange:NSMakeRange(2, 2)] hexValue] / 255.0f;
-//	CGFloat blue = [[hex substringWithRange:NSMakeRange(4, 2)] hexValue] / 255.0f;
-//	CGFloat alpha = [[hex substringWithRange:NSMakeRange(6, 2)] hexValue] / 255.0f;
-//    
-//	return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-//}
 
 #pragma mark - quick colors
 
