@@ -71,7 +71,7 @@
     CGFloat w = [DSDeviceUtil bounds].size.width - x*2;
     titleV = [[UILabel alloc] initWithFrame:CGRectMake(x, 30, w, 40)];
     [titleV setTextAlignment:NSTextAlignmentCenter];
-    [titleV setFont:[AGStyleCoordinator fontSelectorHeader]];
+    [titleV setFont:[UIFont systemFontOfSize:24]];
     [titleV setTextColor:[AGStyleCoordinator colorTheme]];
     [layoutV addSubview:titleV];
 }

@@ -69,7 +69,7 @@
 
 + (CGRect)buttonFrameWithTitle:(NSString *)title{
     CGRect frame;
-    UIFont *f = [AGStyleCoordinator fontForKey:@"navigation-bar-button-title"];
+    UIFont *f = [UIFont systemFontOfSize:14];
     CGSize s = [title sizeWithAttributes:@{NSFontAttributeName:f}];
     s.width = s.width + 12.0f*2.0f;
     s.height = 32.0f;

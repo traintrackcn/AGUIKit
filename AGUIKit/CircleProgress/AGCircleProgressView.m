@@ -119,7 +119,7 @@
     statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.statusLabelH)];
     [innerView addSubview:statusLabel];
     [statusLabel setTextAlignment:NSTextAlignmentCenter];
-    [statusLabel setFont:[AGStyleCoordinator fontCircleProgressViewStatus]];
+    [statusLabel setFont:[UIFont systemFontOfSize:11]];
     [statusLabel setText:[self.status uppercaseString]];
     [statusLabel setAdjustsFontSizeToFitWidth:YES];
 //    [AGDebugUtil makeBorderForView:statusLabel];

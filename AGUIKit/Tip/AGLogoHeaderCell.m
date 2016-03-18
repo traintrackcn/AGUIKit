@@ -105,7 +105,7 @@
     
     NSDictionary *attribs = @{
                               NSForegroundColorAttributeName: [UIColor whiteColor],
-                              NSFontAttributeName: [AGStyleCoordinator fontLoginHeaderCellTitle]
+                              NSFontAttributeName: [UIFont systemFontOfSize:30]
                               };
     
     NSMutableAttributedString *attributedText =
@@ -113,7 +113,7 @@
                                            attributes:attribs];
     
     [attributedText setAttributes:@{
-                                    NSFontAttributeName: [AGStyleCoordinator fontLoginHeaderCellSubtitle]
+                                    NSFontAttributeName: [UIFont systemFontOfSize:16]
                                     } range:NSMakeRange(brIdx, subtitle.length+1)];
     
     

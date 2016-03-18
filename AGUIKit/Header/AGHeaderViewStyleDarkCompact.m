@@ -36,7 +36,7 @@
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel = [super titleLabel];
-        [_titleLabel setFont:[AGStyleCoordinator fontHeaderViewStyleCompactDarkTitle]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:12]];
         [_titleLabel setTextColor:RGBA(102, 102, 102, 1)];
     }
     return _titleLabel;

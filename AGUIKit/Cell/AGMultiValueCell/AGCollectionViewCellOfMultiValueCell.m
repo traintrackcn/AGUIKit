@@ -57,7 +57,7 @@
 #pragma mark - properties
 
 - (UIFont *)textFont{
-    return [AGStyleCoordinator fontMultiValueCellTitle];
+    return [UIFont systemFontOfSize:12];
 }
 
 - (void)setTextAlignment:(NSTextAlignment)textAlignment{

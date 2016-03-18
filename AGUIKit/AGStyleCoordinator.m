@@ -45,11 +45,6 @@
 @implementation AGStyleCoordinator
 
 
-+ (UIFont *)fontForKey:(NSString *)key{
-    return [[AGStyleCoordinator singleton] fontForKey:key];
-}
-
-
 + (UIColor *)colorForKey:(NSString *)key{
     return [[AGStyleCoordinator singleton] colorForKey:key];
 }
@@ -62,29 +57,6 @@
     return [[AGStyleCoordinator singleton] colorFromRGBValue:value];
 }
 
-+ (UIFont *)fontWithSize:(NSInteger)size{
-    UIFont *f = [UIFont fontWithName:@"OpenSans" size:size];
-    if (!f) {
-        f = [UIFont systemFontOfSize:size];
-    }
-    return f;
-}
-
-+ (UIFont *)boldFontWithSize:(NSInteger)size{
-    UIFont *f = [UIFont fontWithName:@"OpenSans-Semibold" size:size];
-    if (!f) {
-        f = [UIFont boldSystemFontOfSize:size];
-    }
-    return f;
-}
-
-- (UIFont *)fontWithSize:(NSInteger)size{
-    UIFont *f = [UIFont fontWithName:@"OpenSans" size:size];
-    if (!f) {
-        f = [UIFont systemFontOfSize:size];
-    }
-    return f;
-}
 
 - (id)init{
     self = [super init];
@@ -124,25 +96,17 @@
 
 
 - (void)applyGlobalNavigationBarStyle{
-//    NSArray *naviBarBgRGB = [self rgbForKey:@"navigation-bar-background"];
-//    TLOG(@"naviBarBgRGB -> %@", naviBarBgRGB);
-//    UIColor *c = [DSImage navigationBarTintColorFromRed:[[naviBarBgRGB objectAtIndex:0] floatValue]
-//                                                  green:[[naviBarBgRGB objectAtIndex:1] floatValue]
-//                                                   blue:[[naviBarBgRGB objectAtIndex:2] floatValue]
-//                  ];
     
-    
-//    [[UINavigationBar appearance] setBarTintColor:c];
     [[UINavigationBar appearance] setBackgroundImage:self.navigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     if ([DSDeviceUtil iOS8AndAbove]) {
         [[UINavigationBar appearance] setTranslucent:YES];
     }
     
     [[UINavigationBar appearance] setTintColor:[self colorForKey:@"navigation-bar-button-title"]];
-//    UIFont *f = [self fontForKey:@"navigation-bar-title"];
+    
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [self colorForKey:@"navigation-bar-title"],NSForegroundColorAttributeName,
-                                               [AGStyleCoordinator fontWithSize:20], NSFontAttributeName,
+                                               [UIFont systemFontOfSize:20], NSFontAttributeName,
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
@@ -151,13 +115,13 @@
     //UIBarButtonItem
     [[UIBarButtonItem appearance] setTitleTextAttributes:
                                     @{
-                                      NSFontAttributeName:[self fontWithSize:18]
+                                      NSFontAttributeName:[UIFont systemFontOfSize:18]
                                       } forState:UIControlStateNormal];
     
     [[UITextField appearance] setTintColor:[self colorForKey:@"input-cursor"]];
     [[UITextView appearance] setTintColor:[self colorForKey:@"input-cursor"]];
-    [[UITextField appearance] setFont:[self fontForKey:@"textfield"]];
-    [[UITextView appearance] setFont:[self fontForKey:@"textfield"]];
+    [[UITextField appearance] setFont:[UIFont systemFontOfSize:16]];
+    [[UITextView appearance] setFont:[UIFont systemFontOfSize:16]];
     
 }
 
@@ -184,21 +148,6 @@
     return [style objectForKey:key];
 }
 
-- (UIFont *)fontForKey:(NSString *)key{
-    
-    
-    
-    NSString *globalKey = [NSString stringWithFormat:@"font-%@",key];
-    if ([self isCachedForGlobalKey:globalKey]) return (UIFont *)[self cacheForGlobalKey:globalKey];
-    NSDictionary *collection = [self collectionForKey:@"fonts"];
-    NSString *value = [self valueFromCollection:collection forKey:key];
-    
-    if ([self isNotFontValue:value]) {
-        return [self fontForKey:value];
-    }
-    
-    return [self fontFromValue:value forGlobalKey:globalKey];
-}
 
 - (UIColor *)colorForKey:(NSString *)key{
     NSString *globalKey = [NSString stringWithFormat:@"color-%@",key];
@@ -393,208 +342,6 @@
 //    
 //	return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 //}
-
-#pragma mark - quick fonts
-
-+ (UIFont *)fontNavigationBarTitle{
-    return [self fontForKey:@"navigation-bar-title"];
-}
-
-+ (UIFont *)fontDashboardComponentTitle{
-    return [self fontForKey:@"dashboard-component-title"];
-}
-
-+ (UIFont *)fontDashboardComponentContent{
-    return [self fontForKey:@"dashboard-component-content"];
-}
-
-+ (UIFont *)fontDashboardComponentCommissionsTitle{
-    return [self fontForKey:@"dashboard-component-commissions-title"];
-}
-
-+ (UIFont *)fontDashboardComponentCommissionsContent{
-    return [self fontForKey:@"dashboard-component-commissions-content"];
-}
-
-+ (UIFont *)fontNewsCellTitle{
-    return [self fontForKey:@"news-cell-title"];
-}
-
-+ (UIFont *)fontNewsCellContent{
-    return [self fontForKey:@"news-cell-content"];
-}
-
-+ (UIFont *)fontMenuCellTitleNormal{
-    return [self fontForKey:@"menu-cell-title-normal"];
-}
-
-+ (UIFont *)fontMenuCellTitleHighlight{
-    return [self fontForKey:@"menu-cell-title-highlight"];
-}
-
-+ (UIFont *)fontMenuCatalogTitle{
-    return [self fontForKey:@"menu-catalog-title"];
-}
-
-+ (UIFont *)fontMenuProfileCellTitle{
-    return [self fontForKey:@"menu-profile-cell-title"];
-}
-
-+ (UIFont *)fontMenuProfileCellSubtitle{
-    return [self fontForKey:@"menu-profile-cell-subtitle"];
-}
-
-+ (UIFont *)fontProductCellName{
-    return [self fontForKey:@"product-cell-name"];
-}
-
-+ (UIFont *)fontProductCellSku{
-    return [self fontForKey:@"product-cell-sku"];
-}
-
-+ (UIFont *)fontProductCellPrice{
-    return [self fontForKey:@"product-cell-price"];
-}
-
-+ (UIFont *)fontLoginHeaderCellTitle{
-    return [self fontForKey:@"login-header-cell-title"];
-}
-
-+ (UIFont *)fontLoginHeaderCellSubtitle{
-    return [self fontForKey:@"login-header-cell-subtitle"];
-}
-
-//+ (UIFont *)fontButton{
-//    return [self fontForKey:@"button"];
-//}
-
-+ (UIFont *)fontTabBarTitleNormal{
-    return [self fontForKey:@"tab-bar-title-normal"];
-}
-
-+ (UIFont *)fontTabBarTitleHighlight{
-    return [self fontForKey:@"tab-bar-title-highlight"];
-}
-
-//+ (UIFont *)fontTextCellTitle{
-//    return [self fontForKey:@"text-cell-title"];
-//}
-
-+ (UIFont *)fontOrderCellNumber{
-    return [self fontForKey:@"order-cell-number"];
-}
-
-//+ (UIFont *)fontTextCellContent{
-//    return [self fontForKey:@"text-cell-content"];
-//}
-
-+ (UIFont *)fontTextCellSubtitle{
-    return [self fontForKey:@"text-cell-subtitle"];
-}
-
-+ (UIFont *)fontIndicator{
-    return [self fontForKey:@"indicator"];
-}
-
-+ (UIFont *)fontChartCoordinatorLabel{
-    return [self fontForKey:@"chart-coordinator-label"];
-}
-
-+ (UIFont *)fontChartTitle{
-    return [self fontForKey:@"chart-title"];
-}
-
-+ (UIFont *)fontProductCellQuanity{
-    return [self fontForKey:@"product-cell-quantity"];
-}
-
-+ (UIFont *)fontQuantityPicker{
-    return [self fontForKey:@"quantity-picker"];
-}
-
-//+ (UIFont *)fontHeaderViewTitle{
-//    return [self fontForKey:@"header-view-title"];
-//}
-+ (UIFont *)fontSelectorHeader{
-    return [self fontForKey:@"selector-header"];
-}
-
-+ (UIFont *)fontMultiLineCellStatus{
-    return [self fontForKey:@"multi-line-cell-status"];
-}
-
-+ (UIFont *)fontOptionCellTitle{
-    return [self fontForKey:@"option-cell-title"];
-}
-
-+ (UIFont *)fontHeader3{
-    return [self fontForKey:@"header3"];
-}
-
-+ (UIFont *)fontDashboardNumberBoxTitle{
-    return [self fontForKey:@"dashboard-number-box-title"];
-}
-
-+ (UIFont *)fontDashboardNumberBoxSubtitle{
-    return [self fontForKey:@"dashboard-number-box-subtitle"];
-}
-
-+ (UIFont *)fontHeaderViewStyleCompactDarkTitle{
-    return [self fontForKey:@"header-view-style-compact-dark-title"];
-}
-
-+ (UIFont *)fontOrderStateIndicator{
-    return [self fontForKey:@"order-state-indicator"];
-}
-
-+ (UIFont *)fontCircleProgressViewStatus{
-    return [self fontForKey:@"circle-progress-view-status"];
-}
-
-+ (UIFont *)fontCommissionHeaderViewTitle{
-    return [self fontForKey:@"commission-header-view-title"];
-}
-
-+ (UIFont *)fontMultiValueCellTitle{
-    return [self fontForKey:@"multi-value-cell-title"];
-}
-
-+ (UIFont *)fontMultiValueCellHeader{
-    return [self fontForKey:@"multi-value-cell-header"];
-}
-
-+ (UIFont *)fontGenealogyCellTitle{
-    return [self fontForKey:@"genealogy-cell-title"];
-}
-
-+ (UIFont *)fontGenealogyCellSubtitle{
-    return [self fontForKey:@"genealogy-cell-subtitle"];
-}
-
-+ (UIFont *)fontGenealogyRankCellTitle{
-    return [self fontForKey:@"genealogy-rank-cell-title"];
-}
-
-+ (UIFont *)fontChildTaxonCellTitle{
-    return [self fontForKey:@"child-taxon-cell-title"];
-}
-
-+ (UIFont *)fontTaxonCellTitle{
-    return [self fontForKey:@"taxon-cell-title"];
-}
-
-+ (UIFont *)fontOrganizationCellTitle{
-    return [self fontForKey:@"organization-cell-title"];
-}
-
-+ (UIFont *)fontOrganizationCellSubtitle{
-    return [self fontForKey:@"organization-cell-subtitle"];
-}
-
-+ (UIFont *)fontLabelStyleSubtitleTextCell{
-    return [self fontForKey:@"label-style-subtitle-text-cell"];
-}
-
 
 #pragma mark - quick colors
 

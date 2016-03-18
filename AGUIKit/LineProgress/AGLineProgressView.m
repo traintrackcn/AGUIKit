@@ -92,7 +92,7 @@
 //    [textLabel setBackgroundColor:self.innerViewBackgroundColor];
     [textLabel setTextAlignment:NSTextAlignmentRight];
     [textLabel setAdjustsFontSizeToFitWidth:YES];
-    [textLabel setFont:[AGStyleCoordinator fontWithSize:13]];
+    [textLabel setFont:[UIFont systemFontOfSize:13]];
 //    [AGDebugUtil makeBorderForView:textLabel];
 }
 

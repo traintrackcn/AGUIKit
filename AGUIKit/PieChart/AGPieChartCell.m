@@ -74,7 +74,7 @@
         [_pieChart setDataSource:self];
         [_pieChart setStartPieAngle:M_PI_2*3];
         [_pieChart setAnimationSpeed:1.0];
-        [_pieChart setLabelFont:[AGStyleCoordinator fontWithSize:14]];
+        [_pieChart setLabelFont:[UIFont systemFontOfSize:14]];
         [_pieChart setLabelRadius:w/3];
         [_pieChart setShowPercentage:NO];
         [_pieChart setShowLabel:YES];

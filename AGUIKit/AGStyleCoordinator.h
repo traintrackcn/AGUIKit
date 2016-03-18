@@ -12,7 +12,6 @@
 
 @interface AGStyleCoordinator : NSObject
 
-+ (UIFont *)fontForKey:(NSString *)key;
 + (UIColor *)colorForKey:(NSString *)key;
 + (NSArray *)rgbForKey:(NSString *)key;
 
@@ -22,66 +21,6 @@
 - (void)applyGlobalNavigationBarStyle;
 
 @property (nonatomic, strong) UIImage *navigationBarBackgroundImage;
-
-
-
-
-#pragma mark - quick fonts
-
-+ (UIFont *)fontNavigationBarTitle;
-+ (UIFont *)fontDashboardComponentTitle;
-+ (UIFont *)fontDashboardComponentContent;
-+ (UIFont *)fontDashboardComponentCommissionsTitle;
-+ (UIFont *)fontDashboardComponentCommissionsContent;
-+ (UIFont *)fontNewsCellTitle;
-+ (UIFont *)fontNewsCellContent;
-+ (UIFont *)fontMenuCellTitleNormal;
-+ (UIFont *)fontMenuCellTitleHighlight;
-+ (UIFont *)fontMenuCatalogTitle;
-+ (UIFont *)fontMenuProfileCellTitle;
-+ (UIFont *)fontMenuProfileCellSubtitle;
-+ (UIFont *)fontProductCellName;
-+ (UIFont *)fontProductCellSku;
-+ (UIFont *)fontProductCellPrice;
-+ (UIFont *)fontLoginHeaderCellTitle;
-+ (UIFont *)fontLoginHeaderCellSubtitle;
-//+ (UIFont *)fontButton;
-+ (UIFont *)fontTabBarTitleNormal;
-+ (UIFont *)fontTabBarTitleHighlight;
-//+ (UIFont *)fontTextCellTitle;
-+ (UIFont *)fontOrderCellNumber;
-//+ (UIFont *)fontTextCellContent;
-+ (UIFont *)fontTextCellSubtitle;
-+ (UIFont *)fontProductCellQuanity;
-+ (UIFont *)fontQuantityPicker;
-//+ (UIFont *)fontHeaderViewTitle;
-+ (UIFont *)fontSelectorHeader;
-+ (UIFont *)fontMultiLineCellStatus;
-+ (UIFont *)fontOptionCellTitle;
-+ (UIFont *)fontHeader3;
-+ (UIFont *)fontCircleProgressViewStatus;
-+ (UIFont *)fontCommissionHeaderViewTitle;
-+ (UIFont *)fontMultiValueCellTitle;
-+ (UIFont *)fontMultiValueCellHeader;
-+ (UIFont *)fontGenealogyCellTitle;
-+ (UIFont *)fontGenealogyCellSubtitle;
-+ (UIFont *)fontGenealogyRankCellTitle;
-+ (UIFont *)fontChildTaxonCellTitle;
-+ (UIFont *)fontTaxonCellTitle;
-+ (UIFont *)fontOrganizationCellTitle;
-+ (UIFont *)fontOrganizationCellSubtitle;
-+ (UIFont *)fontLabelStyleSubtitleTextCell;
-+ (UIFont *)fontDashboardNumberBoxTitle;
-+ (UIFont *)fontDashboardNumberBoxSubtitle;
-+ (UIFont *)fontHeaderViewStyleCompactDarkTitle;
-+ (UIFont *)fontOrderStateIndicator;
-+ (UIFont *)fontIndicator;
-+ (UIFont *)fontChartCoordinatorLabel;
-+ (UIFont *)fontChartTitle;
-
-
-+ (UIFont *)fontWithSize:(NSInteger)size;
-+ (UIFont *)boldFontWithSize:(NSInteger)size;
 
 #pragma mark - for quick pick
 

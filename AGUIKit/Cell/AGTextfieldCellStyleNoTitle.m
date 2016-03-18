@@ -28,7 +28,7 @@
     CGFloat y = (self.class.height - AG_TEXTFIELD_HEIGHT)/2;
     CGFloat w = self.frame.size.width - self.paddingLR*2;
     [self.inputField setFrame:CGRectMake(x, y, w,AG_TEXTFIELD_HEIGHT )];
-    [self.inputField setFont:[AGStyleCoordinator fontForKey:@"input-field"]];
+    [self.inputField setFont:[UIFont systemFontOfSize:14]];
     [self.inputField setTextAlignment:NSTextAlignmentLeft];
 }
 

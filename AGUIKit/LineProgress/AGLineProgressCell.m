@@ -64,7 +64,7 @@
         CGFloat y = ([self.class height] - self.titleH - self.subtitleH - self.progressH - self.spacing*2)/2;
         
         _titleView = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.titleH)];
-        [_titleView setFont:[AGStyleCoordinator fontWithSize:16]];
+        [_titleView setFont:[UIFont systemFontOfSize:16]];
         [_titleView setAdjustsFontSizeToFitWidth:YES];
         
         
@@ -82,7 +82,7 @@
         CGFloat y = self.titleView.frame.origin.y + self.titleView.frame.size.height + self.spacing;
         
         _subtitleView = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.subtitleH)];
-        [_subtitleView setFont:[AGStyleCoordinator fontTextCellSubtitle]];
+        [_subtitleView setFont:[UIFont systemFontOfSize:11]];
         [_subtitleView setAdjustsFontSizeToFitWidth:YES];
         [_subtitleView setTextColor:[AGStyleCoordinator colorLineProgressViewSubtitle]];
     }

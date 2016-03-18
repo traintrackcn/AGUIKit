@@ -45,7 +45,7 @@
         CGFloat w = self.frame.size.width - self.paddingLR * 2;
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, w, [self.class height])];
         [_titleLabel setTextColor:self.titleColor];
-        [_titleLabel setFont:[AGStyleCoordinator fontWithSize:18]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:18]];
         [_titleLabel setAdjustsFontSizeToFitWidth:YES];
 //        [self addSubview:titleLabel];
     }

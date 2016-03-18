@@ -21,7 +21,7 @@
         
         [self.contentView addSubview:self.borderBottomViewStylePaddingL];
         [self.textLabel setTextColor:[AGStyleCoordinator colorCellTitleUnselected]];
-        [self.textLabel setFont:[AGStyleCoordinator fontWithSize:16]];
+        [self.textLabel setFont:[UIFont systemFontOfSize:16]];
         [self.textLabel setAdjustsFontSizeToFitWidth:YES];
     }
     return self;

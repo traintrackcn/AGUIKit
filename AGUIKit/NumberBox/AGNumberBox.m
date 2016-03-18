@@ -172,7 +172,7 @@
 }
 
 - (UIFont *)subtitleFont{
-    return [AGStyleCoordinator fontDashboardNumberBoxSubtitle];
+    return [UIFont systemFontOfSize:12];
 }
 
 - (UIColor *)numberColor{
@@ -180,7 +180,7 @@
 }
 
 - (UIFont *)numberFont{
-    return [AGStyleCoordinator fontDashboardNumberBoxTitle];
+    return [UIFont systemFontOfSize:36];
 }
 
 @end

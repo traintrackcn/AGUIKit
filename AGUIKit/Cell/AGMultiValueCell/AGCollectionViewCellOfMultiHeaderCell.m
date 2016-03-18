@@ -12,7 +12,7 @@
 @implementation AGCollectionViewCellOfMultiHeaderCell
 
 - (UIFont *)textFont{
-    return [AGStyleCoordinator fontMultiValueCellHeader];
+    return [UIFont systemFontOfSize:12.0];
 }
 
 @end

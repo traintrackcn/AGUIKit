@@ -46,7 +46,7 @@
     if ([DSValueUtil isAvailable:titleLabel]) return;
 //    CGFloat w = self.frame.size.width/3.0;
     titleLabel = [[UILabel alloc] init];
-    [titleLabel setFont:[AGStyleCoordinator fontWithSize:16]];
+    [titleLabel setFont:[UIFont systemFontOfSize:16]];
     [titleLabel setTextColor:[AGStyleCoordinator colorTextfieldTitle]];
     [titleLabel setNumberOfLines:2];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
@@ -103,7 +103,7 @@
     
     [self.inputBox.layer setBorderWidth:1.0];
     [self.inputBox.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
-    [self.inputBox setFont:[AGStyleCoordinator fontWithSize:16]];
+    [self.inputBox setFont:[UIFont systemFontOfSize:16]];
 //    [AGDebugUtil makeBorderForView:inputView];
 //    TLOG(@"", <#__args...#>)
 }
@@ -125,7 +125,7 @@
     [self.inputField.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
     [self.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 //    [self.inputField.layer setBorderWidth:1.0];
-    [self.inputField setFont:[AGStyleCoordinator fontWithSize:16]];
+    [self.inputField setFont:[UIFont systemFontOfSize:16]];
 }
 
 - (void)enableNumberPadForInputField{
@@ -212,7 +212,7 @@
     CGSize titleMaxSize = CGSizeMake(self.frame.size.width, self.titleMaxH);
     CGSize titleSize = [titleLabel.text boundingRectWithSize:titleMaxSize
                                                      options:NSStringDrawingUsesLineFragmentOrigin attributes:
-                        @{NSFontAttributeName:[AGStyleCoordinator fontWithSize:14]} context:nil].size;
+                        @{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
     
     CGRect titleFrame = titleLabel.frame;
     CGFloat y = (self.titleMaxH - titleSize.height)/2.0;
@@ -250,7 +250,7 @@
     
     CGSize titleSize = [titleLabel.text boundingRectWithSize:titleMaxSize
                                                      options:NSStringDrawingUsesLineFragmentOrigin attributes:
-                        @{NSFontAttributeName:[AGStyleCoordinator fontWithSize:14]} context:nil].size;
+                        @{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
     
 //    TLOG(@"titleMaxSize -> %@ titleSize -> %@", NSStringFromCGSize(titleMaxSize), NSStringFromCGSize(titleSize));
     

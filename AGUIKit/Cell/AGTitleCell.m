@@ -41,7 +41,7 @@
 #pragma mark - styles
 
 - (UIFont *)contentFont{
-    return [AGStyleCoordinator fontWithSize:16];
+    return [UIFont systemFontOfSize:16];
 }
 
 - (CGFloat)paddingLR{

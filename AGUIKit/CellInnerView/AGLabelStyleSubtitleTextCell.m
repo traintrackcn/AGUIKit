@@ -12,11 +12,11 @@
 @implementation AGLabelStyleSubtitleTextCell
 
 - (UIFont *)textFont{
-    return [AGStyleCoordinator fontWithSize:14];
+    return [UIFont systemFontOfSize:14];
 }
 
 - (UIFont *)detailTextFont{
-    return [AGStyleCoordinator fontWithSize:14];
+    return [UIFont systemFontOfSize:14];
 }
 
 - (BOOL)borderEnabled{

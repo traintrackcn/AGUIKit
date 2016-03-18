@@ -34,7 +34,7 @@
     CGFloat h = self.frame.size.height - spacing *2;
     titleL = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)];
     [titleL setNumberOfLines:0];
-    [titleL setFont:[AGStyleCoordinator fontOptionCellTitle]];
+    [titleL setFont:[UIFont systemFontOfSize:12]];
 //    [titleL setLineBreakMode:NSLineBreakByWordWrapping];
     [titleL setTextAlignment:NSTextAlignmentCenter];
     [titleL setClipsToBounds:YES];

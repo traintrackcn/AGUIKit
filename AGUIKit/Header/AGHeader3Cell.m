@@ -18,7 +18,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [titleLabel setFont:[AGStyleCoordinator fontHeader3]];
+        [titleLabel setFont:[UIFont systemFontOfSize:20]];
         [self setBackgroundColor:[AGStyleCoordinator colorBackgroundCommission]];
     }
     return self;

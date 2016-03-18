@@ -98,11 +98,11 @@
 }
 
 - (UIFont *)textFont{
-    return [AGStyleCoordinator fontWithSize:16];
+    return [UIFont systemFontOfSize:16];
 }
 
 - (UIFont *)detailTextFont{
-    return [AGStyleCoordinator fontWithSize:16];
+    return [UIFont systemFontOfSize:16];
 }
 
 - (UIColor *)textColor{

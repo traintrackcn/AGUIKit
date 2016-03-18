@@ -18,7 +18,7 @@
     if (self) {
         [self.layer setCornerRadius:4.0];
         [self setClipsToBounds:YES];
-        [self.titleLabel setFont:[AGStyleCoordinator fontWithSize:18]];
+        [self.titleLabel setFont:[UIFont systemFontOfSize:18]];
         [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
 //        [AGDebugUtil makeBorderForView:self];
         [self setEnabled:YES];

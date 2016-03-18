@@ -55,7 +55,7 @@
 + (UILabel *)assembleLabelForPickerView{
     UILabel *l = [[UILabel alloc] init];
     [l setFrame:CGRectMake(0, 0, 100, 40)];
-    [l setFont:[AGStyleCoordinator fontWithSize:16]];
+    [l setFont:[UIFont systemFontOfSize:16]];
     [l setTextAlignment:NSTextAlignmentCenter];
 //    [l setTextColor:[UIColor lightGrayColor]];
 //    [AGDebugUtil makeBorderForView:l];

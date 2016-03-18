@@ -75,11 +75,11 @@
 
 - (void)setSelected:(BOOL)selected{
     if (selected) {
-        [titleL setFont:[AGStyleCoordinator fontTabBarTitleHighlight]];
+        [titleL setFont:[UIFont systemFontOfSize:14]];
         [titleL setTextColor:[AGStyleCoordinator colorTabBarCellTitleHighlight]];
         [self.pointIconView setHidden:NO];
     }else{
-        [titleL setFont:[AGStyleCoordinator fontTabBarTitleNormal]];
+        [titleL setFont:[UIFont systemFontOfSize:14]];
         [titleL setTextColor:[AGStyleCoordinator colorTabBarCellTitleNormal]];
         [self.pointIconView setHidden:YES];
     }

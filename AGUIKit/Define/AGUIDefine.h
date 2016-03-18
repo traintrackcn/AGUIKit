@@ -24,6 +24,7 @@
 
 
 
+
 @interface AGUIDefine : NSObject
 
 - (BOOL)sessionRoleIsRetailCustomer;
