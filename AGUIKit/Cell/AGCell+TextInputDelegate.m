@@ -80,7 +80,7 @@
 - (void)shouldBeginEditing{
     
     beginEditingNum ++;
-    TLOG(@"====== beginEditingNum %ld ======", (long)beginEditingNum);
+//    TLOG(@"====== beginEditingNum %ld ======", (long)beginEditingNum);
     
     UIEdgeInsets insetOld = self.tableView.contentInset;
     
@@ -101,7 +101,7 @@
         if (screenH != keyboardFrameEndY) {
             insetNew.bottom = keyboardH;
             [self.tableView setContentInset:insetNew];
-            TLOG(@"adjust table view content inset -> %@", NSStringFromUIEdgeInsets(insetNew));
+//            TLOG(@"adjust table view content inset -> %@", NSStringFromUIEdgeInsets(insetNew));
             //            TLOG(@"keyboard is showing up prevKeyboardFrameEndY %f", prevKeyboardFrameEndY);
             if (self.inputIsBox) {
                 [self.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -130,7 +130,7 @@
 static NSInteger beginEditingNum;
 
 - (void)didEndEditingWithText:(NSString *)text{
-    TLOG(@"====== didEndEditingWithText %ld ======", (long)beginEditingNum);
+//    TLOG(@"====== didEndEditingWithText %ld ======", (long)beginEditingNum);
     //    [self inputFieldDidEndEditingWithText];
     if (self.inputIsField && self.inputField.textAlignment == NSTextAlignmentRight){
         text = [text stringByReplacingOccurrencesOfString:@"\u00a0" withString:@" "];

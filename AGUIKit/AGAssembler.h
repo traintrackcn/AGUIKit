@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 
 static const CGFloat AG_BUTTON_HEIGHT = 44;
-static const CGFloat AG_BUTTON_SPACING = 15;
+static const CGFloat AG_BUTTON_SPACING = 10;
 static const CGFloat AG_TEXTFIELD_HEIGHT = 60;
 static const CGFloat AG_STATUS_BAR_HEIGHT = 20;
 static const CGFloat AG_CELL_SEPARATOR_HEIGHT = 10;

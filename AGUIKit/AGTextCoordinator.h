@@ -19,4 +19,6 @@
 + (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode;
 - (void)reload;
 
+@property (nonatomic, assign) BOOL returnFirstKeyIfNoValue;
+
 @end

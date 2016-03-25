@@ -15,6 +15,8 @@
 
 
 - (UIView *)contentViewOfDateAndTimeFromNow:(NSDate *)value;
+- (UIView *)contentViewOfDateFromNow:(NSDate *)value;
 - (UIView *)contentViewOfBirthday:(NSDate *)value;
+
 
 @end

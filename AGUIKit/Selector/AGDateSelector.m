@@ -42,9 +42,20 @@
     [v setMinimumDate:dateNow];
     [v setMaximumDate:date1YearsLater];
 //    [v setDate:self.config.defaultDate];
-    if ([DSValueUtil isAvailable:value]) {
-        [v setDate:value];
-    }
+    if (value) [v setDate:value];
+    return v;
+}
+
+
+- (UIView *)contentViewOfDateFromNow:(NSDate *)value{
+    UIDatePicker *v = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 64, [DSDeviceUtil bounds].size.width, 100)];
+    [v setDatePickerMode:UIDatePickerModeDate];
+    NSDate *date1YearsLater  = [NSDate dateWithTimeIntervalSinceNow:self.interval1YearLater*1];
+    NSDate *dateNow = [NSDate dateWithTimeIntervalSinceNow:0];
+    [v setMinimumDate:dateNow];
+    [v setMaximumDate:date1YearsLater];
+    //    [v setDate:self.config.defaultDate];
+    if (value) [v setDate:value];
     return v;
 }
 

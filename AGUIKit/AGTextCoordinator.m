@@ -73,6 +73,10 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
         if (value) return value;
     }
     
+    if ([[[self class] singleton] returnFirstKeyIfNoValue]) {
+        return keys.firstObject;
+    }
+    
     return keys.lastObject;
 }
 

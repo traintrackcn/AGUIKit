@@ -49,7 +49,6 @@
 		4A8E89661B686E9100F48CDD /* AGSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88CF1B686E9100F48CDD /* AGSearchCell.m */; };
 		4A8E89671B686E9100F48CDD /* AGSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88D11B686E9100F48CDD /* AGSeparatorCell.m */; };
 		4A8E89681B686E9100F48CDD /* AGSpaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88D31B686E9100F48CDD /* AGSpaceCell.m */; };
-		4A8E89691B686E9100F48CDD /* AGStartDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88D51B686E9100F48CDD /* AGStartDateCell.m */; };
 		4A8E896A1B686E9100F48CDD /* AGStartTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88D71B686E9100F48CDD /* AGStartTimeCell.m */; };
 		4A8E896B1B686E9100F48CDD /* AGTextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88D91B686E9100F48CDD /* AGTextBoxCell.m */; };
 		4A8E896C1B686E9100F48CDD /* AGTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88DB1B686E9100F48CDD /* AGTextCell.m */; };
@@ -193,7 +192,6 @@
 		4A8E8B281B69029A00F48CDD /* AGSearchCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88CE1B686E9100F48CDD /* AGSearchCell.h */; };
 		4A8E8B291B69029A00F48CDD /* AGSeparatorCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88D01B686E9100F48CDD /* AGSeparatorCell.h */; };
 		4A8E8B2A1B69029A00F48CDD /* AGSpaceCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88D21B686E9100F48CDD /* AGSpaceCell.h */; };
-		4A8E8B2B1B69029A00F48CDD /* AGStartDateCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88D41B686E9100F48CDD /* AGStartDateCell.h */; };
 		4A8E8B2C1B69029A00F48CDD /* AGStartTimeCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88D61B686E9100F48CDD /* AGStartTimeCell.h */; };
 		4A8E8B2D1B69029A00F48CDD /* AGTextBoxCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88D81B686E9100F48CDD /* AGTextBoxCell.h */; };
 		4A8E8B2E1B69029A00F48CDD /* AGTextCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E88DA1B686E9100F48CDD /* AGTextCell.h */; };
@@ -351,7 +349,6 @@
 				4A8E8B281B69029A00F48CDD /* AGSearchCell.h in CopyFiles */,
 				4A8E8B291B69029A00F48CDD /* AGSeparatorCell.h in CopyFiles */,
 				4A8E8B2A1B69029A00F48CDD /* AGSpaceCell.h in CopyFiles */,
-				4A8E8B2B1B69029A00F48CDD /* AGStartDateCell.h in CopyFiles */,
 				4A8E8B2C1B69029A00F48CDD /* AGStartTimeCell.h in CopyFiles */,
 				4A8E8B2D1B69029A00F48CDD /* AGTextBoxCell.h in CopyFiles */,
 				4A8E8B2E1B69029A00F48CDD /* AGTextCell.h in CopyFiles */,
@@ -466,8 +463,6 @@
 		4A8E88D11B686E9100F48CDD /* AGSeparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSeparatorCell.m; sourceTree = "<group>"; };
 		4A8E88D21B686E9100F48CDD /* AGSpaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpaceCell.h; sourceTree = "<group>"; };
 		4A8E88D31B686E9100F48CDD /* AGSpaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpaceCell.m; sourceTree = "<group>"; };
-		4A8E88D41B686E9100F48CDD /* AGStartDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGStartDateCell.h; sourceTree = "<group>"; };
-		4A8E88D51B686E9100F48CDD /* AGStartDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGStartDateCell.m; sourceTree = "<group>"; };
 		4A8E88D61B686E9100F48CDD /* AGStartTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGStartTimeCell.h; sourceTree = "<group>"; };
 		4A8E88D71B686E9100F48CDD /* AGStartTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGStartTimeCell.m; sourceTree = "<group>"; };
 		4A8E88D81B686E9100F48CDD /* AGTextBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTextBoxCell.h; sourceTree = "<group>"; };
@@ -795,8 +790,6 @@
 				4A8E88D11B686E9100F48CDD /* AGSeparatorCell.m */,
 				4A8E88D21B686E9100F48CDD /* AGSpaceCell.h */,
 				4A8E88D31B686E9100F48CDD /* AGSpaceCell.m */,
-				4A8E88D41B686E9100F48CDD /* AGStartDateCell.h */,
-				4A8E88D51B686E9100F48CDD /* AGStartDateCell.m */,
 				4A8E88D61B686E9100F48CDD /* AGStartTimeCell.h */,
 				4A8E88D71B686E9100F48CDD /* AGStartTimeCell.m */,
 				4A8E88D81B686E9100F48CDD /* AGTextBoxCell.h */,
@@ -1303,7 +1296,6 @@
 				4A8E8A351B68F7FF00F48CDD /* AGViewController.m in Sources */,
 				4A8E89851B686E9100F48CDD /* AGCollectionViewLayoutHorizontalUnits.m in Sources */,
 				4A8E89861B686E9100F48CDD /* AGCollectionViewLayoutVerticalPages.m in Sources */,
-				4A8E89691B686E9100F48CDD /* AGStartDateCell.m in Sources */,
 				4A8E89711B686E9100F48CDD /* AGTextfieldCellStyleEditor.m in Sources */,
 				4A8E89541B686E9100F48CDD /* AGCell.m in Sources */,
 				4A8E89DC1B68DBF800F48CDD /* DSLayoutUtil.m in Sources */,
