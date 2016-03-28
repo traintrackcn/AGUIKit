@@ -10,7 +10,7 @@
 #import "AGLineProgressView.h"
 #import "AGProgressViewCellValue.h"
 #import "AGStyleCoordinator.h"
-#import "DSDeviceUtil.h"
+#import "AGUIDefine.h"
 #import "DSValueUtil.h"
 
 @interface AGLineProgressCell(){
@@ -64,7 +64,7 @@
         CGFloat y = ([self.class height] - self.titleH - self.subtitleH - self.progressH - self.spacing*2)/2;
         
         _titleView = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.titleH)];
-        [_titleView setFont:[UIFont systemFontOfSize:16]];
+        [_titleView setFont:FONT_WITH_SIZE(16)];
         [_titleView setAdjustsFontSizeToFitWidth:YES];
         
         

@@ -7,7 +7,7 @@
 //
 
 #import "AGTextfieldCell.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "DSValueUtil.h"
 #import "GlobalDefine.h"
 #import "DSDeviceUtil.h"
@@ -46,7 +46,7 @@
     if ([DSValueUtil isAvailable:titleLabel]) return;
 //    CGFloat w = self.frame.size.width/3.0;
     titleLabel = [[UILabel alloc] init];
-    [titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [titleLabel setFont:FONT_WITH_SIZE(16)];
     [titleLabel setTextColor:[AGStyleCoordinator colorTextfieldTitle]];
     [titleLabel setNumberOfLines:2];
     [titleLabel setAdjustsFontSizeToFitWidth:YES];
@@ -103,7 +103,7 @@
     
     [self.inputBox.layer setBorderWidth:1.0];
     [self.inputBox.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
-    [self.inputBox setFont:[UIFont systemFontOfSize:16]];
+    [self.inputBox setFont:FONT_WITH_SIZE(16)];
 //    [AGDebugUtil makeBorderForView:inputView];
 //    TLOG(@"", <#__args...#>)
 }
@@ -125,7 +125,7 @@
     [self.inputField.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
     [self.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 //    [self.inputField.layer setBorderWidth:1.0];
-    [self.inputField setFont:[UIFont systemFontOfSize:16]];
+    [self.inputField setFont:FONT_WITH_SIZE(16)];
 }
 
 - (void)enableNumberPadForInputField{

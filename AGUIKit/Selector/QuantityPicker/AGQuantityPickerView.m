@@ -8,7 +8,7 @@
 
 #import "AGQuantityPickerView.h"
 #import "DSValueUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "GlobalDefine.h"
 
 @interface AGQuantityPickerView(){
@@ -121,7 +121,7 @@
         _quantityLabel = [[UILabel alloc] init];
         [_quantityLabel setTextAlignment:NSTextAlignmentCenter];
         [_quantityLabel setFrame:CGRectMake(self.componentSize.width, 0, self.componentSize.width, self.componentSize.height)];
-        [_quantityLabel setFont:[UIFont systemFontOfSize:16]];
+        [_quantityLabel setFont:FONT_WITH_SIZE(16)];
         _quantityLabel.layer.borderWidth = 1;
         _quantityLabel.layer.borderColor = self.borderColor.CGColor;
     }

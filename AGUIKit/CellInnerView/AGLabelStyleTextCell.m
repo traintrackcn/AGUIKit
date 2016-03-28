@@ -8,7 +8,7 @@
 
 #import "AGLabelStyleTextCell.h"
 #import "DSValueUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "GlobalDefine.h"
 
 @implementation AGLabelStyleTextCell
@@ -98,11 +98,11 @@
 }
 
 - (UIFont *)textFont{
-    return [UIFont systemFontOfSize:16];
+    return FONT_WITH_SIZE(16);
 }
 
 - (UIFont *)detailTextFont{
-    return [UIFont systemFontOfSize:16];
+    return FONT_WITH_SIZE(16);
 }
 
 - (UIColor *)textColor{

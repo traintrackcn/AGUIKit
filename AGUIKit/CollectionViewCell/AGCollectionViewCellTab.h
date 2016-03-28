@@ -9,7 +9,7 @@
 #import "AGCollectionViewCell.h"
 
 @interface AGCollectionViewCellTab : AGCollectionViewCell{
-    UILabel *titleL;
+//    UILabel *titleL;
 }
 
 @end

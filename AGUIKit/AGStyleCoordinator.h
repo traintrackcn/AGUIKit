@@ -85,11 +85,6 @@
 + (UIColor *)colorMenuTitleUnselected;
 
 #pragma mark - tab bar cell
-+ (UIColor *)colorTabBarCellTitleNormal;
-+ (UIColor *)colorTabBarCellTitleHighlight;
-+ (UIColor *)colorTabBarCellTitleBorder;
-+ (UIColor *)colorTabBarCellBackgroundNormal;
-
 + (UIColor *)colorButtonTitleNormal;
 
 #pragma mark - dashboard
@@ -128,7 +123,5 @@
 + (UIColor *)colorLightText;
 + (UIColor *)colorLighter;
 + (UIColor *)colorDarkText;
-+ (UIColor *)colorTheme;
-+ (UIColor *)colorDisabled;
 
 @end

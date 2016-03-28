@@ -11,12 +11,14 @@
 #import "AGStyleCoordinator.h"
 #import "DSValueUtil.h"
 #import "DSImage.h"
+#import "AGUIDefine.h"
 
 @interface AGCollectionViewCellTab(){
     
 }
 
 @property (nonatomic, strong) UIImageView *pointIconView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -27,9 +29,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self assembleTitle];
-        [self addSubview:self.pointIconView];
-        [self setBackgroundColor:[AGStyleCoordinator colorTabBarCellBackgroundNormal]];
+        [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.pointIconView];
+//        [self setBackgroundColor:COLOR(AGUIDEFINE.RGB_BACKGROUND_TAB_BAR)];
     }
     return self;
 }
@@ -37,34 +39,31 @@
 
 #pragma mark - assemblers
 
-- (void)assembleTitle{
-    if ([DSValueUtil isAvailable:titleL]) return;
-    CGFloat spacing = 0;
-    CGFloat x = spacing;
-    CGFloat y = spacing;
-    CGFloat w = self.frame.size.width - spacing*2;
-    CGFloat h = self.frame.size.height - spacing *2;
-    titleL = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    [titleL setNumberOfLines:0];
+- (UILabel *)titleLabel{
+    if (!_titleLabel){
+        CGFloat spacing = 0;
+        CGFloat x = spacing;
+        CGFloat y = spacing;
+        CGFloat w = self.frame.size.width - spacing*2;
+        CGFloat h = self.frame.size.height - spacing *2 - 1;
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)];
+        [_titleLabel setNumberOfLines:0];
+        [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_titleLabel setAdjustsFontSizeToFitWidth:YES];
+//        [_titleLabel setBackgroundColor:COLOR(AGUIDEFINE.RGB_BACKGROUND_TAB_BAR)];
+    }
     
-    //    [titleL setLineBreakMode:NSLineBreakByWordWrapping];
-    [titleL setTextAlignment:NSTextAlignmentCenter];
-    [titleL setClipsToBounds:YES];
-//    [titleL.layer setCornerRadius:4.0];
-    [titleL setAdjustsFontSizeToFitWidth:YES];
-    [titleL setBackgroundColor:[AGStyleCoordinator colorTabBarCellBackgroundNormal]];
-//    [titleL.layer setBorderColor:[AGStyleCoordinator colorOptionCellBorder].CGColor];
-    [self.contentView addSubview:titleL];
+    return _titleLabel;
 }
 
 - (UIImageView *)pointIconView{
-    if ([DSValueUtil isNotAvailable:_pointIconView]) {
+    if (!_pointIconView) {
         CGFloat h = 10;
         CGFloat w = 16;
         CGFloat y = self.frame.size.height - h;
         CGFloat x = (self.frame.size.width - w)/2.0;
         _pointIconView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        UIImage *img = [DSImage triangleWithSize:CGSizeMake(w, h) fillColor:[UIColor whiteColor]];
+        UIImage *img = [DSImage triangleWithSize:CGSizeMake(w, h) fillColor:COLOR(AG_UI_DEFINE.RGB_WHITE) borderColor:COLOR(AG_UI_DEFINE.RGB_BORDER_DARKER)];
         [_pointIconView setImage:img];
 //        [AGDebugUtil makeBorderForView:_pointIconView];
     }
@@ -75,12 +74,12 @@
 
 - (void)setSelected:(BOOL)selected{
     if (selected) {
-        [titleL setFont:[UIFont systemFontOfSize:14]];
-        [titleL setTextColor:[AGStyleCoordinator colorTabBarCellTitleHighlight]];
+        [self.titleLabel setFont:FONT_WITH_SIZE(14.0)];
+        [self.titleLabel setTextColor:COLOR(AG_UI_DEFINE.RGB_THEME)];
         [self.pointIconView setHidden:NO];
     }else{
-        [titleL setFont:[UIFont systemFontOfSize:14]];
-        [titleL setTextColor:[AGStyleCoordinator colorTabBarCellTitleNormal]];
+        [self.titleLabel setFont:FONT_WITH_SIZE(14.0)];
+        [self.titleLabel setTextColor:COLOR(AG_UI_DEFINE.RGB_TAB_BAR_NORMAL)];
         [self.pointIconView setHidden:YES];
     }
 }
@@ -92,7 +91,7 @@
 - (void)setValue:(id)aValue{
     [super setValue:aValue];
 //    TLOG(@"value -> %@", self.value);
-    [titleL setText:[DSValueUtil toString:[(AGCollectionViewCellValue *)self.value value]].uppercaseString];
+    [self.titleLabel setText:[DSValueUtil toString:[(AGCollectionViewCellValue *)self.value value]].uppercaseString];
 }
 
 

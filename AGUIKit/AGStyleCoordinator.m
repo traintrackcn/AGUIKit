@@ -412,22 +412,6 @@
 
 #pragma mark - tab bar cell
 
-+ (UIColor *)colorTabBarCellTitleNormal{
-    return [self colorForKey:@"tab-bar-cell-title-normal"];
-}
-
-+ (UIColor *)colorTabBarCellTitleHighlight{
-    return [self colorForKey:@"tab-bar-cell-title-highlight"];
-}
-
-+ (UIColor *)colorTabBarCellTitleBorder{
-    return [self colorForKey:@"tab-bar-cell-title-border"];
-}
-
-+ (UIColor *)colorTabBarCellBackgroundNormal{
-    return [self colorForKey:@"tab-bar-cell-background-normal"];
-}
-
 + (UIColor *)colorButtonTitleNormal{
     return [self colorForKey:@"button-title-normal"];
 }
@@ -508,13 +492,6 @@
     return [self colorForKey:@"dark-text"];
 }
 
-+ (UIColor *)colorTheme{
-    return [self colorForKey:@"theme"];
-}
-
-+ (UIColor *)colorDisabled{
-    return RGBA(221, 221, 221, 1);
-}
 
 @end
 

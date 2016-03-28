@@ -9,7 +9,7 @@
 #import "AGLogoHeaderCell.h"
 #import "NSString+AGUtils.h"
 #import "DSDeviceUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @interface AGLogoHeaderCell(){
     UILabel *titleLabel;
@@ -113,7 +113,7 @@
                                            attributes:attribs];
     
     [attributedText setAttributes:@{
-                                    NSFontAttributeName: [UIFont systemFontOfSize:16]
+                                    NSFontAttributeName: FONT_WITH_SIZE(16)
                                     } range:NSMakeRange(brIdx, subtitle.length+1)];
     
     

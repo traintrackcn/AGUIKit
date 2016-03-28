@@ -12,6 +12,6 @@ extern NSString *AGTabBarCellDidChange;
 
 @interface AGTabBarCell : AGHorizontalUnitsCell
 
-- (UIColor *)backgroundColorValue;
+//- (UIColor *)backgroundColorValue;
 
 @end

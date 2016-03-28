@@ -9,7 +9,7 @@
 #import "AGTextCell.h"
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @interface AGTextCell(){
     UILabel *_textLabel;
@@ -66,7 +66,7 @@
         [_textLabel setTextColor:[AGStyleCoordinator colorCellTitleSelected]];
         [_textLabel setNumberOfLines:0];
         [_textLabel setAdjustsFontSizeToFitWidth:YES];
-        [_textLabel setFont:[UIFont systemFontOfSize:16]];
+        [_textLabel setFont:FONT_WITH_SIZE(16)];
 //        [AGDebugUtil makeBorderForView:_textLabel];
     }
     return _textLabel;
@@ -80,7 +80,7 @@
 //        CGFloat h = self.height;
         _detailTextLabel = [super detailTextLabel];
         [_detailTextLabel setTextColor:[AGStyleCoordinator colorCellTitleSelected]];
-        [_detailTextLabel setFont:[UIFont systemFontOfSize:16]];
+        [_detailTextLabel setFont:FONT_WITH_SIZE(16)];
         [_detailTextLabel setAdjustsFontSizeToFitWidth:YES];
         [_detailTextLabel setNumberOfLines:0];
         [_detailTextLabel setTextAlignment:NSTextAlignmentRight];

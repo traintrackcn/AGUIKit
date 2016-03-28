@@ -9,6 +9,7 @@
 #import "AGTabBarCell.h"
 #import "AGCollectionViewCellTab.h"
 #import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 NSString *AGTabBarCellDidChange = @"AGTabBarCellDidChange";
 
@@ -23,7 +24,10 @@ NSString *AGTabBarCellDidChange = @"AGTabBarCellDidChange";
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 //        [self assembleBottomBorder];
-        [collectionV setBackgroundColor:self.backgroundColorValue];
+//        [collectionV setBackgroundColor:self.backgroundColorValue];
+        [self.contentView insertSubview:self.borderBottomViewStyleSolid belowSubview:self.collectionView];
+//        [self.collectionView setBackgroundColor:COLOR(AGUIDEFINE.RGB_BACKGROUND_TAB_BAR)];
+        [self.contentView setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_TAB_BAR_BACKGROUND)];
     }
     return self;
 }
@@ -44,8 +48,8 @@ NSString *AGTabBarCellDidChange = @"AGTabBarCellDidChange";
 
 #pragma mark - styles
 
-- (UIColor *)backgroundColorValue{
-    return [AGStyleCoordinator colorTabBarCellBackgroundNormal];
+- (UIColor *)borderColor{
+    return COLOR(AG_UI_DEFINE.RGB_BORDER_DARKER);
 }
 
 @end

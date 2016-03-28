@@ -7,7 +7,7 @@
 //
 
 #import "AGButton.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "GlobalDefine.h"
 #import "DSImage.h"
 
@@ -65,11 +65,11 @@
     UIImage *img = [[UIImage alloc] init];
     
     if (state == UIControlStateDisabled) {
-        img = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:RGBA(217, 217, 217, 1)];
+        img = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:COLOR(AG_UI_DEFINE.RGB_DISABLED)];
     }
     
     if (state == UIControlStateNormal) {
-        img = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:[AGStyleCoordinator colorTheme]];
+        img = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:COLOR(AG_UI_DEFINE.RGB_THEME)];
     }
     
     return img;

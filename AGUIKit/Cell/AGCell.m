@@ -15,7 +15,6 @@
 #import "DSDeviceUtil.h"
 #import "AGUIDefine.h"
 #import "GlobalDefine.h"
-#import "AGCellStyleDefine.h"
 #import "AGObjectPool.h"
 
 @interface AGCell(){
@@ -398,10 +397,6 @@
     return [self.class height];
 }
 
-- (UIColor *)borderColor{
-    return [AGStyleCoordinator colorCellBorder];
-}
-
 - (CGFloat)paddingLR{
     return 8.0;
 }
@@ -414,15 +409,19 @@
     return .5f;
 }
 
+- (UIColor *)borderColor{
+    return COLOR(AG_UI_DEFINE.RGB_BORDER);
+}
+
 
 - (void)applySelectedStyle{
-    [self setBackgroundColor:[AGCellStyleDefine singleton].backgroundColorHighlight];
+    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_SELECTED)];
     self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-selected"];
     self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-selected"];
 }
 
 - (void)applyUnselectedStyle{
-    [self setBackgroundColor:[AGCellStyleDefine singleton].backgroundColorNormal];
+    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
     self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-unselected"];
     self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-unselected"];
 }

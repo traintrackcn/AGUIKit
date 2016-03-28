@@ -8,7 +8,7 @@
 
 #import "AGTitleCell.h"
 #import "AGLabel.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @implementation AGTitleCell
 
@@ -41,7 +41,7 @@
 #pragma mark - styles
 
 - (UIFont *)contentFont{
-    return [UIFont systemFontOfSize:16];
+    return FONT_WITH_SIZE(16);
 }
 
 - (CGFloat)paddingLR{

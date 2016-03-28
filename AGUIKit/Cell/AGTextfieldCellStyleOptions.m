@@ -9,7 +9,7 @@
 #import "AGTextfieldCellStyleOptions.h"
 #import "AGLabel.h"
 #import "DSValueUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 
 @interface AGTextfieldCellStyleOptions(){
@@ -51,7 +51,7 @@
 //    [contentLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [contentLabel setTextColor:[AGStyleCoordinator colorTextfieldContent]];
     [contentLabel setTextAlignment:NSTextAlignmentRight];
-    [contentLabel setFont:[UIFont systemFontOfSize:16]];
+    [contentLabel setFont:FONT_WITH_SIZE(16)];
     [self.contentView addSubview:contentLabel];
 }
 

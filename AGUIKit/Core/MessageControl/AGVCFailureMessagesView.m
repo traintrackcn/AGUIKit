@@ -7,7 +7,7 @@
 //
 
 #import "AGVCFailureMessagesView.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "DSDeviceUtil.h"
 
 @interface AGVCFailureMessagesView(){
@@ -34,7 +34,7 @@
     contentLabel = [[UILabel alloc] init];
     [contentLabel setTextColor:c];
 //    [contentLabel setBackgroundColor:RGBA(254, 207, 208, 1)];
-    [contentLabel setFont:[UIFont systemFontOfSize:16]];
+    [contentLabel setFont:FONT_WITH_SIZE(16)];
     [contentLabel setNumberOfLines:0];
     [self addSubview:contentLabel];
     

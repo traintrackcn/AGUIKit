@@ -9,11 +9,11 @@
 #import "AGSelector.h"
 #import "AGViewController.h"
 #import "AGVCConfiguration.h"
-#import "DSDeviceUtil.h"
 #import "AGAssembler.h"
 #import "AGStyleCoordinator.h"
 #import "DSValueUtil.h"
 #import "DSLayoutUtil.h"
+#import "AGUIDefine.h"
 
 @interface AGSelector (){
     UIView *buttonC;
@@ -72,7 +72,7 @@
     titleV = [[UILabel alloc] initWithFrame:CGRectMake(x, 30, w, 40)];
     [titleV setTextAlignment:NSTextAlignmentCenter];
     [titleV setFont:[UIFont systemFontOfSize:24]];
-    [titleV setTextColor:[AGStyleCoordinator colorTheme]];
+    [titleV setTextColor:COLOR(AG_UI_DEFINE.RGB_THEME)];
     [layoutV addSubview:titleV];
 }
 

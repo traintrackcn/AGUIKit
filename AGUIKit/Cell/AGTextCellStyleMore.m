@@ -7,7 +7,7 @@
 //
 
 #import "AGTextCellStyleMore.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "DSValueUtil.h"
 
 @implementation AGTextCellStyleMore
@@ -21,7 +21,7 @@
         
         [self.contentView addSubview:self.borderBottomViewStylePaddingL];
         [self.textLabel setTextColor:[AGStyleCoordinator colorCellTitleUnselected]];
-        [self.textLabel setFont:[UIFont systemFontOfSize:16]];
+        [self.textLabel setFont:FONT_WITH_SIZE(16)];
         [self.textLabel setAdjustsFontSizeToFitWidth:YES];
     }
     return self;

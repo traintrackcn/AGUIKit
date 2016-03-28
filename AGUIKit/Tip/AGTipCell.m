@@ -10,7 +10,7 @@
 #import "GlobalDefine.h"
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @interface AGTipCell(){
     
@@ -83,7 +83,7 @@
 }
 
 - (UIFont *)titleFont{
-    return [UIFont systemFontOfSize:16];
+    return FONT_WITH_SIZE(16);
 }
 
 @end

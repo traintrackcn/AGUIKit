@@ -8,8 +8,7 @@
 
 #import "AGHeaderCell.h"
 #import "DSValueUtil.h"
-#import "DSDeviceUtil.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @interface AGHeaderCell(){
     
@@ -66,11 +65,11 @@
 #pragma mark - styles
 
 - (UIColor *)titleColor{
-    return [AGStyleCoordinator colorTheme];
+    return COLOR(AG_UI_DEFINE.RGB_THEME);
 }
 
 - (UIFont *)titleFont{
-    return [UIFont boldSystemFontOfSize:24.0];
+    return FONT_BOLD_WITH_SIZE(24.0);
 }
 
 @end

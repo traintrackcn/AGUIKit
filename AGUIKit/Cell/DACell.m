@@ -8,6 +8,7 @@
 
 #import "DACell.h"
 #import "AGUIDefine.h"
+#import "AGStyleCoordinator.h"
 
 @implementation DACell
 
@@ -18,7 +19,7 @@
 }
 
 - (UIColor *)borderColor{
-    return STYLE_BORDER_COLOR_DEFAULT;
+    return COLOR(AG_UI_DEFINE.RGB_BORDER);
 }
 
 - (CGFloat)borderWidth{

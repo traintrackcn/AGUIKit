@@ -9,7 +9,7 @@
 #import "AGAssembler.h"
 #import "AGQuantitySelector.h"
 #import "AGButton.h"
-#import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 #import "DSValueUtil.h"
 
 @implementation AGAssembler
@@ -55,7 +55,7 @@
 + (UILabel *)assembleLabelForPickerView{
     UILabel *l = [[UILabel alloc] init];
     [l setFrame:CGRectMake(0, 0, 100, 40)];
-    [l setFont:[UIFont systemFontOfSize:16]];
+    [l setFont:FONT_WITH_SIZE(16)];
     [l setTextAlignment:NSTextAlignmentCenter];
 //    [l setTextColor:[UIColor lightGrayColor]];
 //    [AGDebugUtil makeBorderForView:l];
