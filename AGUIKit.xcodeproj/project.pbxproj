@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
+		4A6107171CCA2418002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
+		4A61071C1CCA272F002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
 		4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50611C9148F400D8D46A /* AGSectionLoader.m */; };
 		4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50601C9148F400D8D46A /* AGSectionLoader.h */; };
 		4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */; };
@@ -254,6 +256,8 @@
 		4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */; };
 		4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */; };
 		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
+		4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */; };
+		4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */; };
 		4AF5C96C1BFCB79400B46A88 /* AGObjectPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5C96B1BFCB79400B46A88 /* AGObjectPool.m */; };
 		4AF5C96D1BFCB93000B46A88 /* AGObjectPool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AF5C96A1BFCB79400B46A88 /* AGObjectPool.h */; };
 /* End PBXBuildFile section */
@@ -265,6 +269,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */,
 				4A6E50931C92765600D8D46A /* DAButtonCell.h in CopyFiles */,
 				4A6E50941C92765600D8D46A /* DAButtonFactory.h in CopyFiles */,
 				4A6E50951C92765600D8D46A /* DAButtonItem.h in CopyFiles */,
@@ -395,6 +400,8 @@
 /* Begin PBXFileReference section */
 		4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputDelegate.h"; sourceTree = "<group>"; };
 		4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputDelegate.m"; sourceTree = "<group>"; };
+		4A6107151CCA2418002C2245 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
+		4A6107161CCA2418002C2245 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		4A6E50601C9148F400D8D46A /* AGSectionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionLoader.h; sourceTree = "<group>"; };
 		4A6E50611C9148F400D8D46A /* AGSectionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSectionLoader.m; sourceTree = "<group>"; };
 		4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+SectionComponents.h"; sourceTree = "<group>"; };
@@ -646,6 +653,8 @@
 		4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextfieldCellStyleLong.m; sourceTree = "<group>"; };
 		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
 		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
+		4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellAction.h; sourceTree = "<group>"; };
+		4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellAction.m; sourceTree = "<group>"; };
 		4AF5C96A1BFCB79400B46A88 /* AGObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGObjectPool.h; sourceTree = "<group>"; };
 		4AF5C96B1BFCB79400B46A88 /* AGObjectPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGObjectPool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -668,6 +677,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A6107141CCA2418002C2245 /* UIImageView+Letters */ = {
+			isa = PBXGroup;
+			children = (
+				4A6107151CCA2418002C2245 /* UIImageView+Letters.h */,
+				4A6107161CCA2418002C2245 /* UIImageView+Letters.m */,
+			);
+			path = "UIImageView+Letters";
+			sourceTree = "<group>";
+		};
 		4A6E50771C92720E00D8D46A /* SectionButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +698,7 @@
 		4A8E84721B684E5300F48CDD = {
 			isa = PBXGroup;
 			children = (
+				4A6107141CCA2418002C2245 /* UIImageView+Letters */,
 				4A8E847D1B684E5300F48CDD /* AGUIKit */,
 				4A8E8DF51B6915D200F48CDD /* AGUIKitDemo */,
 				4A8E847C1B684E5300F48CDD /* Products */,
@@ -764,6 +783,8 @@
 				4A8E88A61B686E9100F48CDD /* AGBirthDateCell.m */,
 				4A8E88A71B686E9100F48CDD /* AGButtonCell.h */,
 				4A8E88A81B686E9100F48CDD /* AGButtonCell.m */,
+				4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */,
+				4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */,
 				4A8E88A91B686E9100F48CDD /* AGCell.h */,
 				4A8E88AA1B686E9100F48CDD /* AGCell.m */,
 				4A8E88AB1B686E9100F48CDD /* AGEndTimeCell.h */,
@@ -1278,6 +1299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A61071C1CCA272F002C2245 /* UIImageView+Letters.m in Sources */,
 				4A8E8B631B69093600F48CDD /* AGQuantityPickerView.m in Sources */,
 				4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */,
 				4A8E8A701B68FBE500F48CDD /* AGLineProgressCell.m in Sources */,
@@ -1313,6 +1335,7 @@
 				4A8E8A6F1B68FBE500F48CDD /* AGCircleProgressView.m in Sources */,
 				4A8E898A1B686E9100F48CDD /* AGLabel.m in Sources */,
 				4A8E8A461B68F99400F48CDD /* AGCellInnerView.m in Sources */,
+				4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */,
 				4A8E898C1B686E9100F48CDD /* AGExpirationDateSelector.m in Sources */,
 				4A8E897E1B686E9100F48CDD /* AGCollectionViewCell.m in Sources */,
 				4A8E89811B686E9100F48CDD /* AGCollectionViewCellValue.m in Sources */,
@@ -1408,6 +1431,7 @@
 			files = (
 				4A8E8DFF1B6915D200F48CDD /* ViewController.m in Sources */,
 				4A8E8DFC1B6915D200F48CDD /* AppDelegate.m in Sources */,
+				4A6107171CCA2418002C2245 /* UIImageView+Letters.m in Sources */,
 				4A8E8DF91B6915D200F48CDD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

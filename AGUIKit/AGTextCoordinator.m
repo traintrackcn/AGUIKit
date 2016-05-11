@@ -209,6 +209,9 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
         }
         
         if (fieldIndex == self.selectedLangFieldIdx) {
+            
+            field = [self removeQuoteForField:field];
+            
             [self.dic setObject:field forKey:self.currentLangKey];
         }
     }
@@ -218,6 +221,18 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     TLOG(@"error -> %@", error);
 }
 
+#pragma mark - csv utils
+
+- (NSString *)removeQuoteForField:(NSString *)field{
+    if (field.length<3) return field;
+    NSInteger len = field.length;
+    NSString *firstChar = [field substringWithRange:NSMakeRange(0, 1)];
+    NSString *lastChar = [field substringWithRange:NSMakeRange(len-1, 1)];
+    if ([firstChar isEqualToString:@"\""] && [lastChar isEqualToString:@"\""]) {
+        return [field substringWithRange:NSMakeRange(1, len-2)];
+    }
+    return field;
+}
 
 
 #pragma mark - properties

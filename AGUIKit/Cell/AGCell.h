@@ -86,6 +86,7 @@
 #pragma mark - 
 
 - (void)endEditingForAssociatedView;
+- (void)reloadAssociatedViewController;
 
 #pragma mark - layout ops
 - (void)layoutBorderBottomViewStyleSolid;

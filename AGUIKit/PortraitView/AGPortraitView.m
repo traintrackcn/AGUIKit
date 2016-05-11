@@ -13,6 +13,7 @@
 #import "AGRemoter.h"
 #import "DSImage.h"
 #import "NSObject+Singleton.h"
+#import "UIImageView+Letters.h"
 
 @interface AGPortraitView(){
     
@@ -61,6 +62,24 @@
 
 - (void)setImage:(UIImage *)img{
     [self.imageView setImage:img];
+}
+
+- (void)setImageWithText:(NSString *)text{
+    
+    if (!text) {
+        [self setImage:self.defaultImage];
+        return;
+    }
+    
+    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *firstLetter = [text substringToIndex:1];
+    [self setFirstLetter:firstLetter];
+    
+    id textAttributes = @{
+                          NSFontAttributeName:self.font,
+                          NSForegroundColorAttributeName:self.textColor
+                          };
+    [self.imageView setImageWithString:text color:self.textBackgroundColor circular:YES textAttributes:textAttributes];
 }
 
 - (void)setUrl:(NSString *)urlStr{
@@ -149,5 +168,20 @@
     return 0;
 }
 
+- (UIColor *)textColor{
+    return [UIColor whiteColor];
+}
+
+- (UIFont *)font{
+    return [UIFont boldSystemFontOfSize:20.0];
+}
+
+- (UIImage *)defaultImage{
+    return [DSImage singleton].dummyPortraitImage;
+}
+
+- (UIColor *)textBackgroundColor{
+    return nil;
+}
 
 @end

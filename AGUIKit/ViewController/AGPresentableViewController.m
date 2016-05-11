@@ -73,7 +73,7 @@ static NSMutableDictionary* _singletonsAGPresentableViewController;
     NSString *key = NSStringFromClass([self class]);
     [_singletonsAGPresentableViewController setValue:self forKey:key];
     
-    TLOG(@"_singletonsAGPresentableViewController -> %@", _singletonsAGPresentableViewController);
+//    TLOG(@"_singletonsAGPresentableViewController -> %@", _singletonsAGPresentableViewController);
     
 }
 
@@ -81,7 +81,7 @@ static NSMutableDictionary* _singletonsAGPresentableViewController;
     NSString *key = NSStringFromClass([self class]);
     [_singletonsAGPresentableViewController removeObjectForKey:key];
     
-    TLOG(@"_singletonsAGPresentableViewController -> %@", _singletonsAGPresentableViewController);
+//    TLOG(@"_singletonsAGPresentableViewController -> %@", _singletonsAGPresentableViewController);
 }
 
 

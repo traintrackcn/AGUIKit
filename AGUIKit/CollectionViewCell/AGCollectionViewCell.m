@@ -30,7 +30,7 @@
 }
 
 - (AGRemoter *)remoter{
-    if ([DSValueUtil isNotAvailable:_remoter]) {
+    if (!_remoter) {
         _remoter = [AGRemoter instanceWithDelegate:self];
     }
     return _remoter;
@@ -38,7 +38,7 @@
 
 #pragma mark - AGRemoterDelegate
 
-- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequest *)request{
+- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequestInfo *)request{
     
 }
 

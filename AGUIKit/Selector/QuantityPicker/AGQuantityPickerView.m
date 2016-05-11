@@ -134,6 +134,7 @@
 
 - (void)setValue:(NSInteger)value{
     [_quantityLabel setText:[NSString stringWithFormat:@"%ld",(long)value]];
+    [self updateButtonStatus];
 }
 
 #pragma mark - 

@@ -245,6 +245,7 @@
 }
 
 - (AGViewController *)previousViewController{
+    if (_previousViewController) return _previousViewController;
 //    TLOG(@"self.navigationController.viewControllers -> %@", self.navigationController.viewControllers);
     
     NSArray *viewControllers = self.navigationController.viewControllers;
@@ -294,6 +295,11 @@
         _objPool = [AGObjectPool instance];
     }
     return _objPool;
+}
+
+- (id)ws{
+    _ws = self;
+    return _ws;
 }
 
 
@@ -437,7 +443,7 @@
 }
 
 #pragma mark -  AGRemoterDelegate
-- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequest *)request{
+- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequestInfo *)request{
     
 }
 

@@ -12,5 +12,6 @@
 @interface AGViewController (SectionComponents)
 
 - (DASectionButton *)sectionButton:(NSInteger)section;
+- (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section;
 
 @end

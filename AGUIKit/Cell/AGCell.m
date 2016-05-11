@@ -132,6 +132,12 @@
     return !self.isContentViewLoaded;
 }
 
+#pragma mark -
+
+- (void)reloadAssociatedViewController{
+    [self.associatedViewController reloadVisibleIndexPaths];
+}
+
 #pragma mark - assemblers
 
 - (void)assembleGC{
@@ -242,7 +248,7 @@
 
 #pragma mark - AGRemoterDelegate
 
-- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequest *)request{
+- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequestInfo *)request{
     
 }
 

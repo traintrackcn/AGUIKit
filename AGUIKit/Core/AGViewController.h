@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - dummy cell stuff
 - (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index;
 
-
+@property (nonatomic, weak) id ws;
 @property (nonatomic, weak) AGCell *associatedCell;
 @property (nonatomic, strong) AGVCConfiguration *config;
 @property (nonatomic, assign) BOOL supportsRefreshControl;
@@ -101,11 +101,13 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 //@property (nonatomic, assign) CGRect frame;
 
 @property (nonatomic, assign) BOOL flagDoReload;
-@property (nonatomic, strong) AGViewController *previousViewController;
+@property (nonatomic, weak) AGViewController *previousViewController;
 
 @property (nonatomic, strong) AGObjectPool *objPool;
 
 @property (nonatomic, strong) UIView *dummyHeaderView;
+
+
 
 
 @end
