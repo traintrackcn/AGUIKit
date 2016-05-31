@@ -46,7 +46,8 @@
 
 
 - (void)dealloc{
-    [_remoter cancelAllRequests];
+    [_remoter cancel];
+    _remoter = nil;
     if (self.obUIKeyboardWillChangeFrameNotification) {
         [[NSNotificationCenter defaultCenter] removeObserver:self.obUIKeyboardWillChangeFrameNotification];
     }
@@ -76,8 +77,13 @@
 
 #pragma mark - properties
 
+- (id)ws{
+    _ws = self;
+    return _ws;
+}
+
 - (AGRemoter *)remoter{
-    if ([DSValueUtil isNotAvailable:_remoter]) {
+    if (!_remoter) {
         _remoter = [AGRemoter instanceWithDelegate:self];
     }
     return _remoter;
@@ -195,6 +201,7 @@
         [_associatedViewController cellRequestReloadIndexPath:self.indexPath];
     }
 }
+
 
 //- (void)dispatchRequestSetCurrentIndexPath{
 //    if (_associatedViewController) {

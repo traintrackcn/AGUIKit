@@ -14,5 +14,6 @@
 @property (nonatomic, assign) NSInteger paddingB;
 
 @property (nonatomic, strong) id value;
+@property (nonatomic, assign) BOOL disabled;
 
 @end

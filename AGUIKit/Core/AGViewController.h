@@ -40,10 +40,6 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 + (instancetype)instance;
 
-
-- (void)cancelAllRequests;
-
-
 - (CGFloat)tableViewContentInsetTop;
 
 #pragma mark - table view stuffs
@@ -65,6 +61,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - view lifecycle
 - (void)willReloadVisibleIndexPaths;
 - (void)reloadVisibleIndexPaths;
+- (void)reloadIndexPath:(NSIndexPath *)indexPath;
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated;
 - (void)didReloadVisibleIndexPaths;
 
@@ -84,7 +81,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - error handlers
 - (NSArray *)messagesOfError:(AGRemoterResultError *)error;
 - (void)alertRemoteMessagesForError:(AGRemoterResultError *)error;
-- (void)setRemoteMessagesForError:(AGRemoterResultError *)error;
+- (BOOL)setRemoteMessagesForError:(AGRemoterResultError *)error;
 
 
 #pragma mark - dummy cell stuff

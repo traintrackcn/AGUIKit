@@ -107,15 +107,11 @@
     [self assembleTopRefreshControl];
 }
 
-- (void)cancelAllRequests{
-    [self resetFloatedMessage];
-    [_remoter cancelAllRequests];
-}
-
 - (void)dealloc{
     TLOG(@"%@", NSStringFromClass(self.class));
     [tableV setDelegate:nil];
-    [self cancelAllRequests];
+    [self resetFloatedMessage];
+    [_remoter cancel];
     [self.view.layer removeAllAnimations];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
@@ -226,10 +222,16 @@
     [self didReloadVisibleIndexPaths];
 }
 
+- (void)reloadIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated{
     [self willReloadVisibleIndexPaths];
     if (animated){
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
     }else{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     }
@@ -404,35 +406,36 @@
 
 #pragma mark - error handlers
 
-- (NSArray *)messagesOfError:(AGRemoterResultError *)error{
+- (NSArray *)messagesOfError:(id)error{
     NSMutableArray *arr = [NSMutableArray array];
     
-    //append message for users
-    if ([DSValueUtil isAvailable:error.message]) {
-        [arr addObject:error.message];
+    if ([error isKindOfClass:[NSError class]]) {
+        NSError *item = error;
+        error = [[AGRemoterResultError alloc] init];
+        [error updateWithOriginalErrorUserInfo:item.userInfo];
     }
     
-    if (arr.count == 0) { //if no message for users, append message for developers
-        
-        if ([DSValueUtil isAvailable:error.localizedDesc]){
-            [arr addObject:error.localizedDesc];
-        }
-        
-        if ([DSValueUtil isAvailable:error.developMessage]){
-            if (![error.developMessage isEqualToString:@""]){
-                [arr addObject:error.developMessage];
+    if ( [error isKindOfClass:[AGRemoterResultError class]]){
+        AGRemoterResultError *item = (AGRemoterResultError *)error;
+        //append message for users
+        if (item.message) [arr addObject:item.message];
+        if (arr.count == 0) { //if no message for users, append message for developers
+            if (item.localizedDesc) [arr addObject:item.localizedDesc];
+            if (item.developMessage){
+                if (![item.developMessage isEqualToString:@""]) [arr addObject:item.developMessage];
             }
         }
-        
     }
-    
+
     return arr;
 }
 
-- (void)setRemoteMessagesForError:(AGRemoterResultError *)error{
+- (BOOL)setRemoteMessagesForError:(AGRemoterResultError *)error{
+    if (!error) return NO;
 //    AGRemoterResultError *error = result.errorParsed;
     NSArray *msgs = [self messagesOfError:error];
     [self setFailureMessages:msgs];
+    return YES;
 }
 
 
@@ -480,9 +483,7 @@
 }
 
 - (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath{
-    [self reloadVisibleIndexPaths];
-//    [self reloadVisibleIndexPathsInSection:indexPath.section animated:NO];
-//    [self.config setCurrentIndexPath:nil];
+    [self reloadIndexPath:indexPath];
 }
 
 -(void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath{

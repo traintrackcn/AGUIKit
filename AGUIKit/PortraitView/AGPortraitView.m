@@ -10,7 +10,7 @@
 #import "GlobalDefine.h"
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"
-#import "AGRemoter.h"
+#import "DAImageLoader.h"
 #import "DSImage.h"
 #import "NSObject+Singleton.h"
 #import "UIImageView+Letters.h"
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) UIView *circleView;
 
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) AGRemoter *remoter;
+@property (nonatomic, strong) DAImageLoader *imageLoader;
 
 @end
 
@@ -55,7 +55,8 @@
 
 
 - (void)dealloc{
-    return [self.remoter cancelAllImageRequests];
+    [_imageLoader cancel];
+    _imageLoader = nil;
 }
 
 #pragma mark - ops
@@ -84,8 +85,8 @@
 
 - (void)setUrl:(NSString *)urlStr{
     NSURL *url = [NSURL URLWithString:urlStr];
-    [self.remoter cancelAllImageRequests];
-    [self.remoter REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
+    [self.imageLoader cancel];
+    [self.imageLoader REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
@@ -94,11 +95,11 @@
 
 #pragma mark - remote stuff
 
-- (AGRemoter *)remoter{
-    if (!_remoter) {
-        _remoter = [AGRemoter instanceWithDelegate:nil];
+- (DAImageLoader *)imageLoader{
+    if (!_imageLoader) {
+        _imageLoader = [DAImageLoader instance];
     }
-    return _remoter;
+    return _imageLoader;
 }
 
 #pragma mark -

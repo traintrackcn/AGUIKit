@@ -84,7 +84,7 @@
 }
 
 
-- (void)resizeWithMaxSize:(CGSize)maxSize{
+- (void)resizeNormalTextWithMaxSize:(CGSize)maxSize{
     NSDictionary *attributes = @{
                                  NSFontAttributeName: self.font
                                  };
@@ -92,13 +92,20 @@
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:attributes
                                               context:nil];
-    
+
 //    TLOG(@"rect -> %@ font -> %@", NSStringFromCGRect(rect), self.font);
     rect.origin = self.frame.origin;
     
     [self setFrame:rect];
+}
+
+- (void)resizeWithMaxSize:(CGSize)maxSize{
+
+
+    CGSize size = [self sizeThatFits:maxSize];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height)];
+//    return self.contentLabel.frame.size.height;
     
-//    [self sizeToFit];
     
 }
 

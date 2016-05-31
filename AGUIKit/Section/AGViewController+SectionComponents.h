@@ -13,5 +13,6 @@
 
 - (DASectionButton *)sectionButton:(NSInteger)section;
 - (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section;
+- (id)sectionItemInSection:(NSInteger)section;
 
 @end

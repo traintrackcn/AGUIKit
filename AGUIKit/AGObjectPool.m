@@ -21,6 +21,10 @@
 
 
 - (void)setObject:(id)object forKey:(nonnull id<NSCopying>)key{
+    if (!object){
+        [self.dic removeObjectForKey:key];
+        return;
+    }
     [self.dic setObject:object forKey:key];
 }
 

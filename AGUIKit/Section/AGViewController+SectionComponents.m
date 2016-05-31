@@ -27,14 +27,19 @@
 
 
 - (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section{
-    NSString *key = [self keyOfSection:section];
-    id item = [self.objPool objectForKey:key];
+    id item = [self sectionItemInSection:section];
     if (!item) {
         item = [cls instanceWithSection:section config:self.config];
-        [self.objPool setObject:item forKey:key];
+        [self.objPool setObject:item forKey:[self keyOfSection:section]];
     }
     return item;
     
+}
+
+- (id)sectionItemInSection:(NSInteger)section{
+    NSString *key = [self keyOfSection:section];
+    id item = [self.objPool objectForKey:key];
+    return item;
 }
 
 #pragma mark - utils

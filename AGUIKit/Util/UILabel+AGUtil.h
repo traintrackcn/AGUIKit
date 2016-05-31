@@ -18,6 +18,8 @@
 
 
 - (void)resizeWithMaxSize:(CGSize)maxSize;
+- (void)resizeNormalTextWithMaxSize:(CGSize)maxSize;
+
 - (void)moveTo:(CGPoint)pos;
 
 - (void)applyShadow;

@@ -10,7 +10,7 @@
 
 @interface AGObjectPool : AGModel
 
-- (id)objectForKey:(nonnull NSString *)key;
-- (void)setObject:(nonnull id)object forKey:(nonnull id<NSCopying>)key;
+- (nonnull id)objectForKey:(nonnull NSString *)key;
+- (void)setObject:(nullable id)object forKey:(nonnull id<NSCopying>)key;
 
 @end

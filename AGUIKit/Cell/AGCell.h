@@ -104,6 +104,7 @@
 @property (nonatomic, strong) NSString *placeholder;
 
 @property (nonatomic, strong) id value;
+@property (nonatomic, weak) id ws;
 
 @property (nonatomic, weak) id associatedViewController;
 

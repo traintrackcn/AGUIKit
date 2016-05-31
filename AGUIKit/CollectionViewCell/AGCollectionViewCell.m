@@ -26,7 +26,8 @@
 }
 
 - (void)dealloc{
-    [_remoter cancelAllRequests];
+    [_remoter cancel];
+    _remoter = nil;
 }
 
 - (AGRemoter *)remoter{

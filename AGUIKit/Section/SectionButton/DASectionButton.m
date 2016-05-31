@@ -55,6 +55,10 @@ typedef NS_ENUM(NSInteger, SectionCell) {
 
 #pragma mark - setters
 
+- (void)setDisabled:(BOOL)disabled{
+    _disabled = disabled;
+}
+
 - (void)setPaddingT:(NSInteger)paddingT{
     _paddingT = paddingT;
     [self.config setCellHeight:self.paddingT atIndexPath:[NSIndexPath indexPathForRow:SectionCellSeparator1 inSection:self.section]];
@@ -77,5 +81,11 @@ typedef NS_ENUM(NSInteger, SectionCell) {
     return _paddingB;
 }
 
+- (id)paramterAtIndex:(NSInteger)index{
+    if(index == SectionCellButton){
+        return [NSNumber numberWithBool:self.disabled];
+    }
+    return nil;
+}
 
 @end
