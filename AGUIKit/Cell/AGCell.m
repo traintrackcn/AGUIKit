@@ -21,8 +21,6 @@
     
 }
 
-
-
 @end
 
 @implementation AGCell

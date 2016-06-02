@@ -11,7 +11,7 @@
 #import "AGLoadingTipCell.h"
 #import "DSDeviceUtil.h"
 #import "AGRemoteUnit.h"
-//#import "AGMonitor.h"
+#import "AGVCConfiguration.h"
 #import "DSValueUtil.h"
 #import "AGAssembler.h"
 #import "GlobalDefine.h"

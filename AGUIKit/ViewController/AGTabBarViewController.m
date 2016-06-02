@@ -13,7 +13,7 @@
 #import "DSDeviceUtil.h"
 #import "DSValueUtil.h"
 #import "AGAssembler.h"
-#import "AGViewController+Datasource.h"
+#import "AGVCConfiguration.h"
 
 typedef NS_ENUM(NSInteger, Section) {
     SectionTabBar,

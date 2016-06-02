@@ -14,7 +14,6 @@
 - (void)floatMessageProcessing;
 - (void)floatMessage:(NSString *)message;
 - (void)clearFloatedMessage;
-- (void)resetFloatedMessage;
 
 
 #pragma mark - display messages at the top of table view

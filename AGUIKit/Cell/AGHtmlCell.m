@@ -10,6 +10,7 @@
 #import "GlobalDefine.h"
 #import "DSDeviceUtil.h"
 #import "AGViewController.h"
+#import "AGVCConfiguration.h"
 
 @interface AGHtmlCell(){
     CGFloat htmlViewRealH;

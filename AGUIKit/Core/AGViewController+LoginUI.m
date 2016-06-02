@@ -7,7 +7,7 @@
 //
 
 #import "AGViewController+LoginUI.h"
-#import "AGViewController+Assembler.h"
+#import "AGViewController.h"
 #import "AGUIDefine.h"
 #import "NSObject+singleton.h"
 #import "AGPresentableViewController.h"

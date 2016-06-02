@@ -7,35 +7,41 @@
 //
 
 #import "AGViewController.h"
-#import "AGCell.h"
-#import "DSReachabilityManager.h"
 #import "AGViewController+Message.h"
-#import "AGViewController+Datasource.h"
-#import "AGViewController+Assembler.h"
 #import "AGViewController+Separator.h"
 #import "AGViewController+LoginUI.h"
-#import "AGTopRefreshControl.h"
+
+
+#import "AGCell.h"
+#import "AGSeparatorCell.h"
 #import "AGSectionUnit.h"
-#import "UIAlertView+Blocks.h"
+#import "AGHeaderViewStyleDefault.h"
+
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
 #import "GlobalDefine.h"
-#import "AGRemoter.h"
+#import "AGUIDefine.h"
+
 #import "AGRemoterResultError.h"
 #import "AGRemoterResult.h"
-#import "AGUIDefine.h"
-#import "NSObject+singleton.h"
-#import "AGObjectPool.h"
 
-@interface AGViewController () {
+
+
+
+@interface AGViewController () <AGCellDelegate>{
     
-    NSString *roleCodeBeforeDisappeared;
 }
+
+@property (nonatomic, strong) UIView *subviewContainer; //overlay with fixed position
+@property (nonatomic, assign) BOOL isSubviewContainerAdded;
 
 @end
 
 @implementation AGViewController
 
++ (instancetype)instance{
+    return [[self.class alloc] init];
+}
 
 - (id)init{
     self = [super init];
@@ -43,141 +49,218 @@
         [self setConfig:[AGVCConfiguration instance]];
         [self.config setTarget:self];
         animationDuration = .33;
+        
     }
     return self;
 }
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
-    
-//    TLOG(@"self.view.frame -> %@", NSStringFromCGRect(self.view.frame));
-    
-    //settting naviBar
-//    UINavigationBar *naviBar = self.navigationController.navigationBar;
-//    [naviBar setTranslucent:YES];
-//    [naviBar ]
-//    TLOG(@"tableViewContentInsetTop -> %f", self.tableViewContentInsetTop);
-    [self setAutomaticallyAdjustsScrollViewInsets:YES];
-    
-//    [self setExtendedLayoutIncludesOpaqueBars:YES];
-    
-    [self assemble];
-    
-    // view tap listener
-//    UITapGestureRecognizer *gc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
-//    [self.view addGestureRecognizer:gc];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-//    TLOG(@"");
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController setToolbarHidden:YES];
-    [self layoutViews];
-    
-    //if view is re appeard
-    if ([DSValueUtil isAvailable:roleCodeBeforeDisappeared]){
-        // if role changed then reload current view
-//        TLOG(@"roleCodeBeforeDisappeared -> %@ [AGSession singleton].roleCode -> %@", roleCodeBeforeDisappeared, [AGSession singleton].roleCode);
-        if (![roleCodeBeforeDisappeared isEqualToString:[AGUIDefine singleton].sessionRoleCode]){
-//            [self reloadVisibleIndexPaths];
-            [self setFlagDoReload:YES];
-        }
-    }
-    
-    
-    if (self.flagDoReload) {
-        [self willDoReload];
-        [self setFlagDoReload:NO];
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    roleCodeBeforeDisappeared = [AGUIDefine singleton].sessionRoleCode;
-}
-
-
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-//    TLOG(@"%@", NSStringFromClass(self.class));
-//    [self layoutTableView];
-    
-    //assemble RefreshControl in layoutSubviews block to avoid unexcept RefreshControl.layout actions
-    [self assembleTopRefreshControl];
-}
-
-- (void)dealloc{
-    TLOG(@"%@", NSStringFromClass(self.class));
-    [tableV setDelegate:nil];
-    [self resetFloatedMessage];
-    [_remoter cancel];
-    [self.view.layer removeAllAnimations];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    
-}
-
-
-- (CGFloat)tableViewContentInsetTop{
-    CGFloat top = 0;
-    
-    if (!self.prefersStatusBarHidden) {
-        top += 20.0;
-    }
-    
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]){
-//        UINavigationController *naviC = (UINavigationController *)self.parentViewController;
-//        if (!naviC.navigationBarHidden) {
-            top += 44;
-//        }
-    }
-    
-    return top;
-}
-
-
-//- (UIStatusBarStyle)preferredStatusBarStyle{
-//    return [AGConfigurationCoordinator singleton].defaultStatusBarStyle;
-//}
 #pragma mark - interactive ops
 
 - (void)didTapView:(id)sender{
     [self.view endEditing:YES];
 }
 
-#pragma mark - layout
+#pragma mark - life cycle
 
-- (void)layoutViews{
-    [self layoutDefault];
-    [self layoutAccordingToTabBarController];
+- (void)viewDidLoad{
+    TLOG(@"%@", self.className);
+    [super viewDidLoad];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    if (self.backgroundColor) [self.view setBackgroundColor:self.backgroundColor];
 }
 
-- (void)layoutDefault{
-    CGRect frame = self.view.frame;
+- (void)viewWillAppear:(BOOL)animated{
+    TLOG(@"%@", self.className);
+    [super viewWillAppear:animated];
+    [self setNavigationController];
+    [self subviewContainer]; //check to re-add subview container to superview
     
-    if (![DSDeviceUtil iOS8AndAbove]) {
-        //        CGFloat w = [DSDeviceUtil bounds].size.width;
-        //        CGFloat h = [DSDeviceUtil bounds].size.height;
-        frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        TLOG(@"%@ frame -> %@ %@ %d",NSStringFromClass(self.class) ,NSStringFromCGRect(frame), self.navigationController, self.navigationController.navigationBar.hidden);
+    if (self.flagDoReload) {
+        [self willDoReload];
+        [self setFlagDoReload:NO];
     }
     
-    [self.tableView setFrame:frame];
-    //    [AGDebugUtil makeBorderForView:tableV];
-    [overlayContentView setFrame:frame];
-    //    TLOG(@"tableViewContentInsetTop -> %f", self.tableViewContentInsetTop);
-    //    TLOG(@"frame -> %@", NSStringFromCGRect(frame));
 }
+
+- (void)viewWillLayoutSubviews{
+//    TLOG(@"%@", self.className);
+    [super viewWillLayoutSubviews];
+}
+
+- (void)viewDidLayoutSubviews{
+//    TLOG(@"%@", self.className);
+    [super viewDidLayoutSubviews];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    TLOG(@"%@", self.className);
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    TLOG(@"%@", self.className);
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    TLOG(@"%@", self.className);
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc{
+    TLOG(@"%@", self.className);
+    [self clearFloatedMessage];
+    [self.view.layer removeAllAnimations];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self resetSubviewContainer];
+}
+
+#pragma mark - layout
+
+
 
 - (void)layoutAccordingToTabBarController{
 //    TLOG(@"self.parentViewController -> %@", self.parentViewController);
     if ([self.parentViewController isKindOfClass:[UITabBarController class]]) {
         UIEdgeInsets contentInset = self.tableView.contentInset;
         CGFloat top = contentInset.top;
-        CGFloat bottom = 50.0;
+        CGFloat bottom = STYLE_TAB_BAR_HEIGHT;
         [self.tableView setContentInset:UIEdgeInsetsMake(top, 0, bottom, 0)];
     }
 }
+
+#pragma mark - component
+
+- (void)setNavigationController{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setToolbarHidden:YES];
+}
+
+- (UIView *)parentView{
+//    TLOG(@"self.navigationController.view -> %@", self.navigationController.view.subviews);
+//    return self.navigationController.view;
+    TLOG(@"self.tableView.superview -> %@", self.tableView.superview);
+    return self.tableView.superview;
+}
+
+- (void)addSubview:(UIView *)view{
+    [self.subviewContainer addSubview:view];
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
+    [self.subviewContainer setUserInteractionEnabled:userInteractionEnabled];
+}
+
+- (UIView *)subviewWithTag:(NSInteger)tag{
+    return [self.subviewContainer viewWithTag:tag];
+}
+
+- (void)resetSubviewContainer{
+    [_subviewContainer removeFromSuperview];
+    _subviewContainer = nil;
+}
+
+- (AGCell *)dummyCellInstanceAtIndex:(NSInteger)index{
+    AGCell *cell = [[AGCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@""];
+    [cell setAssociatedViewController:self];
+    [cell setIndexPath:[NSIndexPath indexPathForRow:index inSection:SectionDummy]];
+    return cell;
+}
+
+- (AGCell *)cellForIndexPath:(NSIndexPath *)indexPath{
+    Class cls = [self.config cellClsOfIndexPath:indexPath];
+    
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    NSString *cellId = NSStringFromClass(cls);
+    
+    if (self.cacheEveryCell) {
+        cellId = [NSString stringWithFormat:@"%@-%ld-%ld",NSStringFromClass(cls), (long)idx,(long)section];
+    }
+    
+    AGCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
+    id value = [self valueAtIndexPath:indexPath];
+    @try {
+        if (!cell) {
+            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+            [cell setAssociatedViewController:self];
+        }
+        
+        NSInteger numberOfRows = [self numberOfRowsInSection:section];
+        BOOL bLastRow = (idx+1 == numberOfRows)?YES:NO;
+        BOOL bFirstRow = idx == 0?YES:NO;
+        
+        [cell setIndexPath:indexPath];
+        [cell setIsLastRow:bLastRow];
+        [cell setIsFirstRow:bFirstRow];
+        [cell setTitle: [self.config cellTitleOfIndexPath:indexPath] ];
+        [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
+        [cell setValue:value];
+    }@catch (NSException *exception) {
+        TLOG(@"%@ exception -> %@ %@",cell.class, exception,value);
+    }
+    
+    return cell;
+}
+
+- (AGCell *)cellForException{
+    return [[AGCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([AGCell class])];
+}
+
+- (UIView *)headerForSection:(NSInteger)section{
+    Class cls = [self.config headerClsOfSection:section];
+    id value = nil;
+    //    NSInteger rows = [self numberOfRowsInSection:section];
+    
+    @try {
+        value = [self valueForHeaderOfSection:section];
+    }@catch (NSException *exception) {
+        TLOG(@"exception -> %@", exception);
+    }
+    
+    //    TLOG(@"cls -> %@ value -> %@", cls, value);
+    
+    if (value){
+        AGHeaderView *v = [[cls alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [cls height])];
+        [v setAssociatedViewController:self];
+        [v setSection:section];
+        [v setValue:value];
+        return v;
+    }
+    
+    return [self dummyHeaderView];
+}
+
+- (UIView *)dummyHeaderView{
+    if (!_dummyHeaderView) {
+        _dummyHeaderView = [[UIView alloc] init];
+    }
+    return _dummyHeaderView;
+}
+
+- (UIView *)subviewContainer{
+    if (!_subviewContainer) {
+        CGFloat y = self.subviewContainerY;
+        CGFloat h = self.subviewContainerH;
+        CGFloat w = self.tableView.frame.size.width;
+        _subviewContainer =  [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
+        [_subviewContainer setBackgroundColor:[UIColor redColor]];
+        _subviewContainer.alpha = .1f;
+        _subviewContainer.layer.borderWidth = 1;
+    }
+    
+    if (!self.isSubviewContainerAdded && self.parentView) {
+        [self setIsSubviewContainerAdded:YES];
+        [self.parentView addSubview:_subviewContainer];
+    }
+    
+    return _subviewContainer;
+}
+
+
+
 
 #pragma mark - view controller transitions
 
@@ -257,17 +340,6 @@
     return [viewControllers objectAtIndex:idx];
 }
 
-- (AGRemoter *)remoter{
-    if ([DSValueUtil isNotAvailable:_remoter]) {
-        _remoter = [AGRemoter instanceWithDelegate:self];
-    }
-    return _remoter;
-}
-
-- (UITableView *)tableView{
-    return tableV;
-}
-
 + (CGFloat)defaultContentInsetTop{
     if ([UIDevice currentDevice].systemVersion.doubleValue >= 7.0) {
         return 64.0;
@@ -283,14 +355,7 @@
     return bounds.size.height - 64;
 }
 
-+ (instancetype)instance{
-    return [[self.class alloc] init];
-}
 
-
-//- (void)setTitle:(NSString *)title{
-//    [super setTitle:[title uppercaseString]];
-//}
 
 - (AGObjectPool *)objPool{
     if (!_objPool) {
@@ -304,6 +369,9 @@
     return _ws;
 }
 
+- (NSString *)className{
+    return NSStringFromClass(self.class);
+}
 
 #pragma mark - table view delegate
 
@@ -352,30 +420,20 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [self assembleHeaderForSection:section];
+    return [self headerForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
     NSInteger section = indexPath.section;
-//    NSInteger idx = indexPath.row;
-    
-//    TLOG(@"section -> %d", section);
     
     BOOL hasSeparator = [self.config separatorForSection:section];
     if (hasSeparator) {
         if ([self isSeparatorCellAtIndexPath:indexPath]) return [self assembleSeparatorCell];
     }
     
-    AGCell *cell = [self assembleCellAtIndexPath:indexPath forTableView:tableView];
+    AGCell *cell = [self cellForIndexPath:indexPath];
     
-//    TLOG(@"cell -> %@", [cell class]);
-    if (!cell) {
-        return [self cellForException];
-    }
-    
+    if (!cell) return [self cellForException];
     return cell;
 }
 
@@ -386,22 +444,58 @@
     if (sectionUnit) [sectionUnit didSelect:idx];
 }
 
-- (AGCell *)cellForException{
-    return [[AGCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([AGCell class])];
+
+
+#pragma mark - table view stuff
+
+
+- (NSInteger)numberOfSections{
+    return 0;
 }
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section{
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) return unit.numberOfRows;
+    return 0;
+}
+
+
+- (id)valueAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) return [unit valueAtIndex:idx];
+    return nil;
+}
+
+- (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if ([DSValueUtil isAvailable:unit]) [unit setValue:value atIndex:idx];
+}
+
+- (id)valueForHeaderOfSection:(NSInteger)section{
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if ([DSValueUtil isAvailable:unit]) return unit.headerValue;
+    return nil;
+}
+
+
+- (AGCell *)cellAtIndexPath:(NSIndexPath *)indexPath{
+    AGCell *cell = (AGCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    return cell;
+}
+
+- (UIView *)headerOfSection:(NSInteger)section{
+    return [self.tableView headerViewForSection:section];
+}
+
+
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
-    if(self.supportsRefreshControl) [topRefreshControl begin];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if(self.supportsRefreshControl) [topRefreshControl dragging];
-}
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    if(self.supportsRefreshControl) [topRefreshControl end];
 }
 
 #pragma mark - error handlers
@@ -438,22 +532,6 @@
     return YES;
 }
 
-
-- (void)alertRemoteMessagesForError:(AGRemoterResultError *)error{
-    NSArray *msgs = [self messagesOfError:error];
-    NSString *text = [msgs componentsJoinedByString:@"/n"];
-    [UIAlertView showWithTitle:nil message:text cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-}
-
-#pragma mark -  AGRemoterDelegate
-- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequestInfo *)request{
-    
-}
-
-- (void)remoterErrorOccured:(AGRemoterResult *)result{
-    [self setRemoteMessagesForError:result.errorParsed];
-}
-
 #pragma mark - dummy cell stuff
 
 - (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index{
@@ -461,17 +539,6 @@
     [viewController setAssociatedCell:dummyCell];
     [dummyCell pushViewController:viewController];
 }
-
-#pragma mark - components
-
-- (UIView *)dummyHeaderView{
-    if (!_dummyHeaderView) {
-        _dummyHeaderView = [[UIView alloc] init];
-    }
-    return _dummyHeaderView;
-}
-
-
 
 #pragma mark - associated cell ops
 
@@ -481,6 +548,8 @@
         [_associatedCell dispatchRequestReloadIndexPath];
     }
 }
+
+#pragma mark - CellDelegate
 
 - (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath{
     [self reloadIndexPath:indexPath];
@@ -532,18 +601,20 @@
     if (unit) return [unit action:action atIndex:idx];
 }
 
-#pragma mark - AGRefreshControlDelegate
+#pragma mark - style
 
-- (void)topRefreshControlRequestRefreshing{
-    TLOG(@"");
+- (CGFloat)subviewContainerY{
+    CGFloat y = 0;
+    if (!self.prefersStatusBarHidden) y += STYLE_STATUS_BAR_HEIGHT;
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) y += STYLE_NAVIGATION_BAR_HEIGHT;
+    return y;
 }
 
-#pragma mark -
-- (NSString *)validateText:(NSString *)text{
-    if ([DSValueUtil isAvailable:text]) return text;
-    return @"";
+- (CGFloat)subviewContainerH{
+    CGFloat h = STYLE_DEVICE_HEIGHT - self.subviewContainerY;
+    if ([self.parentViewController.parentViewController isKindOfClass:[UITabBarController class]]) h -= STYLE_TAB_BAR_HEIGHT;
+    return h;
 }
-
 
 
 @end

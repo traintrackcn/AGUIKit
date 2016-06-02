@@ -7,7 +7,8 @@
 //
 
 #import "AGViewController+Separator.h"
-#import "AGViewController+Datasource.h"
+#import "AGSeparatorCell.h"
+#import "AGVCConfiguration.h"
 
 @implementation AGViewController(Separator)
 

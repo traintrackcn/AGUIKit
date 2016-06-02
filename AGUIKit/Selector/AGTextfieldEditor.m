@@ -11,8 +11,8 @@
 #import "AGTextfieldCellStyleNoTitle.h"
 #import "AGButtonItem.h"
 #import "AGHeaderCell.h"
-#import "AGViewController+Datasource.h"
 #import "AGCell+TextInputDelegate.h"
+#import "AGVCConfiguration.h"
 
 enum{
 //    SectionHeader,

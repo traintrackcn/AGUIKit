@@ -13,6 +13,7 @@
 #import "GlobalDefine.h"
 #import "AGUIDefine.h"
 #import "NSObject+Singleton.h"
+#import "AGCell.h"
 
 @implementation AGHeaderView
 

@@ -6,13 +6,15 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+
+@import UIKit;
 #import "AGViewController+Message.h"
 #import "AGVCSuccessMessagesView.h"
 #import "AGVCFailureMessagesView.h"
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
-#import <UIKit/UIKit.h>
+#import "GlobalDefine.h"
 
 
 
@@ -31,11 +33,13 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 
 - (void)floatMessage:(NSString *)message{
 //    TLOG(@"");
-    UIView *v = [overlayContentView viewWithTag:UIViewTagFloatMessageBox];
-    if ([DSValueUtil isNotAvailable:v]){
+    UIView *v = [self subviewWithTag:UIViewTagFloatMessageBox];
+//     TLOG(@"v -> %@", v);
+    if (!v){
         v = [self assemblerFloatedView];
-        [overlayContentView addSubview:v];
-        [overlayContentView setUserInteractionEnabled:YES];
+        [self addSubview:v];
+        [self setUserInteractionEnabled:YES];
+//        TLOG(@"v -> %@", v);
     }
     
     UILabel *titleView = (UILabel *)[v subviews].firstObject;
@@ -50,36 +54,15 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 }
 
 - (void)clearFloatedMessage{
-//    TLOG(@"");
-    [self doClearFloatedMessage];
-//    UIView *v = [overlayContentView viewWithTag:UIViewTagFloatMessageBox];
-//    if ([DSValueUtil isAvailable:v]){
-//        [UIView animateWithDuration:animationDuration animations:^{
-//            [v setAlpha:0];
-//        } completion:^(BOOL finished) {
-//            TLOG(@"finished -> %d", finished);
-////            if (finished){
-//                [self doClearFloatedMessage];
-////            }
-//        }];
-//    }
-    
-}
-
-- (void)resetFloatedMessage{
-    [self doClearFloatedMessage];
-}
-
-- (void)doClearFloatedMessage{
-    //    TLOG(@"v.subviews -> %@", v.subviews);
-    UIView *v = [overlayContentView viewWithTag:UIViewTagFloatMessageBox];
-    if ([DSValueUtil isNotAvailable:v]) return;
+    UIView *v = [self subviewWithTag:UIViewTagFloatMessageBox];
+//    TLOG(@"v -> %@", v);
+    if (!v) return;
     if (v.subviews.count >= 2){
         UIActivityIndicatorView *indicatorV = (UIActivityIndicatorView *)[v.subviews objectAtIndex:1];
         [indicatorV stopAnimating];
     }
     [v removeFromSuperview];
-    [overlayContentView setUserInteractionEnabled:NO];
+    [self setUserInteractionEnabled:NO];
 }
 
 #pragma mark - floated message assemblers
@@ -87,8 +70,8 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 - (UIView *)assemblerFloatedView{
     CGFloat w = 124;
     CGFloat h = 100;
-    CGFloat x = ([DSDeviceUtil bounds].size.width - w)/2.0;
-    CGFloat y = ([DSDeviceUtil bounds].size.height - h)/2.0;
+    CGFloat x = (self.subviewContainer.frame.size.width - w)/2.0;
+    CGFloat y = (self.subviewContainer.frame.size.height - h)/2.0;
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     
@@ -164,8 +147,8 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
     
     AGVCMessagesView *v = [[cls alloc] init];
     [v updateMessages:messages];
-    [tableV setTableHeaderView:v];
-    [tableV scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    [self.tableView setTableHeaderView:v];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 - (void)clearSetMessages{

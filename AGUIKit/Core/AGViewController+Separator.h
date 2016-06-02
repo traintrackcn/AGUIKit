@@ -8,6 +8,7 @@
 
 #import "AGViewController.h"
 
+@class AGSeparatorCell;
 @interface AGViewController(Separator)
 
 - (void)enableSeparators;

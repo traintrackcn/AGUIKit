@@ -104,8 +104,6 @@
 		4A8E89E41B68DD2400F48CDD /* AGMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89E21B68DD2400F48CDD /* AGMeta.m */; };
 		4A8E89E71B68E08500F48CDD /* AGTextCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89E61B68E08500F48CDD /* AGTextCoordinator.m */; };
 		4A8E8A2F1B68F7FF00F48CDD /* AGVCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A141B68F7FF00F48CDD /* AGVCConfiguration.m */; };
-		4A8E8A301B68F7FF00F48CDD /* AGViewController+Assembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A161B68F7FF00F48CDD /* AGViewController+Assembler.m */; };
-		4A8E8A311B68F7FF00F48CDD /* AGViewController+Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A181B68F7FF00F48CDD /* AGViewController+Datasource.m */; };
 		4A8E8A321B68F7FF00F48CDD /* AGViewController+LoginUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A1A1B68F7FF00F48CDD /* AGViewController+LoginUI.m */; };
 		4A8E8A331B68F7FF00F48CDD /* AGViewController+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A1C1B68F7FF00F48CDD /* AGViewController+Message.m */; };
 		4A8E8A341B68F7FF00F48CDD /* AGViewController+Separator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A1E1B68F7FF00F48CDD /* AGViewController+Separator.m */; };
@@ -113,9 +111,6 @@
 		4A8E8A361B68F7FF00F48CDD /* AGVCFailureMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A231B68F7FF00F48CDD /* AGVCFailureMessagesView.m */; };
 		4A8E8A371B68F7FF00F48CDD /* AGVCMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A251B68F7FF00F48CDD /* AGVCMessagesView.m */; };
 		4A8E8A381B68F7FF00F48CDD /* AGVCSuccessMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A271B68F7FF00F48CDD /* AGVCSuccessMessagesView.m */; };
-		4A8E8A391B68F7FF00F48CDD /* AGRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A2A1B68F7FF00F48CDD /* AGRefreshControl.m */; };
-		4A8E8A3A1B68F7FF00F48CDD /* AGRefreshIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A2C1B68F7FF00F48CDD /* AGRefreshIndicator.m */; };
-		4A8E8A3B1B68F7FF00F48CDD /* AGTopRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A2E1B68F7FF00F48CDD /* AGTopRefreshControl.m */; };
 		4A8E8A461B68F99400F48CDD /* AGCellInnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A3E1B68F99400F48CDD /* AGCellInnerView.m */; };
 		4A8E8A471B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A401B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.m */; };
 		4A8E8A481B68F99400F48CDD /* AGLabelStyleTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8A421B68F99400F48CDD /* AGLabelStyleTextCell.m */; };
@@ -144,8 +139,6 @@
 		4A8E8AF81B69029A00F48CDD /* AGPieChartCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A6C1B68FBE500F48CDD /* AGPieChartCell.h */; };
 		4A8E8AF91B69029A00F48CDD /* AGNumberBox.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A441B68F99400F48CDD /* AGNumberBox.h */; };
 		4A8E8AFA1B69029A00F48CDD /* AGVCConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A131B68F7FF00F48CDD /* AGVCConfiguration.h */; };
-		4A8E8AFB1B69029A00F48CDD /* AGViewController+Assembler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A151B68F7FF00F48CDD /* AGViewController+Assembler.h */; };
-		4A8E8AFC1B69029A00F48CDD /* AGViewController+Datasource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A171B68F7FF00F48CDD /* AGViewController+Datasource.h */; };
 		4A8E8AFD1B69029A00F48CDD /* AGViewController+LoginUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A191B68F7FF00F48CDD /* AGViewController+LoginUI.h */; };
 		4A8E8AFE1B69029A00F48CDD /* AGViewController+Message.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A1B1B68F7FF00F48CDD /* AGViewController+Message.h */; };
 		4A8E8AFF1B69029A00F48CDD /* AGViewController+Separator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A1D1B68F7FF00F48CDD /* AGViewController+Separator.h */; };
@@ -153,9 +146,6 @@
 		4A8E8B011B69029A00F48CDD /* AGVCFailureMessagesView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A221B68F7FF00F48CDD /* AGVCFailureMessagesView.h */; };
 		4A8E8B021B69029A00F48CDD /* AGVCMessagesView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A241B68F7FF00F48CDD /* AGVCMessagesView.h */; };
 		4A8E8B031B69029A00F48CDD /* AGVCSuccessMessagesView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A261B68F7FF00F48CDD /* AGVCSuccessMessagesView.h */; };
-		4A8E8B041B69029A00F48CDD /* AGRefreshControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A291B68F7FF00F48CDD /* AGRefreshControl.h */; };
-		4A8E8B051B69029A00F48CDD /* AGRefreshIndicator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A2B1B68F7FF00F48CDD /* AGRefreshIndicator.h */; };
-		4A8E8B061B69029A00F48CDD /* AGTopRefreshControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8A2D1B68F7FF00F48CDD /* AGTopRefreshControl.h */; };
 		4A8E8B071B69029A00F48CDD /* DSAlertUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89D51B68DBF800F48CDD /* DSAlertUtil.h */; };
 		4A8E8B081B69029A00F48CDD /* DSLayoutUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89D71B68DBF800F48CDD /* DSLayoutUtil.h */; };
 		4A8E8B091B69029A00F48CDD /* UILabel+AGUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89D91B68DBF800F48CDD /* UILabel+AGUtil.h */; };
@@ -303,8 +293,6 @@
 				4A8E8AF81B69029A00F48CDD /* AGPieChartCell.h in CopyFiles */,
 				4A8E8AF91B69029A00F48CDD /* AGNumberBox.h in CopyFiles */,
 				4A8E8AFA1B69029A00F48CDD /* AGVCConfiguration.h in CopyFiles */,
-				4A8E8AFB1B69029A00F48CDD /* AGViewController+Assembler.h in CopyFiles */,
-				4A8E8AFC1B69029A00F48CDD /* AGViewController+Datasource.h in CopyFiles */,
 				4A8E8AFD1B69029A00F48CDD /* AGViewController+LoginUI.h in CopyFiles */,
 				4A8E8AFE1B69029A00F48CDD /* AGViewController+Message.h in CopyFiles */,
 				4A8E8AFF1B69029A00F48CDD /* AGViewController+Separator.h in CopyFiles */,
@@ -312,9 +300,6 @@
 				4A8E8B011B69029A00F48CDD /* AGVCFailureMessagesView.h in CopyFiles */,
 				4A8E8B021B69029A00F48CDD /* AGVCMessagesView.h in CopyFiles */,
 				4A8E8B031B69029A00F48CDD /* AGVCSuccessMessagesView.h in CopyFiles */,
-				4A8E8B041B69029A00F48CDD /* AGRefreshControl.h in CopyFiles */,
-				4A8E8B051B69029A00F48CDD /* AGRefreshIndicator.h in CopyFiles */,
-				4A8E8B061B69029A00F48CDD /* AGTopRefreshControl.h in CopyFiles */,
 				4A8E8B071B69029A00F48CDD /* DSAlertUtil.h in CopyFiles */,
 				4A8E8B081B69029A00F48CDD /* DSLayoutUtil.h in CopyFiles */,
 				4A8E8B091B69029A00F48CDD /* UILabel+AGUtil.h in CopyFiles */,
@@ -580,10 +565,6 @@
 		4A8E89E61B68E08500F48CDD /* AGTextCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextCoordinator.m; sourceTree = "<group>"; };
 		4A8E8A131B68F7FF00F48CDD /* AGVCConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGVCConfiguration.h; sourceTree = "<group>"; };
 		4A8E8A141B68F7FF00F48CDD /* AGVCConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGVCConfiguration.m; sourceTree = "<group>"; };
-		4A8E8A151B68F7FF00F48CDD /* AGViewController+Assembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+Assembler.h"; sourceTree = "<group>"; };
-		4A8E8A161B68F7FF00F48CDD /* AGViewController+Assembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+Assembler.m"; sourceTree = "<group>"; };
-		4A8E8A171B68F7FF00F48CDD /* AGViewController+Datasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+Datasource.h"; sourceTree = "<group>"; };
-		4A8E8A181B68F7FF00F48CDD /* AGViewController+Datasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+Datasource.m"; sourceTree = "<group>"; };
 		4A8E8A191B68F7FF00F48CDD /* AGViewController+LoginUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+LoginUI.h"; sourceTree = "<group>"; };
 		4A8E8A1A1B68F7FF00F48CDD /* AGViewController+LoginUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+LoginUI.m"; sourceTree = "<group>"; };
 		4A8E8A1B1B68F7FF00F48CDD /* AGViewController+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+Message.h"; sourceTree = "<group>"; };
@@ -598,12 +579,6 @@
 		4A8E8A251B68F7FF00F48CDD /* AGVCMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGVCMessagesView.m; sourceTree = "<group>"; };
 		4A8E8A261B68F7FF00F48CDD /* AGVCSuccessMessagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGVCSuccessMessagesView.h; sourceTree = "<group>"; };
 		4A8E8A271B68F7FF00F48CDD /* AGVCSuccessMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGVCSuccessMessagesView.m; sourceTree = "<group>"; };
-		4A8E8A291B68F7FF00F48CDD /* AGRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRefreshControl.h; sourceTree = "<group>"; };
-		4A8E8A2A1B68F7FF00F48CDD /* AGRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRefreshControl.m; sourceTree = "<group>"; };
-		4A8E8A2B1B68F7FF00F48CDD /* AGRefreshIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRefreshIndicator.h; sourceTree = "<group>"; };
-		4A8E8A2C1B68F7FF00F48CDD /* AGRefreshIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRefreshIndicator.m; sourceTree = "<group>"; };
-		4A8E8A2D1B68F7FF00F48CDD /* AGTopRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTopRefreshControl.h; sourceTree = "<group>"; };
-		4A8E8A2E1B68F7FF00F48CDD /* AGTopRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTopRefreshControl.m; sourceTree = "<group>"; };
 		4A8E8A3D1B68F99400F48CDD /* AGCellInnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellInnerView.h; sourceTree = "<group>"; };
 		4A8E8A3E1B68F99400F48CDD /* AGCellInnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellInnerView.m; sourceTree = "<group>"; };
 		4A8E8A3F1B68F99400F48CDD /* AGLabelStyleSubtitleTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLabelStyleSubtitleTextCell.h; sourceTree = "<group>"; };
@@ -1035,10 +1010,6 @@
 			children = (
 				4A8E8A131B68F7FF00F48CDD /* AGVCConfiguration.h */,
 				4A8E8A141B68F7FF00F48CDD /* AGVCConfiguration.m */,
-				4A8E8A151B68F7FF00F48CDD /* AGViewController+Assembler.h */,
-				4A8E8A161B68F7FF00F48CDD /* AGViewController+Assembler.m */,
-				4A8E8A171B68F7FF00F48CDD /* AGViewController+Datasource.h */,
-				4A8E8A181B68F7FF00F48CDD /* AGViewController+Datasource.m */,
 				4A8E8A191B68F7FF00F48CDD /* AGViewController+LoginUI.h */,
 				4A8E8A1A1B68F7FF00F48CDD /* AGViewController+LoginUI.m */,
 				4A8E8A1B1B68F7FF00F48CDD /* AGViewController+Message.h */,
@@ -1048,7 +1019,6 @@
 				4A8E8A1F1B68F7FF00F48CDD /* AGViewController.h */,
 				4A8E8A201B68F7FF00F48CDD /* AGViewController.m */,
 				4A8E8A211B68F7FF00F48CDD /* MessageControl */,
-				4A8E8A281B68F7FF00F48CDD /* RefreshControl */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1064,19 +1034,6 @@
 				4A8E8A271B68F7FF00F48CDD /* AGVCSuccessMessagesView.m */,
 			);
 			path = MessageControl;
-			sourceTree = "<group>";
-		};
-		4A8E8A281B68F7FF00F48CDD /* RefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				4A8E8A291B68F7FF00F48CDD /* AGRefreshControl.h */,
-				4A8E8A2A1B68F7FF00F48CDD /* AGRefreshControl.m */,
-				4A8E8A2B1B68F7FF00F48CDD /* AGRefreshIndicator.h */,
-				4A8E8A2C1B68F7FF00F48CDD /* AGRefreshIndicator.m */,
-				4A8E8A2D1B68F7FF00F48CDD /* AGTopRefreshControl.h */,
-				4A8E8A2E1B68F7FF00F48CDD /* AGTopRefreshControl.m */,
-			);
-			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		4A8E8A3C1B68F99400F48CDD /* CellInnerView */ = {
@@ -1315,12 +1272,10 @@
 				4A8E89541B686E9100F48CDD /* AGCell.m in Sources */,
 				4A8E89DC1B68DBF800F48CDD /* DSLayoutUtil.m in Sources */,
 				4A8E8A331B68F7FF00F48CDD /* AGViewController+Message.m in Sources */,
-				4A8E8A391B68F7FF00F48CDD /* AGRefreshControl.m in Sources */,
 				4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */,
 				4A8E8A6E1B68FBE500F48CDD /* AGCircleProgressCell.m in Sources */,
 				4A8E89771B686E9100F48CDD /* AGTransparentButtonCell.m in Sources */,
 				4A8E898F1B686E9100F48CDD /* AGSelector.m in Sources */,
-				4A8E8A301B68F7FF00F48CDD /* AGViewController+Assembler.m in Sources */,
 				4A6E507B1C92720E00D8D46A /* DASectionButton.m in Sources */,
 				4A8E89D01B68D6AE00F48CDD /* AGPresentableViewController.m in Sources */,
 				4A8E895C1B686E9100F48CDD /* AGCollectionViewCellOfMultiHeaderCell.m in Sources */,
@@ -1394,7 +1349,6 @@
 				4A8E8A741B68FBE500F48CDD /* AGPieChartCell.m in Sources */,
 				4A8E896B1B686E9100F48CDD /* AGTextBoxCell.m in Sources */,
 				4A8E899D1B686FDD00F48CDD /* AGSectionUnit.m in Sources */,
-				4A8E8A311B68F7FF00F48CDD /* AGViewController+Datasource.m in Sources */,
 				4A8E89B51B68CED800F48CDD /* AGHeaderView.m in Sources */,
 				4A8E89921B686E9100F48CDD /* AGTextSelector.m in Sources */,
 				4A8E8A771B68FC3600F48CDD /* AGProgressViewCellValue.m in Sources */,
@@ -1404,9 +1358,7 @@
 				4A8E8A321B68F7FF00F48CDD /* AGViewController+LoginUI.m in Sources */,
 				4A8E89601B686E9100F48CDD /* AGMultiValueCell.m in Sources */,
 				4A8E89801B686E9100F48CDD /* AGCollectionViewCellTab.m in Sources */,
-				4A8E8A3B1B68F7FF00F48CDD /* AGTopRefreshControl.m in Sources */,
 				4A8E89C51B68D29200F48CDD /* AGLogoHeaderCell.m in Sources */,
-				4A8E8A3A1B68F7FF00F48CDD /* AGRefreshIndicator.m in Sources */,
 				4A8E89621B686E9100F48CDD /* AGMultiValueCellSynchronizer.m in Sources */,
 				4A8E89701B686E9100F48CDD /* AGTextfieldCell.m in Sources */,
 				4A8E89511B686E9100F48CDD /* AGAttributedStringCell.m in Sources */,
