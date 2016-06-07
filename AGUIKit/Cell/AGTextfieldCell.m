@@ -11,7 +11,7 @@
 #import "DSValueUtil.h"
 #import "GlobalDefine.h"
 #import "DSDeviceUtil.h"
-#import "AGCell+TextInputDelegate.h"
+#import "AGCell+TextInputComponents.h"
 
 @interface AGTextfieldCell() {
 //    id obUIKeyboardWillShowNotification;
@@ -73,6 +73,8 @@
     }
 }
 
+
+
 #pragma mark - components
 
 - (void)assembleInputView{
@@ -104,6 +106,7 @@
     [self.inputBox.layer setBorderWidth:1.0];
     [self.inputBox.layer setBorderColor:[AGStyleCoordinator colorCellBorder].CGColor];
     [self.inputBox setFont:FONT_WITH_SIZE(16)];
+    [self.inputBox setDelegate:self.textInputDelegate];
 //    [AGDebugUtil makeBorderForView:inputView];
 //    TLOG(@"", <#__args...#>)
 }
@@ -126,6 +129,7 @@
     [self.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 //    [self.inputField.layer setBorderWidth:1.0];
     [self.inputField setFont:FONT_WITH_SIZE(16)];
+    [self.inputField setDelegate:self.textInputDelegate];
 }
 
 - (void)enableNumberPadForInputField{
@@ -280,6 +284,11 @@
     return (UITextView *)inputView;
 }
 
+- (BOOL)inputIsBox{
+    return NO;
+}
+
+
 - (void)setTitle:(NSString *)title{
     [super setTitle:title];
     [titleLabel setText:title];
@@ -305,6 +314,8 @@
 - (void)setIsAdvanced:(BOOL)isAdvanced{
     // display more options icon
 }
+
+
 
 
 #pragma mark - styles

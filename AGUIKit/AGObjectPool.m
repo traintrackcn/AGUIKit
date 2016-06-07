@@ -33,7 +33,7 @@
 }
 
 - (void)dealloc{
-    TLOG(@"");
+//    TLOG(@"%@ DEALLOC", [NSString stringWithFormat:@"%@", self.parentClassName]);
     _dic = nil;
 }
 

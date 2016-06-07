@@ -65,11 +65,12 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 #pragma mark - component
 
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled;
+- (void)enableOverlay:(BOOL)enabled;
 - (AGCell *)dummyCellInstanceAtIndex:(NSInteger)index;
-- (void)addSubview:(UIView *)view;
-- (UIView *)subviewWithTag:(NSInteger)tag;
-- (UIView *)subviewContainer;
+- (void)addOverlay:(UIView *)view;
+- (UIView *)overlayWithTag:(NSInteger)tag;
+- (UIView *)overlayContainer;
+- (void)addExternalView:(UIView *)view;
 
 #pragma mark -
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */; };
 		4A6107171CCA2418002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
 		4A61071C1CCA272F002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
 		4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50611C9148F400D8D46A /* AGSectionLoader.m */; };
@@ -25,6 +24,11 @@
 		4A6E50951C92765600D8D46A /* DAButtonItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E508E1C9273B600D8D46A /* DAButtonItem.h */; };
 		4A6E50961C92765600D8D46A /* DACell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50841C9272D500D8D46A /* DACell.h */; };
 		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
+		4A874F7C1D06B747000822F4 /* DATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F7B1D06B747000822F4 /* DATableView.m */; };
+		4A874F7F1D06CAE8000822F4 /* DATextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */; };
+		4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */; };
+		4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */; };
+		4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */; };
 		4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E887F1B686E9100F48CDD /* AGAssembler.m */; };
 		4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88811B686E9100F48CDD /* AGStyleCoordinator.m */; };
 		4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88A11B686E9100F48CDD /* AGButtonItem.m */; };
@@ -259,6 +263,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */,
+				4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */,
 				4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */,
 				4A6E50931C92765600D8D46A /* DAButtonCell.h in CopyFiles */,
 				4A6E50941C92765600D8D46A /* DAButtonFactory.h in CopyFiles */,
@@ -383,8 +389,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputDelegate.h"; sourceTree = "<group>"; };
-		4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputDelegate.m"; sourceTree = "<group>"; };
 		4A6107151CCA2418002C2245 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
 		4A6107161CCA2418002C2245 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		4A6E50601C9148F400D8D46A /* AGSectionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionLoader.h; sourceTree = "<group>"; };
@@ -401,6 +405,12 @@
 		4A6E508D1C9273B600D8D46A /* DAButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonFactory.m; sourceTree = "<group>"; };
 		4A6E508E1C9273B600D8D46A /* DAButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAButtonItem.h; sourceTree = "<group>"; };
 		4A6E508F1C9273B600D8D46A /* DAButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonItem.m; sourceTree = "<group>"; };
+		4A874F7A1D06B747000822F4 /* DATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableView.h; sourceTree = "<group>"; };
+		4A874F7B1D06B747000822F4 /* DATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableView.m; sourceTree = "<group>"; };
+		4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATextInputDelegate.h; sourceTree = "<group>"; };
+		4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextInputDelegate.m; sourceTree = "<group>"; };
+		4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputComponents.h"; sourceTree = "<group>"; };
+		4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputComponents.m"; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
@@ -748,6 +758,10 @@
 		4A8E88A21B686E9100F48CDD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */,
+				4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */,
+				4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */,
+				4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */,
 				4A6E50841C9272D500D8D46A /* DACell.h */,
 				4A6E50851C9272D500D8D46A /* DACell.m */,
 				4A8E8A7C1B68FFC600F48CDD /* AGTitleCell.h */,
@@ -811,8 +825,6 @@
 				4A8E88EF1B686E9100F48CDD /* AGTextfieldCellStylePassword.m */,
 				4A8E88F01B686E9100F48CDD /* AGTransparentButtonCell.h */,
 				4A8E88F11B686E9100F48CDD /* AGTransparentButtonCell.m */,
-				4A3871E51C15258200844C8C /* AGCell+TextInputDelegate.h */,
-				4A3871E61C15258200844C8C /* AGCell+TextInputDelegate.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1019,6 +1031,8 @@
 				4A8E8A1F1B68F7FF00F48CDD /* AGViewController.h */,
 				4A8E8A201B68F7FF00F48CDD /* AGViewController.m */,
 				4A8E8A211B68F7FF00F48CDD /* MessageControl */,
+				4A874F7A1D06B747000822F4 /* DATableView.h */,
+				4A874F7B1D06B747000822F4 /* DATableView.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1293,6 +1307,7 @@
 				4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */,
 				4A8E898C1B686E9100F48CDD /* AGExpirationDateSelector.m in Sources */,
 				4A8E897E1B686E9100F48CDD /* AGCollectionViewCell.m in Sources */,
+				4A874F7F1D06CAE8000822F4 /* DATextInputDelegate.m in Sources */,
 				4A8E89811B686E9100F48CDD /* AGCollectionViewCellValue.m in Sources */,
 				4A8E89C71B68D29200F48CDD /* AGTipCellStyleMore.m in Sources */,
 				4A8E89681B686E9100F48CDD /* AGSpaceCell.m in Sources */,
@@ -1326,6 +1341,7 @@
 				4A8E89881B686E9100F48CDD /* AGHorizontalUnitsCell.m in Sources */,
 				4A8E89E71B68E08500F48CDD /* AGTextCoordinator.m in Sources */,
 				4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */,
+				4A874F7C1D06B747000822F4 /* DATableView.m in Sources */,
 				4A8E89B41B68CED800F48CDD /* AGHeaderCell.m in Sources */,
 				4A8E896E1B686E9100F48CDD /* AGTextCellStyleTitleOnly.m in Sources */,
 				4A8E897F1B686E9100F48CDD /* AGCollectionViewCellOption.m in Sources */,
@@ -1355,6 +1371,7 @@
 				4A8E89931B686E9100F48CDD /* AGTabBarCell.m in Sources */,
 				4A8E89A71B68CDA400F48CDD /* AGButton.m in Sources */,
 				4A8E896D1B686E9100F48CDD /* AGTextCellStyleMore.m in Sources */,
+				4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */,
 				4A8E8A321B68F7FF00F48CDD /* AGViewController+LoginUI.m in Sources */,
 				4A8E89601B686E9100F48CDD /* AGMultiValueCell.m in Sources */,
 				4A8E89801B686E9100F48CDD /* AGCollectionViewCellTab.m in Sources */,
@@ -1365,7 +1382,6 @@
 				4A8E89821B686E9100F48CDD /* AGCollectionViewCellViewController.m in Sources */,
 				4A8E89E31B68DD2400F48CDD /* AGManyCellsViewController.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
-				4A3871E71C15258200844C8C /* AGCell+TextInputDelegate.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
 				4A6E50861C9272D500D8D46A /* DACell.m in Sources */,

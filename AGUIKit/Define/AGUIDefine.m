@@ -101,6 +101,11 @@
     return _RGB_THEME;
 }
 
+- (NSString *)RGB_TEXT_INPUT{
+    if (!_RGB_TEXT_INPUT) return @"102,102,102";
+    return _RGB_TEXT_INPUT;
+}
+
 
 - (NSString *)RGB_WHITE{
     return @"255,255,255";

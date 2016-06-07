@@ -7,7 +7,7 @@
 //
 
 #import "AGTextfieldCellStyleLong.h"
-#import "AGCell+TextInputDelegate.h"
+#import "AGCell+TextInputComponents.h"
 
 @implementation AGTextfieldCellStyleLong
 
@@ -21,7 +21,7 @@
     [self.inputField setLeftViewMode:UITextFieldViewModeAlways];
     [self.inputField setTextAlignment:NSTextAlignmentLeft];
     [self.inputField.layer setBorderWidth:1.0];
-    
+    [self.inputField setDelegate:self.textInputDelegate];
 //    [self enableNumberPadForInputField];
     
     //accessory view

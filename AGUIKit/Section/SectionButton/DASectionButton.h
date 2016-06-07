@@ -8,12 +8,13 @@
 
 #import "AGSectionUnit.h"
 
+@class DAButtonItem;
 @interface DASectionButton : AGSectionUnit
 
 @property (nonatomic, assign) NSInteger paddingT;
 @property (nonatomic, assign) NSInteger paddingB;
 
-@property (nonatomic, strong) id value;
+@property (nonatomic, strong) DAButtonItem *item;
 @property (nonatomic, assign) BOOL disabled;
 
 @end

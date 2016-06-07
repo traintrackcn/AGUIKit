@@ -9,7 +9,7 @@
 #import "AGTextfieldCellStyleNoTitle.h"
 #import "AGAssembler.h"
 #import "AGStyleCoordinator.h"
-#import "AGCell+TextInputDelegate.h"
+#import "AGCell+TextInputComponents.h"
 
 @implementation AGTextfieldCellStyleNoTitle
 
@@ -30,6 +30,7 @@
     [self.inputField setFrame:CGRectMake(x, y, w,AG_TEXTFIELD_HEIGHT )];
     [self.inputField setFont:[UIFont systemFontOfSize:14]];
     [self.inputField setTextAlignment:NSTextAlignmentLeft];
+    [self.inputField setDelegate:self.textInputDelegate];
 }
 
 @end

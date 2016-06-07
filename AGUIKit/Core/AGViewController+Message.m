@@ -33,12 +33,12 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 
 - (void)floatMessage:(NSString *)message{
 //    TLOG(@"");
-    UIView *v = [self subviewWithTag:UIViewTagFloatMessageBox];
+    UIView *v = [self overlayWithTag:UIViewTagFloatMessageBox];
 //     TLOG(@"v -> %@", v);
     if (!v){
         v = [self assemblerFloatedView];
-        [self addSubview:v];
-        [self setUserInteractionEnabled:YES];
+        [self addOverlay:v];
+        [self enableOverlay:YES];
 //        TLOG(@"v -> %@", v);
     }
     
@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 }
 
 - (void)clearFloatedMessage{
-    UIView *v = [self subviewWithTag:UIViewTagFloatMessageBox];
+    UIView *v = [self overlayWithTag:UIViewTagFloatMessageBox];
 //    TLOG(@"v -> %@", v);
     if (!v) return;
     if (v.subviews.count >= 2){
@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
         [indicatorV stopAnimating];
     }
     [v removeFromSuperview];
-    [self setUserInteractionEnabled:NO];
+    [self enableOverlay:NO];
 }
 
 #pragma mark - floated message assemblers
@@ -70,8 +70,8 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 - (UIView *)assemblerFloatedView{
     CGFloat w = 124;
     CGFloat h = 100;
-    CGFloat x = (self.subviewContainer.frame.size.width - w)/2.0;
-    CGFloat y = (self.subviewContainer.frame.size.height - h)/2.0;
+    CGFloat x = (self.overlayContainer.frame.size.width - w)/2.0;
+    CGFloat y = (self.overlayContainer.frame.size.height - h)/2.0;
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     

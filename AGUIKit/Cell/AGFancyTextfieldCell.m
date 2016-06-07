@@ -8,8 +8,8 @@
 
 #import "AGFancyTextfieldCell.h"
 #import "DSImage.h"
-#import "AGCell+TextInputDelegate.h"
 #import "DSValueUtil.h"
+#import "AGCell+TextInputComponents.h"
 
 @interface AGFancyTextfieldCell() <UITextFieldDelegate, UITextViewDelegate>{
     
@@ -84,7 +84,7 @@
         [_inputField setLeftViewMode:UITextFieldViewModeAlways];
         
 //        [self setPlaceholder:@"Placeholder"];
-        
+        [_inputField setDelegate:self.textInputDelegate];
         
     }
     return _inputField;

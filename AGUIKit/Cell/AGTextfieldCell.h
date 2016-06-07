@@ -27,8 +27,7 @@
 - (void)assembleInputView;
 - (void)assembleInputField;
 
-//- (BOOL)inputIsField;
-//- (BOOL)inputIsBox;
+- (BOOL)inputIsBox;
 
 - (void)enableNumberPadForInputField;
 - (void)enableNumberAndPunctuationPadForInputField;

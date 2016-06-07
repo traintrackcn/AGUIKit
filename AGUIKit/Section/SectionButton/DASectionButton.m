@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, SectionCell) {
     id value;
     if (index == SectionCellButton) {
 //        TLOG(@"self.value -> %@", self.value);
-        value = (DAButtonItem *)self.value;
+        value = (DAButtonItem *)self.item;
     }
     return value;
 }

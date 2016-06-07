@@ -66,5 +66,6 @@
 @property (nonatomic, strong) NSString *RGB_TAB_BAR_BACKGROUND;
 @property (nonatomic, strong) NSString *RGB_TAB_BAR_NORMAL;
 @property (nonatomic, strong) NSString *RGB_DISABLED;
+@property (nonatomic, strong) NSString *RGB_TEXT_INPUT;
 
 @end

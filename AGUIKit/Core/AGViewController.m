@@ -24,7 +24,7 @@
 
 #import "AGRemoterResultError.h"
 #import "AGRemoterResult.h"
-
+#import "DATableView.h"
 
 
 
@@ -32,8 +32,8 @@
     
 }
 
-@property (nonatomic, strong) UIView *subviewContainer; //overlay with fixed position
-@property (nonatomic, assign) BOOL isSubviewContainerAdded;
+@property (nonatomic, strong) UIView *overlayContainer;
+@property (nonatomic, strong) NSMutableArray *externalViews;
 
 @end
 
@@ -62,19 +62,27 @@
 
 #pragma mark - life cycle
 
+//- (void) loadView {
+//    DATableView* tv = [[DATableView alloc]initWithFrame:CGRectZero style: UITableViewStylePlain];
+//    [tv setDataSource:self];
+//    [tv setDelegate:self];
+//    [self setView:tv];
+//    [self setTableView:tv];
+//}
+
 - (void)viewDidLoad{
-    TLOG(@"%@", self.className);
+//    TLOG(@"%@", self.className);
     [super viewDidLoad];
-    
+    [self.parentView addSubview:self.overlayContainer];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     if (self.backgroundColor) [self.view setBackgroundColor:self.backgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    TLOG(@"%@", self.className);
+//    TLOG(@"%@", self.className);
     [super viewWillAppear:animated];
     [self setNavigationController];
-    [self subviewContainer]; //check to re-add subview container to superview
+    [self showExternalViews];
     
     if (self.flagDoReload) {
         [self willDoReload];
@@ -84,7 +92,6 @@
 }
 
 - (void)viewWillLayoutSubviews{
-//    TLOG(@"%@", self.className);
     [super viewWillLayoutSubviews];
 }
 
@@ -95,17 +102,18 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    TLOG(@"%@", self.className);
+//    TLOG(@"%@", self.className);
     [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    TLOG(@"%@", self.className);
+//    TLOG(@"%@", self.className);
     [super viewWillDisappear:animated];
+    [self hideExternalViews];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    TLOG(@"%@", self.className);
+//    TLOG(@"%@", self.className);
     [super viewDidDisappear:animated];
 }
 
@@ -114,24 +122,35 @@
     [self clearFloatedMessage];
     [self.view.layer removeAllAnimations];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self resetSubviewContainer];
-}
-
-#pragma mark - layout
-
-
-
-- (void)layoutAccordingToTabBarController{
-//    TLOG(@"self.parentViewController -> %@", self.parentViewController);
-    if ([self.parentViewController isKindOfClass:[UITabBarController class]]) {
-        UIEdgeInsets contentInset = self.tableView.contentInset;
-        CGFloat top = contentInset.top;
-        CGFloat bottom = STYLE_TAB_BAR_HEIGHT;
-        [self.tableView setContentInset:UIEdgeInsetsMake(top, 0, bottom, 0)];
-    }
+    [self resetExternalViews];
 }
 
 #pragma mark - component
+
+- (void)hideExternalViews{
+    for (NSInteger i = 0; i<self.externalViews.count; i++) {
+        UIView *v = [self.externalViews objectAtIndex:i];
+        [v setHidden:YES];
+    }
+}
+
+- (void)showExternalViews{
+    for (NSInteger i = 0; i<self.externalViews.count; i++) {
+        UIView *v = [self.externalViews objectAtIndex:i];
+        [v setHidden:NO];
+    }
+    
+}
+
+- (void)resetExternalViews{
+    for (NSInteger i = 0; i<self.externalViews.count; i++) {
+        UIView *v = [self.externalViews objectAtIndex:i];
+        [v removeFromSuperview];
+    }
+    
+    _externalViews = nil;
+    _overlayContainer = nil;
+}
 
 - (void)setNavigationController{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -139,27 +158,27 @@
 }
 
 - (UIView *)parentView{
-//    TLOG(@"self.navigationController.view -> %@", self.navigationController.view.subviews);
-//    return self.navigationController.view;
-    TLOG(@"self.tableView.superview -> %@", self.tableView.superview);
-    return self.tableView.superview;
+    return self.navigationController.view;
 }
 
-- (void)addSubview:(UIView *)view{
-    [self.subviewContainer addSubview:view];
+- (void)addOverlay:(UIView *)view{
+    [self.overlayContainer addSubview:view];
 }
 
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
-    [self.subviewContainer setUserInteractionEnabled:userInteractionEnabled];
+- (void)enableOverlay:(BOOL)enabled{
+    [self.overlayContainer setUserInteractionEnabled:enabled];
 }
 
-- (UIView *)subviewWithTag:(NSInteger)tag{
-    return [self.subviewContainer viewWithTag:tag];
+- (void)addExternalView:(UIView *)view{
+    if (!view) return;
+    
+    [self.parentView insertSubview:view belowSubview:self.overlayContainer];
+    [self.externalViews addObject:view];
+    
 }
 
-- (void)resetSubviewContainer{
-    [_subviewContainer removeFromSuperview];
-    _subviewContainer = nil;
+- (UIView *)overlayWithTag:(NSInteger)tag{
+    return [self.overlayContainer viewWithTag:tag];
 }
 
 - (AGCell *)dummyCellInstanceAtIndex:(NSInteger)index{
@@ -240,23 +259,20 @@
     return _dummyHeaderView;
 }
 
-- (UIView *)subviewContainer{
-    if (!_subviewContainer) {
+- (UIView *)overlayContainer{
+    if (!_overlayContainer) {
         CGFloat y = self.subviewContainerY;
         CGFloat h = self.subviewContainerH;
         CGFloat w = self.tableView.frame.size.width;
-        _subviewContainer =  [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
-        [_subviewContainer setBackgroundColor:[UIColor redColor]];
-        _subviewContainer.alpha = .1f;
-        _subviewContainer.layer.borderWidth = 1;
+        _overlayContainer =  [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
+        _overlayContainer.layer.borderWidth = 3;
+        _overlayContainer.layer.borderColor = [UIColor blueColor].CGColor;
+        [_overlayContainer setUserInteractionEnabled:NO];
+        
+        [self.externalViews addObject:_overlayContainer];
     }
     
-    if (!self.isSubviewContainerAdded && self.parentView) {
-        [self setIsSubviewContainerAdded:YES];
-        [self.parentView addSubview:_subviewContainer];
-    }
-    
-    return _subviewContainer;
+    return _overlayContainer;
 }
 
 
@@ -299,7 +315,7 @@
 
 
 - (void)reloadVisibleIndexPaths{
-    TLOG(@"=== %@ reloadVisibleIndexPaths ===", NSStringFromClass(self.class));
+    TLOG(@"[%@]", NSStringFromClass(self.class));
     [self willReloadVisibleIndexPaths];
     [self.tableView reloadData];
     [self didReloadVisibleIndexPaths];
@@ -360,6 +376,7 @@
 - (AGObjectPool *)objPool{
     if (!_objPool) {
         _objPool = [AGObjectPool instance];
+        [_objPool setParentClassName:NSStringFromClass(self.class)];
     }
     return _objPool;
 }
@@ -371,6 +388,13 @@
 
 - (NSString *)className{
     return NSStringFromClass(self.class);
+}
+
+- (NSMutableArray *)externalViews{
+    if (!_externalViews) {
+        _externalViews = [NSMutableArray array];
+    }
+    return _externalViews;
 }
 
 #pragma mark - table view delegate
@@ -494,8 +518,18 @@
 
 
 #pragma mark - UIScrollViewDelegate
+- (void)endEditing:(BOOL)endEditing{
+    [self.view endEditing:endEditing];
+    
+    for (NSInteger i = 0; i<self.externalViews.count; i++) {
+        UIView *v = [self.externalViews objectAtIndex:i];
+        [v endEditing:YES];
+    }
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
+    [self endEditing:YES];
+//    TLOG(@"self.parentView.subviews -> %@", self.parentView.subviews);
 }
 
 #pragma mark - error handlers
