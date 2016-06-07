@@ -29,6 +29,8 @@
 		4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */; };
 		4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */; };
 		4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */; };
+		4A874F8B1D070F0E000822F4 /* DATextUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F8A1D070F0E000822F4 /* DATextUtil.m */; };
+		4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F891D070F0E000822F4 /* DATextUtil.h */; };
 		4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E887F1B686E9100F48CDD /* AGAssembler.m */; };
 		4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88811B686E9100F48CDD /* AGStyleCoordinator.m */; };
 		4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88A11B686E9100F48CDD /* AGButtonItem.m */; };
@@ -263,6 +265,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */,
 				4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */,
 				4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */,
 				4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */,
@@ -411,6 +414,8 @@
 		4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextInputDelegate.m; sourceTree = "<group>"; };
 		4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputComponents.h"; sourceTree = "<group>"; };
 		4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputComponents.m"; sourceTree = "<group>"; };
+		4A874F891D070F0E000822F4 /* DATextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATextUtil.h; sourceTree = "<group>"; };
+		4A874F8A1D070F0E000822F4 /* DATextUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextUtil.m; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
@@ -710,6 +715,8 @@
 				4A8E8B571B69060600F48CDD /* DSLocaleManager.m */,
 				4A8E887E1B686E9100F48CDD /* AGAssembler.h */,
 				4A8E887F1B686E9100F48CDD /* AGAssembler.m */,
+				4A874F891D070F0E000822F4 /* DATextUtil.h */,
+				4A874F8A1D070F0E000822F4 /* DATextUtil.m */,
 				4A8E89E51B68E08500F48CDD /* AGTextCoordinator.h */,
 				4A8E89E61B68E08500F48CDD /* AGTextCoordinator.m */,
 				4A8E88801B686E9100F48CDD /* AGStyleCoordinator.h */,
@@ -1301,6 +1308,7 @@
 				4A8E8A491B68F99400F48CDD /* AGNumberBox.m in Sources */,
 				4A8E895D1B686E9100F48CDD /* AGCollectionViewCellOfMultiValueCell.m in Sources */,
 				4A8E8A7E1B68FFC600F48CDD /* AGTitleCell.m in Sources */,
+				4A874F8B1D070F0E000822F4 /* DATextUtil.m in Sources */,
 				4A8E8A6F1B68FBE500F48CDD /* AGCircleProgressView.m in Sources */,
 				4A8E898A1B686E9100F48CDD /* AGLabel.m in Sources */,
 				4A8E8A461B68F99400F48CDD /* AGCellInnerView.m in Sources */,

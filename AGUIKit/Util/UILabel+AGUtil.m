@@ -99,6 +99,7 @@
     [self setFrame:rect];
 }
 
+
 - (void)resizeWithMaxSize:(CGSize)maxSize{
 
 

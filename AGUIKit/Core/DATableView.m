@@ -13,7 +13,7 @@
 
 - (void)setContentInset:(UIEdgeInsets)contentInset{
     [super setContentInset:contentInset];
-    TLOG(@"contenInset -> %@", NSStringFromUIEdgeInsets(contentInset));
+    TLOG(@"%@ contenInset -> %@", self.controllerClassName, NSStringFromUIEdgeInsets(contentInset));
 }
 
 @end

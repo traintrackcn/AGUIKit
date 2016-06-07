@@ -386,19 +386,16 @@
 - (void)setHeight:(CGFloat)height{
     _height = height;
     CGFloat h = [self.config cellHeightAtIndexPath:self.indexPath];
-//    TLOG(@"h -> %f height -> %f", h, height);
-    if (h != height) {
-        [self.config setCellHeight:height atIndexPath:self.indexPath];
-        
-        if (![DSDeviceUtil iOS8AndAbove]) {
-            [self.associatedViewController reloadVisibleIndexPaths];
-        }
-        
-    }
+    if (h != height) [self.config setCellHeight:height atIndexPath:self.indexPath];
 }
 
 + (CGFloat)height{
     return 44.0;
+}
+
+//dynamic height by value
++ (CGFloat)heightOfValue:(id)value{
+    return 0;
 }
 
 - (CGFloat)height{
@@ -407,6 +404,7 @@
     if (_height) return _height;
     return [self.class height];
 }
+
 
 - (CGFloat)paddingLR{
     return 8.0;

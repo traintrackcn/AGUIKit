@@ -10,4 +10,6 @@
 
 @interface DATableView : UITableView
 
+@property (nonatomic, copy) NSString *controllerClassName;
+
 @end

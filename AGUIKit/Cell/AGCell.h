@@ -71,6 +71,7 @@
 #pragma mark - styles
 
 + (CGFloat)height;
++ (CGFloat)heightOfValue:(id)value;
 - (CGFloat)paddingLR;
 - (CGFloat)paddingTB;
 - (UIColor *)borderColor;

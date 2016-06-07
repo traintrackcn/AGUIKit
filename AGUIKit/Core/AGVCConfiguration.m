@@ -22,6 +22,7 @@
     NSMutableDictionary *sectionSeparatorDic;
     NSMutableDictionary *cellHeightDic;
     NSMutableDictionary *sectionUnitDic;
+//    NSMutableDictionary *cellDynamicHeightDic;
 }
 
 @end
@@ -39,6 +40,7 @@
         cellTitleDic = [NSMutableDictionary dictionary];
         sectionSeparatorDic = [NSMutableDictionary dictionary];
         cellHeightDic = [NSMutableDictionary dictionary];
+//        cellDynamicHeightDic = [NSMutableDictionary dictionary];
         sectionUnitDic = [NSMutableDictionary dictionary];
     }
     return self;
@@ -51,7 +53,7 @@
     [self clearSettingsForSection:section dic:cellOptionalDic];
     [self clearSettingsForSection:section dic:cellClsDic];
     [self clearSettingsForSection:section dic:cellHeightDic];
-    
+//    [self clearSettingsForSection:section dic:cellDynamicHeightDic];
 //    TLOG(@"cellHeightDic -> %@", cellHeightDic);
 }
 
@@ -112,6 +114,17 @@
 }
 
 
+//- (void)setCellDynamicHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath{
+//    NSString *key = [self keyOfIndexPath:indexPath];
+//    [cellDynamicHeightDic setValue:[NSNumber numberWithDouble:height] forKey:key];
+//}
+//
+//- (CGFloat)cellDynamicHeightAtIndexPath:(NSIndexPath *)indexPath{
+//    NSString *key = [self keyOfIndexPath:indexPath];
+//    CGFloat h = [[cellDynamicHeightDic objectForKey:key] floatValue];
+//    return h;
+//}
+
 - (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
     [cellHeightDic setValue:[NSNumber numberWithDouble:height] forKey:key];
@@ -125,10 +138,16 @@
 - (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
     Class cellCls = [self cellClsOfIndexPath:indexPath];
-//    TLOG(@"%@ height -> %f %@", cellCls, [cellCls height],indexPath);
-    if ([cellHeightDic objectForKey:key]) return [[cellHeightDic objectForKey:key] doubleValue];
+    CGFloat calculatedH = [[cellHeightDic objectForKey:key] floatValue];
+    if (calculatedH) return calculatedH;
     return [cellCls height];
     
+}
+
+- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *key = [self keyOfIndexPath:indexPath];
+    if ([cellHeightDic objectForKey:key]) return YES;
+    return NO;
 }
 
 - (void)setCellCls:(Class)cls atIndexPath:(NSIndexPath *)indexPath{
@@ -139,7 +158,7 @@
 
 - (Class)cellClsOfIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
-    if ([DSValueUtil isAvailable:[cellClsDic objectForKey:key]]) {
+    if ([cellClsDic objectForKey:key]) {
         return [cellClsDic objectForKey:key];
     }
     return [self cellClsOfSection:indexPath.section];

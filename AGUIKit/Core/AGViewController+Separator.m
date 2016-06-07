@@ -26,10 +26,16 @@
 }
 
 - (BOOL)isSeparatorCellAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     NSInteger numOfRowsInSection = [self numberOfRowsInSection:section];
     NSInteger separatorIdx = numOfRowsInSection;
+    BOOL isSectionHasSeparator = [self.config separatorForSection:section];
+    
+    if (!isSectionHasSeparator) return NO;
+    
+    
     
     if (separatorIdx == 0) return NO;
     if (idx == separatorIdx) return YES;

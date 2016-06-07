@@ -63,15 +63,17 @@
 #pragma mark - life cycle
 
 //- (void) loadView {
-//    DATableView* tv = [[DATableView alloc]initWithFrame:CGRectZero style: UITableViewStylePlain];
+//    CGRect frame = CGRectMake(0, 0, STYLE_DEVICE_WIDTH, STYLE_DEVICE_HEIGHT);
+//    DATableView* tv = [[DATableView alloc]initWithFrame:frame style: UITableViewStylePlain];
 //    [tv setDataSource:self];
 //    [tv setDelegate:self];
+//    [tv setControllerClassName:self.className];
 //    [self setView:tv];
 //    [self setTableView:tv];
 //}
 
 - (void)viewDidLoad{
-//    TLOG(@"%@", self.className);
+    TLOG(@"%@", self.className);
     [super viewDidLoad];
     [self.parentView addSubview:self.overlayContainer];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -79,7 +81,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-//    TLOG(@"%@", self.className);
+    TLOG(@"%@", self.className);
     [super viewWillAppear:animated];
     [self setNavigationController];
     [self showExternalViews];
@@ -92,6 +94,7 @@
 }
 
 - (void)viewWillLayoutSubviews{
+//    TLOG(@"%@", self.className);
     [super viewWillLayoutSubviews];
 }
 
@@ -265,8 +268,8 @@
         CGFloat h = self.subviewContainerH;
         CGFloat w = self.tableView.frame.size.width;
         _overlayContainer =  [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
-        _overlayContainer.layer.borderWidth = 3;
-        _overlayContainer.layer.borderColor = [UIColor blueColor].CGColor;
+//        _overlayContainer.layer.borderWidth = 3;
+//        _overlayContainer.layer.borderColor = [UIColor blueColor].CGColor;
         [_overlayContainer setUserInteractionEnabled:NO];
         
         [self.externalViews addObject:_overlayContainer];
@@ -315,7 +318,7 @@
 
 
 - (void)reloadVisibleIndexPaths{
-    TLOG(@"[%@]", NSStringFromClass(self.class));
+    TLOG(@"%@", NSStringFromClass(self.class));
     [self willReloadVisibleIndexPaths];
     [self.tableView reloadData];
     [self didReloadVisibleIndexPaths];
@@ -400,23 +403,12 @@
 #pragma mark - table view delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    TLOG(@"");
     return [self numberOfSections];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    NSInteger numOfRowsInSection = [self numberOfRowsInSection:section];
-    
-    BOOL hasSeparator = [self.config separatorForSection:section];
-    if (hasSeparator) {
-        if ([self isSeparatorCellAvailableInSection:section]) return numOfRowsInSection + 1;
-    }
-    
-    return numOfRowsInSection;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    TLOG(@"========================");
     Class cls = [self.config headerClsOfSection:section];
     NSInteger rows = [self numberOfRowsInSection:section];
     id value = nil;
@@ -432,40 +424,59 @@
     return 0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    TLOG(@"");
+    NSInteger numOfRowsInSection = [self numberOfRowsInSection:section];
     
-    NSInteger section = indexPath.section;
     BOOL hasSeparator = [self.config separatorForSection:section];
     if (hasSeparator) {
-        if ([self isSeparatorCellAtIndexPath:indexPath]) return [AGSeparatorCell height];
+        if ([self isSeparatorCellAvailableInSection:section]) {
+            numOfRowsInSection ++;
+        }
     }
+    
+    TLOG(@"section-%d rows -> %d", section,numOfRowsInSection);
+    
+    return numOfRowsInSection;
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if ([self isSeparatorCellAtIndexPath:indexPath]){
+        return [AGSeparatorCell height];
+    }
+    
+    if (![self.config cellHeightCalculatedAtIndexPath:indexPath]) {
+        id value = [self valueAtIndexPath:indexPath];
+        Class cellCls = [self.config cellClsOfIndexPath:indexPath];
+        [self.config setCellHeight:[cellCls heightOfValue:value] atIndexPath:indexPath];
+    }
+    
     
     return [self.config cellHeightAtIndexPath:indexPath];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    TLOG(@"");
     return [self headerForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger section = indexPath.section;
-    
-    BOOL hasSeparator = [self.config separatorForSection:section];
-    if (hasSeparator) {
-        if ([self isSeparatorCellAtIndexPath:indexPath]) return [self assembleSeparatorCell];
-    }
-    
+    TLOG(@"");
+    if ([self isSeparatorCellAtIndexPath:indexPath]) return [self assembleSeparatorCell];
     AGCell *cell = [self cellForIndexPath:indexPath];
-    
     if (!cell) return [self cellForException];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *sectionUnit = [self.config unitOfSection:section];
-    if (sectionUnit) [sectionUnit didSelect:idx];
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) [unit didSelect:idx];
 }
 
 
@@ -496,12 +507,12 @@
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
-    if ([DSValueUtil isAvailable:unit]) [unit setValue:value atIndex:idx];
+    if (unit) [unit setValue:value atIndex:idx];
 }
 
 - (id)valueForHeaderOfSection:(NSInteger)section{
     AGSectionUnit *unit = [self.config unitOfSection:section];
-    if ([DSValueUtil isAvailable:unit]) return unit.headerValue;
+    if (unit) return unit.headerValue;
     return nil;
 }
 
