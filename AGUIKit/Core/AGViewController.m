@@ -62,7 +62,7 @@
 
 #pragma mark - life cycle
 
-//- (void) loadView {
+//- (void)loadView{
 //    CGRect frame = CGRectMake(0, 0, STYLE_DEVICE_WIDTH, STYLE_DEVICE_HEIGHT);
 //    DATableView* tv = [[DATableView alloc]initWithFrame:frame style: UITableViewStylePlain];
 //    [tv setDataSource:self];
@@ -204,6 +204,7 @@
     
     AGCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
     id value = [self valueAtIndexPath:indexPath];
+    id title = [self titleAtIndexPath:indexPath];
     @try {
         if (!cell) {
             cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
@@ -217,7 +218,7 @@
         [cell setIndexPath:indexPath];
         [cell setIsLastRow:bLastRow];
         [cell setIsFirstRow:bFirstRow];
-        [cell setTitle: [self.config cellTitleOfIndexPath:indexPath] ];
+        [cell setTitle: title ];
         [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
         [cell setValue:value];
     }@catch (NSException *exception) {
@@ -408,7 +409,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    TLOG(@"========================");
+//    TLOG(@"========================");
     Class cls = [self.config headerClsOfSection:section];
     NSInteger rows = [self numberOfRowsInSection:section];
     id value = nil;
@@ -435,7 +436,7 @@
         }
     }
     
-    TLOG(@"section-%d rows -> %d", section,numOfRowsInSection);
+//    TLOG(@"section-%d rows -> %d", section,numOfRowsInSection);
     
     return numOfRowsInSection;
 }
@@ -459,12 +460,12 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    TLOG(@"");
+//    TLOG(@"");
     return [self headerForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TLOG(@"");
+//    TLOG(@"");
     if ([self isSeparatorCellAtIndexPath:indexPath]) return [self assembleSeparatorCell];
     AGCell *cell = [self cellForIndexPath:indexPath];
     if (!cell) return [self cellForException];
@@ -500,6 +501,16 @@
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
     if (unit) return [unit valueAtIndex:idx];
+    return nil;
+}
+
+- (id)titleAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    id titleInConfig = [self.config cellTitleOfIndexPath:indexPath];
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) return [unit titleAtIndex:idx];
+    if (titleInConfig) return titleInConfig;
     return nil;
 }
 

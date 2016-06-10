@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-
+#define TEXT(key) [AGTextCoordinator textForKey:key roleCode:nil]
 #define TEXT_FOR_KEY(key) [AGTextCoordinator textForKey:key roleCode:nil]
+
+#define TEXT_FOR_ROLE(key, roleCode) [AGTextCoordinator textForKey:key roleCode:roleCode]
 #define TEXT_FOR_KEY_AND_ROLE_CODE(key,roleCode) [AGTextCoordinator textForKey:key roleCode:roleCode]
 #define IS_AVAILABLE_TEXT_KEY(key, roleCode) [AGTextCoordinator isAvailableTextKey:key roleCode:roleCode]
 

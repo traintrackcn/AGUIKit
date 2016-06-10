@@ -41,6 +41,10 @@
     return nil;
 }
 
+- (id)titleAtIndex:(NSInteger)index{
+    return nil;
+}
+
 - (id)paramterAtIndex:(NSInteger)index{
     return nil;
 }

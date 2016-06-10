@@ -59,6 +59,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (id)valueForHeaderOfSection:(NSInteger)section;
 - (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath;
+- (id)titleAtIndexPath:(NSIndexPath *)indexPath;
 - (AGCell *)cellAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSections;

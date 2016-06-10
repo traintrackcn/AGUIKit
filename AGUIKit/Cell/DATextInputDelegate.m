@@ -9,6 +9,7 @@
 #import "DATextInputDelegate.h"
 #import "AGCell.h"
 #import "AGCellAction.h"
+#import "GlobalDefine.h"
 
 @interface DATextInputDelegate(){
     
@@ -44,7 +45,9 @@
     [self dispatchRequestSetValue:text];
 }
 
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+//    TLOG(@"string -> %@", string);
     if (textField.textAlignment == NSTextAlignmentRight){
         if (range.location == textField.text.length && [string isEqualToString:@" "]) {
             // ignore replacement string and add your own
