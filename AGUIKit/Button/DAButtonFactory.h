@@ -13,7 +13,7 @@
 @interface DAButtonFactory : AGModel
 
 + (UIButton *)buttonInstanceWithItem:(DAButtonItem *)item;
-+ (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action;
++ (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action  backgroundColor:(UIColor *)backgroundColor;
 
 + (void)setDefaultFont:(UIFont *)font;
 + (void)setDefaultBackgroundColor:(UIColor *)color;

@@ -29,10 +29,10 @@
     NSString *title = item.title;
     id target = item.target;
     SEL action = item.action;
-    return [self buttonInstanceWithTitle:title target:target action:action];
+    return [self buttonInstanceWithTitle:title target:target action:action backgroundColor:item.color];
 }
 
-+ (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action{
++ (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action backgroundColor:(UIColor *)backgroundColor{
     UIButton *btn = [[UIButton alloc] init];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -43,7 +43,11 @@
     
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn setTitleColor:RGBA(153, 153, 153, 1) forState:UIControlStateDisabled];
-    [btn setBackgroundImage:[self backgroundImageForState:UIControlStateNormal] forState:UIControlStateNormal];
+    
+    UIColor *normalStateBgColor = backgroundColor?backgroundColor:[[self singleton] defaultBackgroundColor];
+    UIImage *normalStateBgImage = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:normalStateBgColor];
+    
+    [btn setBackgroundImage:normalStateBgImage forState:UIControlStateNormal];
     [btn setBackgroundImage:[self backgroundImageForState:UIControlStateDisabled] forState:UIControlStateDisabled];
     return btn;
 }

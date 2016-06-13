@@ -385,8 +385,7 @@
 
 - (void)setHeight:(CGFloat)height{
     _height = height;
-    CGFloat h = [self.config cellHeightAtIndexPath:self.indexPath];
-    if (h != height) [self.config setCellHeight:height atIndexPath:self.indexPath];
+    [self.config setCellHeight:height atIndexPath:self.indexPath];
 }
 
 + (CGFloat)height{
