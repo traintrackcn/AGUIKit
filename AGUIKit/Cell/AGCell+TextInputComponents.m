@@ -33,6 +33,7 @@
         [item setClearButtonMode:UITextFieldViewModeWhileEditing];
         [item setTextColor:COLOR(AG_UI_DEFINE.RGB_TEXT_INPUT)];
         [item setAdjustsFontSizeToFitWidth:YES];
+        [item setAutocorrectionType:UITextAutocorrectionTypeNo];
         [item setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 //        [item.layer setBorderWidth:1];
         [item setFont:FONT_WITH_SIZE(18.0)];

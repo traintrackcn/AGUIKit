@@ -252,6 +252,14 @@
 		4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */; };
 		4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */; };
 		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
+		4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650651D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m */; };
+		4AB6506D1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650671D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m */; };
+		4AB6506E1D111D1E00F5735C /* AGTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650691D111D1E00F5735C /* AGTransitioningDelegate.m */; };
+		4AB6506F1D111D1E00F5735C /* UIViewController+CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */; };
+		4AB650701D111D2900F5735C /* AGAnimatedTransitioningSlideFromBottom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB650641D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.h */; };
+		4AB650711D111D2900F5735C /* AGAnimatedTransitioningSlideFromRight.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB650661D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.h */; };
+		4AB650721D111D2900F5735C /* AGTransitioningDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB650681D111D1E00F5735C /* AGTransitioningDelegate.h */; };
+		4AB650731D111D2900F5735C /* UIViewController+CustomTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB6506A1D111D1E00F5735C /* UIViewController+CustomTransition.h */; };
 		4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */; };
 		4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */; };
 /* End PBXBuildFile section */
@@ -263,6 +271,10 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4AB650701D111D2900F5735C /* AGAnimatedTransitioningSlideFromBottom.h in CopyFiles */,
+				4AB650711D111D2900F5735C /* AGAnimatedTransitioningSlideFromRight.h in CopyFiles */,
+				4AB650721D111D2900F5735C /* AGTransitioningDelegate.h in CopyFiles */,
+				4AB650731D111D2900F5735C /* UIViewController+CustomTransition.h in CopyFiles */,
 				4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */,
 				4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */,
 				4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */,
@@ -640,6 +652,14 @@
 		4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextfieldCellStyleLong.m; sourceTree = "<group>"; };
 		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
 		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
+		4AB650641D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnimatedTransitioningSlideFromBottom.h; sourceTree = "<group>"; };
+		4AB650651D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAnimatedTransitioningSlideFromBottom.m; sourceTree = "<group>"; };
+		4AB650661D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnimatedTransitioningSlideFromRight.h; sourceTree = "<group>"; };
+		4AB650671D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAnimatedTransitioningSlideFromRight.m; sourceTree = "<group>"; };
+		4AB650681D111D1E00F5735C /* AGTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTransitioningDelegate.h; sourceTree = "<group>"; };
+		4AB650691D111D1E00F5735C /* AGTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTransitioningDelegate.m; sourceTree = "<group>"; };
+		4AB6506A1D111D1E00F5735C /* UIViewController+CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomTransition.h"; sourceTree = "<group>"; };
+		4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomTransition.m"; sourceTree = "<group>"; };
 		4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellAction.h; sourceTree = "<group>"; };
 		4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -702,6 +722,7 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4AB650631D111D1E00F5735C /* CustomTransition */,
 				4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */,
 				4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */,
 				4A8E8B561B69060600F48CDD /* DSLocaleManager.h */,
@@ -1161,6 +1182,21 @@
 			path = TableRow;
 			sourceTree = "<group>";
 		};
+		4AB650631D111D1E00F5735C /* CustomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				4AB650641D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.h */,
+				4AB650651D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m */,
+				4AB650661D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.h */,
+				4AB650671D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m */,
+				4AB650681D111D1E00F5735C /* AGTransitioningDelegate.h */,
+				4AB650691D111D1E00F5735C /* AGTransitioningDelegate.m */,
+				4AB6506A1D111D1E00F5735C /* UIViewController+CustomTransition.h */,
+				4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */,
+			);
+			path = CustomTransition;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1298,6 +1334,7 @@
 				4A8E89751B686E9100F48CDD /* AGTextfieldCellStyleOptions.m in Sources */,
 				4A8E89991B686E9100F48CDD /* AGTabBarViewController.m in Sources */,
 				4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */,
+				4AB6506F1D111D1E00F5735C /* UIViewController+CustomTransition.m in Sources */,
 				4A8E8A491B68F99400F48CDD /* AGNumberBox.m in Sources */,
 				4A8E895D1B686E9100F48CDD /* AGCollectionViewCellOfMultiValueCell.m in Sources */,
 				4A8E8A7E1B68FFC600F48CDD /* AGTitleCell.m in Sources */,
@@ -1323,6 +1360,7 @@
 				4A8E89E41B68DD2400F48CDD /* AGMeta.m in Sources */,
 				4A8E898D1B686E9100F48CDD /* AGPeriodSelector.m in Sources */,
 				4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */,
+				4AB6506D1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m in Sources */,
 				4A8E89661B686E9100F48CDD /* AGSearchCell.m in Sources */,
 				4A8E896F1B686E9100F48CDD /* AGTextfieldBoxCell.m in Sources */,
 				4A8E89551B686E9100F48CDD /* AGEndTimeCell.m in Sources */,
@@ -1341,6 +1379,7 @@
 				4A8E896C1B686E9100F48CDD /* AGTextCell.m in Sources */,
 				4A8E89881B686E9100F48CDD /* AGHorizontalUnitsCell.m in Sources */,
 				4A8E89E71B68E08500F48CDD /* AGTextCoordinator.m in Sources */,
+				4AB6506E1D111D1E00F5735C /* AGTransitioningDelegate.m in Sources */,
 				4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */,
 				4A874F7C1D06B747000822F4 /* DATableView.m in Sources */,
 				4A8E89B41B68CED800F48CDD /* AGHeaderCell.m in Sources */,
@@ -1373,6 +1412,7 @@
 				4A8E896D1B686E9100F48CDD /* AGTextCellStyleMore.m in Sources */,
 				4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */,
 				4A8E8A321B68F7FF00F48CDD /* AGViewController+LoginUI.m in Sources */,
+				4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */,
 				4A8E89601B686E9100F48CDD /* AGMultiValueCell.m in Sources */,
 				4A8E89801B686E9100F48CDD /* AGCollectionViewCellTab.m in Sources */,
 				4A8E89C51B68D29200F48CDD /* AGLogoHeaderCell.m in Sources */,
