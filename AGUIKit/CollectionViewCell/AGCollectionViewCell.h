@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-//@class AGCollectionViewCellValue;
-@class AGRemoter;
 @class AGViewController;
+@class AGObjectPool;
 
 @interface AGCollectionViewCell : UICollectionViewCell{
-//    AGRemoter *remoter;
 }
 
 @property (nonatomic, strong) id value;
-@property (nonatomic, strong) AGRemoter *remoter;
 @property (nonatomic, weak) AGViewController *associatedViewController;
+@property (nonatomic, strong) AGObjectPool *objPool;
 
 @end

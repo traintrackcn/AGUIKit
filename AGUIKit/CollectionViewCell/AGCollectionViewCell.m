@@ -9,38 +9,22 @@
 #import "AGCollectionViewCell.h"
 #import "AGRemoter.h"
 #import "DSValueUtil.h"
+#import "AGObjectPool.h"
 
-@interface AGCollectionViewCell() <AGRemoterDelegate>
+@interface AGCollectionViewCell()
 
 @end
 
 @implementation AGCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+
+#pragma mark - properties
+
+- (AGObjectPool *)objPool{
+    if (!_objPool) {
+        _objPool = [AGObjectPool instance];
     }
-    return self;
-}
-
-- (void)dealloc{
-    [_remoter cancel];
-    _remoter = nil;
-}
-
-- (AGRemoter *)remoter{
-    if (!_remoter) {
-        _remoter = [AGRemoter instanceWithDelegate:self];
-    }
-    return _remoter;
-}
-
-#pragma mark - AGRemoterDelegate
-
-- (void)remoterDataReceived:(id)responseData withRequestData:(DSRequestInfo *)request{
-    
+    return _objPool;
 }
 
 @end
