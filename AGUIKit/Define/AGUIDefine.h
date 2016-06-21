@@ -56,16 +56,75 @@
 @property (nonatomic, strong) NSString *fontNameMedium;
 
 
-#pragma mark - colors
+#pragma mark - common colors
+@property (nonatomic, strong) NSString *RGB_THEME;
+@property (nonatomic, strong) NSString *RGB_DISABLED;
+
+#pragma mark - title colors
+@property (nonatomic, strong) NSString *RGB_TITLE;
+@property (nonatomic, strong) NSString *RGB_TITLE_NORMAL;
+@property (nonatomic, strong) NSString *RGB_TITLE_LIGHT;
+@property (nonatomic, strong) NSString *RGB_TITLE_LIGHTER;
+
+#pragma mark - border colors
 @property (nonatomic, strong) NSString *RGB_BORDER_DARKER;
 @property (nonatomic, strong) NSString *RGB_BORDER;
+
+#pragma mark - background colors
 @property (nonatomic, strong) NSString *RGB_BACKGROUND_SELECTED;
 @property (nonatomic, strong) NSString *RGB_BACKGROUND_NORMAL;
-@property (nonatomic, strong) NSString *RGB_THEME;
-@property (nonatomic, strong) NSString *RGB_WHITE;
+
+#pragma mark - tab bar colors
 @property (nonatomic, strong) NSString *RGB_TAB_BAR_BACKGROUND;
 @property (nonatomic, strong) NSString *RGB_TAB_BAR_NORMAL;
-@property (nonatomic, strong) NSString *RGB_DISABLED;
-@property (nonatomic, strong) NSString *RGB_TEXT_INPUT;
+
+#pragma mark - cell colors
+@property (nonatomic, strong) NSString *RGB_CELL_TITLE_NORMAL;
+@property (nonatomic, strong) NSString *RGB_CELL_TITLE_HIGHLIGHT;
+@property (nonatomic, strong) NSString *RGB_CELL_CONTENT_HIGHLIGHT;
+@property (nonatomic, strong) NSString *RGB_CELL_CONTENT_NORMAL;
+@property (nonatomic, strong) NSString *RGB_CELL_BACKGROUND_NORMAL;
+@property (nonatomic, strong) NSString *RGB_CELL_BACKGROUND_HIGHLIGHT;
+@property (nonatomic, strong) NSString *RGB_CELL_BORDER;
+
+#pragma mark - avc message colors
+@property (nonatomic, strong) NSString *RGB_AVC_SUCCESS_MESSAGE_TITLE;
+@property (nonatomic, strong) NSString *RGB_AVC_SUCCESS_MESSAGE_BACKGROUND;
+@property (nonatomic, strong) NSString *RGB_AVC_FAILURE_MESSAGE_TITLE;
+@property (nonatomic, strong) NSString *RGB_AVC_FAILURE_MESSAGE_BACKGROUND;
+@property (nonatomic, strong) NSString *RGB_AVC_LOADING_MESSAGE_TITLE;
+@property (nonatomic, strong) NSString *RGB_AVC_LOADING_MESSAGE_BACKGROUND;
+@property (nonatomic, strong) NSString *RGB_FLOATING_MESSAGE_BACKGROUND;
+@property (nonatomic, strong) NSString *RGB_FLOATING_MESSAGE;
+
+#pragma mark - input colors
+@property (nonatomic, strong) NSString *RGB_INPUT_NORMAL;
+@property (nonatomic, strong) NSString *RGB_INPUT_STAR;
+@property (nonatomic, strong) NSString *RGB_INPUT_TITLE;
+@property (nonatomic, strong) NSString *RGB_INPUT_CONTENT;
+@property (nonatomic, strong) NSString *RGB_INPUT_CURSOR;
+@property (nonatomic, strong) NSString *RGB_INPUT_ICON;
+
+#pragma mark - line progress colors
+@property (nonatomic, strong) NSString *LINE_PROGRESS_TITLE;
+@property (nonatomic, strong) NSString *LINE_PROGRESS_SUBTITLE;
+
+#pragma mark - button colors
+@property (nonatomic, strong) NSString *RGB_BUTTON_BACKGROUND_NORMAL;
+@property (nonatomic, strong) NSString *RGB_BUTTON_TITLE_NORMAL;
+@property (nonatomic, strong) NSString *RGB_BUTTON_BORDER;
+
+#pragma mark - header colors
+@property (nonatomic, strong) NSString *RGB_HEADER;
+@property (nonatomic, strong) NSString *RGB_HEADER_BORDER;
+@property (nonatomic, strong) NSString *RGB_HEADER_BACKGROUND;
+
+#pragma mark - option colors
+//option
+@property (nonatomic, strong) NSString *RGB_OPTION_BACKGROUND_HIGHLIGHT @"84,175,214"
+@property (nonatomic, strong) NSString *RGB_OPTION_BACKGROUND_NORMAL RGB_WHITE
+@property (nonatomic, strong) NSString *RGB_OPTION_TITLE_HIGHLIGHT RGB_WHITE
+@property (nonatomic, strong) NSString *RGB_OPTION_TITLE_NORMAL RGB_TITLE_NORMAL
+@property (nonatomic, strong) NSString *RGB_OPTION_BORDER RGB_BORDER
 
 @end

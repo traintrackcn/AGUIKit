@@ -110,11 +110,11 @@
 }
 
 - (UIColor *)detailTextColor{
-    return [AGStyleCoordinator colorCellTitleUnselected];
+    return COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_NORMAL);
 }
 
 - (UIColor *)borderColor{
-    return [AGStyleCoordinator colorBorderStyleDefault];
+    return COLOR(AG_UI_DEFINE.RGB_CELL_BORDER);
 }
 
 - (CGFloat)borderWidth{

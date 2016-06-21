@@ -11,6 +11,7 @@
 #import "BBBadgeBarButtonItem.h"
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"
+#import "AGUIDefine.h"
 
 @implementation DSButtonCreator
 
@@ -31,7 +32,7 @@
 
 + (UIBarButtonItem *)createNavigationBarButtonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action{
     UIImage *img = [UIImage imageNamed:imageName];
-    img = [DSImage image:img withMaskColor:[AGStyleCoordinator colorForKey:@"button-background-normal"]];
+    img = [DSImage image:img withMaskColor:COLOR(AG_UI_DEFINE.RGB_BUTTON_BACKGROUND_NORMAL)];
     UIBarButtonItem *menuBarItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:target action:action];
     return menuBarItem;
     
@@ -106,7 +107,7 @@
 
 + (UIBarButtonItem *)closeBarButtonItemWithTarget:(id)target action:(SEL)action{
     UIImage *img = [UIImage imageNamed:@"IconClose"];
-    img = [DSImage image:img withMaskColor:[AGStyleCoordinator colorForKey:@"button-background-normal"]];
+    img = [DSImage image:img withMaskColor:COLOR(AG_UI_DEFINE.RGB_BUTTON_BACKGROUND_NORMAL)];
     UIBarButtonItem *barBtnItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:target action:action];
     return barBtnItem;
     

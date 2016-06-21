@@ -424,14 +424,14 @@
 
 - (void)applySelectedStyle{
     [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_SELECTED)];
-    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-selected"];
-    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-selected"];
+    self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_HIGHLIGHT);
+    self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_HIGHLIGHT);
 }
 
 - (void)applyUnselectedStyle{
     [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
-    self.textLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-title-unselected"];
-    self.detailTextLabel.textColor = [AGStyleCoordinator colorForKey:@"cell-content-unselected"];
+    self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_NORMAL);
+    self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_NORMAL);
 }
 
 

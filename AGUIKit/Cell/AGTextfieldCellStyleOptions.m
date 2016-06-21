@@ -48,8 +48,7 @@
     CGFloat x = self.frame.size.width / 3.0;
     CGFloat w = self.frame.size.width - x - 24.0;
     contentLabel = [[AGLabel alloc] initWithFrame:CGRectMake(x, 0, w, [self.class height])];
-//    [contentLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    [contentLabel setTextColor:[AGStyleCoordinator colorTextfieldContent]];
+    [contentLabel setTextColor:COLOR(AG_UI_DEFINE.RGB_INPUT_CONTENT)];
     [contentLabel setTextAlignment:NSTextAlignmentRight];
     [contentLabel setFont:FONT_WITH_SIZE(16)];
     [self.contentView addSubview:contentLabel];

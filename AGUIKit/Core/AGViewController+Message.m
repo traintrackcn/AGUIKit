@@ -15,7 +15,7 @@
 #import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 #import "GlobalDefine.h"
-
+#import "AGUIDefine.h"
 
 
 typedef NS_ENUM(NSInteger, UIViewTag) {
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
     [v setClipsToBounds:YES];
     [v setTag:UIViewTagFloatMessageBox];
     
-    [v setBackgroundColor:[[AGStyleCoordinator colorForKey:@"floated-message-background"] colorWithAlphaComponent:.7]];
+    [v setBackgroundColor:[COLOR(AG_UI_DEFINE.RGB_FLOATING_MESSAGE_BACKGROUND) colorWithAlphaComponent:.7]];
     
     
     //assemble title view
@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
     [l setFont:[UIFont boldSystemFontOfSize:16.0]];
     //        TLOG(@"%@ self.parentViewController -> %@",self.class, self.navigationController);
     [l setTextAlignment:NSTextAlignmentCenter];
-    [l setTextColor:[AGStyleCoordinator colorForKey:@"floated-message"]];
+    [l setTextColor:COLOR(AG_UI_DEFINE.RGB_FLOATING_MESSAGE)];
     return l;
 }
 

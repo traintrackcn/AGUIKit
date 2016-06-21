@@ -9,6 +9,7 @@
 #import "AGHeaderViewStyleDefault.h"
 #import "AGStyleCoordinator.h"
 #import "DSValueUtil.h"
+#import "AGUIDefine.h"
 
 @implementation AGHeaderViewStyleDefault
 
@@ -16,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self assemble];
-        [self setBackgroundColor:[AGStyleCoordinator colorHeaderViewBackground]];
+        [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_HEADER_BACKGROUND)];
     }
     return self;
 }
@@ -45,7 +46,7 @@
         CGFloat w = self.frame.size.width - self.paddingLR * 2;
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, w, [self.class height])];
         [_titleLabel setTextColor:self.titleColor];
-        [_titleLabel setFont:[UIFont systemFontOfSize:18]];
+        [_titleLabel setFont:FONT_WITH_SIZE(18)];
         [_titleLabel setAdjustsFontSizeToFitWidth:YES];
 //        [self addSubview:titleLabel];
     }
@@ -59,7 +60,7 @@
 }
 
 - (UIColor *)titleColor{
-    return [AGStyleCoordinator colorLightText];
+    return COLOR(AG_UI_DEFINE.RGB_TITLE_LIGHT);
 }
 
 @end

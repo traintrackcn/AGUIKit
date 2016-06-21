@@ -12,6 +12,7 @@
 #import "GlobalDefine.h"
 #import "DSLocaleManager.h"
 #import "CHCSVParser.h"
+#import "DACSVUtil.h"
 
 typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     CSVFieldIndexKey = 0,
@@ -210,7 +211,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
         
         if (fieldIndex == self.selectedLangFieldIdx) {
             
-            field = [self removeQuoteForField:field];
+            field = [DACSVUtil removeQuoteForField:field];
             
             [self.dic setObject:field forKey:self.currentLangKey];
         }
@@ -219,19 +220,6 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 - (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error{
     TLOG(@"error -> %@", error);
-}
-
-#pragma mark - csv utils
-
-- (NSString *)removeQuoteForField:(NSString *)field{
-    if (field.length<3) return field;
-    NSInteger len = field.length;
-    NSString *firstChar = [field substringWithRange:NSMakeRange(0, 1)];
-    NSString *lastChar = [field substringWithRange:NSMakeRange(len-1, 1)];
-    if ([firstChar isEqualToString:@"\""] && [lastChar isEqualToString:@"\""]) {
-        return [field substringWithRange:NSMakeRange(1, len-2)];
-    }
-    return field;
 }
 
 

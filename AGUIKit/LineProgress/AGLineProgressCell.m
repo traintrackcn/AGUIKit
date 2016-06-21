@@ -68,7 +68,7 @@
         [_titleView setAdjustsFontSizeToFitWidth:YES];
         
         
-        [_titleView setTextColor:[AGStyleCoordinator colorLineProgressViewTitle]];
+        [_titleView setTextColor:COLOR(AG_UI_DEFINE.LINE_PROGRESS_TITLE)];
     }
     return _titleView;
 }
@@ -84,7 +84,7 @@
         _subtitleView = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, self.subtitleH)];
         [_subtitleView setFont:[UIFont systemFontOfSize:11]];
         [_subtitleView setAdjustsFontSizeToFitWidth:YES];
-        [_subtitleView setTextColor:[AGStyleCoordinator colorLineProgressViewSubtitle]];
+        [_subtitleView setTextColor:COLOR(AG_UI_DEFINE.LINE_PROGRESS_SUBTITLE)];
     }
     
     
