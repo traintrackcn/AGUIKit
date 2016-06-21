@@ -18,6 +18,7 @@
 
 - (UIColor *)colorFromRGBValue:(NSString *)value;
 - (NSString *)rgbForKey:(NSString *)key;
-;- (UIColor *)colorForKey:(NSString *)key;
+- (UIColor *)colorForKey:(NSString *)key;
+
 
 @end

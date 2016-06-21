@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 
 - (void)load{
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"color" withExtension:@"csv"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"style" withExtension:@"csv"];
     TLOG(@"url -> %@", url);
     
     if (url) {
@@ -67,9 +67,9 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 }
 
 - (UIColor *)colorForKey:(NSString *)key{
+//    TLOG(@"key -> %@", key);
     NSString *rgbValue = [self rgbForKey:key];
-    if (rgbValue) return COLOR(rgbValue);
-    return [UIColor clearColor];
+    return COLOR(rgbValue);
 }
 
 - (NSString *)rgbForKey:(NSString *)key{
@@ -77,6 +77,8 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     NSArray *arr = [value componentsSeparatedByString:@"|"];
     NSString *rgbKey = arr.firstObject;
     NSString *rgbValue = [self.dic valueForKey:rgbKey];
+    
+    TLOG(@"rgbKey -> %@ rgbValue -> %@", rgbKey, rgbValue);
     
     if (rgbValue) {
         return rgbValue;
@@ -89,6 +91,9 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 }
 
 - (UIColor *)colorFromRGBValue:(NSString *)value{
+    
+    if (!value || ![self isRGBString:value]) return COLOR(RGB_DUMMY);
+    
     NSArray *arr = [value componentsSeparatedByString:@","];
     float r = [[arr objectAtIndex:0] doubleValue];
     float g = [[arr objectAtIndex:1] doubleValue];
@@ -139,6 +144,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     }
     return _dic;
 }
+
 
 @end
 

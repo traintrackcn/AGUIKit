@@ -37,6 +37,7 @@
 //colors
 #define RGB_WHITE @"255,255,255"
 #define RGB_BLACK @"0,0,0"
+#define RGB_DUMMY RGB_BLACK
 
 
 @interface AGUIDefine : NSObject
