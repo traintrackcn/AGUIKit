@@ -10,15 +10,13 @@
 #import "AGUIDefine.h"
 @import UIKit;
 
-#define COLOR_FOR_KEY(aKey) [[AGStyleCoordinator singleton] colorForKey:aKey]
-#define COLOR(aRGB) [[AGStyleCoordinator singleton] colorFromRGBValue:aRGB]
-#define RGB(aKey) [[AGStyleCoordinator singleton] rgbForKey:aKey]
+#define COLOR(aValue) [[AGStyleCoordinator singleton] colorForValue:aValue]
+#define RGB(aValue) [[AGStyleCoordinator singleton] rgbForValue:aValue]
 
 @interface AGStyleCoordinator : NSObject
 
-- (UIColor *)colorFromRGBValue:(NSString *)value;
-- (NSString *)rgbForKey:(NSString *)key;
-- (UIColor *)colorForKey:(NSString *)key;
+- (UIColor *)colorForValue:(NSString *)value;
+- (NSString *)rgbForValue:(NSString *)value;
 
 
 @end

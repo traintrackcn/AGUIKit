@@ -61,40 +61,45 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 #pragma mark -
 
-- (BOOL)isRGBString:(NSString *)str{
+- (BOOL)isRGBValue:(NSString *)str{
     if ([str rangeOfString:@","].location != NSNotFound) return YES;
     return NO;
 }
 
-- (UIColor *)colorForKey:(NSString *)key{
-//    TLOG(@"key -> %@", key);
-    NSString *rgbValue = [self rgbForKey:key];
-    return COLOR(rgbValue);
+- (BOOL)isRGBKey:(NSString *)str{
+    return ![self isRGBValue:str];
 }
 
-- (NSString *)rgbForKey:(NSString *)key{
-    NSString *value = [self.dic objectForKey:key];
+- (NSString *)rgbForValue:(NSString *)value{
     NSArray *arr = [value componentsSeparatedByString:@"|"];
-    NSString *rgbKey = arr.firstObject;
-    NSString *rgbValue = [self.dic valueForKey:rgbKey];
-    
-    TLOG(@"rgbKey -> %@ rgbValue -> %@", rgbKey, rgbValue);
-    
-    if (rgbValue) {
-        return rgbValue;
-    }else if(arr.count == 2){
-        rgbValue = arr.lastObject;
-        return rgbValue;
+    NSString *rgbValue;
+    id rgbStuff;
+    for (NSInteger i = 0; i < arr.count; i++) {
+        rgbStuff = [arr objectAtIndex:i];
+        TLOG(@"rgbStuff -> %@", rgbStuff);
+        if ([self isRGBKey:rgbStuff]) {
+            rgbStuff = [self.dic objectForKey:rgbStuff];
+            TLOG(@"sub_rgbStuff -> %@", rgbStuff);
+            if (rgbStuff) return [self rgbForValue:rgbStuff]; //continue search rgb value
+        }else if ([self isRGBValue:rgbStuff]){
+            rgbValue = rgbStuff;
+            break;
+        }
     }
     
-    return nil;
+    return rgbValue;
+    
 }
 
-- (UIColor *)colorFromRGBValue:(NSString *)value{
+- (UIColor *)colorForValue:(NSString *)value{
+    NSString *rgbValue = [self rgbForValue:value];
+    return [self colorForRGB:rgbValue];
+}
+
+- (UIColor *)colorForRGB:(NSString *)rgbValue{
+    if (!rgbValue || ![self isRGBValue:rgbValue]) return COLOR(RGB_DUMMY);
     
-    if (!value || ![self isRGBString:value]) return COLOR(RGB_DUMMY);
-    
-    NSArray *arr = [value componentsSeparatedByString:@","];
+    NSArray *arr = [rgbValue componentsSeparatedByString:@","];
     float r = [[arr objectAtIndex:0] doubleValue];
     float g = [[arr objectAtIndex:1] doubleValue];
     float b = [[arr objectAtIndex:2] doubleValue];
