@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Singleton.h"
+#import "AGUIDefine.h"
 @import UIKit;
 
 #define COLOR_FOR_KEY(aKey) [[AGStyleCoordinator singleton] colorForKey:aKey]

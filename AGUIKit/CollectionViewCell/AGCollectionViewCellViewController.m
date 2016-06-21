@@ -30,7 +30,7 @@
     self = [super initWithFrame:frame];
 //    TLOG(@"frame -> %@", NSStringFromCGRect(self.frame));
     if (self) {
-        [self setBackgroundColor:[AGStyleCoordinator colorBackgroundNormal]];
+        [self setBackgroundColor:COLOR(AGUI.RGB_BACKGROUND_NORMAL)];
     }
     return self;
 }

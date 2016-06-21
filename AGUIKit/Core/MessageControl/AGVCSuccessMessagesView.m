@@ -7,7 +7,7 @@
 //
 
 #import "AGVCSuccessMessagesView.h"
-#import "AGUIDefine.h"
+#import "AGStyleCoordinator.h"
 #import "DSDeviceUtil.h"
 
 @interface AGVCSuccessMessagesView(){
@@ -21,7 +21,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        [self setBackgroundColor:[AGStyleCoordinator colorForKey:@"avc-success-message-background"]];
+        [self setBackgroundColor:COLOR(AGUI.RGB_AVC_SUCCESS_MESSAGE_BACKGROUND)];
         [self assembleLabel];
     }
     return self;
@@ -30,19 +30,13 @@
 #pragma mark - assemblers
 
 - (void)assembleLabel{
-    UIColor *c = [AGStyleCoordinator colorForKey:@"avc-success-message-title"];
+    UIColor *c = COLOR(AGUI.RGB_AVC_SUCCESS_MESSAGE_TITLE);
     contentLabel = [[UILabel alloc] init];
     [contentLabel setTextColor:c];
     //    [contentLabel setBackgroundColor:RGBA(254, 207, 208, 1)];
     [contentLabel setNumberOfLines:0];
     [contentLabel setFont:FONT_WITH_SIZE(16)];
     [self addSubview:contentLabel];
-    
-    if ([DSDeviceUtil iOS7AndAbove]) {
-    }else{
-        [contentLabel setBackgroundColor:[UIColor clearColor]];
-    }
-    
     
 }
 

@@ -10,6 +10,7 @@
 #import "AGStyleCoordinator.h"
 #import "DSValueUtil.h"
 
+
 @implementation AGCollectionViewCellOption
 
 - (id)initWithFrame:(CGRect)frame
@@ -40,7 +41,7 @@
     [titleL setClipsToBounds:YES];
     [titleL.layer setCornerRadius:4.0];
     [titleL setAdjustsFontSizeToFitWidth:YES];
-    [titleL.layer setBorderColor:[AGStyleCoordinator colorOptionCellBorder].CGColor];
+    [titleL.layer setBorderColor:COLOR(AG_UI_DEFINE.RGB_OPTION_BORDER).CGColor];
     [self.contentView addSubview:titleL];
 }
 
@@ -48,12 +49,12 @@
 - (void)setSelected:(BOOL)selected{
     if (selected) {
         [titleL.layer setBorderWidth:0];
-        [titleL setBackgroundColor:[AGStyleCoordinator colorOptionCellBackgroundSelected]];
-        [titleL setTextColor:[AGStyleCoordinator colorOptionCellTitleSelected]];
+        [titleL setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_OPTION_BACKGROUND_HIGHLIGHT)];
+        [titleL setTextColor:COLOR(AG_UI_DEFINE.RGB_OPTION_TITLE_HIGHLIGHT)];
     }else{
         [titleL.layer setBorderWidth:1];
-        [titleL setBackgroundColor:[AGStyleCoordinator colorOptionCellBackgroundNormal]];
-        [titleL setTextColor:[AGStyleCoordinator colorOptionCellTitleNormal]];
+        [titleL setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_OPTION_BACKGROUND_NORMAL)];
+        [titleL setTextColor:COLOR(AG_UI_DEFINE.RGB_OPTION_TITLE_NORMAL)];
     }
 }
 

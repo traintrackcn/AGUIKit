@@ -20,7 +20,7 @@
         
         
         [self.contentView addSubview:self.borderBottomViewStylePaddingL];
-        [self.textLabel setTextColor:[AGStyleCoordinator colorCellTitleUnselected]];
+        [self.textLabel setTextColor:COLOR(AGUI.RGB_CELL_TITLE_NORMAL)];
         [self.textLabel setFont:FONT_WITH_SIZE(16)];
         [self.textLabel setAdjustsFontSizeToFitWidth:YES];
     }

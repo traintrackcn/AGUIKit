@@ -63,7 +63,7 @@
         CGFloat y = self.frame.size.height - h;
         CGFloat x = (self.frame.size.width - w)/2.0;
         _pointIconView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        UIImage *img = [DSImage triangleWithSize:CGSizeMake(w, h) fillColor:COLOR(AG_UI_DEFINE.RGB_WHITE) borderColor:COLOR(AG_UI_DEFINE.RGB_BORDER_DARKER)];
+        UIImage *img = [DSImage triangleWithSize:CGSizeMake(w, h) fillColor:COLOR(RGB_WHITE) borderColor:COLOR(AGUI.RGB_BORDER_DARKER)];
         [_pointIconView setImage:img];
 //        [AGDebugUtil makeBorderForView:_pointIconView];
     }

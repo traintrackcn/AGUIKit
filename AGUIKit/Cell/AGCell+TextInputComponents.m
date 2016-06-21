@@ -31,7 +31,7 @@
         [item setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [item setTextAlignment:NSTextAlignmentRight];
         [item setClearButtonMode:UITextFieldViewModeWhileEditing];
-        [item setTextColor:COLOR(AG_UI_DEFINE.RGB_TEXT_INPUT)];
+        [item setTextColor:COLOR(AG_UI_DEFINE.RGB_INPUT_NORMAL)];
         [item setAdjustsFontSizeToFitWidth:YES];
         [item setAutocorrectionType:UITextAutocorrectionTypeNo];
         [item setAutocapitalizationType:UITextAutocapitalizationTypeNone];
@@ -53,7 +53,7 @@
         [item setDelegate:self.textInputDelegate];
         [self.objPool setObject:item forKey:key];
         [item setFont:FONT_WITH_SIZE(18.0)];
-        [item setTextColor:COLOR(AG_UI_DEFINE.RGB_TEXT_INPUT)];
+        [item setTextColor:COLOR(AG_UI_DEFINE.RGB_INPUT_NORMAL)];
         [self.objPool setObject:item forKey:key];
     }
     return item;

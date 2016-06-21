@@ -423,7 +423,7 @@
 
 
 - (void)applySelectedStyle{
-    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_SELECTED)];
+    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_CELL_BACKGROUND_HIGHLIGHT)];
     self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_HIGHLIGHT);
     self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_HIGHLIGHT);
 }

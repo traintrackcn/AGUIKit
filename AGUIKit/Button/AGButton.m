@@ -50,7 +50,7 @@
     }
     
     if (state == UIControlStateNormal) {
-        color = [AGStyleCoordinator colorButtonTitleNormal];
+        color = COLOR(AGUI.RGB_BUTTON_TITLE_NORMAL);
     }
     
     return color;

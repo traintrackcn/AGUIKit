@@ -52,7 +52,7 @@
         CGFloat y = [self.class height] - h;
         CGFloat w = [DSDeviceUtil bounds].size.width;
         _borderBottomView = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        [_borderBottomView setBackgroundColor:[AGStyleCoordinator colorHeaderViewBorder]];
+        [_borderBottomView setBackgroundColor:COLOR(AGUI.RGB_HEADER_BORDER)];
     }
     return _borderBottomView;
 }

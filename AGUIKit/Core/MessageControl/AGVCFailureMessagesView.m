@@ -21,7 +21,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        [self setBackgroundColor:[AGStyleCoordinator colorForKey:@"avc-failure-message-background"]];
+        [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_AVC_FAILURE_MESSAGE_BACKGROUND)];
         [self assembleLabel];
     }
     return self;
@@ -30,20 +30,13 @@
 #pragma mark - assemblers
 
 - (void)assembleLabel{
-    UIColor *c = [AGStyleCoordinator colorForKey:@"avc-failure-message-title"];
+    UIColor *c = COLOR(AG_UI_DEFINE.RGB_AVC_FAILURE_MESSAGE_TITLE);
     contentLabel = [[UILabel alloc] init];
     [contentLabel setTextColor:c];
 //    [contentLabel setBackgroundColor:RGBA(254, 207, 208, 1)];
     [contentLabel setFont:FONT_WITH_SIZE(16)];
     [contentLabel setNumberOfLines:0];
     [self addSubview:contentLabel];
-    
-     if ([DSDeviceUtil iOS7AndAbove]) {
-     }else{
-         [contentLabel setBackgroundColor:[UIColor clearColor]];
-     }
-    
-    
 }
 
 #pragma mark - layout

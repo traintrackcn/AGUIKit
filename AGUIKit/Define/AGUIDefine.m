@@ -11,8 +11,7 @@
 
 
 
-#define RGB_WHITE @"255,255,255"
-#define RGB_BLACK @"0,0,0"
+
 
 @implementation AGUIDefine
 
@@ -88,16 +87,9 @@
     return _RGB_THEME;
 }
 
-#pragma mark - background colors
-
 - (NSString *)RGB_BACKGROUND_NORMAL{
     if (!_RGB_BACKGROUND_NORMAL) return RGB_WHITE;
     return _RGB_BACKGROUND_NORMAL;
-}
-
-- (NSString *)RGB_BACKGROUND_SELECTED{
-    if (!_RGB_BACKGROUND_SELECTED) return self.RGB_THEME;
-    return _RGB_BACKGROUND_SELECTED;
 }
 
 
@@ -190,11 +182,6 @@
     return _RGB_INPUT_TITLE;
 }
 
-- (NSString *)RGB_INPUT_CONTENT{
-    if (!_RGB_INPUT_CONTENT) return self.RGB_TITLE_NORMAL;
-    return _RGB_INPUT_CONTENT;
-}
-
 - (NSString *)RGB_INPUT_CURSOR {
     if (!_RGB_INPUT_CURSOR) return self.RGB_THEME;
     return _RGB_INPUT_CURSOR;
@@ -259,6 +246,11 @@
     return _RGB_BUTTON_TITLE_NORMAL;
 }
 
+- (NSString *)RGB_BUTTON_TITLE_DISABLED{
+    if (!_RGB_BUTTON_TITLE_DISABLED) return @"153,153,153";
+    return _RGB_BUTTON_TITLE_DISABLED;
+}
+
 - (NSString *)RGB_BUTTON_BORDER {
     if (!_RGB_BUTTON_BORDER) return self.RGB_THEME;
     return _RGB_BUTTON_BORDER;
@@ -279,6 +271,33 @@
 - (NSString *)RGB_HEADER_BACKGROUND {
     if (!_RGB_HEADER_BACKGROUND) return RGB_WHITE;
     return _RGB_HEADER_BACKGROUND;
+}
+
+#pragma mark - option colors
+
+- (NSString *)RGB_OPTION_BACKGROUND_HIGHLIGHT {
+    if (!_RGB_OPTION_BACKGROUND_HIGHLIGHT) return @"84,175,214";
+    return _RGB_OPTION_BACKGROUND_HIGHLIGHT;
+}
+
+- (NSString *)RGB_OPTION_BACKGROUND_NORMAL {
+    if(!_RGB_OPTION_BACKGROUND_NORMAL) return RGB_WHITE;
+    return _RGB_OPTION_BACKGROUND_NORMAL;
+}
+
+- (NSString *)RGB_OPTION_TITLE_HIGHLIGHT{
+    if (!_RGB_OPTION_TITLE_HIGHLIGHT) return RGB_WHITE;
+    return _RGB_OPTION_TITLE_HIGHLIGHT;
+}
+
+- (NSString *)RGB_OPTION_TITLE_NORMAL{
+    if (!_RGB_OPTION_TITLE_NORMAL) return self.RGB_TITLE_NORMAL;
+    return _RGB_OPTION_TITLE_NORMAL;
+}
+
+- (NSString *)RGB_OPTION_BORDER {
+    if (!_RGB_OPTION_BORDER) return self.RGB_BORDER;
+    return _RGB_OPTION_BORDER;
 }
 
 @end
