@@ -442,7 +442,6 @@
 }
 
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if ([self isSeparatorCellAtIndexPath:indexPath]){
@@ -509,8 +508,9 @@
     NSInteger idx = indexPath.row;
     id titleInConfig = [self.config cellTitleOfIndexPath:indexPath];
     AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) return [unit titleAtIndex:idx];
     if (titleInConfig) return titleInConfig;
+    if (unit) return [unit titleAtIndex:idx];
+    
     return nil;
 }
 

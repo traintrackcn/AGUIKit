@@ -158,9 +158,14 @@
 
 - (Class)cellClsOfIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
-    if ([cellClsDic objectForKey:key]) {
-        return [cellClsDic objectForKey:key];
-    }
+    
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    AGSectionUnit *unit = [self unitOfSection:section];
+    Class cls = [cellClsDic objectForKey:key];
+    if (!cls && unit) cls = [unit clsAtIndex:idx];
+    if (cls) return cls;
+    
     return [self cellClsOfSection:indexPath.section];
 }
 

@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 - (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
 //    NSString *originalKey = [key copy];
-    NSArray *keys = [key componentsSeparatedByString:@","];
+    NSArray *keys = [key componentsSeparatedByString:@"|"];
     id value;
     
     for (NSInteger i = 0; i < keys.count; i++) {

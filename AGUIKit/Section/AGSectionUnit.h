@@ -20,6 +20,7 @@
 - (void)setValue:(id)value atIndex:(NSInteger)index;
 - (id)valueAtIndex:(NSInteger)index;
 - (id)titleAtIndex:(NSInteger)index;
+- (Class)clsAtIndex:(NSInteger)index;
 - (id)paramterAtIndex:(NSInteger)index;
 - (void)action:(id)action atIndex:(NSInteger)index;
 - (NSInteger)numberOfRows;

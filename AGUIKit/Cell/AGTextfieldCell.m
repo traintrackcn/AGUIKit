@@ -35,15 +35,12 @@
 }
 
 
-- (void)applySelectedStyle{
-    
-}
 
 #pragma mark - assemblers
 
 
 - (void)assembleTitleView{
-    if ([DSValueUtil isAvailable:titleLabel]) return;
+    if (titleLabel) return;
 //    CGFloat w = self.frame.size.width/3.0;
     titleLabel = [[UILabel alloc] init];
     [titleLabel setFont:FONT_WITH_SIZE(16)];
@@ -56,7 +53,7 @@
 }
 
 - (void)assembleStarView{
-    if ([DSValueUtil isNotAvailable:starLabel]) {
+    if (!starLabel) {
         starLabel= [[UILabel alloc] init];
         UIFont *f = [UIFont boldSystemFontOfSize:24.0];
         [starLabel setText:@"*"];
@@ -67,7 +64,7 @@
 }
 
 - (void)removeStarView{
-    if ([DSValueUtil isAvailable:starLabel]) {
+    if (starLabel) {
         [starLabel removeFromSuperview];
         starLabel = nil;
     }
@@ -290,6 +287,7 @@
 
 
 - (void)setTitle:(NSString *)title{
+//    TLOG(@"title -> %@", title);
     [super setTitle:title];
     [titleLabel setText:title];
 }
@@ -319,6 +317,11 @@
 
 
 #pragma mark - styles
+
+- (void)applySelectedStyle{
+    
+}
+
 
 - (CGFloat)titleMaxH{
     return 44.0;

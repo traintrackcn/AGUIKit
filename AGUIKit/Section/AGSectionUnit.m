@@ -45,6 +45,10 @@
     return nil;
 }
 
+- (Class)clsAtIndex:(NSInteger)index{
+    return nil;
+}
+
 - (id)paramterAtIndex:(NSInteger)index{
     return nil;
 }
