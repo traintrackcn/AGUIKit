@@ -23,11 +23,15 @@ NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControlle
 
 @implementation AGHorizontalViewControllersCell
 
-#pragma mark - properties
-
-- (CGFloat)height{
-    return [[(AGViewController *)self.associatedViewController config] cellHeightAtIndexPath:self.indexPath];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+//        self.layer.borderWidth = 1;
+    }
+    return self;
 }
+
+#pragma mark - properties
 
 - (Class)collectionViewCellCls{
     return [AGCollectionViewCellViewController class];

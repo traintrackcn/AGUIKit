@@ -454,7 +454,6 @@
         [self.config setCellHeight:[cellCls heightOfValue:value] atIndexPath:indexPath];
     }
     
-    
     return [self.config cellHeightAtIndexPath:indexPath];
 }
 

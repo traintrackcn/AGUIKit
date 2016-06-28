@@ -15,8 +15,7 @@
 #import "DACSVUtil.h"
 
 typedef NS_ENUM(NSInteger, CSVFieldIndex) {
-    CSVFieldIndexKey = 0,
-    CSVFieldIndexComment
+    CSVFieldIndexKey = 0
 };
 
 
@@ -114,6 +113,8 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     }else{
         [self generateCSV];
     }
+    
+//    [self generateCSV];
 }
 
 - (void)parseCSVWithURL:(NSURL *)url{
@@ -159,11 +160,11 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
             if (lineIdx != 0) {
                 [writer writeField:key];
                 [writer writeField:value];
-                [writer writeField:@""];
+//                [writer writeField:@""];
             }else{
                 [writer writeField:@"key"];
                 [writer writeField:@"en"];
-                [writer writeField:@"comment"];
+//                [writer writeField:@"comment"];
                 
             }
             

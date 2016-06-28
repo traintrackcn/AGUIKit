@@ -170,7 +170,7 @@
     TLOG(@"");
     [meta reset];
     items = [NSMutableArray array];
-    [self.rUnitForData cancel];
+    [_rUnitForData cancel];
     isLoadingMoreItems = NO;
 }
 

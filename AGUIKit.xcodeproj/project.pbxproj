@@ -89,7 +89,7 @@
 		4A8E89911B686E9100F48CDD /* AGTextfieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E892C1B686E9100F48CDD /* AGTextfieldEditor.m */; };
 		4A8E89921B686E9100F48CDD /* AGTextSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E892E1B686E9100F48CDD /* AGTextSelector.m */; };
 		4A8E89931B686E9100F48CDD /* AGTabBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89311B686E9100F48CDD /* AGTabBarCell.m */; };
-		4A8E89991B686E9100F48CDD /* AGTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E893E1B686E9100F48CDD /* AGTabBarViewController.m */; };
+		4A8E89991B686E9100F48CDD /* AGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E893E1B686E9100F48CDD /* AGTabBarController.m */; };
 		4A8E899A1B686E9100F48CDD /* DSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89401B686E9100F48CDD /* DSTabBarViewController.m */; };
 		4A8E899D1B686FDD00F48CDD /* AGSectionUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E899C1B686FDD00F48CDD /* AGSectionUnit.m */; };
 		4A8E89A71B68CDA400F48CDD /* AGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E89A61B68CDA400F48CDD /* AGButton.m */; };
@@ -227,7 +227,7 @@
 		4A8E8B501B69029A00F48CDD /* AGManyCellsViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89DF1B68DD2400F48CDD /* AGManyCellsViewController.h */; };
 		4A8E8B511B69029A00F48CDD /* AGMeta.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89E11B68DD2400F48CDD /* AGMeta.h */; };
 		4A8E8B521B69029A00F48CDD /* AGPresentableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E89CE1B68D6AE00F48CDD /* AGPresentableViewController.h */; };
-		4A8E8B531B69029A00F48CDD /* AGTabBarViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E893D1B686E9100F48CDD /* AGTabBarViewController.h */; };
+		4A8E8B531B69029A00F48CDD /* AGTabBarController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E893D1B686E9100F48CDD /* AGTabBarController.h */; };
 		4A8E8B541B69029A00F48CDD /* DSTabBarViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E893F1B686E9100F48CDD /* DSTabBarViewController.h */; };
 		4A8E8B581B69060600F48CDD /* DSLocaleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E8B571B69060600F48CDD /* DSLocaleManager.m */; };
 		4A8E8B591B69061400F48CDD /* DSLocaleManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8E8B561B69060600F48CDD /* DSLocaleManager.h */; };
@@ -263,6 +263,8 @@
 		4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */; };
 		4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */; };
 		4ACFC90A1D18E3D2006C2884 /* DACSVUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */; };
+		4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9B91D1A5C93006C2884 /* DAView.m */; };
+		4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACFC9B81D1A5C93006C2884 /* DAView.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -272,6 +274,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */,
 				4AB650701D111D2900F5735C /* AGAnimatedTransitioningSlideFromBottom.h in CopyFiles */,
 				4AB650711D111D2900F5735C /* AGAnimatedTransitioningSlideFromRight.h in CopyFiles */,
 				4AB650721D111D2900F5735C /* AGTransitioningDelegate.h in CopyFiles */,
@@ -394,7 +397,7 @@
 				4A8E8B501B69029A00F48CDD /* AGManyCellsViewController.h in CopyFiles */,
 				4A8E8B511B69029A00F48CDD /* AGMeta.h in CopyFiles */,
 				4A8E8B521B69029A00F48CDD /* AGPresentableViewController.h in CopyFiles */,
-				4A8E8B531B69029A00F48CDD /* AGTabBarViewController.h in CopyFiles */,
+				4A8E8B531B69029A00F48CDD /* AGTabBarController.h in CopyFiles */,
 				4A8E8B541B69029A00F48CDD /* DSTabBarViewController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,8 +547,8 @@
 		4A8E892E1B686E9100F48CDD /* AGTextSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextSelector.m; sourceTree = "<group>"; };
 		4A8E89301B686E9100F48CDD /* AGTabBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTabBarCell.h; sourceTree = "<group>"; };
 		4A8E89311B686E9100F48CDD /* AGTabBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTabBarCell.m; sourceTree = "<group>"; };
-		4A8E893D1B686E9100F48CDD /* AGTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTabBarViewController.h; sourceTree = "<group>"; };
-		4A8E893E1B686E9100F48CDD /* AGTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTabBarViewController.m; sourceTree = "<group>"; };
+		4A8E893D1B686E9100F48CDD /* AGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTabBarController.h; sourceTree = "<group>"; };
+		4A8E893E1B686E9100F48CDD /* AGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTabBarController.m; sourceTree = "<group>"; };
 		4A8E893F1B686E9100F48CDD /* DSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTabBarViewController.h; sourceTree = "<group>"; };
 		4A8E89401B686E9100F48CDD /* DSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTabBarViewController.m; sourceTree = "<group>"; };
 		4A8E899B1B686FDD00F48CDD /* AGSectionUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionUnit.h; sourceTree = "<group>"; };
@@ -665,6 +668,8 @@
 		4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellAction.m; sourceTree = "<group>"; };
 		4ACFC9081D18E3D2006C2884 /* DACSVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACSVUtil.h; sourceTree = "<group>"; };
 		4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACSVUtil.m; sourceTree = "<group>"; };
+		4ACFC9B81D1A5C93006C2884 /* DAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAView.h; sourceTree = "<group>"; };
+		4ACFC9B91D1A5C93006C2884 /* DAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -760,6 +765,8 @@
 				4A8E891D1B686E9100F48CDD /* Selector */,
 				4A8E892F1B686E9100F48CDD /* TabBar */,
 				4A8E89321B686E9100F48CDD /* ViewController */,
+				4ACFC9B81D1A5C93006C2884 /* DAView.h */,
+				4ACFC9B91D1A5C93006C2884 /* DAView.m */,
 			);
 			path = AGUIKit;
 			sourceTree = "<group>";
@@ -968,8 +975,8 @@
 				4A8E89DE1B68DD2400F48CDD /* ManyCells */,
 				4A8E89CE1B68D6AE00F48CDD /* AGPresentableViewController.h */,
 				4A8E89CF1B68D6AE00F48CDD /* AGPresentableViewController.m */,
-				4A8E893D1B686E9100F48CDD /* AGTabBarViewController.h */,
-				4A8E893E1B686E9100F48CDD /* AGTabBarViewController.m */,
+				4A8E893D1B686E9100F48CDD /* AGTabBarController.h */,
+				4A8E893E1B686E9100F48CDD /* AGTabBarController.m */,
 				4A8E893F1B686E9100F48CDD /* DSTabBarViewController.h */,
 				4A8E89401B686E9100F48CDD /* DSTabBarViewController.m */,
 			);
@@ -1338,7 +1345,7 @@
 				4A8E89761B686E9100F48CDD /* AGTextfieldCellStylePassword.m in Sources */,
 				4A6E50901C9273B600D8D46A /* DAButtonCell.m in Sources */,
 				4A8E89751B686E9100F48CDD /* AGTextfieldCellStyleOptions.m in Sources */,
-				4A8E89991B686E9100F48CDD /* AGTabBarViewController.m in Sources */,
+				4A8E89991B686E9100F48CDD /* AGTabBarController.m in Sources */,
 				4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */,
 				4AB6506F1D111D1E00F5735C /* UIViewController+CustomTransition.m in Sources */,
 				4A8E8A491B68F99400F48CDD /* AGNumberBox.m in Sources */,
@@ -1430,6 +1437,7 @@
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
+				4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */,
 				4A6E50861C9272D500D8D46A /* DACell.m in Sources */,
 				4A8E89841B686E9100F48CDD /* AGCollectionViewLayoutHorizontalPages.m in Sources */,
 				4A8E89B31B68CED800F48CDD /* AGHeader3Cell.m in Sources */,

@@ -56,6 +56,7 @@
 - (AGObjectPool *)objPool{
     if (!_objPool) {
         _objPool = [AGObjectPool instance];
+        [_objPool setParentClassName:NSStringFromClass(self.class)];
     }
     return _objPool;
 }
@@ -398,7 +399,9 @@
 }
 
 - (CGFloat)height{
-//    CGFloat h = [self.config cellHeightAtIndexPath:self.indexPath];
+    if([self.config cellHeightCalculatedAtIndexPath:self.indexPath]){
+        return [self.config cellHeightAtIndexPath:self.indexPath];
+    }
 //    TLOG(@"h -> %f", h);
     if (_height) return _height;
     return [self.class height];

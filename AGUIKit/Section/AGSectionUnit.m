@@ -64,7 +64,7 @@
 
 
 - (NSInteger)numberOfRows{
-    return 1;
+    return 0;
 }
 
 - (id)headerValue{

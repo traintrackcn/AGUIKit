@@ -29,7 +29,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-//        [self assembleTitleView];
+        [self assembleTitleView];
         
         [self.contentView addSubview:self.logoView];
     }
@@ -75,7 +75,7 @@
 //    [titleLabel setAdjustsFontSizeToFitWidth:YES];
 //    [AGDebugUtil makeBorderForView:titleLabel];
     //    [titleLabel setBackgroundColor:[UIColor redColor]];
-    //    [titleLabel.layer setBorderWidth:1.0];
+//        [titleLabel.layer setBorderWidth:1.0];
  
     
     CALayer *layer = titleLabel.layer;

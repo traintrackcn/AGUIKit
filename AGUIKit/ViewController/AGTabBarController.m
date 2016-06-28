@@ -6,7 +6,7 @@
 //
 //
 
-#import "AGTabBarViewController.h"
+#import "AGTabBarController.h"
 #import "AGCollectionViewCellValue.h"
 #import "AGTabBarCell.h"
 #import "AGHorizontalViewControllersCell.h"
@@ -14,6 +14,7 @@
 #import "DSValueUtil.h"
 #import "AGAssembler.h"
 #import "AGVCConfiguration.h"
+#import "AGUIDefine.h"
 
 typedef NS_ENUM(NSInteger, Section) {
     SectionTabBar,
@@ -21,65 +22,42 @@ typedef NS_ENUM(NSInteger, Section) {
     SectionCount
 };
 
-@interface AGTabBarViewController (){
+@interface AGTabBarController (){
     
     
 }
 
 @end
 
-@implementation AGTabBarViewController
+@implementation AGTabBarController
 
 - (instancetype)init{
     self = [super init];
     if (self) {
-        
         [self.config setCellCls:[AGTabBarCell class] inSection:SectionTabBar];
         [self.config setCellCls:[AGHorizontalViewControllersCell class] inSection:SectionContent];
+        
+        
+        CGFloat cellH = STYLE_DEVICE_HEIGHT - STYLE_STATUS_BAR_HEIGHT - STYLE_NAVIGATION_BAR_HEIGHT ;
+        if ([self isSectionTabBarAvailable]) cellH -= [AGTabBarCell height];
+        [self.config setCellHeight:cellH atFirstIndexPathInSection:SectionContent];
+        
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)updateContentCellH{
-    CGFloat cellH = [DSDeviceUtil bounds].size.height - AG_STATUS_BAR_HEIGHT - AG_NAVIGATION_BAR_HEIGHT ;
-    
-    if ([self isSectionTabBarAvailable]) {
-        cellH -= [AGTabBarCell height];
-    }
-    
-    [self.config setCellHeight:cellH atFirstIndexPathInSection:SectionContent];
-}
-
-
-- (void)willReloadVisibleIndexPaths{
-    [self updateContentCellH];
-}
 
 #pragma mark - table view stuff
 
-- (NSArray *)titleItems{
-    if ([DSValueUtil isNotAvailable:_titleItems]) {
-        return titleValueArr;
-    }
-    return _titleItems;
-}
-
-- (NSArray *)contentItems{
-    if ([DSValueUtil isNotAvailable:_contentItems]) {
-        return contentValueArr;
-    }
-    return _contentItems;
-}
+//- (NSArray *)titleItems{
+//    if (_titleItems) return _titleItems;
+//    return titleValueArr;
+//}
+//
+//- (NSArray *)contentItems{
+//    if (_contentItems) return _contentItems;
+//    return contentValueArr;
+//}
 
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
@@ -111,8 +89,7 @@ typedef NS_ENUM(NSInteger, Section) {
 #pragma mark - 
 
 - (BOOL)isSectionTabBarAvailable{
-    if(titleValueArr && titleValueArr.count>1) return YES;
-    return NO;
+    return YES;
 }
 
 #pragma mark - events

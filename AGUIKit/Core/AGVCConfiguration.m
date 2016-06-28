@@ -136,6 +136,7 @@
 }
 
 - (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath{
+//    TLOG(@"cellHeightDic -> %@", cellHeightDic);
     NSString *key = [self keyOfIndexPath:indexPath];
     Class cellCls = [self cellClsOfIndexPath:indexPath];
     CGFloat calculatedH = [[cellHeightDic objectForKey:key] floatValue];

@@ -10,15 +10,16 @@
 #import "AGHorizontalViewControllersCell.h"
 #import "AGTabBarCell.h"
 
-@interface AGTabBarViewController : AGViewController{
-    NSMutableArray *titleValueArr;
-    NSMutableArray *contentValueArr;
+@interface AGTabBarController : AGViewController{
+//    NSMutableArray *titleValueArr;
+//    NSMutableArray *contentValueArr;
 }
 
 - (AGHorizontalViewControllersCell *)contentCell;
 - (AGTabBarCell *)tabBarCell;
 - (void)contentDidChangeToIndex:(NSInteger)index;
 - (void)tabBarDidChangeToIndex:(NSInteger)index;
+- (BOOL)isSectionTabBarAvailable;
 
 @property (nonatomic, strong) NSArray *titleItems;
 @property (nonatomic, strong) NSArray *contentItems;
