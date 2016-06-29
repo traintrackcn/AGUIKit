@@ -111,7 +111,7 @@
     UIDatePicker *cView = (UIDatePicker *)[self.contentView.subviews objectAtIndex:0];
     NSDate *dateNew = [cView date];
     [self setValueForAssociatedIndexPath:dateNew];
-    [self reloadAssociatedIndexPath];
+    [self setNeedsReloadAssociatedIndexPath];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -34,6 +34,7 @@
 
 @property (nonatomic, strong) UIView *overlayContainer;
 @property (nonatomic, strong) NSMutableArray *externalViews;
+@property (nonatomic, copy) NSIndexPath *needsReloadIndexPath;
 
 @end
 
@@ -89,6 +90,11 @@
     if (self.flagDoReload) {
         [self willDoReload];
         [self setFlagDoReload:NO];
+    }
+    
+    if (self.needsReloadIndexPath) {
+        [self reloadIndexPath:self.needsReloadIndexPath];
+        [self setNeedsReloadIndexPath:nil];
     }
     
 }
@@ -597,10 +603,8 @@
     }
 }
 
-- (void)reloadAssociatedIndexPath{
-    if (self.associatedIndexPath) {
-        [self.previousViewController reloadIndexPath:self.associatedIndexPath];
-    }
+- (void)setNeedsReloadAssociatedIndexPath{
+    [self.previousViewController setNeedsReloadIndexPath:self.associatedIndexPath];
 }
 
 #pragma mark - external requests

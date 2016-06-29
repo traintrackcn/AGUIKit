@@ -94,7 +94,7 @@
 {
     id nowValue = [self itemAtIndexPath:indexPath];
     [self setValueForAssociatedIndexPath:nowValue];
-    [self reloadAssociatedIndexPath];
+    [self.previousViewController setFlagDoReload:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

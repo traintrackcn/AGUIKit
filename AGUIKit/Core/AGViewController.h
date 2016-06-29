@@ -36,7 +36,8 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 #pragma mark - associated cell ops
 - (void)setValueForAssociatedIndexPath:(id)value;
-- (void)reloadAssociatedIndexPath;
+- (void)setNeedsReloadAssociatedIndexPath;
+//- (void)reloadAssociatedIndexPath;
 
 
 #pragma mark - transfer to other views
@@ -97,6 +98,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) id userInfo;
 @property (nonatomic, assign) BOOL flagDoReload;
+
 @property (nonatomic, weak) AGViewController *previousViewController;
 @property (nonatomic, strong) AGObjectPool *objPool;
 @property (nonatomic, strong) UIView *dummyHeaderView;
