@@ -183,7 +183,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController{
     UINavigationController *naviC = [[self associatedViewController] defaultNavigationController ];
-    TLOG(@"naviC -> %@", naviC);
+//    TLOG(@"naviC -> %@", naviC);
     if (naviC){
         [self pushViewController:viewController fromNaviC:naviC];
     }else{
@@ -193,52 +193,19 @@
 }
 
 
-#pragma mark - dispatchers
+#pragma mark - utils
 
-- (void)dispatchRequestReloadIndexPath{
-    if (_associatedViewController) {
-        [_associatedViewController cellRequestReloadIndexPath:self.indexPath];
-    }
+- (void)reload{
+    [_associatedViewController cellRequestReloadIndexPath:self.indexPath];
 }
 
-
-//- (void)dispatchRequestSetCurrentIndexPath{
-//    if (_associatedViewController) {
-//        [_associatedViewController cellRequestSetCurrentIndexPath:self.indexPath];
-//    }
-//}
-
-- (void)dispatchRequestSetValue:(id)value{
-    if (_associatedViewController) {
-        [_associatedViewController cellRequestSetValue:value atIndexPath:self.indexPath];
-    }
+- (void)setValueForViewController:(id)value{
+    [_associatedViewController cellRequestSetValue:value atIndexPath:self.indexPath];
 }
 
-//- (id)dispatchRequestValue{
-//    if (_associatedViewController) {
-//        return [_associatedViewController cellRequestValueAtIndexPath:self.indexPath];
-//    }
-//    return nil;
-//}
-
-- (id)dispatchRequestParameters{
-//    TLOG(@"_associatedViewController -> %@", _associatedViewController);
-    if (_associatedViewController) {
-        return [_associatedViewController cellRequestParameterAtIndexPath:self.indexPath];
-    }
-    
-    return nil;
-}
-
-- (NSArray *)parameters{
-    id obj = [self dispatchRequestParameters];
-    
-//    TLOG(@"obj -> %@ %@", obj, self.indexPath);
-    
-    if ([DSValueUtil isNotAvailable:obj]) {
-        return @[];
-    }
-    
+- (NSArray *)parametersFromViewController{
+    id obj = [_associatedViewController cellRequestParameterAtIndexPath:self.indexPath];
+    if (!obj) return @[];
     if ([obj isKindOfClass:[NSArray class]]) {
         return (NSArray *)obj;
     }
@@ -246,10 +213,8 @@
     return @[obj];
 }
 
-- (void)dispatchRequestAction:(id)action{
-    if (_associatedViewController && [_associatedViewController respondsToSelector:@selector(cellRequestAction:atIndexPath:)]) {
-        [_associatedViewController cellRequestAction:action atIndexPath:self.indexPath];
-    }
+- (void)sendActionRequestToViewController:(id)action{
+    [_associatedViewController cellRequestAction:action atIndexPath:self.indexPath];
 }
 
 #pragma mark - AGRemoterDelegate

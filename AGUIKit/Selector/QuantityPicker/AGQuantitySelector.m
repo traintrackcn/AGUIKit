@@ -53,13 +53,13 @@
 }
 
 - (void)didTapRemove:(id)sender{
-    [self setValueForAssociatedCell:[NSNumber numberWithInteger:0]];
+    [self setValueForAssociatedIndexPath:[NSNumber numberWithInteger:0]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didTapConfirm:(id)sender{
     AGQuantityPickerView *view  = (AGQuantityPickerView *)self.contentView;    
-    [self setValueForAssociatedCell:[NSNumber numberWithInteger:view.value]];
+    [self setValueForAssociatedIndexPath:[NSNumber numberWithInteger:view.value]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

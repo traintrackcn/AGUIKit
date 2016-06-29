@@ -13,7 +13,7 @@
 
 - (void)activateSelector{
     AGTextfieldEditor *vc = [[AGTextfieldEditor alloc] init];
-    [vc setAssociatedCell:self];
+    [vc setAssociatedIndexPath:self.indexPath];
     [vc setTitle:self.title];
     [vc setValue:[self value] ];
     [self pushViewController:vc];

@@ -23,14 +23,14 @@
     NSDate *value = [self value];
 //    TLOG(@"value -> %@", value);
     
-    id collection = [self dispatchRequestParameters];
+    id collection = self.parametersFromViewController.firstObject;
 
-    if ([DSValueUtil isNotAvailable:picker]) {
+    if (!picker) {
         picker = [[AGPeriodSelector alloc] init];
     }
     [picker setTitle:@"Select Date"];
     [picker setCollection:collection];
-    [picker setAssociatedCell:self];
+    [picker setAssociatedIndexPath:self.indexPath];
     [picker setContentView:[picker contentViewWithValue:value]];
     [self pushViewController:picker];
 //    self pushViewController:picker fromNaviC:[AGroo]

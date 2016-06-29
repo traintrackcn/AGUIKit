@@ -56,7 +56,7 @@ NSString *AGMultiValueCellContentOffsetDidChange = @"AGMultiValueCellContentOffs
     [super setValue:value];
     [self.multiValueView setItems:(NSArray *)value];
     
-    AGMultiValueCellSynchronizer *s = self.parameters.firstObject;
+    AGMultiValueCellSynchronizer *s = self.parametersFromViewController.firstObject;
     if ([DSValueUtil isAvailable:s]){
         [self.multiValueView setContentOffset:s.contentOffset];
     }
@@ -70,7 +70,7 @@ NSString *AGMultiValueCellContentOffsetDidChange = @"AGMultiValueCellContentOffs
 - (void)multiValueViewContentOffsetDidChange:(CGPoint)contentOffset{
 //    TLOG(@"");
     NSDictionary *action = @{@"type":AGMultiValueCellContentOffsetDidChange,@"value":[NSValue valueWithCGPoint:contentOffset]};
-    [self dispatchRequestAction:action];
+    [self sendActionRequestToViewController:action];
 }
 
 #pragma mark - cell item assembler

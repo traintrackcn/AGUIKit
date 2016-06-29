@@ -137,7 +137,7 @@ enum{
 
 - (void)doConfirm{
     [self.navigationController popViewControllerAnimated:YES];
-    [self setValueForAssociatedCell:self.value];
+    [self setValueForAssociatedIndexPath:self.value];
 }
 
 @end

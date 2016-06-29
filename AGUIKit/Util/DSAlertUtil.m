@@ -23,9 +23,7 @@ typedef enum {
     ViewTagUserAgreementViewTag
 }ViewTag;
 
-static DSAlertUtil *___instanceDSAlertUtil;
-
-@interface DSAlertUtil(){
+@interface DSAlertUtil()<UIAlertViewDelegate>{
     BOOL bAlerted;
 }
 
@@ -33,14 +31,54 @@ static DSAlertUtil *___instanceDSAlertUtil;
 
 @implementation DSAlertUtil
 
-+ (DSAlertUtil *)sharedInstance{
-    if (___instanceDSAlertUtil==nil) {
-        ___instanceDSAlertUtil = [[DSAlertUtil alloc] init];
-    }
-    return ___instanceDSAlertUtil;
-}
 
 #pragma mark - show alert
+
++ (void)presentAlertFrom:(UIViewController *)presentFrom
+                    title:(NSString *)title
+                  message:(NSString *)message
+             confirmTitle:(NSString *)confirmTitle
+           confirmHandler:(void(^)(UIAlertAction *action))confirmHandler{
+    [self presentAlertFrom:presentFrom title:title message:message cancelTitle:nil cancelHandler:nil confirmTitle:confirmTitle confirmHandler:confirmHandler deleteTitle:nil deleteHandler:nil];
+}
+
+
++ (void)presentAlertFrom:(UIViewController *)presentFrom
+                    title:(NSString *)title
+                  message:(NSString *)message
+              cancelTitle:(NSString *)cancelTitle
+            cancelHandler:(void(^)(UIAlertAction *action))cancelHandler
+             confirmTitle:(NSString *)confirmTitle
+           confirmHandler:(void(^)(UIAlertAction *action))confirmHandler
+              deleteTitle:(NSString *)deleteTitle
+            deleteHandler:(void(^)(UIAlertAction *action))deleteHandler{
+    
+    
+    if ([message isKindOfClass:[NSArray class]]) {
+        message  = [(NSArray *)message componentsJoinedByString:@"\n"];
+    }
+    
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    if (cancelTitle){
+        UIAlertAction *cancelA = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:cancelHandler];
+        [ac addAction:cancelA];
+    }
+    
+    if (confirmTitle){
+        UIAlertAction *confirmA = [UIAlertAction actionWithTitle:confirmTitle style:UIAlertActionStyleDefault handler:confirmHandler];
+        [ac addAction:confirmA];
+    }
+    
+    if (deleteTitle){
+        UIAlertAction *deleteA = [UIAlertAction actionWithTitle:deleteTitle style:UIAlertActionStyleDefault handler:deleteHandler];
+        [ac addAction:deleteA];
+    }
+    
+    [presentFrom presentViewController:ac animated:YES completion:nil];
+}
+
+
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message tag:(int)tag cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles,...{
     

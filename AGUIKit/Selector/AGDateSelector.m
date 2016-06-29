@@ -110,7 +110,8 @@
 - (void)didTapConfirm:(id)sender{
     UIDatePicker *cView = (UIDatePicker *)[self.contentView.subviews objectAtIndex:0];
     NSDate *dateNew = [cView date];
-    [self setValueForAssociatedCell:dateNew];
+    [self setValueForAssociatedIndexPath:dateNew];
+    [self reloadAssociatedIndexPath];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

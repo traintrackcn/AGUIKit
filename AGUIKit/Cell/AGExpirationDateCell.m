@@ -18,7 +18,7 @@
     NSDate *value = [self value];
     AGExpirationDateSelector *picker = [AGExpirationDateSelector singleton];
     [picker setTitle:@"Select Expiration Date"];
-    [picker setAssociatedCell:self];
+    [picker setAssociatedIndexPath:self.indexPath];
     [picker setContentView:[picker contentViewWithValue:value]];
     [self pushViewController:picker];
 }

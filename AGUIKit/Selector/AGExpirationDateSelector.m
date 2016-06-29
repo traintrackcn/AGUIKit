@@ -228,7 +228,7 @@
     NSInteger monthForRead = selectedMonthIndex+1;
     NSString *monthText = [NSString stringWithFormat:@"%ld",(long)monthForRead];
     NSDate *dateNew = [df dateFromString:[NSString stringWithFormat:@"%@-%@-01", yearText, monthText]];
-    [self setValueForAssociatedCell:dateNew];
+    [self setValueForAssociatedIndexPath:dateNew];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

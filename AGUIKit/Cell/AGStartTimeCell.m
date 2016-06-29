@@ -17,7 +17,7 @@
     NSDate *value = [self value];
     AGDateSelector *picker = [AGDateSelector singleton];
     [picker setTitle:@"Select Start Time"];
-    [picker setAssociatedCell:self];
+    [picker setAssociatedIndexPath:self.indexPath];
     [picker setContentView:[picker contentViewOfDateAndTimeFromNow:value]];
     [self pushViewController:picker];
 }

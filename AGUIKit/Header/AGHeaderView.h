@@ -18,7 +18,7 @@
 
 #pragma mark - dispatchers
 
-- (void)dispatchRequestAction:(id)action;
+- (void)sendActionRequestToViewController:(id)action;
 
 #pragma mark - view controller actions
 - (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC;

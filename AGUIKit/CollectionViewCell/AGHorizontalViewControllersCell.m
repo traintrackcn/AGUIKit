@@ -40,7 +40,7 @@ NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControlle
 - (void)didSelectItem:(id)item{
     TLOG(@"item -> %@", item);
     NSDictionary *action = @{@"type":AGHorizontalViewControllersCellDidChange,@"value":item};
-    [self dispatchRequestAction:action];
+    [self sendActionRequestToViewController:action];
     
 }
 

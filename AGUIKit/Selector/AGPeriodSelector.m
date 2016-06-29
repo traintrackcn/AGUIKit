@@ -182,7 +182,7 @@
 }
 
 - (void)didTapConfirm:(id)sender{
-    [self setValueForAssociatedCell:self.value];
+    [self setValueForAssociatedIndexPath:self.value];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

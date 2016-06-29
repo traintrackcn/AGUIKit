@@ -86,7 +86,7 @@
 
 #pragma mark - dispatchers
 
-- (void)dispatchRequestAction:(id)action{
+- (void)sendActionRequestToViewController:(id)action{
     if (_associatedViewController && [_associatedViewController respondsToSelector:@selector(cellRequestAction:atIndexPath:)]) {
         [_associatedViewController cellRequestAction:action atIndexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:self.section]];
     }

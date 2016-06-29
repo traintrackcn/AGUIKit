@@ -140,7 +140,7 @@
     if (targetH != htmlViewRealH) {
         htmlViewRealH = targetH;
         [[(AGViewController *)self.associatedViewController config] setCellHeight:htmlViewRealH atIndexPath:self.indexPath];
-        [self dispatchRequestReloadIndexPath];
+        [self reload];
 //        [self.associatedViewController reloadVisibleIndexPathsInSection:self.indexPath.section animated:NO];
     }
     

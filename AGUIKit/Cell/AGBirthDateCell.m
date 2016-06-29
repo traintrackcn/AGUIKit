@@ -17,7 +17,7 @@
     NSDate *value = [self value];
     AGDateSelector *picker = [AGDateSelector singleton];
     [picker setTitle:@"Select Date of Birth"];
-    [picker setAssociatedCell:self];
+    [picker setAssociatedIndexPath:self.indexPath];
     [picker setContentView:[picker contentViewOfBirthday:value]];
     [self pushViewController:picker];
 }

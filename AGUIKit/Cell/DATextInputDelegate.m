@@ -42,7 +42,7 @@
     if (textField.textAlignment == NSTextAlignmentRight){
         text = [text stringByReplacingOccurrencesOfString:@"\u00a0" withString:@" "];
     }
-    [self dispatchRequestSetValue:text];
+    [self.cell setValueForViewController:text];
 }
 
 
@@ -66,7 +66,7 @@
 }
 
 - (void)dispatchRequestSetValue:(id)value{
-    [self.cell dispatchRequestSetValue:value];
+    [self.cell setValueForViewController:value];
 }
 
 @end

@@ -35,7 +35,8 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 + (instancetype)instance;
 
 #pragma mark - associated cell ops
-- (void)setValueForAssociatedCell:(id)value;
+- (void)setValueForAssociatedIndexPath:(id)value;
+- (void)reloadAssociatedIndexPath;
 
 
 #pragma mark - transfer to other views
@@ -78,21 +79,20 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (BOOL)cacheEveryCell;
 
 #pragma mark - error handlers
-- (NSArray *)messagesOfError:(AGRemoterResultError *)error;
-- (BOOL)setRemoteMessagesForError:(AGRemoterResultError *)error;
+- (BOOL)setRemoteMessagesForError:(id)error;
 
 
 #pragma mark - dummy cell stuff
 - (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index;
 
-#pragma mark - AGCellDelegate
+#pragma mark - cell request
 - (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath;
 - (void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
 - (id)cellRequestParameterAtIndexPath:(NSIndexPath *)indexPath;
 - (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath;
 
 @property (nonatomic, weak) id ws;
-@property (nonatomic, weak) AGCell *associatedCell;
+@property (nonatomic, copy) NSIndexPath *associatedIndexPath;
 @property (nonatomic, strong) AGVCConfiguration *config;
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) id userInfo;

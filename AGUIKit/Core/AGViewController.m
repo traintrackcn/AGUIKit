@@ -22,13 +22,13 @@
 #import "GlobalDefine.h"
 #import "AGUIDefine.h"
 
-#import "AGRemoterResultError.h"
+#import "AGRemoterError.h"
 #import "AGRemoterResult.h"
 #import "DATableView.h"
 
 
 
-@interface AGViewController () <AGCellDelegate>{
+@interface AGViewController (){
     
 }
 
@@ -353,6 +353,8 @@
     if (_previousViewController) return _previousViewController;
 //    TLOG(@"self.navigationController.viewControllers -> %@", self.navigationController.viewControllers);
     
+//    TLOG(@"self.presentingViewController -> %@ self.presentedViewController -> %@", self.presentingViewController, self.presentedViewController);
+    
     NSArray *viewControllers = self.navigationController.viewControllers;
     NSInteger idx = [viewControllers indexOfObject:self];
     idx --;
@@ -555,35 +557,26 @@
 
 #pragma mark - error handlers
 
-- (NSArray *)messagesOfError:(id)error{
-    NSMutableArray *arr = [NSMutableArray array];
+
+
+- (BOOL)setRemoteMessagesForError:(id)error{
+    if (!error) return NO;
+    
+    AGRemoterError *remoterError;
+    NSArray *failureMessages;
     
     if ([error isKindOfClass:[NSError class]]) {
-        NSError *item = error;
-        error = [[AGRemoterResultError alloc] init];
-        [error updateWithOriginalErrorUserInfo:item.userInfo];
+        remoterError = [[AGRemoterError alloc] init];
+        [remoterError parseErrorUserInfo:[error userInfo]];
+    }else if ([error isKindOfClass:[AGRemoterError class]]){
+        remoterError = error;
+    }else if ( [error isKindOfClass:[NSArray class]]){
+        failureMessages = error;
     }
     
-    if ( [error isKindOfClass:[AGRemoterResultError class]]){
-        AGRemoterResultError *item = (AGRemoterResultError *)error;
-        //append message for users
-        if (item.message) [arr addObject:item.message];
-        if (arr.count == 0) { //if no message for users, append message for developers
-            if (item.localizedDesc) [arr addObject:item.localizedDesc];
-            if (item.developMessage){
-                if (![item.developMessage isEqualToString:@""]) [arr addObject:item.developMessage];
-            }
-        }
-    }
-
-    return arr;
-}
-
-- (BOOL)setRemoteMessagesForError:(AGRemoterResultError *)error{
-    if (!error) return NO;
-//    AGRemoterResultError *error = result.errorParsed;
-    NSArray *msgs = [self messagesOfError:error];
-    [self setFailureMessages:msgs];
+    if (remoterError) failureMessages = [remoterError messages];
+    if (failureMessages) [self setFailureMessages:failureMessages];
+    
     return YES;
 }
 
@@ -591,27 +584,33 @@
 
 - (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index{
     dummyCell = [self dummyCellInstanceAtIndex:index];
-    [viewController setAssociatedCell:dummyCell];
+    [viewController setAssociatedIndexPath:dummyCell.indexPath];
     [dummyCell pushViewController:viewController];
 }
 
 #pragma mark - associated cell ops
 
-- (void)setValueForAssociatedCell:(id)value{
-    if (_associatedCell) {
-        [_associatedCell dispatchRequestSetValue:value];
-        [_associatedCell dispatchRequestReloadIndexPath];
+- (void)setValueForAssociatedIndexPath:(id)value{
+    TLOG(@"self.associatedIndexPath -> %@ self.previousViewController -> %@", self.associatedIndexPath, self.previousViewController);
+    if (self.associatedIndexPath) {
+        [self.previousViewController cellRequestSetValue:value atIndexPath:self.associatedIndexPath];
     }
 }
 
-#pragma mark - CellDelegate
+- (void)reloadAssociatedIndexPath{
+    if (self.associatedIndexPath) {
+        [self.previousViewController reloadIndexPath:self.associatedIndexPath];
+    }
+}
+
+#pragma mark - external requests
 
 - (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath{
     [self reloadIndexPath:indexPath];
 }
 
 -(void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
-    
+    TLOG(@"value -> %@ %@ %@", value, indexPath, self);
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
     
@@ -625,6 +624,7 @@
     @try {
         [self setValue:value atIndexPath:indexPath];
     }@catch (NSException *exception) {
+        TLOG(@"exception -> %@", exception);
 //        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
     }
 }

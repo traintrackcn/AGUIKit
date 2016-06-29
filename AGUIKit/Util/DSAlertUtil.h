@@ -8,15 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DSAlertUtil : NSObject <UIAlertViewDelegate>
-
-+ (DSAlertUtil *)sharedInstance;
+@interface DSAlertUtil : NSObject 
 
 - (void)showAlertShoppingServiceUnavailable;
 - (void)showAlertWarningMessage:(NSString *)msg;
 
++ (void)presentAlertFrom:(UIViewController *)presentFrom
+                    title:(NSString *)title
+                  message:(NSString *)message
+              cancelTitle:(NSString *)cancelTitle
+            cancelHandler:(void(^)(UIAlertAction *action))cancelHandler
+             confirmTitle:(NSString *)confirmTitle
+           confirmHandler:(void(^)(UIAlertAction *action))confirmHandler
+              deleteTitle:(NSString *)deleteTitle
+            deleteHandler:(void(^)(UIAlertAction *action))deleteHandler;
 
-#pragma mark - 
++ (void)presentAlertFrom:(UIViewController *)presentFrom
+                    title:(NSString *)title
+                  message:(NSString *)message
+             confirmTitle:(NSString *)confirmTitle
+           confirmHandler:(void(^)(UIAlertAction *action))confirmHandler;
 
 #pragma mark - svp status/alert/progress
 

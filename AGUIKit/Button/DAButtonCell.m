@@ -41,7 +41,7 @@
     [self reset];
     [self.contentView addSubview:self.button];
 //    TLOG(@"[self dispatchRequestParameters] -> %@", [self dispatchRequestParameters]);
-    BOOL disabled = [[self dispatchRequestParameters] boolValue];
+    BOOL disabled = [[self parametersFromViewController].firstObject boolValue];
     [self.button setEnabled:!disabled];
 }
 

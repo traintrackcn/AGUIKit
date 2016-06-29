@@ -38,7 +38,7 @@ NSString *AGTabBarCellDidChange = @"AGTabBarCellDidChange";
 
 - (void)didSelectItem:(id)item{
     NSDictionary *action = @{@"type":AGTabBarCellDidChange,@"value":item};
-    [self dispatchRequestAction:action];
+    [self sendActionRequestToViewController:action];
     
 }
 

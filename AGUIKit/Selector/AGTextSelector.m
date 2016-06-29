@@ -93,7 +93,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id nowValue = [self itemAtIndexPath:indexPath];
-    [self setValueForAssociatedCell:nowValue];
+    [self setValueForAssociatedIndexPath:nowValue];
+    [self reloadAssociatedIndexPath];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

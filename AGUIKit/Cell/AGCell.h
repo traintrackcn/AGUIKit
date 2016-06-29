@@ -14,17 +14,6 @@
 @class AGVCConfiguration;
 @class AGObjectPool;
 
-@protocol AGCellDelegate <NSObject>
-
-@required
-- (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath;
-- (void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
-- (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath;
-- (id)cellRequestParameterAtIndexPath:(NSIndexPath *)indexPath;
-
-
-@end
-
 @interface AGCell : UITableViewCell <AGRemoterDelegate>{
 //    CGFloat paddingLR;
 //    CGFloat paddingTB;
@@ -38,13 +27,10 @@
 
 
 #pragma mark - dispatchers
-- (void)dispatchRequestReloadIndexPath;
-//- (void)dispatchRequestSetCurrentIndexPath;
-- (void)dispatchRequestSetValue:(id)value;
-//- (id)dispatchRequestValue;
-- (id)dispatchRequestParameters;
-- (NSArray *)parameters;
-- (void)dispatchRequestAction:(id)action;
+- (void)reload;
+- (void)setValueForViewController:(id)value;
+- (NSArray *)parametersFromViewController;
+- (void)sendActionRequestToViewController:(id)action;
 
 
 #pragma mark - assemblers
