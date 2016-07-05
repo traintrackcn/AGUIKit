@@ -93,8 +93,13 @@
     }
     
     if (self.needsReloadIndexPath) {
-        [self reloadIndexPath:self.needsReloadIndexPath];
-        [self setNeedsReloadIndexPath:nil];
+        @try {
+            [self reloadIndexPath:self.needsReloadIndexPath];
+            [self setNeedsReloadIndexPath:nil];
+        } @catch (NSException *exception) {
+            TLOG(@"exception -> %@", exception);
+        }
+        
     }
     
 }
@@ -332,9 +337,19 @@
 }
 
 - (void)reloadIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView endUpdates];
+    [self reloadIndexPath:indexPath animated:YES];
+}
+
+- (void)reloadIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated{
+//    TLOG(@"%@ indexPath -> %@", indexPath, self);
+    if (animated) {
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+    }else{
+        [self.tableView reloadData];
+    }
+    
 }
 
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated{
@@ -614,7 +629,7 @@
 }
 
 -(void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
-    TLOG(@"value -> %@ %@ %@", value, indexPath, self);
+//    TLOG(@"value -> %@ %@ %@", value, indexPath, self);
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
     

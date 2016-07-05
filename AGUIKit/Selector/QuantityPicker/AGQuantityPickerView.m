@@ -157,7 +157,7 @@
     [self.plusButton setEnabled:YES];
     
     
-    TLOG(@"maxValue -> %d minValue -> %d value -> %d", self.maxValue, self.minValue, self.value);
+//    TLOG(@"maxValue -> %d minValue -> %d value -> %d", self.maxValue, self.minValue, self.value);
     
     if (self.maxValue == self.minValue) {
         [self.minusButton setEnabled:NO];

@@ -51,6 +51,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)willReloadVisibleIndexPaths;
 - (void)reloadVisibleIndexPaths;
 - (void)reloadIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated;
 - (void)didReloadVisibleIndexPaths;
 - (void)willDoReload;

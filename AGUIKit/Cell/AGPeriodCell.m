@@ -31,6 +31,7 @@
     [picker setTitle:@"Select Date"];
     [picker setCollection:collection];
     [picker setAssociatedIndexPath:self.indexPath];
+    [picker setPreviousViewController:self.associatedViewController];
     [picker setContentView:[picker contentViewWithValue:value]];
     [self pushViewController:picker];
 //    self pushViewController:picker fromNaviC:[AGroo]

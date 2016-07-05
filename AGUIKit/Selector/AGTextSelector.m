@@ -78,7 +78,7 @@
     
     value = [self titleAtIndexPath:indexPath];
     
-    TLOG(@"value -> %@", value);
+//    TLOG(@"value -> %@", value);
     
     return value;
 }

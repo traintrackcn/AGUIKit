@@ -106,7 +106,7 @@
     
     if (!textLabel) return;
     
-    [textLabel setText:[NSString stringWithFormat:@"%@", [self.progress valueForPercent]]];
+    [textLabel setText:[NSString stringWithFormat:@"%@", [self.progress valueForPercentage]]];
     
     CGRect frame = textLabel.frame;
     CGFloat targetW = self.innerViewWidth;
