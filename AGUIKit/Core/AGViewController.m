@@ -498,6 +498,7 @@
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
+//    TLOG(@"unit -> %@", unit);
     if (unit) [unit didSelect:idx];
 }
 

@@ -14,27 +14,18 @@
 #import "CHCSVParser.h"
 #import "DACSVUtil.h"
 
-typedef NS_ENUM(NSInteger, CSVFieldIndex) {
-    CSVFieldIndexKey = 0
-};
-
 
 @interface AGTextCoordinator()<CHCSVParserDelegate>{
 }
 
 @property (nonatomic, strong) NSMutableDictionary *dic;
-@property (nonatomic, strong) NSArray *availableLanguages;
-@property (nonatomic, strong) id currentLangKey;
-@property (nonatomic, strong) id currentLangValue;
-
+@property (nonatomic, strong) id currentLineKey;
 @property (nonatomic, assign) NSUInteger currentLineIdx;
-@property (nonatomic, assign) NSInteger selectedLangFieldIdx;
+@property (nonatomic, strong) NSMutableArray *availableLanguages;
 
 @end
 
 @implementation AGTextCoordinator
-
-
 
 - (id)init{
     self = [super init];
@@ -101,6 +92,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 - (void)reload{
     [self setDic:nil];
+    [self setAvailableLanguages:nil];
     [self load];
 }
 
@@ -117,6 +109,8 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 //    [self generateCSV];
 }
 
+#pragma mark - 
+
 - (void)parseCSVWithURL:(NSURL *)url{
     CHCSVParser *parser = [[CHCSVParser alloc] initWithContentsOfCSVURL:url];
     [parser setDelegate:self];
@@ -126,10 +120,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 - (id)dicFromPlist{
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
-    NSString *fileName = [NSString stringWithFormat:@"Text-%@", self.langID];
-    TLOG(@"fileName -> %@", fileName);
-    
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Text-en" ofType:@"plist"];
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     id tmpDic = [NSPropertyListSerialization
                  propertyListFromData:plistXML
@@ -160,12 +151,9 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
             if (lineIdx != 0) {
                 [writer writeField:key];
                 [writer writeField:value];
-//                [writer writeField:@""];
             }else{
                 [writer writeField:@"key"];
                 [writer writeField:@"en"];
-//                [writer writeField:@"comment"];
-                
             }
             
             [writer finishLine];
@@ -179,7 +167,11 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 
 #pragma mark -
 
-- (BOOL)isParsingFirstLine{
+- (void)nextLine{
+    self.currentLineIdx ++;
+}
+
+- (BOOL)firstLine{
     if (self.currentLineIdx == 0) return YES;
     return NO;
 }
@@ -189,7 +181,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 }
 
 - (void)parserDidEndDocument:(CHCSVParser *)parser{
-    
+    TLOG(@"self.availableLanguages -> %@ %@",self.availableLanguages, self.dic);
 }
 
 - (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber{
@@ -197,30 +189,51 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 }
 
 - (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber{
-    self.currentLineIdx ++;
+    [self nextLine];
 }
 - (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex{
 //    TLOG(@"field -> %@ %ld", field, (long)fieldIndex);
-    if ([self isParsingFirstLine]) {
-        if ([field isEqualToString:self.langID]) {
-            [self setSelectedLangFieldIdx:fieldIndex];
+    if ([self firstLine]) {
+        if (fieldIndex != 0) { //available langugages
+            field = [field componentsSeparatedByString:@" "].firstObject;
+            [self.availableLanguages addObject:field];
         }
     }else{
-        if (fieldIndex == CSVFieldIndexKey) {
-            [self setCurrentLangKey:field];
-        }
-        
-        if (fieldIndex == self.selectedLangFieldIdx) {
+        if (fieldIndex == 0) {
+           [self setCurrentLineKey:field];
+        }else{
+            NSString *langID = [self languageIDForFieldIndex:fieldIndex];
+            NSString *langKey = self.currentLineKey;
+            NSString *langValue = [DACSVUtil removeQuoteForField:field];
+            BOOL exsits = ![langValue isEqualToString:@""];
             
-            field = [DACSVUtil removeQuoteForField:field];
-            
-            [self.dic setObject:field forKey:self.currentLangKey];
+            if (exsits) [self cacheKey:langKey value:langValue forLanguage:langID];
         }
     }
 }
 
 - (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error{
     TLOG(@"error -> %@", error);
+}
+
+#pragma mark - 
+
+- (void)cacheKey:(NSString *)key value:(NSString *)value forLanguage:(NSString *)languageID{
+//    TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
+    if ([languageID rangeOfString:self.currentLanguageMainID].location != NSNotFound) {
+//        TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
+//        TLOG(@"%@(%@):%@",key, languageID, value);
+        
+        id valueFromDic = [self.dic objectForKey:key];
+        BOOL exactlyMatch = [languageID isEqualToString:self.currentLanguageID];
+        
+        if (!valueFromDic || exactlyMatch) {
+            valueFromDic = value;
+        }
+        
+        [self.dic setValue:valueFromDic forKey:key];
+        
+    }
 }
 
 
@@ -233,8 +246,25 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
     return _dic;
 }
 
-- (NSString *)langID{
-    return [DSLocaleManager languageID];
+- (NSString *)languageIDForFieldIndex:(NSInteger)fieldIndex{
+    NSInteger langIdx = fieldIndex - 1;
+    return [self.availableLanguages objectAtIndex:langIdx];
+}
+
+- (NSString *)currentLanguageID{
+    NSLocale *locale = [NSLocale autoupdatingCurrentLocale];
+    return locale.localeIdentifier;
+}
+
+- (NSString *)currentLanguageMainID{
+    return [self.currentLanguageID componentsSeparatedByString:@"_"].firstObject;
+}
+
+- (NSMutableArray *)availableLanguages{
+    if (!_availableLanguages) {
+        _availableLanguages = [NSMutableArray array];
+    }
+    return _availableLanguages;
 }
 
 @end
