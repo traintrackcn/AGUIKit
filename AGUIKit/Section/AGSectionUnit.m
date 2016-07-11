@@ -53,6 +53,10 @@
     return nil;
 }
 
+- (CGFloat)heightAtIndex:(NSInteger)index{
+    return NSNotFound;
+}
+
 - (void)action:(id)action atIndex:(NSInteger)index{
     
 }

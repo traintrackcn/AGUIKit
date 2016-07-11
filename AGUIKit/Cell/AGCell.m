@@ -360,7 +360,7 @@
 
 //dynamic height by value
 + (CGFloat)heightOfValue:(id)value{
-    return 0;
+    return NSNotFound;
 }
 
 - (CGFloat)height{

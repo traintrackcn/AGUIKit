@@ -220,7 +220,7 @@
 
 - (void)cacheKey:(NSString *)key value:(NSString *)value forLanguage:(NSString *)languageID{
 //    TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
-    if ([languageID rangeOfString:self.currentLanguageMainID].location != NSNotFound) {
+    if ([languageID rangeOfString:self.currentLanguageMainID].location != NSNotFound || [languageID isEqualToString:@"en"]) {
 //        TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
 //        TLOG(@"%@(%@):%@",key, languageID, value);
         

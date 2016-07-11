@@ -11,6 +11,7 @@
 @class AGVCConfiguration;
 @class AGViewController;
 @class AGSectionLoader;
+@import UIKit;
 
 @interface AGSectionUnit : NSObject
 
@@ -21,6 +22,7 @@
 - (id)valueAtIndex:(NSInteger)index;
 - (id)titleAtIndex:(NSInteger)index;
 - (Class)clsAtIndex:(NSInteger)index;
+- (CGFloat)heightAtIndex:(NSInteger)index;
 - (id)paramterAtIndex:(NSInteger)index;
 - (void)action:(id)action atIndex:(NSInteger)index;
 - (NSInteger)numberOfRows;
