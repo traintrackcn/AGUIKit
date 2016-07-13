@@ -19,6 +19,7 @@
 }
 
 @property (nonatomic, strong) NSMutableDictionary *dic;
+@property (nonatomic, strong) NSMutableDictionary *dicForEN;
 @property (nonatomic, strong) id currentLineKey;
 @property (nonatomic, assign) NSUInteger currentLineIdx;
 @property (nonatomic, strong) NSMutableArray *availableLanguages;
@@ -61,6 +62,9 @@
 //        TLOG(@"key -> %@", key);
         
         value = [self.dic objectForKey:key];
+        if (!value) value = [self.dicForEN objectForKey:key];
+        
+        
         if (value) return value;
     }
     
@@ -181,7 +185,7 @@
 }
 
 - (void)parserDidEndDocument:(CHCSVParser *)parser{
-    TLOG(@"self.availableLanguages -> %@ %@",self.availableLanguages, self.dic);
+    TLOG(@"current -> %@ availableLanguages -> %@ %@", self.currentLanguageMainID,self.availableLanguages, self.dic);
 }
 
 - (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber{
@@ -220,7 +224,10 @@
 
 - (void)cacheKey:(NSString *)key value:(NSString *)value forLanguage:(NSString *)languageID{
 //    TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
-    if ([languageID rangeOfString:self.currentLanguageMainID].location != NSNotFound || [languageID isEqualToString:@"en"]) {
+    
+    if ([languageID isEqualToString:@"en"]){
+        [self.dicForEN setValue:value forKey:key];
+    }else if ([languageID rangeOfString:self.currentLanguageMainID].location != NSNotFound) {
 //        TLOG(@"languageID -> %@ self.currentLanguageMainID -> %@", languageID, self.currentLanguageMainID);
 //        TLOG(@"%@(%@):%@",key, languageID, value);
         
@@ -238,6 +245,13 @@
 
 
 #pragma mark - properties
+
+- (NSMutableDictionary *)dicForEN{
+    if (!_dicForEN) {
+        _dicForEN = [NSMutableDictionary dictionary];
+    }
+    return _dicForEN;
+}
 
 - (NSMutableDictionary *)dic{
     if (!_dic) {
