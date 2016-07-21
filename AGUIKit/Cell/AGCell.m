@@ -27,6 +27,7 @@
 
 
 @synthesize height = _height;
+@synthesize value = _value;
 
 - (id)init{
    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ Failed to call designated initializer. Invoke `initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifie:` instead.", NSStringFromClass([self class])] userInfo:nil];
@@ -106,22 +107,27 @@
 }
 
 - (void)setValue:(id)value{
+    if ([self isCachedValueSameAsTargetValue:value]) return;
     _value = value;
-    if ([value isKindOfClass:[NSArray class]]) {
-        [self setValueAsArr:(NSArray *)value];
-    }
+    [self didSetValue:value];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.ws layout];
+    }];
 }
 
-- (void)setValueAsArr:(NSArray *)arr{
+- (void)layout{
+    
+}
+
+- (void)didSetValue:(id)value{
     
 }
 
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue{
-    if (self.value){
-        if ([targetValue isEqual:self.value]) {
-//            TLOG(@"[%@] setting same value", NSStringFromClass(self.class));
-            return YES;
-        }
+    if (_value && targetValue){
+//        TLOG(@"_value -> %@ new value -> %@ same -> %d", _value, targetValue, [targetValue isEqual:self.value]);
+        if ([targetValue isEqual:_value]) return YES;
     }
     return NO;
 }

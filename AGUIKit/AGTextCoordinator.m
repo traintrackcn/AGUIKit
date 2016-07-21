@@ -185,7 +185,7 @@
 }
 
 - (void)parserDidEndDocument:(CHCSVParser *)parser{
-    TLOG(@"current -> %@ availableLanguages -> %@ %@", self.currentLanguageMainID,self.availableLanguages, self.dic);
+    TLOG(@"current -> %@ availableLanguages -> %@", self.currentLanguageMainID,self.availableLanguages);
 }
 
 - (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber{

@@ -22,9 +22,8 @@
 
 
 - (void)didTapCell;
-
-- (void)setValueAsArr:(NSArray *)arr;
-
+- (void)didSetValue:(id)value;
+- (void)layout;
 
 #pragma mark - dispatchers
 - (void)reload;
