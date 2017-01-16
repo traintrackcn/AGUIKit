@@ -15,5 +15,6 @@
 @interface DATextUtil : NSObject
 
 - (CGSize)labelSizeRestrictedToMaxSize:(CGSize)maxSize attributedText:(NSAttributedString *)attributedText;
+- (CGSize)textViewSizeRestrictedToMaxSize:(CGSize)maxSize attributedText:(NSAttributedString *)attributedText;
 
 @end

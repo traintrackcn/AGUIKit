@@ -18,8 +18,8 @@
 
 #pragma mark - display messages at the top of table view
 
-- (void)setFailureMessages:(NSArray *)messages;
-- (void)setSuccessMessages:(NSArray *)messages;
+- (BOOL)setFailureMessages:(NSArray *)messages;
+- (BOOL)setSuccessMessages:(NSArray *)messages;
 //- (void)clearMessages;
 - (void)clearSetMessages;
 

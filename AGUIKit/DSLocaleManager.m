@@ -9,40 +9,48 @@
 #import "DSLocaleManager.h"
 #import "GlobalDefine.h"
 #import "AGUIDefine.h"
-#import "NSObject+Singleton.h"
+//#import "NSObject+Singleton.h"
 
 #define kLocaleIdentifier @"kLocaleIdentifier"
 #define kLocaleIdentifierBundle @"kLocaleIdentifierBundle"
 
 
-static NSBundle *_instanceDSLocaleManagerBundle;
+//static NSBundle *_instanceDSLocaleManagerBundle;
 
 @implementation DSLocaleManager
 
-+ (void)initialize{
-    NSString *languageID = [self deviceLanguageID];
-    if (![self bAvailableLanguageID:languageID]) languageID = @"en";
-    [self setLanguageID:languageID];
-//    TLOG(@"languageID after -> %@", languageID);
+
+- (instancetype)init{
+    self = [super init];
+    if (self){
+        NSString *languageID = [self deviceLanguageID];
+        if (![self bAvailableLanguageID:languageID]) languageID = @"en";
+        [self setLanguageID:languageID];
+    }
+    return self;
 }
 
 
-+ (void)setLanguageID:(NSString *)localeID{
+//    TLOG(@"languageID after -> %@", languageID);
+//}
+
+
+- (void)setLanguageID:(NSString *)localeID{
    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:localeID forKey:kLocaleIdentifier];
 }
 
-+ (NSString *)languageID{
+- (NSString *)languageID{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     return [ud stringForKey:kLocaleIdentifier];
 }
 
-+ (NSString *)localeIDBundle{
+- (NSString *)localeIDBundle{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     return [ud objectForKey:kLocaleIdentifierBundle];
 }
 
-+ (void)setLocaleIDBundle:(NSString *)localeIDBundle{
+- (void)setLocaleIDBundle:(NSString *)localeIDBundle{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:localeIDBundle forKey:kLocaleIdentifierBundle];
 }
@@ -50,13 +58,13 @@ static NSBundle *_instanceDSLocaleManagerBundle;
 
 #pragma mark -
 
-+ (NSString *)deviceLanguageID{
+- (NSString *)deviceLanguageID{
 //    TLOG(@"[NSLocale preferredLanguages] -> %@", );
     return [[NSLocale preferredLanguages] objectAtIndex:0];
 //    return [[NSLocale currentLocale]  displayNameForKey:NSLocaleLanguageCode value:[[NSLocale preferredLanguages] objectAtIndex:0]];
 }
 
-+ (BOOL)bAvailableLanguageID:(NSString *)languageID{
+- (BOOL)bAvailableLanguageID:(NSString *)languageID{
     NSArray *arr =  [AGUIDefine singleton].availableLanguages;
     for (int i=0; i<[arr count]; i++) {
         NSString *tmpLanguageID = [[arr objectAtIndex:i] identifier];
@@ -68,7 +76,7 @@ static NSBundle *_instanceDSLocaleManagerBundle;
     return NO;
 }
 
-+ (BOOL)bLanguageChanged{
+- (BOOL)bLanguageChanged{
     return ![[self localeIDBundle] isEqualToString:[self languageID]];
 }
 

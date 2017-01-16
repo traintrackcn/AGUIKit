@@ -15,6 +15,10 @@
 + (UIButton *)buttonInstanceWithItem:(DAButtonItem *)item;
 + (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action  backgroundColor:(UIColor *)backgroundColor;
 
+
++ (UIFont *)defaultFont;
++ (void)setUppercase:(BOOL)uppercase;
++ (void)setCornerRadius:(CGFloat)corerRadius;
 + (void)setDefaultFont:(UIFont *)font;
 + (void)setDefaultBackgroundColor:(UIColor *)color;
 

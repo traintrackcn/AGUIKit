@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static const NSInteger AG_MAX_QUANTITY = 99;
-static const NSInteger AG_MIN_QUANTITY = 0;
+
 
 @protocol AGQuantityPickerViewDelegate <NSObject>
 

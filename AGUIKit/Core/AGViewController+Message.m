@@ -16,6 +16,8 @@
 #import "AGStyleCoordinator.h"
 #import "GlobalDefine.h"
 #import "AGUIDefine.h"
+#import "AGTextCoordinator.h"
+#import "AGUITextKeyDefine.h"
 
 
 typedef NS_ENUM(NSInteger, UIViewTag) {
@@ -28,7 +30,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 #pragma mark - float message ops
 
 - (void)floatMessageProcessing{
-    [self floatMessage:@"Processing"];
+    [self floatMessage:TEXT(KEY_UI_MSG_PROCESSING)];
 }
 
 - (void)floatMessage:(NSString *)message{
@@ -71,7 +73,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
     CGFloat w = 124;
     CGFloat h = 100;
     CGFloat x = (self.overlayContainer.frame.size.width - w)/2.0;
-    CGFloat y = (self.overlayContainer.frame.size.height - h)/2.0;
+    CGFloat y = (self.overlayContainer.frame.size.height - h)/3.0;
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     
@@ -133,12 +135,16 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
 
 #pragma mark - display message ops
 
-- (void)setSuccessMessages:(NSArray *)messages{
+- (BOOL)setSuccessMessages:(NSArray *)messages{
+    if (!messages.count) return NO;
     [self displayMessages:messages cls:[AGVCSuccessMessagesView class]];
+    return YES;
 }
 
-- (void)setFailureMessages:(NSArray *)messages{
+- (BOOL)setFailureMessages:(NSArray *)messages{
+    if (!messages.count) return NO;
     [self displayMessages:messages cls:[AGVCFailureMessagesView class]];
+    return YES;
 }
 
 - (void)displayMessages:(NSArray *)messages cls:(Class)cls{

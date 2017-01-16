@@ -35,10 +35,13 @@
 @property (nonatomic, strong) UIView *overlayContainer;
 @property (nonatomic, strong) NSMutableArray *externalViews;
 @property (nonatomic, copy) NSIndexPath *needsReloadIndexPath;
+@property (nonatomic, assign) BOOL visible;
 
 @end
 
 @implementation AGViewController
+
+@synthesize previousViewController = _previousViewController;
 
 + (instancetype)instance{
     return [[self.class alloc] init];
@@ -78,10 +81,20 @@
     [super viewDidLoad];
     [self.parentView addSubview:self.overlayContainer];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    if (self.backgroundColor) [self.view setBackgroundColor:self.backgroundColor];
+    if (self.backgroundColor) {
+        UIView *bgV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, STYLE_DEVICE_WIDTH, STYLE_DEVICE_HEIGHT)];
+//        bgV.layer.borderWidth = 1;
+//        bgV.layer.borderColor = [UIColor redColor].CGColor;
+        [bgV setBackgroundColor:self.backgroundColor];
+        [self.tableView setBackgroundView:bgV];
+//        [self.view setBackgroundColor:self.backgroundColor];
+    
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self setVisible:YES];
+    
     TLOG(@"%@", self.className);
     [super viewWillAppear:animated];
     [self setNavigationController];
@@ -121,6 +134,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+    [self setVisible:NO];
 //    TLOG(@"%@", self.className);
     [super viewWillDisappear:animated];
     [self hideExternalViews];
@@ -189,6 +203,10 @@
     [self.parentView insertSubview:view belowSubview:self.overlayContainer];
     [self.externalViews addObject:view];
     
+}
+
+- (UIView *)externalViewContainer{
+    return self.parentView;
 }
 
 - (UIView *)overlayWithTag:(NSInteger)tag{
@@ -309,6 +327,10 @@
     [self.defaultNavigationController pushViewController:viewController animated:YES];
 }
 
+- (void)pushViewController:(AGViewController *)viewController animated:(BOOL)animated{
+    [self.defaultNavigationController pushViewController:viewController animated:animated];
+}
+
 //- (void)presentViewController:(AGViewController *)viewController{
 //}
 
@@ -353,6 +375,7 @@
 }
 
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated{
+    
     [self willReloadVisibleIndexPaths];
     if (animated){
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
@@ -466,7 +489,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+//    TLOG(@"indexPath -> %@", indexPath);
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     
@@ -474,21 +497,24 @@
         return [AGSeparatorCell height];
     }
     
-    if (![self.config cellHeightCalculatedAtIndexPath:indexPath]) {
-        id value = [self valueAtIndexPath:indexPath];
-        
-        Class cellCls = [self.config cellClsOfIndexPath:indexPath];
-        AGSectionUnit *unit = [self.config unitOfSection:section];
-        CGFloat heightFromUnit = [unit heightAtIndex:idx];
-        CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
-        if (unit && heightFromUnit != NSNotFound){
-            [self.config setCellHeight:heightFromUnit atIndexPath:indexPath];
-        }else if(heightFromDynamicCell != NSNotFound){
-            [self.config setCellHeight:heightFromDynamicCell atIndexPath:indexPath];
-        }
-    }
+//    if (![self.config cellHeightCalculatedAtIndexPath:indexPath]) {
+    id value = [self valueAtIndexPath:indexPath];
     
-    return [self.config cellHeightAtIndexPath:indexPath];
+    Class cellCls = [self.config cellClsOfIndexPath:indexPath];
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    CGFloat heightFromUnit = [unit heightAtIndex:idx];
+    CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
+    if (unit && heightFromUnit != NSNotFound){
+        [self.config setCellHeight:heightFromUnit atIndexPath:indexPath];
+    }else if(heightFromDynamicCell != NSNotFound){
+        [self.config setCellHeight:heightFromDynamicCell atIndexPath:indexPath];
+    }
+//    }
+    
+//    TLOG(@"");
+    CGFloat h = [self.config cellHeightAtIndexPath:indexPath];
+    TLOG(@"idx -> %@ h -> %@ ", @(idx), @(h));
+    return h;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -530,6 +556,7 @@
 
 
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath{
+//    TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
@@ -595,6 +622,7 @@
 - (BOOL)setRemoteMessagesForError:(id)error{
     if (!error) return NO;
     
+    
     AGRemoterError *remoterError;
     NSArray *failureMessages;
     
@@ -605,6 +633,7 @@
         remoterError = error;
     }else if ( [error isKindOfClass:[NSArray class]]){
         failureMessages = error;
+        if (failureMessages.count == 0) return NO;
     }
     
     if (remoterError) failureMessages = [remoterError messages];
@@ -623,8 +652,13 @@
 
 #pragma mark - associated cell ops
 
+- (void)setPreviousViewController:(AGViewController *)previousViewController{
+    _previousViewController = previousViewController;
+//    TLOG(@"_previousViewController -> %@ self -> %@", previousViewController, self);
+}
+
 - (void)setValueForAssociatedIndexPath:(id)value{
-    TLOG(@"self.associatedIndexPath -> %@ self.previousViewController -> %@", self.associatedIndexPath, self.previousViewController);
+    TLOG(@"self.associatedIndexPath -> %@ self.previousViewController -> %@ _previousViewController -> %@ self -> %@", self.associatedIndexPath, self.previousViewController, _previousViewController, self);
     if (self.associatedIndexPath) {
         [self.previousViewController cellRequestSetValue:value atIndexPath:self.associatedIndexPath];
     }

@@ -50,6 +50,8 @@
         [_titleLabel setNumberOfLines:0];
         [_titleLabel setTextAlignment:NSTextAlignmentCenter];
         [_titleLabel setAdjustsFontSizeToFitWidth:YES];
+//        _titleLabel.layer.borderWidth = 1;
+        [_titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
 //        [_titleLabel setBackgroundColor:COLOR(AGUIDEFINE.RGB_BACKGROUND_TAB_BAR)];
     }
     
@@ -74,11 +76,11 @@
 
 - (void)setSelected:(BOOL)selected{
     if (selected) {
-        [self.titleLabel setFont:FONT_WITH_SIZE(14.0)];
+        [self.titleLabel setFont:FONT_WITH_SIZE(13.0)];
         [self.titleLabel setTextColor:COLOR(AG_UI_DEFINE.RGB_THEME)];
         [self.pointIconView setHidden:NO];
     }else{
-        [self.titleLabel setFont:FONT_WITH_SIZE(14.0)];
+        [self.titleLabel setFont:FONT_WITH_SIZE(13.0)];
         [self.titleLabel setTextColor:COLOR(AG_UI_DEFINE.RGB_TAB_BAR_NORMAL)];
         [self.pointIconView setHidden:YES];
     }
@@ -92,6 +94,8 @@
     [super setValue:aValue];
 //    TLOG(@"value -> %@", self.value);
     [self.titleLabel setText:[DSValueUtil toString:[(AGCollectionViewCellValue *)self.value value]].uppercaseString];
+//    [self.titleLabel sizeToFit];
+//    [self.titleLabel sizeThatFits:CGSizeMake(self.frame.size.width,10000)];
 }
 
 

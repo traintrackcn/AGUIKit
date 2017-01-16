@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) UIFont *defaultFont;
 @property (nonatomic, strong) UIColor *defaultBackgroundColor;
+@property (nonatomic, assign) BOOL uppercase;
+@property (nonatomic, assign) CGFloat cornerRadius;
 
 @end
 
@@ -34,11 +36,12 @@
 
 + (UIButton *)buttonInstanceWithTitle:(NSString *)title target:(id)target action:(SEL)action backgroundColor:(UIColor *)backgroundColor{
     UIButton *btn = [[UIButton alloc] init];
+    if ([self uppercase]) title = [title uppercaseString];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    //    [btn.layer setCornerRadius:4.0];
+    if ([self cornerRadius])   [btn.layer setCornerRadius:[self cornerRadius]];
     [btn setClipsToBounds:YES];
-    [btn.titleLabel setFont:[[self singleton] defaultFont]];
+    [btn.titleLabel setFont:[self defaultFont]];
     [btn.titleLabel setAdjustsFontSizeToFitWidth:YES];
     
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -74,6 +77,26 @@
 }
 
 #pragma mark - properties
+
++ (UIFont *)defaultFont{
+    return [[self singleton] defaultFont];
+}
+
++ (CGFloat)cornerRadius{
+    return [[self singleton] cornerRadius];
+}
+
++ (BOOL)uppercase{
+    return [[self singleton] uppercase];
+}
+
++ (void)setUppercase:(BOOL)uppercase{
+    [[self singleton] setUppercase:uppercase];
+}
+
++ (void)setCornerRadius:(CGFloat)corerRadius{
+    [[self singleton] setCornerRadius:corerRadius];
+}
 
 + (void)setDefaultFont:(UIFont *)font{
     [[self singleton] setDefaultFont:font];

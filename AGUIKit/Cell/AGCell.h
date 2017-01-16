@@ -20,6 +20,7 @@
 //    AGRemoter *remoter;
 }
 
+- (void)_setValue:(id)value;
 
 - (void)didTapCell;
 - (void)didSetValue:(id)value;

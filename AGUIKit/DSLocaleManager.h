@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+Singleton.h"
 
+//#define DSLocalizedString(key, value)  key
 
-#define DSLocalizedString(key, value)  key
+#define LOCALE_MANAGER [DSLocaleManager singleton]
 
 @interface DSLocaleManager : NSObject
 
-+ (void)setLanguageID:(NSString *)languageID;
-+ (NSString *)languageID;
+- (void)setLanguageID:(NSString *)languageID;
+- (NSString *)languageID;
 
 //+ (NSString *)localizedStringForKey:(NSString *)key;
 //+ (NSString *)localizedStringForKey:(NSString *)key comment:(NSString *)comment;

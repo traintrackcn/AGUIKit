@@ -37,7 +37,7 @@ enum{
 - (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath;
 - (void)setCellHeight:(CGFloat)height atFirstIndexPathInSection:(NSInteger)section;
 - (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath;
-- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath;
+//- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath;
 
 //- (void)setCellDynamicHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath;
 //- (CGFloat)cellDynamicHeightAtIndexPath:(NSIndexPath *)indexPath;

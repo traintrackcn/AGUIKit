@@ -54,9 +54,9 @@
     
     if (isLoadingMoreItems) return;
     
-    __weak AGManyCellsViewController *ws = self;
+//    __weak AGManyCellsViewController *ws = self;
     [self.rUnitForData requestWithCompletion:^(id data, id error) {
-        [ws requestItemsCallback:data error:error];
+        [self.ws requestItemsCallback:data error:error];
     }];
 }
 
@@ -188,7 +188,7 @@
 }
 
 - (BOOL)rUnitIsNotReady{
-    if ([DSValueUtil isNotAvailable:self.rUnitForData]) {
+    if (!self.rUnitForData) {
         return YES;
     }
     return NO;

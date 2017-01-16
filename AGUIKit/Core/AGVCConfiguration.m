@@ -140,16 +140,17 @@
     NSString *key = [self keyOfIndexPath:indexPath];
     Class cellCls = [self cellClsOfIndexPath:indexPath];
     NSNumber *calculatedHObj = [cellHeightDic objectForKey:key];
+    TLOG(@"calculatedHObj -> %@", calculatedHObj);
     if (calculatedHObj) return [calculatedHObj floatValue];
     return [cellCls height];
     
 }
 
-- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *key = [self keyOfIndexPath:indexPath];
-    if ([cellHeightDic objectForKey:key]) return YES;
-    return NO;
-}
+//- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath{
+//    NSString *key = [self keyOfIndexPath:indexPath];
+//    if ([cellHeightDic objectForKey:key]) return YES;
+//    return NO;
+//}
 
 - (void)setCellCls:(Class)cls atIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];

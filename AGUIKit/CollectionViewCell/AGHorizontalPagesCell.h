@@ -37,7 +37,7 @@
 - (UICollectionViewLayout *)collectionViewLayout;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray *collectionViewItems;
 
 
 @end

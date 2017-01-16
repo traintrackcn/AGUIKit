@@ -14,15 +14,15 @@
 #import "DSImage.h"
 #import "NSObject+Singleton.h"
 #import "UIImageView+Letters.h"
+#import "UIImageView+AFNetworking.h"
+#import "AFURLResponseSerialization.h"
 
 @interface AGPortraitView(){
     
 }
 
 @property (nonatomic, strong) UIView *circleView;
-
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) DAImageLoader *imageLoader;
 
 @end
 
@@ -55,8 +55,7 @@
 
 
 - (void)dealloc{
-    [_imageLoader cancel];
-    _imageLoader = nil;
+    [_imageView cancelImageRequestOperation];
 }
 
 #pragma mark - ops
@@ -85,21 +84,24 @@
 
 - (void)setUrl:(NSString *)urlStr{
     NSURL *url = [NSURL URLWithString:urlStr];
-    [self.imageLoader cancel];
-    [self.imageLoader REQUEST:url forImageView:self.imageView placeholderImage:[DSImage singleton].dummyImage];
+    TLOG(@"url -> %@", url);
+    [self.imageView cancelImageRequestOperation];
+    
+    
+    
+    [self.imageView setImageWithURL:url placeholderImage:[DSImage singleton].dummyImage];
+    
+//    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+//    [[UIImageView singleton] setImageWithURLRequest:req placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+//        TLOG(@"image -> %@", image);
+//    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+//        TLOG(@"error -> %@", error);
+//    }];
+    
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
     [self.imageView setBackgroundColor:backgroundColor];
-}
-
-#pragma mark - remote stuff
-
-- (DAImageLoader *)imageLoader{
-    if (!_imageLoader) {
-        _imageLoader = [DAImageLoader instance];
-    }
-    return _imageLoader;
 }
 
 #pragma mark -
@@ -129,6 +131,11 @@
         [_imageView setContentMode:UIViewContentModeScaleAspectFill];
         [_imageView.layer setCornerRadius:w/2.0];
         [_imageView setClipsToBounds:YES];
+        
+        
+        AFImageResponseSerializer *serializer = [[AFImageResponseSerializer alloc] init];
+        serializer.acceptableContentTypes = [serializer.acceptableContentTypes setByAddingObject:@"binary/octet-stream"];
+        _imageView.imageResponseSerializer = serializer;
 //        _imageView.layer.borderWidth = 1;
 //        CGFloat r = w/2.0;
 //        [AGStyleCoordinator decorateCircleMaskForView:_imageView radius:r];

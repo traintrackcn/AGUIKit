@@ -9,6 +9,7 @@
 #import "AGSectionLoader.h"
 #import "AGSectionUnit.h"
 #import "AGVCConfiguration.h"
+#import "GlobalDefine.h"
 
 @interface AGSectionLoader(){
     
@@ -21,6 +22,7 @@
 @implementation AGSectionLoader
 
 - (void)setCore:(id)core{
+    TLOG(@"core -> %@ %@", core, self);
     _core = core;
     [_core setAssociatedSectionLoader:self];
 }
@@ -44,7 +46,9 @@
 }
 
 - (NSInteger)numberOfRows{
-    return [self.core numberOfRows];
+    NSInteger num = [self.core numberOfRows];
+    TLOG(@"core -> %@ num -> %@", self.core, @(num));
+    return num;
 }
 
 - (void)didSelect:(NSInteger)index{

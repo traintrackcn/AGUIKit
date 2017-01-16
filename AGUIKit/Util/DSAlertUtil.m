@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 2ViVe. All rights reserved.
 //
 
-#import "MKInfoPanel.h"
+//#import "MKInfoPanel.h"
 #import "SVProgressHUD.h"
 #import "DSAlertUtil.h"
 #import "AGTextCoordinator.h"
@@ -113,19 +113,19 @@ typedef enum {
 
 
 + (void)showSVPKeywordIsEmpty{
-    [SVProgressHUD showErrorWithStatus:TEXT_FOR_KEY(KEY_MSG_KEYWORK_IS_EMPTY)];
+    [SVProgressHUD showErrorWithStatus:TEXT_FOR_KEY(KEY_UI_MSG_KEYWORK_IS_EMPTY)];
 }
 
 + (void)showSVPProcessing{
-    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_PROCESSING) maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_UI_MSG_PROCESSING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPSaving{
-    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_SAVING) maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_UI_MSG_SAVING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPValidating{
-    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_MSG_VALIDATING) maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:TEXT_FOR_KEY(KEY_UI_MSG_VALIDATING) maskType:SVProgressHUDMaskTypeClear];
 }
 
 + (void)showSVPStatusForCustomText:(NSString *)text{
@@ -148,31 +148,31 @@ typedef enum {
 #pragma mark - kinds of panels
 
 + (void)showGlobalPanelErrorConnectionError{
-    [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_NETWORK_ERROR)
-                     subtitle:TEXT_FOR_KEY(KEY_MSG_CHECK_YOUR_CONNECTION)];
+//    [self showGlobalPanelStyleErrorWithTitle:TEXT(KEY_LBL_NETWORK_ERROR)
+//                     subtitle:TEXT(KEY_UI_MSG_CHECK_YOUR_CONNECTION)];
 }
 
 + (void)showGobalPanelErrorCannotReachHost{
-     [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_SERVER_MAINTENANCE)
-                      subtitle:TEXT_FOR_KEY(KEY_MSG_UNDERGOING_MAINTENANCE)];
+//     [self showGlobalPanelStyleErrorWithTitle:TEXT(KEY_LBL_SERVER_MAINTENANCE)
+//                      subtitle:TEXT(KEY_UI_MSG_UNDERGOING_MAINTENANCE)];
 }
 
 + (void)showGlobalPanelErrorOops{
-    [self showGlobalPanelStyleErrorWithTitle:TEXT_FOR_KEY(KEY_LBL_OOPS) subtitle:TEXT_FOR_KEY(KEY_MSG_OOPS_SOMETING_WRONG)];
+//    [self showGlobalPanelStyleErrorWithTitle:TEXT(KEY_LBL_OOPS) subtitle:TEXT(KEY_UI_MSG_OOPS_SOMETING_WRONG)];
 }
 
 //+ (void)showGlobalPanelErrorOops{
 //    [self showGlobalPanelStyleErrorWithTitle:[AGTextCoordinator textOopsSomethingWrong] subtitle:nil];
 //}
 
-+ (void)showGlobalPanelStyleErrorWithTitle:(NSString *)title subtitle:(NSString *)subtitle{
-    [MKInfoPanel showPanelInWindow: self.window
-                              type:MKInfoPanelTypeError
-                             title:title
-                          subtitle:subtitle
-                         hideAfter:DS_SECONDS_HIDE_AFTER];
-    
-}
+//+ (void)showGlobalPanelStyleErrorWithTitle:(NSString *)title subtitle:(NSString *)subtitle{
+//    [MKInfoPanel showPanelInWindow: self.window
+//                              type:MKInfoPanelTypeError
+//                             title:title
+//                          subtitle:subtitle
+//                         hideAfter:DS_SECONDS_HIDE_AFTER];
+//    
+//}
 
 #pragma mark - UIAlertDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

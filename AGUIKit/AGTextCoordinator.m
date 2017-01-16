@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+Singleton.h"
 #import "GlobalDefine.h"
-#import "DSLocaleManager.h"
+//#import "DSLocaleManager.h"
 #import "CHCSVParser.h"
 #import "DACSVUtil.h"
 

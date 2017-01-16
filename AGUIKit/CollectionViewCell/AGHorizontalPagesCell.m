@@ -24,7 +24,7 @@
 
 @implementation AGHorizontalPagesCell
 
-@synthesize items = _items;
+@synthesize collectionViewItems = _collectionViewItems;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -156,25 +156,23 @@
 #pragma mark - setter
 
 
-- (void)setItems:(NSArray *)items{
+- (void)setCollectionViewItems:(NSArray *)collectionViewItems{
 //    TLOG(@"theItems -> %@", theItems);
-    if (_items) return;
-    if (![items isKindOfClass:[NSArray class]]) return;
-    _items = items;
+//    if (_items) return;
+    if (![collectionViewItems isKindOfClass:[NSArray class]]) return;
+    _collectionViewItems = collectionViewItems;
     [self.collectionView reloadData];
 }
 
 - (NSArray *)items{
-    if (!_items) {
-        return @[];
-    }
-    return _items;
+    if (!_collectionViewItems) return @[];
+    return _collectionViewItems;
 }
 
-- (void)setValue:(id)value{
-    if ([self isCachedValueSameAsTargetValue:value]) return;
-    [super setValue:value];
-    [self setItems:value];
+- (void)didSetValue:(id)value{
+//    [super setValue:value];
+    [self setCollectionViewItems:value];
+//    TLOG(@"value -> %@", value);
 }
 
 

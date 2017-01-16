@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 - (UINavigationController *)defaultNavigationController;
 - (void)pushViewController:(AGViewController *)viewController;
+- (void)pushViewController:(AGViewController *)viewController animated:(BOOL)animated;
 //- (void)presentViewController:(AGViewController *)viewController;
 
 
@@ -74,11 +75,14 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)addOverlay:(UIView *)view;
 - (UIView *)overlayWithTag:(NSInteger)tag;
 - (UIView *)overlayContainer;
+- (UIView *)externalViewContainer;
 - (void)addExternalView:(UIView *)view;
 
 #pragma mark -
 
 - (BOOL)cacheEveryCell;
+
+- (void)endEditing:(BOOL)endEditing;
 
 #pragma mark - error handlers
 - (BOOL)setRemoteMessagesForError:(id)error;
@@ -92,6 +96,9 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
 - (id)cellRequestParameterAtIndexPath:(NSIndexPath *)indexPath;
 - (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath;
+
+
+- (BOOL)visible;
 
 @property (nonatomic, weak) id ws;
 @property (nonatomic, copy) NSIndexPath *associatedIndexPath;

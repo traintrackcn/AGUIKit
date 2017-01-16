@@ -11,6 +11,10 @@
 #import "AGUIDefine.h"
 #import "GlobalDefine.h"
 
+
+static const NSInteger AG_MAX_QUANTITY = 99;
+static const NSInteger AG_MIN_QUANTITY = 0;
+
 @interface AGQuantityPickerView(){
     
 }

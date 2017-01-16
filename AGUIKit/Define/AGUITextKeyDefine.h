@@ -12,12 +12,21 @@
 #define KEY_LBL_WARNING @"Warning"
 #define KEY_LBL_OK @"OK"
 
-#define KEY_MSG_KEYWORK_IS_EMPTY @"Keyword Is Empty"
-#define KEY_MSG_PROCESSING @"Processing"
-#define KEY_MSG_SAVING @"Saving"
-#define KEY_MSG_VALIDATING @"Validating"
-#define KEY_MSG_CHECK_YOUR_CONNECTION @"Can't connect. Please check your internet connection."
-#define KEY_MSG_UNDERGOING_MAINTENANCE @"We are currently undergoing maintenance."
-#define KEY_MSG_OOPS_SOMETING_WRONG @"Oops... Something wrong! "
+#define KEY_BTN_UPLOAD @"KEY_BTN_UPLOAD|Upload"
+#define KEY_BTN_SEND @"KEY_BTN_SEND|Send"
+#define KEY_BTN_CANCEL @"KEY_BTN_CANCEL|Cancel"
+#define KEY_BTN_SAVE @"KEY_BTN_SAVE|Save"
+#define KEY_BTN_OK @"KEY_BTN_OK|OK"
+#define KEY_BTN_DONE @"KEY_BTN_DONE|Done"
+#define KEY_BTN_SKIP @"KEY_BTN_SKIP|Skip"
+
+
+#define KEY_UI_MSG_KEYWORK_IS_EMPTY @"KEY_UI_MSG_KEYWORK_IS_EMPTY|Keyword Is Empty"
+#define KEY_UI_MSG_PROCESSING @"KEY_UI_MSG_PROCESSING|Processing"
+#define KEY_UI_MSG_SAVING @"KEY_UI_MSG_SAVING|Saving"
+#define KEY_UI_MSG_VALIDATING @"KEY_UI_MSG_VALIDATING|Validating"
+#define KEY_UI_MSG_CHECK_YOUR_CONNECTION @"KEY_UI_MSG_CHECK_YOUR_CONNECTION|Can't connect. Please check your internet connection."
+#define KEY_UI_MSG_UNDERGOING_MAINTENANCE @"KEY_UI_MSG_UNDERGOING_MAINTENANCE|We are currently undergoing maintenance."
+#define KEY_UI_MSG_OOPS_SOMETING_WRONG @"KEY_UI_MSG_OOPS_SOMETING_WRONG|Oops... Something wrong! "
 
 

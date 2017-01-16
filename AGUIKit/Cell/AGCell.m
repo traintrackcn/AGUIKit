@@ -106,14 +106,18 @@
     return vc.config;
 }
 
+- (void)_setValue:(id)value{
+    _value = value;
+}
+
 - (void)setValue:(id)value{
     if ([self isCachedValueSameAsTargetValue:value]) return;
     _value = value;
     [self didSetValue:value];
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self.ws layout];
-    }];
+//    }];
 }
 
 - (void)layout{
@@ -126,7 +130,7 @@
 
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue{
     if (_value && targetValue){
-//        TLOG(@"_value -> %@ new value -> %@ same -> %d", _value, targetValue, [targetValue isEqual:self.value]);
+//        TLOG(@"_value -> %@ new value -> %@ same -> %d %@ %@", _value, targetValue, [targetValue isEqual:self.value], [_value class], [targetValue class]);
         if ([targetValue isEqual:_value]) return YES;
     }
     return NO;
@@ -370,10 +374,12 @@
 }
 
 - (CGFloat)height{
-    if([self.config cellHeightCalculatedAtIndexPath:self.indexPath]){
-        return [self.config cellHeightAtIndexPath:self.indexPath];
-    }
+//    if([self.config cellHeightCalculatedAtIndexPath:self.indexPath]){
+//        return [self.config cellHeightAtIndexPath:self.indexPath];
+//    }
 //    TLOG(@"h -> %f", h);
+    if (self.indexPath) return [self.config cellHeightAtIndexPath:self.indexPath];
+//    TLOG(@"_height -> %@ indexPath -> %@", @(_height), self.indexPath);
     if (_height) return _height;
     return [self.class height];
 }

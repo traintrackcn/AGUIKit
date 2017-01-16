@@ -262,9 +262,14 @@
 		4AB650731D111D2900F5735C /* UIViewController+CustomTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB6506A1D111D1E00F5735C /* UIViewController+CustomTransition.h */; };
 		4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */; };
 		4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */; };
+		4AC8D4F41D8C2D8600887BF1 /* AGViewController+ButtonComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8D4F11D8C2D8600887BF1 /* AGViewController+ButtonComponents.m */; };
+		4AC8D4F51D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8D4F31D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.m */; };
+		4AC8D4F61D8C2FDE00887BF1 /* AGViewController+ButtonComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AC8D4F01D8C2D8600887BF1 /* AGViewController+ButtonComponents.h */; };
+		4AC8D4F71D8C2FDE00887BF1 /* AGViewController+NavigationBarButtonUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AC8D4F21D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.h */; };
 		4ACFC90A1D18E3D2006C2884 /* DACSVUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */; };
 		4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9B91D1A5C93006C2884 /* DAView.m */; };
 		4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACFC9B81D1A5C93006C2884 /* DAView.h */; };
+		4ADE77001E293E1D00AFBCBF /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE76FF1E293E1D00AFBCBF /* XYPieChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -274,6 +279,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4AC8D4F61D8C2FDE00887BF1 /* AGViewController+ButtonComponents.h in CopyFiles */,
+				4AC8D4F71D8C2FDE00887BF1 /* AGViewController+NavigationBarButtonUtils.h in CopyFiles */,
 				4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */,
 				4AB650701D111D2900F5735C /* AGAnimatedTransitioningSlideFromBottom.h in CopyFiles */,
 				4AB650711D111D2900F5735C /* AGAnimatedTransitioningSlideFromRight.h in CopyFiles */,
@@ -666,10 +673,16 @@
 		4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomTransition.m"; sourceTree = "<group>"; };
 		4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellAction.h; sourceTree = "<group>"; };
 		4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellAction.m; sourceTree = "<group>"; };
+		4AC8D4F01D8C2D8600887BF1 /* AGViewController+ButtonComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+ButtonComponents.h"; sourceTree = "<group>"; };
+		4AC8D4F11D8C2D8600887BF1 /* AGViewController+ButtonComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+ButtonComponents.m"; sourceTree = "<group>"; };
+		4AC8D4F21D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+NavigationBarButtonUtils.h"; sourceTree = "<group>"; };
+		4AC8D4F31D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+NavigationBarButtonUtils.m"; sourceTree = "<group>"; };
 		4ACFC9081D18E3D2006C2884 /* DACSVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACSVUtil.h; sourceTree = "<group>"; };
 		4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACSVUtil.m; sourceTree = "<group>"; };
 		4ACFC9B81D1A5C93006C2884 /* DAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAView.h; sourceTree = "<group>"; };
 		4ACFC9B91D1A5C93006C2884 /* DAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAView.m; sourceTree = "<group>"; };
+		4ADE76FE1E293E1D00AFBCBF /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		4ADE76FF1E293E1D00AFBCBF /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -730,6 +743,7 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4AC8D4EF1D8C2D8600887BF1 /* ViewController+Util */,
 				4AB650631D111D1E00F5735C /* CustomTransition */,
 				4A8E8B5F1B69084E00F48CDD /* DSButtonCreator.h */,
 				4A8E8B601B69084E00F48CDD /* DSButtonCreator.m */,
@@ -1136,6 +1150,8 @@
 		4A8E8A6B1B68FBE500F48CDD /* PieChart */ = {
 			isa = PBXGroup;
 			children = (
+				4ADE76FE1E293E1D00AFBCBF /* XYPieChart.h */,
+				4ADE76FF1E293E1D00AFBCBF /* XYPieChart.m */,
 				4A8E8A6C1B68FBE500F48CDD /* AGPieChartCell.h */,
 				4A8E8A6D1B68FBE500F48CDD /* AGPieChartCell.m */,
 			);
@@ -1207,6 +1223,17 @@
 				4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */,
 			);
 			path = CustomTransition;
+			sourceTree = "<group>";
+		};
+		4AC8D4EF1D8C2D8600887BF1 /* ViewController+Util */ = {
+			isa = PBXGroup;
+			children = (
+				4AC8D4F01D8C2D8600887BF1 /* AGViewController+ButtonComponents.h */,
+				4AC8D4F11D8C2D8600887BF1 /* AGViewController+ButtonComponents.m */,
+				4AC8D4F21D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.h */,
+				4AC8D4F31D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.m */,
+			);
+			path = "ViewController+Util";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1329,6 +1356,7 @@
 				4A8E89651B686E9100F48CDD /* AGPeriodCell.m in Sources */,
 				4ACFC90A1D18E3D2006C2884 /* DACSVUtil.m in Sources */,
 				4A8E8A351B68F7FF00F48CDD /* AGViewController.m in Sources */,
+				4AC8D4F41D8C2D8600887BF1 /* AGViewController+ButtonComponents.m in Sources */,
 				4A8E89851B686E9100F48CDD /* AGCollectionViewLayoutHorizontalUnits.m in Sources */,
 				4A8E89861B686E9100F48CDD /* AGCollectionViewLayoutVerticalPages.m in Sources */,
 				4A8E89711B686E9100F48CDD /* AGTextfieldCellStyleEditor.m in Sources */,
@@ -1423,6 +1451,7 @@
 				4A8E89931B686E9100F48CDD /* AGTabBarCell.m in Sources */,
 				4A8E89A71B68CDA400F48CDD /* AGButton.m in Sources */,
 				4A8E896D1B686E9100F48CDD /* AGTextCellStyleMore.m in Sources */,
+				4AC8D4F51D8C2D8600887BF1 /* AGViewController+NavigationBarButtonUtils.m in Sources */,
 				4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */,
 				4A8E8A321B68F7FF00F48CDD /* AGViewController+LoginUI.m in Sources */,
 				4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */,
@@ -1436,6 +1465,7 @@
 				4A8E89E31B68DD2400F48CDD /* AGManyCellsViewController.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
+				4ADE77001E293E1D00AFBCBF /* XYPieChart.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
 				4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */,
 				4A6E50861C9272D500D8D46A /* DACell.m in Sources */,
