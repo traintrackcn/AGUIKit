@@ -18,85 +18,54 @@
 @implementation AGHeaderView
 
 
-- (void)setAssociatedViewController:(id)associatedViewController{
-    _associatedViewController = associatedViewController;
-//    TLOG(@"associatedViewController -> %@", associatedViewController);
+#pragma mark - 
+
+- (void)_setValue:(id)value{
+    _value = value;
 }
-
-#pragma mark - view controller actions
-
-- (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC{
-    AGViewController *vc = self.associatedViewController;
-    //    TLOG(@"vc -> %@", vc);
-    [vc.view endEditing:YES];
-    [naviC pushViewController:viewController animated:YES];
-}
-
-- (void)pushViewController:(UIViewController *)viewController{
-    UINavigationController *naviC = (UINavigationController *)[[self associatedViewController] parentViewController ];
-    //    TLOG(@"naviC -> %@", naviC);
-    if (naviC){
-        [self pushViewController:viewController fromNaviC:naviC];
-    }else{
-        [self pushViewController:viewController fromNaviC:[AGUIDefine singleton].rootViewController];
-    }
-    
-}
-
-#pragma mark - components
-
-- (UIView *)borderBottomView{
-    if (!_borderBottomView) {
-        CGFloat x = self.paddingLR;
-        CGFloat h = .5f;
-        CGFloat y = [self.class height] - h;
-        CGFloat w = [DSDeviceUtil bounds].size.width;
-        _borderBottomView = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-        [_borderBottomView setBackgroundColor:COLOR(AGUI.RGB_HEADER_BORDER)];
-    }
-    return _borderBottomView;
-}
-
-
-
-
-- (UITapGestureRecognizer *)tapGestureRecognizer{
-    if (!_tapGestureRecognizer) {
-        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    }
-    return _tapGestureRecognizer;
-}
-
 
 #pragma mark - interactive ops
+
+- (void)didTapAny:(id)sender{
+    [self didTap:nil];
+}
 
 - (void)didTap:(id)sender{
     
 }
 
+#pragma mark - properties
 
-#pragma mark - 
+//- (UITableView *)tableView{
+//    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
+//        return [(AGViewController *)self.associatedViewController tableView];
+//    }
+//    return nil;
+//}
 
-- (UITableView *)tableView{
-    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
-        return [(AGViewController *)self.associatedViewController tableView];
+- (AGObjectPool *)objPool{
+    if (!_objPool) {
+        _objPool = [AGObjectPool instance];
+        [_objPool setParentClassName:NSStringFromClass(self.class)];
     }
-    return nil;
+    return _objPool;
 }
 
-#pragma mark - dispatchers
+//#pragma mark - dispatchers
 
-- (void)sendActionRequestToViewController:(id)action{
-    if (_associatedViewController && [_associatedViewController respondsToSelector:@selector(cellRequestAction:atIndexPath:)]) {
-        [_associatedViewController cellRequestAction:action atIndexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:self.section]];
-    }
+//- (void)sendActionRequestToViewController:(id)action{
+//    if (_associatedViewController && [_associatedViewController respondsToSelector:@selector(cellRequestAction:atIndexPath:)]) {
+//        [_associatedViewController cellRequestAction:action atIndexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:self.section]];
+//    }
+//}
+
+#pragma mark - properties
+
+- (NSIndexPath *)indexPath{
+    return [NSIndexPath indexPathForRow:NSNotFound inSection:self.section];
 }
 
 #pragma mark - styles
-
-- (CGFloat)paddingLR{
-    return 8.0;
-}
 
 + (CGFloat)height{
     return 44.0;

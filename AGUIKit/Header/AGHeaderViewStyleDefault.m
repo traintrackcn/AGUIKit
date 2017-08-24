@@ -26,7 +26,7 @@
 
 - (void)assemble{
     [self addSubview:self.titleLabel];
-    [self addSubview:self.borderBottomView];
+    [self addSubview:self.borderBottomViewStyleSolid];
 }
 
 #pragma mark - setters

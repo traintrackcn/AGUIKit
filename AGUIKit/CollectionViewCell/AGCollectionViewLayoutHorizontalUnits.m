@@ -9,9 +9,7 @@
 #import "AGCollectionViewLayoutHorizontalUnits.h"
 
 @interface AGCollectionViewLayoutHorizontalUnits(){
-    CGFloat cellW;
-    CGFloat cellH;
-    NSMutableDictionary *cellAttributesDic;
+    
 }
 
 @end
@@ -21,16 +19,10 @@
 - (id)initWithCellSize:(CGSize)size{
     self = [super init];
     if (self) {
-        cellAttributesDic = [NSMutableDictionary dictionary];
-        cellW = size.width;
-        cellH = size.height; //CollectionViewCell
+        [self setCellW:size.width];
+        [self setCellH:size.height]; //CollectionViewCell
     }
     return self;
-}
-
-
-- (CGFloat)cellW{
-    return cellW;
 }
 
 #pragma mark -
@@ -43,9 +35,9 @@
         for(NSInteger index = 0; index < numCells; index++){
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:section];
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            [attributes setFrame:CGRectMake(targetX, 0, cellW, cellH)];
-            targetX += cellW;
-            [cellAttributesDic setObject:attributes forKey:indexPath];
+            [attributes setFrame:CGRectMake(targetX, 0, self.cellW, self.cellH)];
+            targetX += self.cellW;
+            [self.cellAttributes setObject:attributes forKey:indexPath];
         }
     }
     //end of first section
@@ -60,11 +52,11 @@
 
 - (CGSize)collectionViewContentSize{
     NSInteger numCells = [self.collectionView numberOfItemsInSection:0];
-    return CGSizeMake(numCells*cellW, cellH);
+    return CGSizeMake(numCells*self.cellW, self.cellH);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
-    NSMutableArray *visibleCellsAttributes = [NSMutableArray array];
+    NSMutableArray *visibleCellAttributes = [NSMutableArray array];
     CGFloat minX = rect.origin.x;
     CGFloat maxX = minX + rect.size.width;
     NSInteger numSections = [self.collectionView numberOfSections];
@@ -74,7 +66,7 @@
     for (NSInteger section = 0; section < numSections; section ++) {
         NSInteger numCells = [self.collectionView numberOfItemsInSection:section];
         NSInteger maxIdx = numCells - 1;
-        CGFloat unitW = cellW;
+        CGFloat unitW = self.cellW;
         NSInteger startIdx = floorf(minX/unitW);
         NSInteger endIdx = ceilf(maxX/unitW);
         
@@ -86,15 +78,15 @@
  //       TLOG(@"cellAttributesDic -> %@", cellAttributesDic);
         for (NSInteger i = startIdx; i<= endIdx; i++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            UICollectionViewLayoutAttributes *attributes = [cellAttributesDic objectForKey:indexPath];
+            UICollectionViewLayoutAttributes *attributes = [self.cellAttributes objectForKey:indexPath];
             //            TLOG(@"attributes -> %@ indexPath -> %@", attributes, indexPath);
-            [visibleCellsAttributes addObject:attributes];
+            [visibleCellAttributes addObject:attributes];
         }
     }
     
     
     
-    return visibleCellsAttributes;
+    return visibleCellAttributes;
 }
 
 @end

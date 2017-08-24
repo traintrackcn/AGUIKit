@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define TEXT(key) [AGTextCoordinator textForKey:key roleCode:nil]
+#define TEXT_WITH_STAR(key) [AGTextCoordinator textWithStarForKey:key roleCode:nil]
 #define TEXT_FOR_KEY(key) [AGTextCoordinator textForKey:key roleCode:nil]
 
 #define TEXT_FOR_ROLE(key, roleCode) [AGTextCoordinator textForKey:key roleCode:roleCode]
@@ -18,6 +19,7 @@
 @interface AGTextCoordinator : NSObject
 
 + (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode;
++ (NSString *)textWithStarForKey:(NSString *)key roleCode:(NSString *)roleCode;
 + (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode;
 - (void)reload;
 

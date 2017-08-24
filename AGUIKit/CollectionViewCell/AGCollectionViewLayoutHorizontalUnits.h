@@ -10,7 +10,5 @@
 
 @interface AGCollectionViewLayoutHorizontalUnits : AGCollectionViewLayout
 
-- (id)initWithCellSize:(CGSize)size;
-- (CGFloat)cellW;
 
 @end

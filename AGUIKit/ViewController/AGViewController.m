@@ -9,7 +9,7 @@
 #import "AGViewController.h"
 #import "AGViewController+Message.h"
 #import "AGViewController+Separator.h"
-#import "AGViewController+LoginUI.h"
+//#import "AGViewController+LoginUI.h"
 
 
 #import "AGCell.h"
@@ -261,8 +261,8 @@
     return [[AGCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([AGCell class])];
 }
 
-- (UIView *)headerForSection:(NSInteger)section{
-    Class cls = [self.config headerClsOfSection:section];
+- (UIView *)headerViewForSection:(NSInteger)section{
+    Class cls = [self clsForHeaderOfSection:section];
     id value = nil;
     //    NSInteger rows = [self numberOfRowsInSection:section];
     
@@ -272,15 +272,15 @@
         TLOG(@"exception -> %@", exception);
     }
     
-    //    TLOG(@"cls -> %@ value -> %@", cls, value);
-    
-    if (value){
+    //assemble custom header view
+    if (cls){
         AGHeaderView *v = [[cls alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [cls height])];
         [v setAssociatedViewController:self];
         [v setSection:section];
         [v setValue:value];
         return v;
     }
+    
     
     return [self dummyHeaderView];
 }
@@ -349,7 +349,10 @@
     
 }
 
-
+- (void)didDismissLoginUI{
+    [self reloadVisibleIndexPaths];
+    dummyCell = nil;
+}
 
 - (void)reloadVisibleIndexPaths{
     TLOG(@"%@", NSStringFromClass(self.class));
@@ -454,22 +457,7 @@
     return [self numberOfSections];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    TLOG(@"========================");
-    Class cls = [self.config headerClsOfSection:section];
-    NSInteger rows = [self numberOfRowsInSection:section];
-    id value = nil;
-    
-    @try {
-        value = [self valueForHeaderOfSection:section];;
-    }@catch (NSException *exception) {
-        
-    }
-    
-    if (!value || rows == 0) return 0;
-    if (cls) return [cls height];
-    return 0;
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    TLOG(@"");
@@ -513,13 +501,27 @@
     
 //    TLOG(@"");
     CGFloat h = [self.config cellHeightAtIndexPath:indexPath];
-    TLOG(@"idx -> %@ h -> %@ ", @(idx), @(h));
+//    TLOG(@"idx -> %@ h -> %@ ", @(idx), @(h));
+    return h;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    //    TLOG(@"========================");
+    Class cls = [self clsForHeaderOfSection:section];
+    
+    NSInteger rows = [self numberOfRowsInSection:section];
+    CGFloat h = 0;
+    if (rows && cls) h = [cls height];
+    TLOG(@"cls -> %@ h -> %@", cls, @(h));
     return h;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    TLOG(@"");
-    return [self headerForSection:section];
+    UIView *v = [self headerViewForSection:section];
+    TLOG(@"v -> %@", v);
+    return v;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -588,15 +590,22 @@
     return nil;
 }
 
+- (id)clsForHeaderOfSection:(NSInteger)section{
+    Class clsInConfig = [self.config headerClsOfSection:section];
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+//    TLOG(@"unit -> %@", unit);
+    if (unit) return unit.headerCls;
+    return clsInConfig;
+}
 
 - (AGCell *)cellAtIndexPath:(NSIndexPath *)indexPath{
     AGCell *cell = (AGCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     return cell;
 }
 
-- (UIView *)headerOfSection:(NSInteger)section{
-    return [self.tableView headerViewForSection:section];
-}
+//- (UIView *)headerViewOfSection:(NSInteger)section{
+//    return [self.tableView headerViewForSection:section];
+//}
 
 
 
@@ -628,7 +637,7 @@
     
     if ([error isKindOfClass:[NSError class]]) {
         remoterError = [[AGRemoterError alloc] init];
-        [remoterError parseErrorUserInfo:[error userInfo]];
+        [remoterError parseError:error];
     }else if ([error isKindOfClass:[AGRemoterError class]]){
         remoterError = error;
     }else if ( [error isKindOfClass:[NSArray class]]){

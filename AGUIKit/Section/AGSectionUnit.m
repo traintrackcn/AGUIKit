@@ -49,6 +49,10 @@
     return nil;
 }
 
+- (Class)headerCls{
+    return nil;
+}
+
 - (id)paramterAtIndex:(NSInteger)index{
     return nil;
 }

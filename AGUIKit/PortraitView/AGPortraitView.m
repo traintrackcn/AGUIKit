@@ -10,7 +10,7 @@
 #import "GlobalDefine.h"
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"
-#import "DAImageLoader.h"
+//#import "DAFileLoader.h"
 #import "DSImage.h"
 #import "NSObject+Singleton.h"
 #import "UIImageView+Letters.h"

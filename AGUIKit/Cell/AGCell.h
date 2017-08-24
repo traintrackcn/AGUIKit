@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AGRemoter.h"
+#import "UIView+HeaderAndCell.h"
 
 @class AGVCConfiguration;
 @class AGObjectPool;
@@ -21,8 +22,8 @@
 }
 
 - (void)_setValue:(id)value;
+- (void)_setTitle:(id)title;
 
-- (void)didTapCell;
 - (void)didSetValue:(id)value;
 - (void)layout;
 
@@ -30,17 +31,15 @@
 - (void)reload;
 - (void)setValueForViewController:(id)value;
 - (NSArray *)parametersFromViewController;
-- (void)sendActionRequestToViewController:(id)action;
+//- (void)sendActionRequestToViewController:(id)action;
 
 
-#pragma mark - assemblers
-- (void)assembleGC;
-- (void)activateSelector;
-- (UIView *)borderViewInstance;
+#pragma mark - interactive ops
+- (void)assembleGC __attribute((deprecated(("Use [self.contentView addGestureRecognizer:self.tapGestureRecognizer] instead"))));
+- (void)activateSelector __attribute__((deprecated(("Use [self didTapAny:] instead"))));
+- (void)didTapCell __attribute__((deprecated(("Use [self didTapAny:] instead"))));
 
-#pragma mark - view controller actions
-- (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC;
-- (void)pushViewController:(UIViewController *)viewController;
+
 
 #pragma mark - styles
 - (void)applySelectedStyle;
@@ -58,27 +57,17 @@
 
 + (CGFloat)height;
 + (CGFloat)heightOfValue:(id)value;
-- (CGFloat)paddingLR;
-- (CGFloat)paddingTB;
-- (UIColor *)borderColor;
-- (CGFloat)borderWidth;
 
-
-
-
-@property (nonatomic, assign) CGFloat height;
-
-
+//- (CGFloat)borderPaddingL;
+//- (CGFloat)paddingTB;
+//- (UIColor *)borderColor;
+//- (CGFloat)borderWidth;
 
 #pragma mark - 
-
 - (void)endEditingForAssociatedView;
 - (void)reloadAssociatedViewController;
 
-#pragma mark - layout ops
-- (void)layoutBorderBottomViewStyleSolid;
-
-
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) AGObjectPool *objPool;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
@@ -92,26 +81,9 @@
 
 @property (nonatomic, strong) id value;
 @property (nonatomic, weak) id ws;
-
 @property (nonatomic, weak) id associatedViewController;
-
-
-
 @property (nonatomic, strong) AGRemoter *remoter;
-
-
-@property (nonatomic, strong) UIView *backgroundViewStyleBlock;
-@property (nonatomic, strong) UIView *borderTopViewStyleBlock;
-@property (nonatomic, strong) UIView *borderBottomViewStyleBlock;
-@property (nonatomic, strong) UIView *borderLeftViewStyleBlock;
-@property (nonatomic, strong) UIView *borderRightViewStyleBlock;
-@property (nonatomic, strong) UIView *borderTopViewStyleSolid;
-@property (nonatomic, strong) UIView *borderBottomViewStyleSolid;
-//@property (nonatomic, strong) UIView *borderBottomViewStylePaddingLR;
-@property (nonatomic, strong) UIView *borderBottomViewStylePaddingL;
-
-
-@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+//@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 @property (nonatomic, strong) id obUIKeyboardWillChangeFrameNotification;
 

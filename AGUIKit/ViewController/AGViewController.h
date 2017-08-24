@@ -56,10 +56,11 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated;
 - (void)didReloadVisibleIndexPaths;
 - (void)willDoReload;
+- (void)didDismissLoginUI;
+
 
 #pragma mark - table view stuff
 
-- (UIView *)headerOfSection:(NSInteger)section;
 - (id)valueForHeaderOfSection:(NSInteger)section;
 - (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath;

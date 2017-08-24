@@ -21,6 +21,9 @@ enum{
 @interface AGVCConfiguration : AGModel{
 }
 
+//in [one cell one section] condition
+- (void)autofitSpaceCellHeightInSection:(NSInteger)section statusBar:(BOOL)statusBar naviBar:(BOOL)naviBar;
+
 #pragma mark - input properties' dic
 
 - (void)clearSettingsForSection:(NSInteger)section;
@@ -32,6 +35,7 @@ enum{
 - (void)setCellCls:(Class)cls inSection:(NSInteger)section;
 
 - (void)setCellCls:(Class)cls atIndexPath:(NSIndexPath *)indexPath;
+- (void)setCellCls:(Class)cls atIndex:(NSInteger)idx inSection:(NSInteger)section;
 - (Class)cellClsOfIndexPath:(NSIndexPath *)indexPath;
 
 - (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath;

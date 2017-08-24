@@ -8,10 +8,14 @@
 
 #import "AGViewController.h"
 
-@interface AGViewController (NavigationBarButtonUtils)
+@interface AGViewController (NavigationBar)
 
-- (void)hidesBackButtonTitle;
-- (void)hidesNavigationBarBackground;
+- (void)hideNextVCBackButtonTitle;
+- (void)hideNavigationBarBackground;
+- (void)hideNavigationBarBorder;
+- (void)hideNavigationBarBackgroundAndBorder;
+- (void)setNavigationBarBorderColor:(UIColor *)borderColor;
+- (void)setNextVCBackButtonWithImageNamed:(NSString *)imageName maskColor:(UIColor *)maskColor;
 
 - (UIBarButtonItem *)saveBarButtonItem;
 - (UIBarButtonItem *)closeBarButtonItem;
@@ -23,6 +27,7 @@
 - (UIBarButtonItem *)skipBarButtonItem;
 - (UIBarButtonItem *)cancelBarButtonItem;
 - (UIBarButtonItem *)sendBarButtonItem;
+- (UIBarButtonItem *)inviteBarButtonItem;
 
 #pragma mark - interactive ops
 - (void)didTapSave:(id)sender;
@@ -35,6 +40,6 @@
 - (void)didTapCancel:(id)sender;
 - (void)didTapSend:(id)sender;
 - (void)didTapClose:(id)sender;
-
+- (void)didTapInvite:(id)sender;
 
 @end

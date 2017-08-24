@@ -46,6 +46,25 @@
     return self;
 }
 
+#pragma mark - utils
+
+- (void)autofitSpaceCellHeightInSection:(NSInteger)section statusBar:(BOOL)statusBar naviBar:(BOOL)naviBar{
+    CGFloat h = STYLE_DEVICE_HEIGHT;
+    if (statusBar) h -= STYLE_STATUS_BAR_HEIGHT;
+    if (naviBar) h -= STYLE_NAVIGATION_BAR_HEIGHT;
+    
+    NSString *targetKey = [self keyOfSection:section];
+    for (NSString* key in cellClsDic) {
+        if ([targetKey isEqualToString:key]) continue;
+        Class cls = [cellClsDic objectForKey:key];
+        h -= [cls height];
+    }
+    
+    h = h>0?h:0;
+    
+    [self setCellHeight:h atFirstIndexPathInSection:section];
+}
+
 #pragma mark - 
 
 - (void)clearSettingsForSection:(NSInteger)section{
@@ -140,7 +159,7 @@
     NSString *key = [self keyOfIndexPath:indexPath];
     Class cellCls = [self cellClsOfIndexPath:indexPath];
     NSNumber *calculatedHObj = [cellHeightDic objectForKey:key];
-    TLOG(@"calculatedHObj -> %@", calculatedHObj);
+//    TLOG(@"calculatedHObj -> %@", calculatedHObj);
     if (calculatedHObj) return [calculatedHObj floatValue];
     return [cellCls height];
     
@@ -157,6 +176,11 @@
     [cellClsDic setValue:cls forKey:key];
 }
 
+
+- (void)setCellCls:(Class)cls atIndex:(NSInteger)idx inSection:(NSInteger)section{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:section];
+    [self setCellCls:cls atIndexPath:indexPath];
+}
 
 - (Class)cellClsOfIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
@@ -201,9 +225,9 @@
 - (Class)headerClsOfSection:(NSInteger)section{
     NSString *key = [self keyOfSection:section];
     id cls = [headerClsDic objectForKey:key];
-    if ([DSValueUtil isNotAvailable:cls]) {
-        return [AGHeaderViewStyleDefault class];;
-    }
+//    if ([DSValueUtil isNotAvailable:cls]) {
+//        return [AGHeaderViewStyleDefault class];;
+//    }
     return cls;
 }
 

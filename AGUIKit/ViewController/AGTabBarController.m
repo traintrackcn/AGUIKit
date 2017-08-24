@@ -12,7 +12,6 @@
 #import "AGHorizontalViewControllersCell.h"
 #import "DSDeviceUtil.h"
 #import "DSValueUtil.h"
-#import "AGAssembler.h"
 #import "AGVCConfiguration.h"
 #import "AGUIDefine.h"
 
@@ -99,7 +98,7 @@ typedef NS_ENUM(NSInteger, Section) {
 }
 
 - (void)contentDidChangeToIndex:(NSInteger)index{
-    [self.tabBarCell selectIndexWithoutDispatchingDidSelect:index];
+    [self.tabBarCell setSelectedIndex:index];
 }
 
 #pragma mark - AGCellDelegate

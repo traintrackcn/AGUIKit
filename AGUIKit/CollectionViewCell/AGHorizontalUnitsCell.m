@@ -12,54 +12,127 @@
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
 
+typedef NS_ENUM(NSInteger, Section) {
+    SectionDefault,
+    SectionCount
+};
+
 @interface AGHorizontalUnitsCell()<UICollectionViewDataSource, UICollectionViewDelegate>{
-    UICollectionViewLayout *collectionViewLayout;
+    
 //    NSInteger numberOfCellsInOneScreen;
 }
+
+@property (nonatomic, strong) UICollectionViewLayout *collectionViewLayout;
 
 @end
 
 @implementation AGHorizontalUnitsCell
 
-//- (void)setDefaultIndex:(NSInteger)index{
-//    selectedIndex = index;
-//}
-
-- (NSInteger)selectedIndex{
-    return selectedIndex;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        //        [self assembleCollectionView];
+        [self.contentView addSubview:self.collectionView];
+    }
+    return self;
 }
+
+#pragma mark - setters
+
+- (void)setItems:(NSArray *)items{
+    if (![items isKindOfClass:[NSArray class]]) return;
+    _items = items;
+    [self.collectionView reloadData];
+}
+
+- (void)_setSelectedIndex:(NSInteger)selectedIndex{
+    _selectedIndex = selectedIndex;
+}
+
+- (void)setSelectedIndex:(NSInteger)targetIndex{
+    if (self.selectedIndex == targetIndex) return;
+    
+    UICollectionViewCell *selectedCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:SectionDefault]];
+    UICollectionViewCell *targetCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:targetIndex inSection:SectionDefault]];
+    [selectedCell setSelected:NO];
+    [targetCell setSelected:YES];
+    
+    [self _setSelectedIndex:targetIndex];
+    
+    [self scrollToIndex:targetIndex animated:YES];
+}
+
+#pragma mark - common ops
+
+- (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated{
+    @try {
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }@catch (NSException *exception) {
+        //        TLOG(@"exception -> %@", exception);
+    }
+}
+
+#pragma mark - events
+
 
 - (void)didSelectItem:(id)item{
     
 }
 
-- (id)selectedItem{
-    if ([DSValueUtil isNotAvailable:self.items]) return nil;
-    return [self.items objectAtIndex:selectedIndex];
+
+#pragma mark - components
+
+- (Class)collectionViewCellCls{
+    return nil;
 }
 
-- (void)selectIndexWithoutDispatchingDidSelect:(NSInteger)targetIndex{
-    if (selectedIndex == targetIndex) return;
-    
-    UICollectionViewCell *selectedCell = [collectionV cellForItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
-    UICollectionViewCell *targetCell = [collectionV cellForItemAtIndexPath:[NSIndexPath indexPathForRow:targetIndex inSection:0]];
-    [selectedCell setSelected:NO];
-    [targetCell setSelected:YES];
-    
-    selectedIndex = targetIndex;
-    
-    [self scrollToIndex:targetIndex animated:YES];
+- (Class)collectionViewLayoutCls{
+    return [AGCollectionViewLayoutHorizontalUnits class];
 }
 
-#pragma mark - 
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self assembleCollectionView];
+- (UICollectionViewLayout *)collectionViewLayout{
+    if (!_collectionViewLayout ) {
+        CGFloat w = [DSDeviceUtil bounds].size.width / 3;
+        CGFloat h = self.height;
+        CGSize size = CGSizeMake(w, h);
+        Class cls = [self collectionViewLayoutCls];
+        _collectionViewLayout = [[cls alloc] initWithCellSize:size];
     }
-    return self;
+    return _collectionViewLayout;
 }
+
+- (UICollectionView *)collectionView{
+    if (!_collectionView) {
+        Class cls = self.collectionViewCellCls;
+        UICollectionViewLayout *layout = self.collectionViewLayout;
+        CGFloat w = [DSDeviceUtil bounds].size.width;
+        CGFloat h = self.height;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, w, h) collectionViewLayout:layout];
+        [_collectionView setDelegate:self];
+        [_collectionView setDataSource:self];
+        [_collectionView registerClass:cls forCellWithReuseIdentifier:NSStringFromClass(cls)];
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        
+        
+        
+        [_collectionView setPagingEnabled:YES];
+        [_collectionView setShowsHorizontalScrollIndicator:NO];
+        [_collectionView setDelegate:self];
+        [_collectionView setAllowsSelection:YES];
+        [_collectionView setAllowsMultipleSelection:NO];
+    }
+    return _collectionView;
+}
+
+#pragma mark - properties
+
+- (id)selectedItem{
+    if (!self.items) return nil;
+    return [self.items objectAtIndex:self.selectedIndex];
+}
+
+
+#pragma mark - styles
 
 - (void)applySelectedStyle{
     
@@ -68,58 +141,6 @@
 - (void)applyUnselectedStyle{
     
 }
-
-- (void)assembleCollectionView{
-    if ([DSValueUtil isNotAvailable:collectionV]) {
-        Class cls = self.collectionViewCellCls;
-        UICollectionViewLayout *layout = self.collectionViewLayout;
-        collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, [self.class height]) collectionViewLayout:layout];
-        [collectionV setDelegate:self];
-        [collectionV setDataSource:self];
-        [collectionV registerClass:cls forCellWithReuseIdentifier:NSStringFromClass(cls)];
-        [collectionV setBackgroundColor:[UIColor clearColor]];
-        [self.contentView addSubview:collectionV];
-        
-    
-        [collectionV setPagingEnabled:YES];
-        [collectionV setShowsHorizontalScrollIndicator:NO];
-        [collectionV setDelegate:self];
-        [collectionV setAllowsSelection:YES];
-        [collectionV setAllowsMultipleSelection:NO];}
-    
-}
-
-#pragma mark - properties
-
-- (Class)collectionViewCellCls{
-    return nil;
-}
-
-- (UICollectionView *)collectionView{
-    return collectionV;
-}
-
-- (UICollectionViewLayout *)collectionViewLayout{
-    if ([DSValueUtil isNotAvailable:collectionViewLayout] ) {
-        CGSize size = CGSizeMake([DSDeviceUtil bounds].size.width / 3, 44.0);
-        collectionViewLayout = [[AGCollectionViewLayoutHorizontalUnits alloc] initWithCellSize:size];
-    }
-    return collectionViewLayout;
-}
-
-
-
-
-
-#pragma mark - value ops
-
-- (void)setItems:(NSArray *)items{
-    if (![items isKindOfClass:[NSArray class]]) return;
-    _items = items;
-    [self.collectionView reloadData];
-}
-
-
 
 #pragma mark - UICollectionViewDelegate & DataSource
 
@@ -131,7 +152,7 @@
     [cell setValue:[self.items objectAtIndex:index]];
     
 //    TLOG(@"index -> %d selectedIndex -> %d", index, selectedIndex);
-    if (index == selectedIndex ) {
+    if (index == self.selectedIndex ) {
         [cell setSelected:YES];
     }else{
         [cell setSelected:NO];
@@ -140,16 +161,8 @@
     return cell;
 }
 
-- (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated{
-    @try {
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    }@catch (NSException *exception) {
-//        TLOG(@"exception -> %@", exception);
-    }
-}
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return SectionCount;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -157,7 +170,7 @@
 }
 
 - (NSInteger)numberOfItems{
-    return [DSValueUtil isAvailable:self.items]?self.items.count:0;
+    return self.items?self.items.count:0;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -170,19 +183,19 @@
 
     NSInteger targetIdx = indexPath.row;
     
-    if ( targetIdx != selectedIndex) {
+    if ( targetIdx != self.selectedIndex) {
         
         //unhighlight selected cell
         @try {
-            UICollectionViewCell *selectedCell = [collectionV cellForItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+            UICollectionViewCell *selectedCell = [collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:SectionDefault]];
             [selectedCell setSelected:NO];
         }@catch (NSException *exception) {}
         
         
-        if(selectedIndex != targetIdx){
-            selectedIndex = targetIdx;
+        if(self.selectedIndex != targetIdx){
+            self.selectedIndex = targetIdx;
             
-            if ([DSValueUtil isAvailable:self.selectedItem]){
+            if (self.selectedItem){
                 [self didSelectItem:self.selectedItem];
             }
         }

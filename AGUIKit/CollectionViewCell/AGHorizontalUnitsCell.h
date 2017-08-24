@@ -9,20 +9,18 @@
 #import "AGCell.h"
 
 @interface AGHorizontalUnitsCell : AGCell{
-    UICollectionView *collectionV;
-    NSInteger selectedIndex;
-//    NSArray *items;
+
 }
 
-//- (void)setUnits:(NSArray *)units;
-
 - (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated;
-- (NSInteger)selectedIndex;
-- (void)selectIndexWithoutDispatchingDidSelect:(NSInteger)targetIndex;
+
 - (Class)collectionViewCellCls;
+- (Class)collectionViewLayoutCls;
 - (UICollectionView *)collectionView;
 - (UICollectionViewLayout *)collectionViewLayout;
 
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 @end

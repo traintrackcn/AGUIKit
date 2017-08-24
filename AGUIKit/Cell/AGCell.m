@@ -77,11 +77,6 @@
 
 #pragma mark - properties
 
-- (id)ws{
-    _ws = self;
-    return _ws;
-}
-
 - (AGRemoter *)remoter{
     if (!_remoter) {
         _remoter = [AGRemoter instanceWithDelegate:self];
@@ -89,12 +84,12 @@
     return _remoter;
 }
 
-- (UITableView *)tableView{
-    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
-        return [(AGViewController *)self.associatedViewController tableView];
-    }
-    return nil;
-}
+//- (UITableView *)tableView{
+//    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
+//        return [(AGViewController *)self.associatedViewController tableView];
+//    }
+//    return nil;
+//}
 
 - (void)endEditingForAssociatedView{
     [[(AGViewController *)self.associatedViewController view] endEditing:YES];
@@ -108,6 +103,10 @@
 
 - (void)_setValue:(id)value{
     _value = value;
+}
+
+- (void)_setTitle:(id)title{
+    _title = title;
 }
 
 - (void)setValue:(id)value{
@@ -160,17 +159,11 @@
     [self addGestureRecognizer:self.tapGestureRecognizer];
 }
 
-
-- (UITapGestureRecognizer *)tapGestureRecognizer{
-//    TLOG(@"_tapGestureRecognizer -> %@", _tapGestureRecognizer);
-    if (!_tapGestureRecognizer) {
-        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell)];
-    }
-//    TLOG(@"_tapGestureRecognizer -> %@", _tapGestureRecognizer);
-    return _tapGestureRecognizer;
-}
-
 #pragma mark - interactive actions
+
+- (void)didTapAny:(id)sender{
+    [self didTapCell];
+}
 
 - (void)didTapCell{
 //    [self dispatchRequestSetCurrentIndexPath];
@@ -181,27 +174,6 @@
     AGViewController *vc = self.associatedViewController;
     [vc.view endEditing:YES];
 }
-
-#pragma mark - view controller actions
-
-- (void)pushViewController:(UIViewController *)viewController fromNaviC:(UINavigationController *)naviC{
-    AGViewController *vc = self.associatedViewController;
-//    TLOG(@"vc -> %@", vc);
-    [vc.view endEditing:YES];
-    [naviC pushViewController:viewController animated:YES];
-}
-
-- (void)pushViewController:(UIViewController *)viewController{
-    UINavigationController *naviC = [[self associatedViewController] defaultNavigationController ];
-//    TLOG(@"naviC -> %@", naviC);
-    if (naviC){
-        [self pushViewController:viewController fromNaviC:naviC];
-    }else{
-        [self pushViewController:viewController fromNaviC:[AGUIDefine singleton].rootViewController];
-    }
-    
-}
-
 
 #pragma mark - utils
 
@@ -233,130 +205,6 @@
     
 }
 
-
-#pragma mark - style block components for decorating
-
-- (UIView *)backgroundViewStyleBlock{
-    if (!_backgroundViewStyleBlock) {
-        CGFloat x = self.paddingLR;
-        CGFloat y = 0;
-        CGFloat w = [DSDeviceUtil bounds].size.width - self.paddingLR*2;
-        CGFloat h = self.height;
-        _backgroundViewStyleBlock = [[UIView alloc] init];
-        [_backgroundViewStyleBlock setFrame:CGRectMake(x, y, w, h)];
-    }
-    return _backgroundViewStyleBlock;
-}
-
-- (UIView *)borderTopViewStyleBlock{
-    if (!_borderTopViewStyleBlock) {
-        CGFloat x = self.paddingLR;
-        CGFloat w = [DSDeviceUtil bounds].size.width-x*2;
-        _borderTopViewStyleBlock = [[UIView alloc] initWithFrame:CGRectMake(x, -1, w, 1)];
-        [_borderTopViewStyleBlock setBackgroundColor:self.borderColor];
-    }
-    return _borderTopViewStyleBlock;
-}
-
-
-
-- (UIView *)borderBottomViewStyleBlock{
-    
-    if (!_borderBottomViewStyleBlock) {
-        CGFloat x = self.paddingLR;
-        CGFloat w = [DSDeviceUtil bounds].size.width-x*2;
-        _borderBottomViewStyleBlock = [[UIView alloc] initWithFrame:CGRectMake(x, [self.class height] - 1, w, 1)];
-        [_borderBottomViewStyleBlock setBackgroundColor:self.borderColor];
-    }
-    
-    return _borderBottomViewStyleBlock;
-}
-
-- (UIView *)borderLeftViewStyleBlock{
-    if (!_borderLeftViewStyleBlock) {
-        CGFloat x= self.paddingLR;
-        _borderLeftViewStyleBlock = [[UIView alloc] initWithFrame:CGRectMake(x, 0, self.borderWidth, [self.class height])];
-        [_borderLeftViewStyleBlock setBackgroundColor:self.borderColor];
-//        [AGDebugUtil makeBorderForView:_borderLeftViewStyleBlock];
-    }
-    
-    return _borderLeftViewStyleBlock;
-}
-
-- (UIView *)borderRightViewStyleBlock{
-    if (!_borderRightViewStyleBlock) {
-        CGFloat x = [DSDeviceUtil bounds].size.width-self.paddingLR-self.borderWidth;
-        _borderRightViewStyleBlock = [[UIView alloc] initWithFrame:CGRectMake(x, 0, self.borderWidth, [self.class height])];
-        [_borderRightViewStyleBlock setBackgroundColor:self.borderColor];
-        
-    }
-    
-    return _borderRightViewStyleBlock;
-}
-
-
-//solid
-
-- (UIView *)borderTopViewStyleSolid{
-    if (!_borderTopViewStyleSolid) {
-        _borderTopViewStyleSolid = [self borderViewInstance];
-        CGRect frame = CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, self.borderWidth);
-        [_borderTopViewStyleSolid setFrame:frame];
-    }
-    return _borderTopViewStyleSolid;
-}
-
-- (UIView *)borderBottomViewStyleSolid{
-    
-    if (!_borderBottomViewStyleSolid) {
-        _borderBottomViewStyleSolid = [self borderViewInstance];
-        [self layoutBorderBottomViewStyleSolid];
-    }
-    
-    return _borderBottomViewStyleSolid;
-}
-
-- (void)layoutBorderBottomViewStyleSolid{
-    CGRect frame = CGRectMake(0, self.height - self.borderWidth, [DSDeviceUtil bounds].size.width, self.borderWidth);
-    [_borderBottomViewStyleSolid setFrame:frame];
-}
-
-
-//- (UIView *)borderBottomViewStylePaddingLR{
-//    if (!_borderBottomViewStylePaddingLR) {
-//        _borderBottomViewStylePaddingLR = [self borderViewInstance];
-//        CGFloat y = self.height - self.borderWidth;
-//        CGFloat x = self.paddingLR;
-//        CGFloat w = [DSDeviceUtil bounds].size.width - x*2;
-//        CGFloat h = self.borderWidth;
-//        CGRect frame = CGRectMake(x, y, w, h);
-//        [_borderBottomViewStylePaddingLR setFrame:frame];
-//    }
-//
-//    return _borderBottomViewStylePaddingLR;
-//}
-
-- (UIView *)borderBottomViewStylePaddingL{
-    if (!_borderBottomViewStylePaddingL) {
-        _borderBottomViewStylePaddingL = [self borderViewInstance];
-        CGFloat y = self.height - self.borderWidth;
-        CGFloat x = self.paddingLR;
-        CGFloat w = [DSDeviceUtil bounds].size.width - x;
-        CGFloat h = self.borderWidth;
-        CGRect frame = CGRectMake(x, y, w, h);
-        [_borderBottomViewStylePaddingL setFrame:frame];
-    }
-    
-    return _borderBottomViewStylePaddingL;
-}
-
-
-- (UIView *)borderViewInstance{
-    UIView *borderView = [[UIView alloc] init];
-    [borderView setBackgroundColor:self.borderColor];
-    return borderView;
-}
-
 #pragma mark - styles
 
 - (void)setHeight:(CGFloat)height{
@@ -385,21 +233,19 @@
 }
 
 
-- (CGFloat)paddingLR{
-    return 8.0;
-}
 
-- (CGFloat)paddingTB{
-    return 6.0;
-}
 
-- (CGFloat)borderWidth{
-    return .5f;
-}
 
-- (UIColor *)borderColor{
-    return COLOR(AG_UI_DEFINE.RGB_BORDER);
-}
+
+
+
+//- (CGFloat)borderWidth{
+//    return .5f;
+//}
+//
+//- (UIColor *)borderColor{
+//    return COLOR(AG_UI_DEFINE.RGB_BORDER);
+//}
 
 
 - (void)applySelectedStyle{

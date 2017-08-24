@@ -29,8 +29,8 @@
         
         [self assembleTitleView];
         [self assembleContentLabel];
-        [self assembleGC];
-        
+        [self.contentView addGestureRecognizer:self.tapGestureRecognizer];
+
         [self.contentView addSubview:self.borderBottomViewStylePaddingL];
     }
     return self;

@@ -43,6 +43,11 @@
     return [[self singleton] textForKey:key roleCode:roleCode];
 }
 
++ (NSString *)textWithStarForKey:(NSString *)key roleCode:(NSString *)roleCode{
+    NSString *text = [[self singleton] textForKey:key roleCode:roleCode];
+    return [NSString stringWithFormat:@"%@ *", text];
+}
+
 + (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode{
     return [[self singleton] isAvailableTextKey:key roleCode:roleCode];
 }

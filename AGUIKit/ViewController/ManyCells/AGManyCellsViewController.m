@@ -13,7 +13,6 @@
 #import "AGRemoteUnit.h"
 #import "AGVCConfiguration.h"
 #import "DSValueUtil.h"
-#import "AGAssembler.h"
 #import "GlobalDefine.h"
 
 @interface AGManyCellsViewController ()
@@ -153,15 +152,25 @@
         value = @"All are loaded .";
     }else{
         value = @"Loading More ...";
-        [self requestItems];
+//        [self requestItems];
     }
     return value;
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-    if ([self isSectionItem:section]) return [DSValueUtil isAvailable:items]?items.count:0;
+    if ([self isSectionItem:section]) return items?items.count:0;
     if ([self isSectionItemExtra:section]) return 1;
     return 0;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    TLOG(@"indexPath -> %@", indexPath);
+    NSInteger section = indexPath.section;
+    if (section == self.SectionItemExtra){
+        if ([meta next]) {
+            [self requestItems];
+        }
+    }
 }
 
 #pragma mark - paging ops

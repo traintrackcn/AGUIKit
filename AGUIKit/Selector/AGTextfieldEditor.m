@@ -10,7 +10,6 @@
 #import "AGButtonCell.h"
 #import "AGTextfieldCellStyleNoTitle.h"
 #import "AGButtonItem.h"
-#import "AGHeaderCell.h"
 #import "AGVCConfiguration.h"
 
 enum{
@@ -39,8 +38,6 @@ enum{
 - (id)init{
     self = [super init];
     if (self) {
-    
-//        [self.config setCellCls:[AGHeaderCell class] inSection:SectionHeader];
         [self.config setCellCls:[AGTextfieldCellStyleNoTitle class] inSection:SectionTextfield];
         [self.config setCellCls:[AGButtonCell class] inSection:SectionButton];
         

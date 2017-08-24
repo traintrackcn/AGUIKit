@@ -29,7 +29,7 @@
 - (void)didSelect:(NSInteger)index;
 
 - (id)headerValue;
-//- (Class)headerClass;
+- (id)headerCls;
 
 - (AGVCConfiguration *)config;
 - (NSInteger)section;

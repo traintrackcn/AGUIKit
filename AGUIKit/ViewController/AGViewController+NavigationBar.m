@@ -6,29 +6,56 @@
 //  Copyright © 2015 AboveGEM. All rights reserved.
 //
 
-#import "AGViewController+NavigationBarButtonUtils.h"
+#import "AGViewController+NavigationBar.h"
 #import "GlobalDefine.h"
 #import "AGTextCoordinator.h"
 #import "AGUITextKeyDefine.h"
+#import "DSImage.h"
 //#import "AGObjectPool.h"
 
 
 
-@implementation AGViewController (NavigationBarButtonUtils)
+@implementation AGViewController (NavigationBar)
 
 #pragma mark -
 
-- (void)hidesBackButtonTitle{
+- (void)hideNextVCBackButtonTitle{
     UIBarButtonItem *barBtnItem = [[UIBarButtonItem alloc]init];
     [barBtnItem setTitle:@""];
     self.navigationItem.backBarButtonItem = barBtnItem;
 }
 
-- (void)hidesNavigationBarBackground{
+- (void)hideNavigationBarBackground{
     UINavigationBar *naviBar = self.navigationController.navigationBar;
     [naviBar setBackgroundImage:[UIImage new]
                   forBarMetrics:UIBarMetricsDefault];
+//    [self hideNavigationBarBorder];
+}
+
+- (void)hideNavigationBarBorder{
+    UINavigationBar *naviBar = self.navigationController.navigationBar;
     [naviBar setShadowImage:[UIImage new]];
+}
+
+- (void)hideNavigationBarBackgroundAndBorder{
+    [self hideNavigationBarBackground];
+    [self hideNavigationBarBorder];
+}
+
+- (void)setNavigationBarBorderColor:(UIColor *)borderColor{
+    UIImage *img = [DSImage rectangleWithSize:CGSizeMake(1, 1) fillColor:borderColor];
+    UINavigationBar *naviBar = self.navigationController.navigationBar;
+    [naviBar setShadowImage:img];
+}
+
+- (void)setNextVCBackButtonWithImageNamed:(NSString *)imageName maskColor:(UIColor *)maskColor{
+    
+    UIImage *img = [UIImage imageNamed:imageName];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:img];
+    [self.navigationController.navigationBar setBackIndicatorImage:img];
+    [self.navigationController.navigationBar setTintColor:maskColor];
+    
+    [self hideNextVCBackButtonTitle];
 }
 
 #pragma mark - interactive ops
@@ -73,6 +100,10 @@
     
 }
 
+- (void)didTapInvite:(id)sender{
+
+}
+
 #pragma mark - components
 
 
@@ -95,6 +126,18 @@
     
     if (!item) {
         item = [[UIBarButtonItem alloc] initWithTitle:TEXT(KEY_BTN_UPLOAD) style:UIBarButtonItemStylePlain target:self action:@selector(didTapUpload:)];
+        [self.objPool setObject:item forKey:key];
+    }
+    return item;
+}
+
+- (UIBarButtonItem *)inviteBarButtonItem{
+    NSString *key = CURRENT_FUNCTION_NAME;
+    
+    UIBarButtonItem *item = [self.objPool objectForKey:key];
+    
+    if (!item) {
+        item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInvite"] landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(didTapInvite:)];
         [self.objPool setObject:item forKey:key];
     }
     return item;

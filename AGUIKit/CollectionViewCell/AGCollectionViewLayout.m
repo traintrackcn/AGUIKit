@@ -10,4 +10,20 @@
 
 @implementation AGCollectionViewLayout
 
+- (id)initWithCellSize:(CGSize)size{
+    self = [super init];
+    if (self){
+    }
+    return self;
+}
+
+#pragma mark - properties
+
+- (NSMutableDictionary *)cellAttributes{
+    if (!_cellAttributes){
+        _cellAttributes = [NSMutableDictionary dictionary];
+    }
+    return _cellAttributes;
+}
+
 @end
