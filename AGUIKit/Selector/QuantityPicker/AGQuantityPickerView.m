@@ -79,17 +79,18 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 
 - (void)setValue:(NSInteger)value{
     [self.quantityL setText:[NSString stringWithFormat:@"%ld",(long)value]];
-    [self refreshView];
+    [self dispatchDidChangeValue:value];
+    [self refreshButtons];
 }
 
 - (void)setMaxValue:(NSInteger)maxValue{
     _maxValue = maxValue;
-    [self refreshView];
+    [self refreshButtons];
 }
 
 - (void)setMinValue:(NSInteger)minValue{
     _minValue = minValue;
-    [self refreshView];
+    [self refreshButtons];
 }
 
 
@@ -102,14 +103,13 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     NSInteger valueNew = valueOld+1;
     if (valueNew > self.maxValue) valueNew = self.maxValue;
     
-    //    TLOG(@"value -> %d valueNew -> %d valueMax -> %d", valueOld, valueNew, self.maxValue);
+//        TLOG(@"value -> %@ valueNew -> %@ valueMax -> %@", valueOld, valueNew, self.maxValue);
     
     if (valueNew != self.value) {
         [self dispatchWillChangeValue:valueNew];
     }
     
     [self setValue:valueNew];
-    [self refreshView];
     
 }
 
@@ -122,10 +122,9 @@ static const NSInteger AG_MIN_QUANTITY = 0;
         [self dispatchWillChangeValue:valueNew];
     }
     [self setValue:valueNew];
-    [self refreshView];
 }
 
-- (void)refreshView{
+- (void)refreshButtons{
     
     [self.minusV setEnabled:YES];
     [self.plusV setEnabled:YES];
@@ -183,8 +182,8 @@ static const NSInteger AG_MIN_QUANTITY = 0;
         [_quantityL setTextAlignment:NSTextAlignmentCenter];
         [_quantityL setFrame:CGRectMake(self.componentSize.width, 0, w, self.componentSize.height)];
         [_quantityL setFont:FONT_WITH_SIZE(16)];
-        _quantityL.layer.borderWidth = 1;
-        _quantityL.layer.borderColor = self.borderColor.CGColor;
+//        _quantityL.layer.borderWidth = 1;
+//        _quantityL.layer.borderColor = self.borderColor.CGColor;
     }
     return _quantityL;
 }
@@ -200,10 +199,11 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 }
 
 - (UIButton *)buttonViewWithTitle:(NSString *)title{
-    UIButton *btn = [[UIButton alloc] init];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setUserInteractionEnabled:NO];
+    
     return btn;
 }
 
@@ -243,15 +243,12 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 
 - (void)dispatchWillChangeValue:(NSInteger)value{
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewWillChangeValue:)]) {
-        if ([_delegate quantityPickerViewWillChangeValue:value]) {
-            [self dispatchDidChangeValue:value];
-        }
+        [_delegate quantityPickerViewWillChangeValue:value];
     }
 }
 
 - (void)dispatchDidChangeValue:(NSInteger)value{
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewDidChangeValue:)]) {
-        [self setValue:value];
         [_delegate quantityPickerViewDidChangeValue:value];
     }
 }
