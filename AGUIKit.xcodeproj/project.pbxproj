@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A22B4781F5026B600E7AFC7 /* LITInteractivePanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A22B4771F5026B600E7AFC7 /* LITInteractivePanelView.m */; };
+		4A22B4791F502ABC00E7AFC7 /* LITInteractivePanelView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A22B4761F5026B600E7AFC7 /* LITInteractivePanelView.h */; };
 		4A2D30A21F2196BE00A93351 /* DAActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D30A11F2196BE00A93351 /* DAActivityViewController.m */; };
 		4A2D30A31F2196CB00A93351 /* DAActivityViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A2D30A01F2196BE00A93351 /* DAActivityViewController.h */; };
 		4A6107171CCA2418002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
@@ -278,6 +280,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A22B4791F502ABC00E7AFC7 /* LITInteractivePanelView.h in CopyFiles */,
 				4A8EA8791F4ED479001E3853 /* UIView+HeaderAndCell.h in CopyFiles */,
 				4A8EA8301F4DB5FB001E3853 /* AGManyCellsViewController.h in CopyFiles */,
 				4A8EA8311F4DB5FB001E3853 /* AGMeta.h in CopyFiles */,
@@ -412,6 +415,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A22B4761F5026B600E7AFC7 /* LITInteractivePanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITInteractivePanelView.h; sourceTree = "<group>"; };
+		4A22B4771F5026B600E7AFC7 /* LITInteractivePanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITInteractivePanelView.m; sourceTree = "<group>"; };
 		4A2D30A01F2196BE00A93351 /* DAActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAActivityViewController.h; sourceTree = "<group>"; };
 		4A2D30A11F2196BE00A93351 /* DAActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAActivityViewController.m; sourceTree = "<group>"; };
 		4A6107151CCA2418002C2245 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
@@ -984,6 +989,8 @@
 				4A8E89A01B687D2000F48CDD /* AGQuantityPickerView.m */,
 				4A8E89A11B687D2000F48CDD /* AGQuantitySelector.h */,
 				4A8E89A21B687D2000F48CDD /* AGQuantitySelector.m */,
+				4A22B4761F5026B600E7AFC7 /* LITInteractivePanelView.h */,
+				4A22B4771F5026B600E7AFC7 /* LITInteractivePanelView.m */,
 			);
 			path = QuantityPicker;
 			sourceTree = "<group>";
@@ -1438,6 +1445,7 @@
 				4A8E89511B686E9100F48CDD /* AGAttributedStringCell.m in Sources */,
 				4A8E89821B686E9100F48CDD /* AGCollectionViewCellViewController.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
+				4A22B4781F5026B600E7AFC7 /* LITInteractivePanelView.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
 				4ADE77001E293E1D00AFBCBF /* XYPieChart.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,

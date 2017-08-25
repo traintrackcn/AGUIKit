@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AGRemoter.h"
 #import "UIView+HeaderAndCell.h"
+#import "GlobalDefine.h"
 
 @class AGVCConfiguration;
 @class AGObjectPool;
@@ -35,9 +36,9 @@
 
 
 #pragma mark - interactive ops
-- (void)assembleGC __attribute((deprecated(("Use [self.contentView addGestureRecognizer:self.tapGestureRecognizer] instead"))));
-- (void)activateSelector __attribute__((deprecated(("Use [self didTapAny:] instead"))));
-- (void)didTapCell __attribute__((deprecated(("Use [self didTapAny:] instead"))));
+- (void)assembleGC DEPRECATED_WITH_MSG("Use [self.contentView addGestureRecognizer:self.tapGestureRecognizer] instead");
+- (void)activateSelector DEPRECATED_WITH_MSG("Use [self didTapAny:] instead");
+- (void)didTapCell DEPRECATED_WITH_MSG("Use [self didTapAny:] instead");
 
 
 

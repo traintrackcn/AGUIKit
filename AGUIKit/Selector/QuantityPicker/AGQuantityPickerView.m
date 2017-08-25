@@ -10,19 +10,21 @@
 #import "DSValueUtil.h"
 #import "AGUIDefine.h"
 #import "GlobalDefine.h"
-
+#import "LITInteractivePanelView.h"
 
 static const NSInteger AG_MAX_QUANTITY = 99;
 static const NSInteger AG_MIN_QUANTITY = 0;
 
-@interface AGQuantityPickerView(){
+@interface AGQuantityPickerView()<LITInteractivePanelViewDelegate>{
     
 }
 
 @property (nonatomic, assign) CGSize componentSize;
-@property (nonatomic, strong) UIButton *plusButton;
-@property (nonatomic, strong) UIButton *minusButton;
-@property (nonatomic, strong) UILabel *quantityLabel;
+@property (nonatomic, strong) UIButton *plusV;
+@property (nonatomic, strong) UIButton *minusV;
+@property (nonatomic, strong) UILabel *quantityL;
+@property (nonatomic, strong) LITInteractivePanelView *interactiveV;
+
 
 @end
 
@@ -57,155 +59,61 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self assemble];
+        [self addSubview:self.plusV];
+        [self addSubview:self.minusV];
+        [self addSubview:self.quantityL];
+        [self addSubview:self.interactiveV];
         
         [self.layer setBorderWidth:1];
         [self.layer setCornerRadius:4.0];
         [self.layer setBorderColor:self.borderColor.CGColor];
+        
+//        self.interactiveV.layer.borderWidth = 1;
+//        [self.interactiveV setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:.5]];
+
     }
     return self;
 }
 
-#pragma mark - assemblers
-
-- (void)assemble{
-    [self addSubview:self.plusButton];
-    [self addSubview:self.minusButton];
-    [self addSubview:self.quantityLabel];
-}
-
-- (UIButton *)assembleButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action{
-    UIButton *btn = [[UIButton alloc] init];
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-//    [AGDebugUtil makeBorderForView:btn];
-    return btn;
-}
-
-#pragma mark - properties
-
-- (CGSize)componentSize{
-    if (CGSizeEqualToSize(_componentSize, CGSizeZero)) {
-        _componentSize = CGSizeMake(self.frame.size.width/3.0, self.frame.size.height);
-    }
-    return _componentSize;
-}
-
-- (UIButton *)plusButton{
-    if (!_plusButton) {
-        _plusButton = [self assembleButtonWithTitle:@"+" target:self action:@selector(didTapPlusButton:)];
-        [_plusButton setFrame:CGRectMake(self.componentSize.width*2, 0, self.componentSize.width, self.componentSize.height)];
-        [self decorateButton:_plusButton];
-        
-//        [_plusButton setTitleColor:self.borderColor forState:UIControlStateDisabled];
-//        [_plusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    return _plusButton;
-}
-
-- (UIButton *)minusButton{
-    if ([DSValueUtil isNotAvailable:_minusButton]) {
-        _minusButton = [self assembleButtonWithTitle:@"-" target:self action:@selector(didTapMinusButton:)];
-        [_minusButton setFrame:CGRectMake(0, 0, self.componentSize.width, self.componentSize.height)];
-//        [_minusButton setTitleColor:self.borderColor forState:UIControlStateDisabled];
-        
-        [self decorateButton:_minusButton];
-    }
-    return _minusButton;
-}
-
-- (void)decorateButton:(UIButton *)btn{
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn setTitleColor:self.borderColor forState:UIControlStateDisabled];
-}
-
-- (UILabel *)quantityLabel{
-    if ([DSValueUtil isNotAvailable:_quantityLabel]) {
-        _quantityLabel = [[UILabel alloc] init];
-        [_quantityLabel setTextAlignment:NSTextAlignmentCenter];
-        [_quantityLabel setFrame:CGRectMake(self.componentSize.width, 0, self.componentSize.width, self.componentSize.height)];
-        [_quantityLabel setFont:FONT_WITH_SIZE(16)];
-        _quantityLabel.layer.borderWidth = 1;
-        _quantityLabel.layer.borderColor = self.borderColor.CGColor;
-    }
-    return _quantityLabel;
-}
-
-- (NSInteger)value{
-    return [DSValueUtil toInteger:_quantityLabel.text];
-}
+#pragma mark - setters
 
 - (void)setValue:(NSInteger)value{
-    [_quantityLabel setText:[NSString stringWithFormat:@"%ld",(long)value]];
-    [self updateButtonStatus];
+    [self.quantityL setText:[NSString stringWithFormat:@"%ld",(long)value]];
+    [self refreshView];
 }
-
-#pragma mark - 
 
 - (void)setMaxValue:(NSInteger)maxValue{
     _maxValue = maxValue;
-    [self updateButtonStatus];
+    [self refreshView];
 }
 
 - (void)setMinValue:(NSInteger)minValue{
     _minValue = minValue;
-    [self updateButtonStatus];
+    [self refreshView];
 }
 
-#pragma mark -
 
-- (void)updateButtonStatus{
-    
-    [self.minusButton setEnabled:YES];
-    [self.plusButton setEnabled:YES];
-    
-    
-//    TLOG(@"maxValue -> %d minValue -> %d value -> %d", self.maxValue, self.minValue, self.value);
-    
-    if (self.maxValue == self.minValue) {
-        [self.minusButton setEnabled:NO];
-        [self.plusButton setEnabled:NO];
-        return;
-    }
-    
-    if (self.value == self.maxValue) {
-        [self.plusButton setEnabled:NO];
-        return;
-    }
-    
-    if (self.value == self.minValue) {
-        [self.minusButton setEnabled:NO];
-        return;
-    }
-}
+#pragma mark - main ops
 
-#pragma mark - styles
 
-- (UIColor *)borderColor{
-    return RGBA(214, 214, 214, 1);
-}
-
-#pragma mark - interactive actions
-
-- (void)didTapPlusButton:(id)sender{
-//    TLOG(@"");
+- (void)plus{
+    //    TLOG(@"");
     NSInteger valueOld = self.value;
     NSInteger valueNew = valueOld+1;
     if (valueNew > self.maxValue) valueNew = self.maxValue;
     
-//    TLOG(@"value -> %d valueNew -> %d valueMax -> %d", valueOld, valueNew, self.maxValue);
+    //    TLOG(@"value -> %d valueNew -> %d valueMax -> %d", valueOld, valueNew, self.maxValue);
     
     if (valueNew != self.value) {
         [self dispatchWillChangeValue:valueNew];
     }
     
     [self setValue:valueNew];
-    [self updateButtonStatus];
+    [self refreshView];
     
 }
 
-- (void)didTapMinusButton:(id)sender{
+- (void)minus{
     NSInteger valueOld = self.value;
     NSInteger valueNew = valueOld-1;
     if (valueNew < self.minValue) valueNew = self.minValue;
@@ -214,10 +122,123 @@ static const NSInteger AG_MIN_QUANTITY = 0;
         [self dispatchWillChangeValue:valueNew];
     }
     [self setValue:valueNew];
-    [self updateButtonStatus];
+    [self refreshView];
 }
 
-#pragma mark - 
+- (void)refreshView{
+    
+    [self.minusV setEnabled:YES];
+    [self.plusV setEnabled:YES];
+    
+//    TLOG(@"maxValue -> %d minValue -> %d value -> %d", self.maxValue, self.minValue, self.value);
+    
+    if (self.maxValue == self.minValue) {
+        [self.minusV setEnabled:NO];
+        [self.plusV setEnabled:NO];
+        return;
+    }
+    
+    if (self.value == self.maxValue) {
+        [self.plusV setEnabled:NO];
+        return;
+    }
+    
+    if (self.value == self.minValue) {
+        [self.minusV setEnabled:NO];
+        return;
+    }
+}
+
+#pragma mark - components
+
+- (UIButton *)plusV{
+    if (!_plusV) {
+        _plusV = [self buttonViewWithTitle:@"+"];
+        CGFloat x = self.frame.size.width - self.componentSize.width;
+        CGFloat w = self.componentSize.width;
+        CGFloat h = w;
+        [_plusV setFrame:CGRectMake(x, 0, w, h)];
+        [_plusV setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_plusV setTitleColor:self.borderColor forState:UIControlStateDisabled];
+    }
+    return _plusV;
+}
+
+- (UIButton *)minusV{
+    if (!_minusV) {
+        CGFloat w = self.componentSize.width;
+        CGFloat h = self.componentSize.height;
+        _minusV = [self buttonViewWithTitle:@"-"];
+        [_minusV setFrame:CGRectMake(0, 0, w, h)];
+        [_minusV setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_minusV setTitleColor:self.borderColor forState:UIControlStateDisabled];
+    }
+    return _minusV;
+}
+
+- (UILabel *)quantityL{
+    if (!_quantityL) {
+        CGFloat w = self.frame.size.width - self.componentSize.width*2;
+        _quantityL = [[UILabel alloc] init];
+        [_quantityL setTextAlignment:NSTextAlignmentCenter];
+        [_quantityL setFrame:CGRectMake(self.componentSize.width, 0, w, self.componentSize.height)];
+        [_quantityL setFont:FONT_WITH_SIZE(16)];
+        _quantityL.layer.borderWidth = 1;
+        _quantityL.layer.borderColor = self.borderColor.CGColor;
+    }
+    return _quantityL;
+}
+
+- (LITInteractivePanelView *)interactiveV{
+    if (!_interactiveV){
+        CGFloat w = self.frame.size.width;
+        CGFloat h = self.frame.size.height;
+        _interactiveV = [[LITInteractivePanelView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+        [_interactiveV setDelegate:self];
+    }
+    return _interactiveV;
+}
+
+- (UIButton *)buttonViewWithTitle:(NSString *)title{
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setUserInteractionEnabled:NO];
+    return btn;
+}
+
+#pragma mark - properties
+
+- (NSInteger)value{
+    return [DSValueUtil toInteger:self.quantityL.text];
+}
+
+#pragma mark - styles
+
+- (UIColor *)borderColor{
+    return RGBA(214, 214, 214, 1);
+}
+
+- (CGSize)componentSize{
+    if (CGSizeEqualToSize(_componentSize, CGSizeZero)) {
+        _componentSize = CGSizeMake(self.frame.size.height, self.frame.size.height);
+    }
+    return _componentSize;
+}
+
+#pragma mark - interactive panel delegate
+
+- (void)didTapRightInteractivePanel{
+//    TLOG(@"");
+    [self plus];
+}
+
+- (void)didTapLeftInteractivePanel{
+//    TLOG(@"");
+    [self minus];
+}
+
+#pragma mark - dispatchers
 
 
 - (void)dispatchWillChangeValue:(NSInteger)value{

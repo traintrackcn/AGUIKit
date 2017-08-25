@@ -377,6 +377,33 @@
     
 }
 
+- (void)reloadWithoutHeaderForSection:(NSInteger)section fromRowCount:(NSInteger)fromRowCount toRowCount:(NSInteger)toRowCount animated:(BOOL)animated{
+    
+    UITableViewRowAnimation animation = UITableViewRowAnimationFade;
+    
+    if (!animated) animation = UITableViewRowAnimationNone;
+    
+    NSMutableArray *deletedIndexPaths = [NSMutableArray array];
+    for (NSInteger i = 0; i<fromRowCount; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+        [deletedIndexPaths addObject:indexPath];
+    }
+    
+    NSMutableArray *addedIndexPaths = [NSMutableArray array];
+    for (NSInteger i = 0; i<toRowCount; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+        [addedIndexPaths addObject:indexPath];
+    }
+    
+//    TLOG(@"deletedIndexPaths -> %@ addedIndexPaths -> %@" , deletedIndexPaths, addedIndexPaths);
+    [self willReloadVisibleIndexPaths];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:deletedIndexPaths withRowAnimation:animation];
+    [self.tableView insertRowsAtIndexPaths:addedIndexPaths withRowAnimation:animation];
+    [self.tableView endUpdates];
+    [self didReloadVisibleIndexPaths];
+}
+
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated{
     
     [self willReloadVisibleIndexPaths];
@@ -513,14 +540,14 @@
     NSInteger rows = [self numberOfRowsInSection:section];
     CGFloat h = 0;
     if (rows && cls) h = [cls height];
-    TLOG(@"cls -> %@ h -> %@", cls, @(h));
+//    TLOG(@"cls -> %@ h -> %@", cls, @(h));
     return h;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    TLOG(@"");
     UIView *v = [self headerViewForSection:section];
-    TLOG(@"v -> %@", v);
+//    TLOG(@"v -> %@", v);
     return v;
 }
 
