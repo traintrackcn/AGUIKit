@@ -26,6 +26,7 @@
         CGFloat h = self.height;
         item = [[UIView alloc] init];
         [item setFrame:CGRectMake(x, y, w, h)];
+        [self.objPool setObject:item forKey:key];
     }
     return item;
 }
@@ -38,6 +39,7 @@
         CGFloat w = [DSDeviceUtil bounds].size.width-x*2;
         item = [[UIView alloc] initWithFrame:CGRectMake(x, -1, w, 1)];
         [item setBackgroundColor:self.borderColor];
+        [self.objPool setObject:item forKey:key];
     }
     return item;
 }
@@ -52,6 +54,7 @@
         CGFloat w = [DSDeviceUtil bounds].size.width-x*2;
         item = [[UIView alloc] initWithFrame:CGRectMake(x, [self.class height] - 1, w, 1)];
         [item setBackgroundColor:self.borderColor];
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
@@ -65,6 +68,7 @@
         item = [[UIView alloc] initWithFrame:CGRectMake(x, 0, self.borderWidth, [self.class height])];
         [item setBackgroundColor:self.borderColor];
         //        [AGDebugUtil makeBorderForView:_borderLeftViewStyleBlock];
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
@@ -77,7 +81,7 @@
         CGFloat x = [DSDeviceUtil bounds].size.width-self.paddingLR-self.borderWidth;
         item = [[UIView alloc] initWithFrame:CGRectMake(x, 0, self.borderWidth, [self.class height])];
         [item setBackgroundColor:self.borderColor];
-        
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
@@ -93,6 +97,7 @@
         item = [self borderViewInstance];
         CGRect frame = CGRectMake(0, 0, [DSDeviceUtil bounds].size.width, self.borderWidth);
         [item setFrame:frame];
+        [self.objPool setObject:item forKey:key];
     }
     return item;
 }
@@ -100,14 +105,24 @@
 - (UIView *)borderBottomViewStyleSolid{
     
     NSString *key = CURRENT_FUNCTION_NAME;
+    
+    
+    
     UIView *item = [self.objPool objectForKey:key];
+//    TLOG(@"idx:%@ key -> %@ item -> %@ objPool -> %@",@(self.indexPath.row), key, item, self.objPool);
     if (!item) {
-        CGRect frame = CGRectMake(0, self.height - self.borderWidth, [DSDeviceUtil bounds].size.width, self.borderWidth);
         item = [self borderViewInstance];
-        [item setFrame:frame];
+        [item setFrame:self.borderBottomFrameStyleSolid];
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
+}
+
+- (CGRect)borderBottomFrameStyleSolid{
+//    TLOG(@"self.height -> %@", @(self.height));
+    CGRect frame = CGRectMake(0, self.height - self.borderWidth, [DSDeviceUtil bounds].size.width, self.borderWidth);
+    return frame;
 }
 
 - (UIView *)borderBottomViewStylePaddingLR{
@@ -121,6 +136,7 @@
         CGFloat h = self.borderWidth;
         CGRect frame = CGRectMake(x, y, w, h);
         [item setFrame:frame];
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
@@ -131,15 +147,19 @@
     UIView *item = [self.objPool objectForKey:key];
     if (!item) {
         item = [self borderViewInstance];
-        CGFloat y = self.height - self.borderWidth;
-        CGFloat x = self.borderPaddingL;
-        CGFloat w = STYLE_DEVICE_WIDTH - x;
-        CGFloat h = self.borderWidth;
-        CGRect frame = CGRectMake(x, y, w, h);
-        [item setFrame:frame];
+        [item setFrame:self.borderBottomFrameStylePaddingL];
+        [self.objPool setObject:item forKey:key];
     }
     
     return item;
+}
+
+- (CGRect)borderBottomFrameStylePaddingL{
+    CGFloat y = self.height - self.borderWidth;
+    CGFloat x = self.borderPaddingL;
+    CGFloat w = STYLE_DEVICE_WIDTH - x;
+    CGFloat h = self.borderWidth;
+    return CGRectMake(x, y, w, h);
 }
 
 - (UIView *)borderViewInstance{
@@ -155,6 +175,7 @@
     UITapGestureRecognizer *item = [self.objPool objectForKey:key];
     if (!item) {
         item = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAny:)];
+        [self.objPool setObject:item forKey:key];
     }
     //    TLOG(@"_tapGestureRecognizer -> %@", _tapGestureRecognizer);
     return item;
@@ -193,6 +214,14 @@
 }
 
 #pragma mark - properties
+
+- (id)associatedViewController{
+    return nil;
+}
+
+- (NSIndexPath *)indexPath{
+    return nil;
+}
 
 
 - (UITableView *)tableView{

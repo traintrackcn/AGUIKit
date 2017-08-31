@@ -53,6 +53,8 @@
     return nil;
 }
 
+
+
 - (id)paramterAtIndex:(NSInteger)index{
     return nil;
 }
@@ -76,6 +78,10 @@
 }
 
 - (id)headerValue{
+    return nil;
+}
+
+- (id)headerTitle{
     return nil;
 }
 

@@ -25,8 +25,10 @@
 - (UIView *)borderRightViewStyleBlock;
 - (UIView *)borderTopViewStyleSolid;
 - (UIView *)borderBottomViewStyleSolid;
+- (CGRect)borderBottomFrameStyleSolid;
 - (UIView *)borderBottomViewStylePaddingLR;
 - (UIView *)borderBottomViewStylePaddingL;
+- (CGRect)borderBottomFrameStylePaddingL;
 
 #pragma mark - interactive ops
 - (UITapGestureRecognizer *)tapGestureRecognizer;

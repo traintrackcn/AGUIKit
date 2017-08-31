@@ -104,17 +104,6 @@
         [self willDoReload];
         [self setFlagDoReload:NO];
     }
-    
-    if (self.needsReloadIndexPath) {
-        @try {
-            [self reloadIndexPath:self.needsReloadIndexPath];
-            [self setNeedsReloadIndexPath:nil];
-        } @catch (NSException *exception) {
-            TLOG(@"exception -> %@", exception);
-        }
-        
-    }
-    
 }
 
 - (void)viewWillLayoutSubviews{
@@ -131,6 +120,16 @@
 - (void)viewDidAppear:(BOOL)animated{
 //    TLOG(@"%@", self.className);
     [super viewDidAppear:animated];
+    
+    if (self.needsReloadIndexPath) {
+        @try {
+            [self reloadIndexPath:self.needsReloadIndexPath];
+            [self setNeedsReloadIndexPath:nil];
+        } @catch (NSException *exception) {
+            TLOG(@"exception -> %@", exception);
+        }
+        
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -236,7 +235,8 @@
     id title = [self titleAtIndexPath:indexPath];
     @try {
         if (!cell) {
-            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+//            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedViewController:self indexPath:indexPath];
             [cell setAssociatedViewController:self];
         }
         
@@ -264,6 +264,7 @@
 - (UIView *)headerViewForSection:(NSInteger)section{
     Class cls = [self clsForHeaderOfSection:section];
     id value = nil;
+    id title = [self titleForHeaderOfSection:section];
     //    NSInteger rows = [self numberOfRowsInSection:section];
     
     @try {
@@ -272,12 +273,14 @@
         TLOG(@"exception -> %@", exception);
     }
     
+    
     //assemble custom header view
     if (cls){
         AGHeaderView *v = [[cls alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [cls height])];
         [v setAssociatedViewController:self];
         [v setSection:section];
         [v setValue:value];
+        [v setTitle:title];
         return v;
     }
     
@@ -367,12 +370,15 @@
 
 - (void)reloadIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated{
 //    TLOG(@"%@ indexPath -> %@", indexPath, self);
+    
     if (animated) {
         [self.tableView beginUpdates];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
     }else{
-        [self.tableView reloadData];
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
     }
     
 }
@@ -536,10 +542,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     //    TLOG(@"========================");
     Class cls = [self clsForHeaderOfSection:section];
-    
-    NSInteger rows = [self numberOfRowsInSection:section];
+//    NSInteger rows = [self numberOfRowsInSection:section];
     CGFloat h = 0;
-    if (rows && cls) h = [cls height];
+    if (cls) h = [cls height];
 //    TLOG(@"cls -> %@ h -> %@", cls, @(h));
     return h;
 }
@@ -614,6 +619,12 @@
 - (id)valueForHeaderOfSection:(NSInteger)section{
     AGSectionUnit *unit = [self.config unitOfSection:section];
     if (unit) return unit.headerValue;
+    return nil;
+}
+
+- (id)titleForHeaderOfSection:(NSInteger)section{
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) return unit.headerTitle;
     return nil;
 }
 

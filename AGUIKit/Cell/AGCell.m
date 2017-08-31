@@ -42,6 +42,15 @@
     return self;
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath{
+    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self){
+        [self setAssociatedViewController:associatedViewController];
+        [self setIndexPath:indexPath];
+    }
+    return self;
+}
+
 
 
 - (void)dealloc{

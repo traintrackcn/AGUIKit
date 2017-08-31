@@ -22,6 +22,8 @@
 //    AGRemoter *remoter;
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath;
+
 - (void)_setValue:(id)value;
 - (void)_setTitle:(id)title;
 

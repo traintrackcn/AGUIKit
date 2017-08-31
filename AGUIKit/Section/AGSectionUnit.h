@@ -28,6 +28,7 @@
 - (NSInteger)numberOfRows;
 - (void)didSelect:(NSInteger)index;
 
+- (id)headerTitle;
 - (id)headerValue;
 - (id)headerCls;
 

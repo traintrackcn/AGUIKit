@@ -24,6 +24,7 @@
 @property (nonatomic, weak) id associatedViewController;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, strong) id value;
+@property (nonatomic, strong) id title;
 @property (nonatomic, assign) CGFloat height;
 
 @end
