@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, Section) {
     if (self) {
         //        [self assembleCollectionView];
         [self.contentView addSubview:self.collectionView];
+        [self _setSelectedIndex:NSNotFound];
     }
     return self;
 }

@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - associated cell ops
 - (void)setValueForAssociatedIndexPath:(id)value;
 - (void)setNeedsReloadAssociatedIndexPath;
+- (void)setNeedsReloadAll;
 //- (void)reloadAssociatedIndexPath;
 
 

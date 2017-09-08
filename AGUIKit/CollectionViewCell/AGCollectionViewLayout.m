@@ -13,6 +13,7 @@
 - (id)initWithCellSize:(CGSize)size{
     self = [super init];
     if (self){
+        [self setCellSize:size];
     }
     return self;
 }

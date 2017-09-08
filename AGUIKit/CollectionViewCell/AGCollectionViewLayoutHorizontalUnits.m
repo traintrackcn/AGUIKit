@@ -16,14 +16,14 @@
 
 @implementation AGCollectionViewLayoutHorizontalUnits
 
-- (id)initWithCellSize:(CGSize)size{
-    self = [super init];
-    if (self) {
-        [self setCellW:size.width];
-        [self setCellH:size.height]; //CollectionViewCell
-    }
-    return self;
-}
+//- (id)initWithCellSize:(CGSize)size{
+//    self = [super init];
+//    if (self) {
+//        [self setCellW:size.width];
+//        [self setCellH:size.height]; //CollectionViewCell
+//    }
+//    return self;
+//}
 
 #pragma mark -
 
@@ -35,8 +35,8 @@
         for(NSInteger index = 0; index < numCells; index++){
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:section];
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            [attributes setFrame:CGRectMake(targetX, 0, self.cellW, self.cellH)];
-            targetX += self.cellW;
+            [attributes setFrame:CGRectMake(targetX, 0, self.cellSize.width, self.cellSize.height)];
+            targetX += self.cellSize.width;
             [self.cellAttributes setObject:attributes forKey:indexPath];
         }
     }
@@ -52,7 +52,7 @@
 
 - (CGSize)collectionViewContentSize{
     NSInteger numCells = [self.collectionView numberOfItemsInSection:0];
-    return CGSizeMake(numCells*self.cellW, self.cellH);
+    return CGSizeMake(numCells*self.cellSize.width, self.cellSize.height);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
@@ -66,7 +66,7 @@
     for (NSInteger section = 0; section < numSections; section ++) {
         NSInteger numCells = [self.collectionView numberOfItemsInSection:section];
         NSInteger maxIdx = numCells - 1;
-        CGFloat unitW = self.cellW;
+        CGFloat unitW = self.cellSize.width;
         NSInteger startIdx = floorf(minX/unitW);
         NSInteger endIdx = ceilf(maxX/unitW);
         

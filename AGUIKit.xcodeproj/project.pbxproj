@@ -34,6 +34,10 @@
 		4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */; };
 		4A874F8B1D070F0E000822F4 /* DATextUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F8A1D070F0E000822F4 /* DATextUtil.m */; };
 		4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F891D070F0E000822F4 /* DATextUtil.h */; };
+		4A8DDEFA1F5EEAA600C65B8F /* DAIconAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8DDEF71F5EEAA600C65B8F /* DAIconAdd.m */; };
+		4A8DDEFB1F5EEAA600C65B8F /* DAIconMinus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8DDEF91F5EEAA600C65B8F /* DAIconMinus.m */; };
+		4A8DDEFC1F5EEAD300C65B8F /* DAIconAdd.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8DDEF61F5EEAA600C65B8F /* DAIconAdd.h */; };
+		4A8DDEFD1F5EEAD300C65B8F /* DAIconMinus.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A8DDEF81F5EEAA600C65B8F /* DAIconMinus.h */; };
 		4A8E89411B686E9100F48CDD /* AGAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E887F1B686E9100F48CDD /* AGAssembler.m */; };
 		4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88811B686E9100F48CDD /* AGStyleCoordinator.m */; };
 		4A8E89501B686E9100F48CDD /* AGButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E88A11B686E9100F48CDD /* AGButtonItem.m */; };
@@ -280,6 +284,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4A8DDEFC1F5EEAD300C65B8F /* DAIconAdd.h in CopyFiles */,
+				4A8DDEFD1F5EEAD300C65B8F /* DAIconMinus.h in CopyFiles */,
 				4A22B4791F502ABC00E7AFC7 /* LITInteractivePanelView.h in CopyFiles */,
 				4A8EA8791F4ED479001E3853 /* UIView+HeaderAndCell.h in CopyFiles */,
 				4A8EA8301F4DB5FB001E3853 /* AGManyCellsViewController.h in CopyFiles */,
@@ -441,6 +447,10 @@
 		4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputComponents.m"; sourceTree = "<group>"; };
 		4A874F891D070F0E000822F4 /* DATextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATextUtil.h; sourceTree = "<group>"; };
 		4A874F8A1D070F0E000822F4 /* DATextUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextUtil.m; sourceTree = "<group>"; };
+		4A8DDEF61F5EEAA600C65B8F /* DAIconAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAIconAdd.h; sourceTree = "<group>"; };
+		4A8DDEF71F5EEAA600C65B8F /* DAIconAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAIconAdd.m; sourceTree = "<group>"; };
+		4A8DDEF81F5EEAA600C65B8F /* DAIconMinus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAIconMinus.h; sourceTree = "<group>"; };
+		4A8DDEF91F5EEAA600C65B8F /* DAIconMinus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAIconMinus.m; sourceTree = "<group>"; };
 		4A8E847B1B684E5300F48CDD /* libAGUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAGUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8E887E1B686E9100F48CDD /* AGAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAssembler.h; sourceTree = "<group>"; };
 		4A8E887F1B686E9100F48CDD /* AGAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAssembler.m; sourceTree = "<group>"; };
@@ -744,6 +754,10 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4A8DDEF61F5EEAA600C65B8F /* DAIconAdd.h */,
+				4A8DDEF71F5EEAA600C65B8F /* DAIconAdd.m */,
+				4A8DDEF81F5EEAA600C65B8F /* DAIconMinus.h */,
+				4A8DDEF91F5EEAA600C65B8F /* DAIconMinus.m */,
 				4A8EA8031F4DB429001E3853 /* ViewController */,
 				4A2D30A01F2196BE00A93351 /* DAActivityViewController.h */,
 				4A2D30A11F2196BE00A93351 /* DAActivityViewController.m */,
@@ -1364,6 +1378,7 @@
 				4A8E8A7E1B68FFC600F48CDD /* AGTitleCell.m in Sources */,
 				4A874F8B1D070F0E000822F4 /* DATextUtil.m in Sources */,
 				4A8E8A6F1B68FBE500F48CDD /* AGCircleProgressView.m in Sources */,
+				4A8DDEFB1F5EEAA600C65B8F /* DAIconMinus.m in Sources */,
 				4A8EA8221F4DB429001E3853 /* AGTabBarController.m in Sources */,
 				4A8E898A1B686E9100F48CDD /* AGLabel.m in Sources */,
 				4A8E8A461B68F99400F48CDD /* AGCellInnerView.m in Sources */,
@@ -1372,6 +1387,7 @@
 				4A8EA8251F4DB429001E3853 /* AGViewController+Message.m in Sources */,
 				4A8E897E1B686E9100F48CDD /* AGCollectionViewCell.m in Sources */,
 				4A874F7F1D06CAE8000822F4 /* DATextInputDelegate.m in Sources */,
+				4A8DDEFA1F5EEAA600C65B8F /* DAIconAdd.m in Sources */,
 				4A8E89811B686E9100F48CDD /* AGCollectionViewCellValue.m in Sources */,
 				4A8E89C71B68D29200F48CDD /* AGTipCellStyleMore.m in Sources */,
 				4A8E89681B686E9100F48CDD /* AGSpaceCell.m in Sources */,

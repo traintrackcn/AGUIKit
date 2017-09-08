@@ -75,8 +75,8 @@
 - (UICollectionViewLayout *)collectionViewLayout{
     if ([DSValueUtil isNotAvailable:collectionViewLayout]) {
             collectionViewLayout = [[AGCollectionViewLayoutHorizontalPages alloc] init];
-        [collectionViewLayout setCellW:[DSDeviceUtil bounds].size.width];
-        [collectionViewLayout setCellH:self.height]; //CollectionViewCell
+        CGSize size = CGSizeMake([DSDeviceUtil bounds].size.width, self.height);
+        [collectionViewLayout setCellSize:size]; //CollectionViewCell
     }
     return collectionViewLayout;
 }

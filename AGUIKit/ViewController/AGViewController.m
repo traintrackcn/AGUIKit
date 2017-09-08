@@ -35,6 +35,7 @@
 @property (nonatomic, strong) UIView *overlayContainer;
 @property (nonatomic, strong) NSMutableArray *externalViews;
 @property (nonatomic, copy) NSIndexPath *needsReloadIndexPath;
+@property (nonatomic, assign) BOOL needsReloadAll;
 @property (nonatomic, assign) BOOL visible;
 
 @end
@@ -100,10 +101,7 @@
     [self setNavigationController];
     [self showExternalViews];
     
-    if (self.flagDoReload) {
-        [self willDoReload];
-        [self setFlagDoReload:NO];
-    }
+    
 }
 
 - (void)viewWillLayoutSubviews{
@@ -121,6 +119,11 @@
 //    TLOG(@"%@", self.className);
     [super viewDidAppear:animated];
     
+    if (self.flagDoReload) {
+        [self willDoReload];
+        [self setFlagDoReload:NO];
+    }
+    
     if (self.needsReloadIndexPath) {
         @try {
             [self reloadIndexPath:self.needsReloadIndexPath];
@@ -129,6 +132,11 @@
             TLOG(@"exception -> %@", exception);
         }
         
+    }
+    
+    if (self.needsReloadAll){
+        [self reloadVisibleIndexPaths];
+        [self setNeedsReloadAll:NO];
     }
 }
 
@@ -243,13 +251,24 @@
         NSInteger numberOfRows = [self numberOfRowsInSection:section];
         BOOL bLastRow = (idx+1 == numberOfRows)?YES:NO;
         BOOL bFirstRow = idx == 0?YES:NO;
+        CGFloat height = [self tableView:self.tableView heightForRowAtIndexPath:indexPath];
         
         [cell setIndexPath:indexPath];
-        [cell setIsLastRow:bLastRow];
-        [cell setIsFirstRow:bFirstRow];
-        [cell setTitle: title ];
-        [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
-        [cell setValue:value];
+//        cell.layer.borderWidth = 1;
+        
+//        TLOG(@"cell title -> %@ height -> %@", title, @(height));
+        
+        if (height){
+            [cell setHidden:NO];
+            [cell setIsLastRow:bLastRow];
+            [cell setIsFirstRow:bFirstRow];
+            [cell setTitle: title ];
+            [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
+            [cell setValue:value];
+        }else{
+            [cell setHidden:YES];
+        }
+        
     }@catch (NSException *exception) {
         TLOG(@"%@ exception -> %@ %@",cell.class, exception,value);
     }
@@ -526,9 +545,11 @@
     CGFloat heightFromUnit = [unit heightAtIndex:idx];
     CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
     if (unit && heightFromUnit != NSNotFound){
-        [self.config setCellHeight:heightFromUnit atIndexPath:indexPath];
+//        [self.config setCellHeight:heightFromUnit atIndexPath:indexPath];
+        return heightFromUnit;
     }else if(heightFromDynamicCell != NSNotFound){
-        [self.config setCellHeight:heightFromDynamicCell atIndexPath:indexPath];
+//        [self.config setCellHeight:heightFromDynamicCell atIndexPath:indexPath];
+        return heightFromDynamicCell;
     }
 //    }
     
@@ -713,6 +734,10 @@
 
 - (void)setNeedsReloadAssociatedIndexPath{
     [self.previousViewController setNeedsReloadIndexPath:self.associatedIndexPath];
+}
+
+- (void)setNeedsReloadAll{
+    [self setNeedsReloadAll:YES];
 }
 
 #pragma mark - external requests

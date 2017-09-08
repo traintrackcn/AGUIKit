@@ -26,6 +26,8 @@
 //    UIView *layoutV;
 }
 
+@property (nonatomic, weak) id<AGTextSelectorDelegate> delegate;
+
 @end
 
 
@@ -35,8 +37,25 @@
     return [[self.class alloc] init];
 }
 
++ (instancetype)instanceWithDelegate:(id<AGTextSelectorDelegate>)aDelegate{
+    AGTextSelector *instance = [[self.class alloc] init];
+    [instance setDelegate:aDelegate];
+    return instance;
+}
 
 #pragma mark - setters
+
+- (void)setItemsWithoutSort:(NSArray *)items{
+    _items = items;
+    itemsSorted = [NSMutableArray arrayWithObject:items];
+    for (NSInteger section = 0; section < self.SectionCount; section++) {
+        [self.config setCellCls:[AGTextCellStyleTitleOnly class] inSection:section];
+    }
+    
+    
+    [self reloadVisibleIndexPaths];
+
+}
 
 - (void)setItems:(NSArray *)items{
     _items = items;
@@ -94,7 +113,13 @@
 {
     id nowValue = [self itemAtIndexPath:indexPath];
     [self setValueForAssociatedIndexPath:nowValue];
-    [self.previousViewController setFlagDoReload:YES];
+    
+    if (self.needsReloadPreviousVC){
+        [self.previousViewController setNeedsReloadAll];
+    }else{
+        [self.previousViewController setFlagDoReload:YES];
+    }
+        
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -112,8 +137,11 @@
 
 - (NSString *)titleOfItem:(id)item{
     NSString *title = @"";
-    
-    if ([item respondsToSelector:@selector(name)]) {
+//    TLOG(@"_delegate -> %@", _delegate);
+//    TLOG(@"_delegate -> %@ %@", _delegate, [_delegate titleForTextSelectorItem:item]);
+    if (_delegate && [_delegate respondsToSelector:@selector(titleForTextSelectorItem:)]){
+        title = [_delegate titleForTextSelectorItem:item];
+    }else if ([item respondsToSelector:@selector(name)]) {
         title = [(AGSelectorItem *)item name];
     }else if ([item respondsToSelector:@selector(key)]) {
         title = [(AGSelectorItem *)item key];
@@ -133,8 +161,8 @@
         id item = [self.items objectAtIndex:i];
         NSString *firstLetter;
         NSString *title = [self titleOfItem:item];
-        
-        if ([item respondsToSelector:@selector(name)]) {
+//        TLOG(@"title -> %@", title);
+        if (title) {
             firstLetter = [title substringWithRange:NSMakeRange(0, 1)];
         }else{
             firstLetter = @"";
@@ -153,6 +181,14 @@
         
     }
     
+    
+    //
+    
+//    arrWithTheFirstLetter = [arrWithTheFirstLetter sortedArrayUsingSelector:@selector(compare:)];
+    
+    
+    //
+    
     NSArray *tmpFirstLetters = [d allKeys];
     NSSortDescriptor *sortDes = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
     NSArray *sortDesArr = [NSArray arrayWithObject:sortDes];
@@ -164,7 +200,13 @@
     NSMutableArray *tmpItemsSorted = [NSMutableArray arrayWithCapacity:itemsFirstLettersSorted.count];
     for (int i=0; i<itemsFirstLettersSorted.count; i++) {
         NSString *firstLetter = [itemsFirstLettersSorted objectAtIndex:i];
-        NSMutableArray *arrWithTheFirstLetter = [d objectForKey:firstLetter];
+        NSArray *arrWithTheFirstLetter = [d objectForKey:firstLetter];
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(textSelectorWillSortArray:)]){
+            arrWithTheFirstLetter = [_delegate textSelectorWillSortArray:arrWithTheFirstLetter];
+        }
+        
+//        TLOG(@"arrWithTheFirstLetter -> %@", arrWithTheFirstLetter);
         [tmpItemsSorted addObject:arrWithTheFirstLetter];
     }
     
@@ -172,6 +214,8 @@
 //    TLOG(@"itemsSorted -> %@", itemsSorted);
 
 }
+
+
 
 #pragma mark - interactive actions
 
