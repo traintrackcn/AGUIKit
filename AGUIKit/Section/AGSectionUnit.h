@@ -23,6 +23,7 @@
 - (id)titleAtIndex:(NSInteger)index;
 - (Class)clsAtIndex:(NSInteger)index;
 - (CGFloat)heightAtIndex:(NSInteger)index;
+- (BOOL)visibilityAtIndex:(NSInteger)index;
 - (id)paramterAtIndex:(NSInteger)index;
 - (void)action:(id)action atIndex:(NSInteger)index;
 - (NSInteger)numberOfRows;

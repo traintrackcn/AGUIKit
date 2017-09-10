@@ -113,12 +113,13 @@
 {
     id nowValue = [self itemAtIndexPath:indexPath];
     [self setValueForAssociatedIndexPath:nowValue];
+    [self setNeedsReloadAssociatedIndexPath];
     
-    if (self.needsReloadPreviousVC){
-        [self.previousViewController setNeedsReloadAll];
-    }else{
-        [self.previousViewController setFlagDoReload:YES];
-    }
+//    if (self.needsReloadPreviousVC){
+//        [self.previousViewController setNeedsReloadAll];
+//    }else{
+//        [self.previousViewController setFlagDoReload:YES];
+//    }
         
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -251,14 +251,14 @@
         NSInteger numberOfRows = [self numberOfRowsInSection:section];
         BOOL bLastRow = (idx+1 == numberOfRows)?YES:NO;
         BOOL bFirstRow = idx == 0?YES:NO;
-        CGFloat height = [self tableView:self.tableView heightForRowAtIndexPath:indexPath];
+        BOOL visibility = [self visibilityAtIndexPath:indexPath];
         
         [cell setIndexPath:indexPath];
 //        cell.layer.borderWidth = 1;
         
-//        TLOG(@"cell title -> %@ height -> %@", title, @(height));
+//        TLOG(@"cell title -> %@ visibility -> %@", title, @(visibility));
         
-        if (height){
+        if (visibility){
             [cell setHidden:NO];
             [cell setIsLastRow:bLastRow];
             [cell setIsFirstRow:bFirstRow];
@@ -539,6 +539,9 @@
     
 //    if (![self.config cellHeightCalculatedAtIndexPath:indexPath]) {
     id value = [self valueAtIndexPath:indexPath];
+    BOOL visibility = [self visibilityAtIndexPath:indexPath];
+    
+    if(!visibility) return 0;
     
     Class cellCls = [self.config cellClsOfIndexPath:indexPath];
     AGSectionUnit *unit = [self.config unitOfSection:section];
@@ -630,6 +633,17 @@
     return nil;
 }
 
+- (BOOL)visibilityAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    AGSectionUnit *unit = [self.config unitOfSection:section];
+    if (unit) {
+//        TLOG(@"idx -> %@ unit -> %@ %@", @(idx),unit, @([unit visibilityAtIndex:idx]));
+        return [unit visibilityAtIndex:idx];
+    }
+    return YES;
+}
+
 - (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
@@ -648,6 +662,8 @@
     if (unit) return unit.headerTitle;
     return nil;
 }
+
+
 
 - (id)clsForHeaderOfSection:(NSInteger)section{
     Class clsInConfig = [self.config headerClsOfSection:section];

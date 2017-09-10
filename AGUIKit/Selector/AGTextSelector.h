@@ -28,7 +28,7 @@
 
 @property (nonatomic, weak) NSArray *items;
 @property (nonatomic, assign) Class cellCls;
-@property (nonatomic, assign) BOOL needsReloadPreviousVC;
+//@property (nonatomic, assign) BOOL needsReloadPreviousVC;
 
 
 

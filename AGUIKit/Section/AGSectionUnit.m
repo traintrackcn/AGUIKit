@@ -63,6 +63,10 @@
     return NSNotFound;
 }
 
+- (BOOL)visibilityAtIndex:(NSInteger)index{
+    return YES;
+}
+
 - (void)action:(id)action atIndex:(NSInteger)index{
     
 }
