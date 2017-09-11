@@ -25,6 +25,7 @@
 + (instancetype)instanceWithValue:(NSInteger)value minValue:(NSInteger)minValue;
 
 - (NSInteger)value;
+- (void)_setValue:(NSInteger)value;
 - (void)setValue:(NSInteger)value;
 
 - (UIColor *)borderColor;

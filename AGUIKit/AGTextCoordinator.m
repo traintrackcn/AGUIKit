@@ -54,6 +54,11 @@
 
 - (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
 //    NSString *originalKey = [key copy];
+    
+//    if ([key isEqualToString:@"KEY_MSG_INVITE_DOWNLINE_TIP"]){
+//        TLOG(@"dic -> %@ dicForEN -> %@", self.dic, self.dicForEN);
+//    }
+    
     NSArray *keys = [key componentsSeparatedByString:@"|"];
     id value;
     

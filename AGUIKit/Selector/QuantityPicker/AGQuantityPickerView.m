@@ -83,6 +83,12 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     [self refreshButtons];
 }
 
+- (void)_setValue:(NSInteger)value{
+    [self.quantityL setText:[NSString stringWithFormat:@"%ld",(long)value]];
+//    [self dispatchDidChangeValue:value];
+    [self refreshButtons];
+}
+
 - (void)setMaxValue:(NSInteger)maxValue{
     _maxValue = maxValue;
     [self refreshButtons];
