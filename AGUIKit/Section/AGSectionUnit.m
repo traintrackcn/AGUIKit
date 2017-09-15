@@ -8,7 +8,7 @@
 
 #import "AGSectionUnit.h"
 #import "AGVCConfiguration.h"
-//#import "AGHeaderViewStyleDefault.h"
+#import "AGHeaderViewStyleDefault.h"
 
 @interface AGSectionUnit(){
     
@@ -50,7 +50,8 @@
 }
 
 - (Class)headerCls{
-    return nil;
+    if (!self.numberOfRows) return nil;
+    return [AGHeaderViewStyleDefault class];
 }
 
 

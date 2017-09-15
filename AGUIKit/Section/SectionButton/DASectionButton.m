@@ -44,6 +44,10 @@ typedef NS_ENUM(NSInteger, SectionCell) {
     return SectionCellCount;
 }
 
+- (id)headerCls{
+    return nil;
+}
+
 - (id)valueAtIndex:(NSInteger)index{
     id value;
     if (index == SectionCellButton) {
