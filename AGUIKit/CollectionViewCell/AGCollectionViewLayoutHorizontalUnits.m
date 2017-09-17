@@ -47,7 +47,7 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
 //    TLOG(@"self.collectionView.frame -> %@", NSStringFromCGRect(self.collectionView.frame));
     
-    return [super layoutAttributesForItemAtIndexPath:indexPath];
+    return [self.cellAttributes objectForKey:indexPath];
 }
 
 - (CGSize)collectionViewContentSize{

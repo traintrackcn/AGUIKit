@@ -93,12 +93,12 @@
     return _remoter;
 }
 
-//- (UITableView *)tableView{
-//    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
-//        return [(AGViewController *)self.associatedViewController tableView];
-//    }
-//    return nil;
-//}
+- (UITableView *)tableView{
+    if ([self.associatedViewController isKindOfClass:[AGViewController class]]) {
+        return [(AGViewController *)self.associatedViewController tableView];
+    }
+    return nil;
+}
 
 - (void)endEditingForAssociatedView{
     [[(AGViewController *)self.associatedViewController view] endEditing:YES];
@@ -235,7 +235,7 @@
 //        return [self.config cellHeightAtIndexPath:self.indexPath];
 //    }
 //    TLOG(@"h -> %f", h);
-    if (self.indexPath) return [self.config cellHeightAtIndexPath:self.indexPath];
+    if (self.indexPath) return [self.config cellHeightAtIndexPath:self.indexPath forValue:nil];
 //    TLOG(@"_height -> %@ indexPath -> %@", @(_height), self.indexPath);
     if (_height) return _height;
     return [self.class height];

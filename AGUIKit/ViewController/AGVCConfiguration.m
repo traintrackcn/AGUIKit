@@ -13,6 +13,7 @@
 #import "DSValueUtil.h"
 #import "AGStyleCoordinator.h"
 #import "GlobalDefine.h"
+#import "AGCell.h"
 
 @interface AGVCConfiguration(){
     NSMutableDictionary *cellOptionalDic;
@@ -154,15 +155,19 @@
     [cellHeightDic setValue:[NSNumber numberWithDouble:height] forKey:key];
 }
 
-- (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"cellHeightDic -> %@", cellHeightDic);
+- (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath forValue:(id)value{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
     NSString *key = [self keyOfIndexPath:indexPath];
-    Class cellCls = [self cellClsOfIndexPath:indexPath];
     NSNumber *calculatedHObj = [cellHeightDic objectForKey:key];
-//    TLOG(@"calculatedHObj -> %@", calculatedHObj);
+    Class cellCls = [self cellClsOfIndexPath:indexPath];
+    AGSectionUnit *unit = [self unitOfSection:section];
+    CGFloat heightFromUnit = [unit heightAtIndex:idx];
+    CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
+    if (unit && heightFromUnit != NSNotFound) return heightFromUnit;
+    if (heightFromDynamicCell != NSNotFound) return heightFromDynamicCell;
     if (calculatedHObj) return [calculatedHObj floatValue];
     return [cellCls height];
-    
 }
 
 //- (BOOL)cellHeightCalculatedAtIndexPath:(NSIndexPath *)indexPath{

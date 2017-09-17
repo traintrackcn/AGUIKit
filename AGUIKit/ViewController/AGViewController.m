@@ -529,35 +529,12 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"indexPath -> %@", indexPath);
-    NSInteger section = indexPath.section;
-    NSInteger idx = indexPath.row;
-    
-    if ([self isSeparatorCellAtIndexPath:indexPath]){
-        return [AGSeparatorCell height];
-    }
-    
-//    if (![self.config cellHeightCalculatedAtIndexPath:indexPath]) {
+//    TLOG(@"indexPath -> %@", indexPath);    
+    if ([self isSeparatorCellAtIndexPath:indexPath]) return [AGSeparatorCell height];
     id value = [self valueAtIndexPath:indexPath];
     BOOL visibility = [self visibilityAtIndexPath:indexPath];
-    
     if(!visibility) return 0;
-    
-    Class cellCls = [self.config cellClsOfIndexPath:indexPath];
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    CGFloat heightFromUnit = [unit heightAtIndex:idx];
-    CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
-    if (unit && heightFromUnit != NSNotFound){
-//        [self.config setCellHeight:heightFromUnit atIndexPath:indexPath];
-        return heightFromUnit;
-    }else if(heightFromDynamicCell != NSNotFound){
-//        [self.config setCellHeight:heightFromDynamicCell atIndexPath:indexPath];
-        return heightFromDynamicCell;
-    }
-//    }
-    
-//    TLOG(@"");
-    CGFloat h = [self.config cellHeightAtIndexPath:indexPath];
+    CGFloat h = [self.config cellHeightAtIndexPath:indexPath forValue:value];
 //    TLOG(@"idx -> %@ h -> %@ ", @(idx), @(h));
     return h;
 }
