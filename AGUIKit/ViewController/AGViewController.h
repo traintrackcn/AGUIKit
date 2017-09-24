@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 #import "AGVCConfiguration.h"
 #import "AGObjectPool.h"
+#import "GlobalDefine.h"
 
 @class AGCell;
 @class AGRemoterResultError;
@@ -34,10 +35,15 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 
 + (instancetype)instance;
 
+
+#pragma mark - properties
+
+- (UINavigationBar *)navigationBar;
+
 #pragma mark - associated cell ops
 - (void)setValueForAssociatedIndexPath:(id)value;
 - (void)setNeedsReloadAssociatedIndexPath;
-- (void)setNeedsReloadAll;
+- (void)setNeedsReloadAssociatedViewController;
 //- (void)reloadAssociatedIndexPath;
 
 
@@ -69,7 +75,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (id)titleAtIndexPath:(NSIndexPath *)indexPath;
 - (AGCell *)cellAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
-- (NSInteger)numberOfSections;
+- (NSInteger)numberOfSections DEPRECATED_WITH_MSG("Use numberOfSectionsInTableView instead");
 
 #pragma mark - component
 
@@ -88,17 +94,19 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (void)endEditing:(BOOL)endEditing;
 
 #pragma mark - error handlers
-- (BOOL)setRemoteMessagesForError:(id)error;
-
+- (BOOL)setMessagesForError:(id)error;
 
 #pragma mark - dummy cell stuff
 - (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index;
 
 #pragma mark - cell request
-- (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath;
-- (void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
-- (id)cellRequestParameterAtIndexPath:(NSIndexPath *)indexPath;
-- (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath;
+//- (void)cellRequestReloadIndexPath:(NSIndexPath *)indexPath DEPRECATED;
+//- (void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
+//- (id)cellRequestParameterAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath;
+
+- (id)parameterAtIndexPath:(NSIndexPath *)indexPath;
+- (void)action:(id)action atIndexPath:(NSIndexPath *)indexPath;
 
 
 - (BOOL)visible;

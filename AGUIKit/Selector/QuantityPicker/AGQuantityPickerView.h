@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class AGQuantityPickerView;
 
 @protocol AGQuantityPickerViewDelegate <NSObject>
 
 @optional
-- (BOOL)quantityPickerViewWillChangeValue:(NSInteger)value;
+- (void)quantityPickerViewShouldChangeValue:(NSInteger)value;
+- (void)quantityPickerViewWillChangeValue:(NSInteger)value;
 - (void)quantityPickerViewDidChangeValue:(NSInteger)value;
+- (void)quantityPickerView:(AGQuantityPickerView *)pickerView didChangeValue:(NSInteger)value;
 
 @end
 
@@ -25,13 +27,14 @@
 + (instancetype)instanceWithValue:(NSInteger)value minValue:(NSInteger)minValue;
 
 - (NSInteger)value;
-- (void)_setValue:(NSInteger)value;
+- (void)setValueWitoutNotification:(NSInteger)value;
 - (void)setValue:(NSInteger)value;
 
 - (UIColor *)borderColor;
 
 @property (nonatomic, assign) NSInteger minValue;
 @property (nonatomic, assign) NSInteger maxValue;
+@property (nonatomic, strong) id userInfo;
 
 @property (nonatomic, weak) id delegate;
 

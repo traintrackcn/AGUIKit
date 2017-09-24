@@ -6,14 +6,15 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
-#import "AGViewController+SectionComponents.h"
+#import "NSObject+SectionUtils.h"
 #import "DASectionButton.h"
-
+#import "NSObject+ObjPool.h"
+#import "NSObject+AGVCConfig.h"
 #import "AGObjectPool.h"
 
 #define KEY_SECTION_PREFIX @"KEY_SECTION_PREFIX"
 
-@implementation AGViewController (SectionComponents)
+@implementation NSObject (SectionUtils)
 
 - (DASectionButton *)sectionButton:(NSInteger)section{
     NSString *key = [self keyOfSection:section];
@@ -27,6 +28,16 @@
 
 
 - (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section{
+    id item = [self sectionItemInSection:section];
+    if (!item) {
+        item = [cls instanceWithSection:section config:self.config];
+        [self.objPool setObject:item forKey:[self keyOfSection:section]];
+    }
+    return item;
+    
+}
+
+- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section{
     id item = [self sectionItemInSection:section];
     if (!item) {
         item = [cls instanceWithSection:section config:self.config];

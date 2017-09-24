@@ -15,10 +15,10 @@
 		4A61071C1CCA272F002C2245 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6107161CCA2418002C2245 /* UIImageView+Letters.m */; };
 		4A6E50621C9148F400D8D46A /* AGSectionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50611C9148F400D8D46A /* AGSectionLoader.m */; };
 		4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50601C9148F400D8D46A /* AGSectionLoader.h */; };
-		4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */; };
+		4A6E507A1C92720E00D8D46A /* NSObject+SectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50761C92720E00D8D46A /* NSObject+SectionUtils.m */; };
 		4A6E507B1C92720E00D8D46A /* DASectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50791C92720E00D8D46A /* DASectionButton.m */; };
 		4A6E507C1C92723900D8D46A /* DASectionButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50781C92720E00D8D46A /* DASectionButton.h */; };
-		4A6E507D1C92723900D8D46A /* AGViewController+SectionComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */; };
+		4A6E507D1C92723900D8D46A /* NSObject+SectionUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A6E50751C92720E00D8D46A /* NSObject+SectionUtils.h */; };
 		4A6E50861C9272D500D8D46A /* DACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E50851C9272D500D8D46A /* DACell.m */; };
 		4A6E50901C9273B600D8D46A /* DAButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E508B1C9273B600D8D46A /* DAButtonCell.m */; };
 		4A6E50911C9273B600D8D46A /* DAButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E508D1C9273B600D8D46A /* DAButtonFactory.m */; };
@@ -318,7 +318,7 @@
 				4A6E50951C92765600D8D46A /* DAButtonItem.h in CopyFiles */,
 				4A6E50961C92765600D8D46A /* DACell.h in CopyFiles */,
 				4A6E507C1C92723900D8D46A /* DASectionButton.h in CopyFiles */,
-				4A6E507D1C92723900D8D46A /* AGViewController+SectionComponents.h in CopyFiles */,
+				4A6E507D1C92723900D8D46A /* NSObject+SectionUtils.h in CopyFiles */,
 				4A6E50631C91490800D8D46A /* AGSectionLoader.h in CopyFiles */,
 				4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */,
 				4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */,
@@ -429,8 +429,8 @@
 		4A6107161CCA2418002C2245 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		4A6E50601C9148F400D8D46A /* AGSectionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSectionLoader.h; sourceTree = "<group>"; };
 		4A6E50611C9148F400D8D46A /* AGSectionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSectionLoader.m; sourceTree = "<group>"; };
-		4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGViewController+SectionComponents.h"; sourceTree = "<group>"; };
-		4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGViewController+SectionComponents.m"; sourceTree = "<group>"; };
+		4A6E50751C92720E00D8D46A /* NSObject+SectionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SectionUtils.h"; sourceTree = "<group>"; };
+		4A6E50761C92720E00D8D46A /* NSObject+SectionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SectionUtils.m"; sourceTree = "<group>"; };
 		4A6E50781C92720E00D8D46A /* DASectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASectionButton.h; sourceTree = "<group>"; };
 		4A6E50791C92720E00D8D46A /* DASectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASectionButton.m; sourceTree = "<group>"; };
 		4A6E50841C9272D500D8D46A /* DACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACell.h; sourceTree = "<group>"; };
@@ -956,8 +956,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6E50771C92720E00D8D46A /* SectionButton */,
-				4A6E50751C92720E00D8D46A /* AGViewController+SectionComponents.h */,
-				4A6E50761C92720E00D8D46A /* AGViewController+SectionComponents.m */,
+				4A6E50751C92720E00D8D46A /* NSObject+SectionUtils.h */,
+				4A6E50761C92720E00D8D46A /* NSObject+SectionUtils.m */,
 				4A6E50601C9148F400D8D46A /* AGSectionLoader.h */,
 				4A6E50611C9148F400D8D46A /* AGSectionLoader.m */,
 				4A8E899B1B686FDD00F48CDD /* AGSectionUnit.h */,
@@ -1425,7 +1425,7 @@
 				4A8E89881B686E9100F48CDD /* AGHorizontalUnitsCell.m in Sources */,
 				4A8E89E71B68E08500F48CDD /* AGTextCoordinator.m in Sources */,
 				4AB6506E1D111D1E00F5735C /* AGTransitioningDelegate.m in Sources */,
-				4A6E507A1C92720E00D8D46A /* AGViewController+SectionComponents.m in Sources */,
+				4A6E507A1C92720E00D8D46A /* NSObject+SectionUtils.m in Sources */,
 				4A8E89B41B68CED800F48CDD /* AGHeaderCell.m in Sources */,
 				4A8E896E1B686E9100F48CDD /* AGTextCellStyleTitleOnly.m in Sources */,
 				4A8E897F1B686E9100F48CDD /* AGCollectionViewCellOption.m in Sources */,

@@ -53,8 +53,8 @@
 - (AGVCConfiguration *)config;
 - (UITableView *)tableView;
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue;
-- (BOOL)isContentViewLoaded;
-- (BOOL)isContentViewBlank;
+- (BOOL)isContentViewLoaded DEPRECATED;
+- (BOOL)isContentViewBlank DEPRECATED;
 
 #pragma mark - styles
 
@@ -70,25 +70,27 @@
 - (void)endEditingForAssociatedView;
 - (void)reloadAssociatedViewController;
 
+- (AGObjectPool *)objPoolOfAssociatedVC;
+
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) AGObjectPool *objPool;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) BOOL isOptional;
-@property (nonatomic, assign) BOOL isLastRow;
-@property (nonatomic, assign) BOOL isFirstRow;
+@property (nonatomic, assign) BOOL isLastRow DEPRECATED;
+@property (nonatomic, assign) BOOL isFirstRow DEPRECATED;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *errorMsg;
-@property (nonatomic, strong) NSString *tipMsg;
+@property (nonatomic, strong) NSString *errorMsg DEPRECATED;
+@property (nonatomic, strong) NSString *tipMsg DEPRECATED;
 @property (nonatomic, strong) NSString *placeholder;
 
 @property (nonatomic, strong) id value;
 @property (nonatomic, weak) id ws;
 @property (nonatomic, weak) id associatedViewController;
-@property (nonatomic, strong) AGRemoter *remoter;
+@property (nonatomic, strong) AGRemoter *remoter DEPRECATED ; 
 //@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
-@property (nonatomic, strong) id obUIKeyboardWillChangeFrameNotification;
+@property (nonatomic, strong) id obUIKeyboardWillChangeFrameNotification DEPRECATED;
 
 
 @end

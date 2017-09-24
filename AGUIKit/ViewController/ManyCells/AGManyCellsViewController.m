@@ -63,7 +63,7 @@
     isLoadingMoreItems = NO;
     
     if (error) {
-        [self setRemoteMessagesForError:error];
+        [self setMessagesForError:error];
         [meta previous];
         return;
     }

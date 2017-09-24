@@ -83,9 +83,8 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     [self refreshButtons];
 }
 
-- (void)_setValue:(NSInteger)value{
+- (void)setValueWitoutNotification:(NSInteger)value{
     [self.quantityL setText:[NSString stringWithFormat:@"%ld",(long)value]];
-//    [self dispatchDidChangeValue:value];
     [self refreshButtons];
 }
 
@@ -246,6 +245,11 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 
 #pragma mark - dispatchers
 
+- (void)dispatchShouldChangeValue:(NSInteger)value{
+    if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewShouldChangeValue:)]) {
+        [_delegate quantityPickerViewShouldChangeValue:value];
+    }
+}
 
 - (void)dispatchWillChangeValue:(NSInteger)value{
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewWillChangeValue:)]) {
@@ -257,6 +261,11 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewDidChangeValue:)]) {
         [_delegate quantityPickerViewDidChangeValue:value];
     }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerView:didChangeValue:)]) {
+        [_delegate quantityPickerView:self didChangeValue:value];
+    }
 }
+
 
 @end

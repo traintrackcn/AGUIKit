@@ -6,13 +6,15 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
-#import "AGViewController.h"
+#import "GlobalDefine.h"
+#import <Foundation/Foundation.h>
 
 @class DASectionButton;
-@interface AGViewController (SectionComponents)
+@interface NSObject (SectionUtils)
 
 - (DASectionButton *)sectionButton:(NSInteger)section;
-- (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section;
+- (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section DEPRECATED_WITH_MSG("Use sectionWithClass:inSection: instead");
+- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section;
 - (id)sectionItemInSection:(NSInteger)section;
 
 @end

@@ -210,7 +210,7 @@
 #pragma mark - dispatchers
 
 - (void)sendActionRequestToViewController:(id)action{
-    [self.associatedViewController cellRequestAction:action atIndexPath:self.indexPath];
+    [self.associatedViewController action:action atIndexPath:self.indexPath];
 }
 
 #pragma mark - properties

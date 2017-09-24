@@ -7,6 +7,7 @@
 //
 
 #import "AGMeta.h"
+#import "GlobalDefine.h"
 
 @implementation AGMeta
 
@@ -21,6 +22,8 @@
 
 - (void)updateWithRaw:(id)raw{
     [self setRaw:raw];
+    
+//    TLOG(@"raw -> %@", raw);
     
     if ([self isAvailableForKey:@"count"]) {
         id rawCount = [self objectForKey:@"count"];

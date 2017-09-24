@@ -71,6 +71,10 @@
     return _objPool;
 }
 
+- (AGObjectPool *)objPoolOfAssociatedVC{
+    return [self.associatedViewController objPool];
+}
+
 
 #pragma mark - properties
 
@@ -187,15 +191,15 @@
 #pragma mark - utils
 
 - (void)reload{
-    [_associatedViewController cellRequestReloadIndexPath:self.indexPath];
+    [_associatedViewController reloadIndexPath:self.indexPath];
 }
 
 - (void)setValueForViewController:(id)value{
-    [_associatedViewController cellRequestSetValue:value atIndexPath:self.indexPath];
+    [_associatedViewController setValue:value atIndexPath:self.indexPath];
 }
 
 - (NSArray *)parametersFromViewController{
-    id obj = [_associatedViewController cellRequestParameterAtIndexPath:self.indexPath];
+    id obj = [_associatedViewController parameterAtIndexPath:self.indexPath];
     if (!obj) return @[];
     if ([obj isKindOfClass:[NSArray class]]) {
         return (NSArray *)obj;
@@ -205,7 +209,7 @@
 }
 
 - (void)sendActionRequestToViewController:(id)action{
-    [_associatedViewController cellRequestAction:action atIndexPath:self.indexPath];
+    [_associatedViewController action:action atIndexPath:self.indexPath];
 }
 
 #pragma mark - AGRemoterDelegate

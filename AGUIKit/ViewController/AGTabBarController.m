@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, Section) {
 
 #pragma mark - AGCellDelegate
 
-- (void)cellRequestAction:(id)action atIndexPath:(NSIndexPath *)indexPath{
+- (void)action:(id)action atIndexPath:(NSIndexPath *)indexPath{
     //    TLOG(@"action -> %@", action);
     NSInteger section = indexPath.section;
 //    NSString *type = [action objectForKey:@"type"];
