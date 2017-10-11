@@ -7,8 +7,7 @@
 //
 
 
-@import UIKit;
-#import "AGViewController+Message.h"
+#import "UITableViewController+Message.h"
 #import "AGVCSuccessMessagesView.h"
 #import "AGVCFailureMessagesView.h"
 #import "DSValueUtil.h"
@@ -18,14 +17,14 @@
 #import "AGUIDefine.h"
 #import "AGTextCoordinator.h"
 #import "AGUITextKeyDefine.h"
-
+#import "NSObject+VC.h"
 
 typedef NS_ENUM(NSInteger, UIViewTag) {
     UIViewTagFloatMessageBox = 999
 };
 
 
-@implementation AGViewController (DisplayMessages)
+@implementation UITableViewController (DisplayMessages)
 
 #pragma mark - float message ops
 
@@ -48,7 +47,7 @@ typedef NS_ENUM(NSInteger, UIViewTag) {
     [titleView setText:message];
 //    [v.layer removeAllAnimations];
     
-    [UIView animateWithDuration:animationDuration animations:^{
+    [UIView animateWithDuration:.33 animations:^{
         [v setAlpha:1];
     }];
     

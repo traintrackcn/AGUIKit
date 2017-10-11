@@ -250,7 +250,7 @@
 }
 
 - (UIColor *)borderColor{
-    return COLOR(AG_UI_DEFINE.RGB_BORDER);
+    return COLOR(RGB_BORDER);
 }
 
 - (CGFloat)borderPaddingL{

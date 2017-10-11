@@ -6,16 +6,17 @@
 //  Copyright © 2015 AboveGEM. All rights reserved.
 //
 
-#import "AGViewController+NavigationBar.h"
+#import "UITableViewController+NavigationBar.h"
 #import "GlobalDefine.h"
 #import "AGTextCoordinator.h"
 #import "AGUITextKeyDefine.h"
 #import "DSImage.h"
-//#import "AGObjectPool.h"
+#import "NSObject+ObjPool.h"
+#import "AGObjectPool.h"
 
 
 
-@implementation AGViewController (NavigationBar)
+@implementation UITableViewController (NavigationBar)
 
 #pragma mark -
 

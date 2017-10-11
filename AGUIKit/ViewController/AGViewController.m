@@ -7,7 +7,7 @@
 //
 
 #import "AGViewController.h"
-#import "AGViewController+Message.h"
+#import "UITableViewController+Message.h"
 #import "AGViewController+Separator.h"
 //#import "AGViewController+LoginUI.h"
 
@@ -37,6 +37,8 @@
 @property (nonatomic, copy) NSIndexPath *needsReloadIndexPath;
 @property (nonatomic, assign) BOOL needsReloadAll;
 @property (nonatomic, assign) BOOL visible;
+//@property (nonatomic, strong) UIView *interactiveContainer;
+@property (nonatomic, assign) BOOL initialized;
 
 @end
 
@@ -55,6 +57,7 @@
         [self.config setTarget:self];
         animationDuration = .33;
         
+//        self.interactiveContainer.layer.borderWidth = 3;
     }
     return self;
 }
@@ -101,7 +104,15 @@
     [self setNavigationController];
     [self showExternalViews];
     
-    
+//    if (!self.initialized) {
+//        [self.parentView addSubview:self.interactiveContainer];
+//        [self.parentView addSubview:self.overlayContainer];
+//        [self setInitialized:YES];
+//    }
+
+//    self.parentView.layer.borderColor = [UIColor redColor].CGColor;
+//    self.parentView.layer.borderWidth = 3;
+//    self.interactiveContainer.layer.borderWidth = 6;
 }
 
 - (void)viewWillLayoutSubviews{
@@ -146,6 +157,7 @@
 //    TLOG(@"%@", self.className);
     [super viewWillDisappear:animated];
     [self hideExternalViews];
+//    [self.interactiveContainer setHidden:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -186,6 +198,7 @@
     
     _externalViews = nil;
     _overlayContainer = nil;
+//    _interactiveContainer = nil;
 }
 
 - (void)setNavigationController{
@@ -212,6 +225,11 @@
     [self.externalViews addObject:view];
     
 }
+
+//- (void)addInteractiveView:(UIView *)view{
+//    if (!view) return;
+//    [self.interactiveContainer addSubview:view];
+//}
 
 - (UIView *)externalViewContainer{
     return self.parentView;
@@ -244,7 +262,19 @@
     return _overlayContainer;
 }
 
-
+//- (UIView *)interactiveContainer{
+//    if (!_interactiveContainer) {
+//        CGFloat x = 0;
+//        CGFloat y = 0;
+//        CGFloat w = STYLE_DEVICE_WIDTH;
+//        CGFloat h = STYLE_DEVICE_HEIGHT;
+//        _interactiveContainer = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+////        [_interactiveContainer setUserInteractionEnabled:NO];
+//        [_interactiveContainer setBackgroundColor:[UIColor clearColor]];
+//        [self.externalViews addObject:_interactiveContainer];
+//    }
+//    return _interactiveContainer;
+//}
 
 
 #pragma mark - view controller transitions
@@ -295,6 +325,11 @@
     [self willReloadVisibleIndexPaths];
     [self.tableView reloadData];
     [self didReloadVisibleIndexPaths];
+}
+
+- (void)reloadAndLayoutImmediately{
+    [self.tableView reloadData];
+    [self.tableView layoutIfNeeded];
 }
 
 - (void)reloadIndexPath:(NSIndexPath *)indexPath{
@@ -442,13 +477,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    TLOG(@"indexPath -> %@", indexPath);    
-    if ([self isSeparatorCellAtIndexPath:indexPath]) return [AGSeparatorCell height];
-    id value = [self valueAtIndexPath:indexPath];
+    CGFloat h = 0;
     BOOL visibility = [self visibilityAtIndexPath:indexPath];
-    if(!visibility) return 0;
-    CGFloat h = [self.config cellHeightAtIndexPath:indexPath forValue:value];
-//    TLOG(@"idx -> %@ h -> %@ ", @(idx), @(h));
+    id value = [self valueAtIndexPath:indexPath];
+    
+    if ([self isSeparatorCellAtIndexPath:indexPath]) {
+        h = [AGSeparatorCell height];
+    }else if(visibility){
+        h = [self.config cellHeightAtIndexPath:indexPath forValue:value];
+    }
+//    NSInteger section = indexPath.section;
+//    NSInteger idx = indexPath.row;
+//    TLOG(@"%@-%@ h -> %@ ",@(section), @(idx), @(h));
     return h;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 
@@ -478,7 +523,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"");
+    TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
@@ -634,6 +679,7 @@
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
+//    TLOG(@"unit -> %@", unit);
     if (unit) return [unit action:action atIndex:idx];
 }
 
@@ -719,7 +765,7 @@
     @try {
         if (!cell) {
             //            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedViewController:self indexPath:indexPath];
+            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedViewController:self indexPath:indexPath config:self.config];
             [cell setAssociatedViewController:self];
         }
         
@@ -728,7 +774,9 @@
         BOOL bFirstRow = idx == 0?YES:NO;
         BOOL visibility = [self visibilityAtIndexPath:indexPath];
         
+        //capatible with old AGCells
         [cell setIndexPath:indexPath];
+        [cell setConfig:self.config];
         //        cell.layer.borderWidth = 1;
         
         //        TLOG(@"cell title -> %@ visibility -> %@", title, @(visibility));

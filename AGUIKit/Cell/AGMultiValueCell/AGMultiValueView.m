@@ -44,7 +44,7 @@
         [_collectionView setDelegate:self];
         [_collectionView setDataSource:self];
         [_collectionView registerClass:cls forCellWithReuseIdentifier:NSStringFromClass(cls)];
-        [_collectionView setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
+        [_collectionView setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
         
 //        [_collectionView setPagingEnabled:YES];
         [_collectionView setShowsHorizontalScrollIndicator:NO];

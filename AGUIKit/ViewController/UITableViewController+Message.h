@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
-#import "AGViewController.h"
+@import UIKit;
 
-@interface AGViewController (DisplayMessages)
+@interface UITableViewController (DisplayMessages)
 
 
 - (void)floatMessageProcessing;

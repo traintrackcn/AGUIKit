@@ -147,12 +147,14 @@
 
 - (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
-    [cellHeightDic setValue:[NSNumber numberWithDouble:height] forKey:key];
+    [cellHeightDic setObject:[NSNumber numberWithDouble:height] forKey:key];
+//    TLOG(@"cellHeightDic -> %@ %@", cellHeightDic, self);
 }
 
 - (void)setCellHeight:(CGFloat)height atFirstIndexPathInSection:(NSInteger)section{
     NSString *key = [self keyOfIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    [cellHeightDic setValue:[NSNumber numberWithDouble:height] forKey:key];
+    [cellHeightDic setObject:[NSNumber numberWithDouble:height] forKey:key];
+    
 }
 
 - (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath forValue:(id)value{
@@ -164,6 +166,7 @@
     AGSectionUnit *unit = [self unitOfSection:section];
     CGFloat heightFromUnit = [unit heightAtIndex:idx];
     CGFloat heightFromDynamicCell = [cellCls heightOfValue:value];
+//    TLOG(@"cellCls -> %@ heightFromUnit -> %@ heightFromDynamicCell -> %@ calculatedHObj -> %@ %@ %@", cellCls, @(heightFromUnit), @(heightFromDynamicCell), calculatedHObj, cellHeightDic, self);
     if (unit && heightFromUnit != NSNotFound) return heightFromUnit;
     if (heightFromDynamicCell != NSNotFound) return heightFromDynamicCell;
     if (calculatedHObj) return [calculatedHObj floatValue];
@@ -243,6 +246,7 @@
 }
 
 - (AGSectionUnit *)unitOfSection:(NSInteger)section{
+//    TLOG(@"sectionUnitDic -> %@", sectionUnitDic);
     NSString *key = [self keyOfSection:section];
     return [sectionUnitDic objectForKey:key];
 }

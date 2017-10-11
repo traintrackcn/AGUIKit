@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 #pragma mark - view lifecycle
 - (void)willReloadVisibleIndexPaths;
 - (void)reloadVisibleIndexPaths;
+- (void)reloadAndLayoutImmediately; //in order to get right content size;
 - (void)reloadIndexPath:(NSIndexPath *)indexPath;
 - (void)reloadIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 - (void)reloadWithoutHeaderForSection:(NSInteger)section fromRowCount:(NSInteger)fromRowCount toRowCount:(NSInteger)toRowCount animated:(BOOL)animated;
@@ -85,7 +86,10 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
 - (UIView *)overlayWithTag:(NSInteger)tag;
 - (UIView *)overlayContainer;
 - (UIView *)externalViewContainer;
+- (UIView *)parentView;
 - (void)addExternalView:(UIView *)view;
+
+//- (void)addInteractiveView:(UIView *)view;
 
 #pragma mark -
 

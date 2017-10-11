@@ -37,7 +37,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [self setBackgroundColor:[UIColor clearColor]];
+//        [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }
@@ -51,7 +51,13 @@
     return self;
 }
 
-
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath config:(AGVCConfiguration *)config{
+    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier associatedViewController:associatedViewController indexPath:indexPath];
+    if (self) {
+        [self setConfig:config];
+    }
+    return self;
+}
 
 - (void)dealloc{
     [_remoter cancel];
@@ -78,8 +84,8 @@
 
 #pragma mark - properties
 
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
+//    TLOG(@"selected -> %@", @(selected));
     [super setSelected:selected animated:animated];
     if (selected) {
         [self applySelectedStyle];
@@ -109,6 +115,7 @@
 }
 
 - (AGVCConfiguration *)config{
+    if (_config) return _config;
     AGViewController *vc = (AGViewController *)self.associatedViewController;
     if (!vc) return nil;
     return vc.config;
@@ -209,6 +216,8 @@
 }
 
 - (void)sendActionRequestToViewController:(id)action{
+//    TLOG(@"_associatedViewController -> %@", _associatedViewController);
+//    TLOG(@"action -> %@", action);
     [_associatedViewController action:action atIndexPath:self.indexPath];
 }
 
@@ -268,7 +277,7 @@
 }
 
 - (void)applyUnselectedStyle{
-    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
+    [self setBackgroundColor:COLOR(RGB_WHITE)];
     self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_NORMAL);
     self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_NORMAL);
 }

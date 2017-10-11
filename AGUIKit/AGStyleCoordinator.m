@@ -114,7 +114,7 @@ typedef NS_ENUM(NSInteger, CSVFieldIndex) {
 }
 
 - (void)parserDidEndDocument:(CHCSVParser *)parser{
-    TLOG(@"self.dic -> %@", self.dic);
+//    TLOG(@"self.dic -> %@", self.dic);
 }
 
 - (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber{

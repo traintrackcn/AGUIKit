@@ -10,9 +10,6 @@
 #import "AGUIDefine.h"
 @import UIKit;
 
-#define COLOR(aValue) [[AGStyleCoordinator singleton] colorForValue:aValue]
-#define RGB(aValue) [[AGStyleCoordinator singleton] rgbForValue:aValue]
-
 @interface AGStyleCoordinator : NSObject
 
 - (UIColor *)colorForValue:(NSString *)value;

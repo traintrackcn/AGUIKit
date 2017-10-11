@@ -70,11 +70,6 @@
     return _RGB_BORDER_DARKER;
 }
 
-- (NSString *)RGB_BORDER{
-    if (!_RGB_BORDER) return @"242,242,242";
-    return _RGB_BORDER;
-}
-
 #pragma mark - common colors
 
 - (NSString *)RGB_DISABLED{
@@ -87,28 +82,16 @@
     return _RGB_THEME;
 }
 
-- (NSString *)RGB_BACKGROUND_NORMAL{
-    if (!_RGB_BACKGROUND_NORMAL) return RGB_WHITE;
-    return _RGB_BACKGROUND_NORMAL;
-}
+
 
 
 #pragma mark - title colors
-
-- (NSString *)RGB_TITLE{
-    if (!_RGB_TITLE) return @"37,37,37";
-    return _RGB_TITLE;
-}
 
 - (NSString *)RGB_TITLE_NORMAL{
     if (!_RGB_TITLE_NORMAL) return @"91,91,91";
     return _RGB_TITLE_NORMAL;
 }
 
-- (NSString *)RGB_TITLE_LIGHT{
-    if (!_RGB_TITLE_LIGHT) return @"153,153,153";
-    return _RGB_TITLE_LIGHT;
-}
 
 - (NSString *)RGB_TITLE_LIGHTER{
     if (!_RGB_TITLE_LIGHTER) return @"169,169,169";
@@ -161,7 +144,7 @@
 }
 
 - (NSString *)RGB_CELL_BORDER{
-    if (!_RGB_CELL_BORDER) return self.RGB_BORDER;
+    if (!_RGB_CELL_BORDER) return RGB_BORDER;
     return _RGB_CELL_BORDER;
 }
 
@@ -258,13 +241,10 @@
 
 #pragma mark - header colors
 
-- (NSString *)RGB_HEADER{
-    if (!_RGB_HEADER) return @"162,162,162";
-    return _RGB_HEADER;
-}
+
 
 - (NSString *)RGB_HEADER_BORDER {
-    if (!_RGB_HEADER_BORDER) return self.RGB_BORDER;
+    if (!_RGB_HEADER_BORDER) return RGB_BORDER;
     return _RGB_HEADER_BORDER;
 }
 
@@ -296,7 +276,7 @@
 }
 
 - (NSString *)RGB_OPTION_BORDER {
-    if (!_RGB_OPTION_BORDER) return self.RGB_BORDER;
+    if (!_RGB_OPTION_BORDER) return RGB_BORDER;
     return _RGB_OPTION_BORDER;
 }
 

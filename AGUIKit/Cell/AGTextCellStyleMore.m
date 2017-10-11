@@ -36,4 +36,10 @@
     [self.textLabel setText:[DSValueUtil toString:value]];
 }
 
+#pragma mark - 
+
+- (void)applyUnselectedStyle{
+    [self setBackgroundColor:COLOR(RGB_WHITE)];
+}
+
 @end

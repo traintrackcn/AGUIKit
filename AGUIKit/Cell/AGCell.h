@@ -23,9 +23,11 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath config:(AGVCConfiguration *)config;
 
 - (void)_setValue:(id)value;
 - (void)_setTitle:(id)title;
+- (void)_setSelected:(BOOL)selected;
 
 - (void)didSetValue:(id)value;
 - (void)layout;
@@ -50,7 +52,6 @@
 
 #pragma mark - properties
 
-- (AGVCConfiguration *)config;
 - (UITableView *)tableView;
 - (BOOL)isCachedValueSameAsTargetValue:(id)targetValue;
 - (BOOL)isContentViewLoaded DEPRECATED;
@@ -85,6 +86,7 @@
 @property (nonatomic, strong) NSString *placeholder;
 
 @property (nonatomic, strong) id value;
+@property (nonatomic, strong) AGVCConfiguration *config;
 @property (nonatomic, weak) id ws;
 @property (nonatomic, weak) id associatedViewController;
 @property (nonatomic, strong) AGRemoter *remoter DEPRECATED ; 

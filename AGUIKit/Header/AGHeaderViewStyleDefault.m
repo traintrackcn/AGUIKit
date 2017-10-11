@@ -60,7 +60,7 @@
 }
 
 - (UIColor *)titleColor{
-    return COLOR(AG_UI_DEFINE.RGB_TITLE_LIGHT);
+    return COLOR(RGB_TITLE_LIGHT);
 }
 
 @end

@@ -86,7 +86,7 @@
     CGFloat w = [DSDeviceUtil bounds].size.width;
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
     [self.contentView addSubview:v];
-    [v setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
+    [v setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
 }
 
 - (void)assembleLineView{
@@ -96,7 +96,7 @@
     CGFloat x = self.paddingLR;
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     [self.contentView addSubview:v];
-    [v setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_BACKGROUND_NORMAL)];
+    [v setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
 }
 
 

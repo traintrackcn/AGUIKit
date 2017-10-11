@@ -21,7 +21,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:COLOR(AGUI.RGB_BACKGROUND_NORMAL)];
+        [self setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
 //        [AGDebugUtil makeBorderForView:self];
     }
     return self;

@@ -37,15 +37,19 @@
     
 }
 
-- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section{
+- (id)sectionWithClass:(Class)cls withConfig:(AGVCConfiguration *)config inSection:(NSInteger)section{
     id item = [self sectionItemInSection:section];
     if (!item) {
-        item = [cls instanceWithSection:section config:self.config];
+        item = [cls instanceWithSection:section config:config];
         [self.objPool setObject:item forKey:[self keyOfSection:section]];
     }
     return item;
-    
 }
+
+- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section{
+    return [self sectionWithClass:cls withConfig:self.config inSection:section];
+}
+
 
 - (id)sectionItemInSection:(NSInteger)section{
     NSString *key = [self keyOfSection:section];

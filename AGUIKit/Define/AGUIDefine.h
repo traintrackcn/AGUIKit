@@ -16,6 +16,9 @@
 #define AG_UI_DEFINE [AGUIDefine singleton]
 #define AGUI [AGUIDefine singleton]
 
+#define COLOR(aValue) [[AGStyleCoordinator singleton] colorForValue:aValue]
+#define RGB(aValue) [[AGStyleCoordinator singleton] rgbForValue:aValue]
+
 //sizes
 #define STYLE_NAVIGATION_BAR_HEIGHT 44.0
 #define STYLE_STATUS_BAR_HEIGHT 20.0
@@ -34,11 +37,31 @@
 #define FONT_REGULAR_WITH_SIZE(aSize) [UIFont fontWithName:AG_UI_DEFINE.fontNameRegular size:aSize]
 #define FONT_MEDIUM_WITH_SIZE(aSize) [UIFont fontWithName:AG_UI_DEFINE.fontNameMedium size:aSize]
 
-//colors
+//base colors
 #define RGB_WHITE @"255,255,255"
 #define RGB_BLACK @"0,0,0"
 #define RGB_DUMMY RGB_BLACK
 
+//header colors
+#define RGB_HEADER @"RGB_HEADER|162,162,162"
+
+//title colors
+#define RGB_TITLE_DARK @"RGB_TITLE_DARK"
+#define RGB_TITLE @"RGB_TITLE|37,37,37"
+#define RGB_TITLE_LIGHT @"RGB_TITLE_LIGHT|153,153,153"
+
+//subtitle colors
+#define RGB_SUBTITLE @"RGB_SUBTITLE"
+#define RGB_CHECK_BOX_ON_TINT @"RGB_CHECK_BOX_ON_TINT"
+#define RGB_CHECK_BOX_ON_FILL @"RGB_CHECK_BOX_ON_FILL"
+
+#define RGB_IMPORTANT @"RGB_IMPORTANT"
+
+#define RGB_BORDER @"RGB_BORDER|242,242,242"
+
+#define RGB_BACKGROUND_NORMAL @"RGB_BACKGROUND_NORMAL|252,252,252"
+
+#define RGB_THEME_FOR_CONTROL @"RGB_THEME_FOR_CONTROL"
 
 @interface AGUIDefine : NSObject
 
@@ -66,17 +89,15 @@
 #pragma mark - common colors
 @property (nonatomic, strong) NSString *RGB_THEME;
 @property (nonatomic, strong) NSString *RGB_DISABLED;
-@property (nonatomic, strong) NSString *RGB_BACKGROUND_NORMAL;
 
 #pragma mark - title colors
-@property (nonatomic, strong) NSString *RGB_TITLE;
 @property (nonatomic, strong) NSString *RGB_TITLE_NORMAL;
-@property (nonatomic, strong) NSString *RGB_TITLE_LIGHT;
+//@property (nonatomic, strong) NSString *RGB_TITLE_LIGHT;
 @property (nonatomic, strong) NSString *RGB_TITLE_LIGHTER;
 
 #pragma mark - border colors
 @property (nonatomic, strong) NSString *RGB_BORDER_DARKER;
-@property (nonatomic, strong) NSString *RGB_BORDER;
+//@property (nonatomic, strong) NSString *RGB_BORDER;
 
 #pragma mark - tab bar colors
 @property (nonatomic, strong) NSString *RGB_TAB_BAR_BACKGROUND;
@@ -119,7 +140,6 @@
 @property (nonatomic, strong) NSString *RGB_BUTTON_BORDER;
 
 #pragma mark - header colors
-@property (nonatomic, strong) NSString *RGB_HEADER;
 @property (nonatomic, strong) NSString *RGB_HEADER_BORDER;
 @property (nonatomic, strong) NSString *RGB_HEADER_BACKGROUND;
 

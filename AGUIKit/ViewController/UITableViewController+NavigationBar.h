@@ -6,9 +6,9 @@
 //  Copyright © 2015 AboveGEM. All rights reserved.
 //
 
-#import "AGViewController.h"
+@import UIKit;
 
-@interface AGViewController (NavigationBar)
+@interface UITableViewController (NavigationBar)
 
 - (void)hideNextVCBackButtonTitle;
 - (void)hideNavigationBarBackground;

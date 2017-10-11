@@ -58,6 +58,13 @@
 
 #pragma mark - ops
 
+- (BOOL)hasNext{
+    if (self.hasNeverBeenUpdated) return YES;
+    NSInteger nextOffset = self.offset + self.limit;
+    if (nextOffset >= self.count) return NO;
+    return YES;
+}
+
 - (BOOL)next{
     
 //    TLOG(@"[self hasNeverBeenUpdated] -> %d self.count -> %ld",[self hasNeverBeenUpdated], self.count);

@@ -11,6 +11,7 @@
 @interface AGMeta : AGModel
 
 - (BOOL)next;
+- (BOOL)hasNext;
 - (void)previous; //for requeset excpetion
 - (void)reset;
 
