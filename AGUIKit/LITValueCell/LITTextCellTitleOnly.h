@@ -6,9 +6,9 @@
 //
 //
 
-#import "LITTextCellLongValue.h"
+#import "LITTextCellLongTitle.h"
 
-@interface LITTextCellTitleOnly : LITTextCellLongValue
+@interface LITTextCellTitleOnly : LITTextCellLongTitle
 
 - (CGFloat)minHeight;
 

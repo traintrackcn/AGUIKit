@@ -14,7 +14,7 @@
 
 @optional
 - (void)quantityPickerViewShouldChangeValue:(NSInteger)value;
-- (void)quantityPickerViewWillChangeValue:(NSInteger)value;
+- (BOOL)quantityPickerViewWillChangeValue:(NSInteger)value;
 - (void)quantityPickerViewDidChangeValue:(NSInteger)value;
 - (void)quantityPickerView:(AGQuantityPickerView *)pickerView didChangeValue:(NSInteger)value;
 

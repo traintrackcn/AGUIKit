@@ -111,7 +111,9 @@ static const NSInteger AG_MIN_QUANTITY = 0;
 //        TLOG(@"value -> %@ valueNew -> %@ valueMax -> %@", valueOld, valueNew, self.maxValue);
     
     if (valueNew != self.value) {
-        [self dispatchWillChangeValue:valueNew];
+        if (![self dispatchWillChangeValue:valueNew]){
+            return;
+        }
     }
     
     [self setValue:valueNew];
@@ -124,7 +126,10 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     if (valueNew < self.minValue) valueNew = self.minValue;
     
     if (valueNew != self.value) {
-        [self dispatchWillChangeValue:valueNew];
+        if (![self dispatchWillChangeValue:valueNew]){
+            return;
+        }
+            
     }
     [self setValue:valueNew];
 }
@@ -251,10 +256,11 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     }
 }
 
-- (void)dispatchWillChangeValue:(NSInteger)value{
+- (BOOL)dispatchWillChangeValue:(NSInteger)value{
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewWillChangeValue:)]) {
-        [_delegate quantityPickerViewWillChangeValue:value];
+        return [_delegate quantityPickerViewWillChangeValue:value];
     }
+    return NO;
 }
 
 - (void)dispatchDidChangeValue:(NSInteger)value{
