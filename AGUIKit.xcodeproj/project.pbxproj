@@ -101,8 +101,8 @@
 		4A84F95C1C0EBC2900879360 /* DATableRow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB3F1D81B88CB56008DC70F /* DATableRow.h */; };
 		4A874F7F1D06CAE8000822F4 /* DATextInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */; };
 		4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */; };
-		4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */; };
-		4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */; };
+		4A874F831D06CB9C000822F4 /* NSObject+TextInputComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F821D06CB9C000822F4 /* NSObject+TextInputComponents.m */; };
+		4A874F841D06CE97000822F4 /* NSObject+TextInputComponents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F811D06CB9C000822F4 /* NSObject+TextInputComponents.h */; };
 		4A874F8B1D070F0E000822F4 /* DATextUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A874F8A1D070F0E000822F4 /* DATextUtil.m */; };
 		4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A874F891D070F0E000822F4 /* DATextUtil.h */; };
 		4A8CB9F51F8E5C98003BFB92 /* NSObject+VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CB9F41F8E5C98003BFB92 /* NSObject+VC.m */; };
@@ -350,6 +350,12 @@
 		4AB650731D111D2900F5735C /* UIViewController+CustomTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AB6506A1D111D1E00F5735C /* UIViewController+CustomTransition.h */; };
 		4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */; };
 		4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */; };
+		4ACE442D1F93A709004A04ED /* LITVCCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE442B1F93A708004A04ED /* LITVCCore.m */; };
+		4ACE44301F93A82B004A04ED /* LITVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE442F1F93A82A004A04ED /* LITVC.m */; };
+		4ACE44331F93B04A004A04ED /* NSObject+Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE44321F93B04A004A04ED /* NSObject+Cell.m */; };
+		4ACE44341F93B117004A04ED /* LITVC.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE442E1F93A82A004A04ED /* LITVC.h */; };
+		4ACE44351F93B117004A04ED /* LITVCCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE442C1F93A709004A04ED /* LITVCCore.h */; };
+		4ACE44361F93B117004A04ED /* NSObject+Cell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE44311F93B04A004A04ED /* NSObject+Cell.h */; };
 		4ACFC90A1D18E3D2006C2884 /* DACSVUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */; };
 		4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9B91D1A5C93006C2884 /* DAView.m */; };
 		4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACFC9B81D1A5C93006C2884 /* DAView.h */; };
@@ -363,6 +369,9 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4ACE44341F93B117004A04ED /* LITVC.h in CopyFiles */,
+				4ACE44351F93B117004A04ED /* LITVCCore.h in CopyFiles */,
+				4ACE44361F93B117004A04ED /* NSObject+Cell.h in CopyFiles */,
 				4A8CB9F61F8E5DA6003BFB92 /* NSObject+VC.h in CopyFiles */,
 				4A9133311F832AC9001608F9 /* LITTipCellDarkTextNormalBG.h in CopyFiles */,
 				4A9133321F832AC9001608F9 /* LITTipCellCenterDark.h in CopyFiles */,
@@ -426,7 +435,7 @@
 				4AB650721D111D2900F5735C /* AGTransitioningDelegate.h in CopyFiles */,
 				4AB650731D111D2900F5735C /* UIViewController+CustomTransition.h in CopyFiles */,
 				4A874F8C1D07114D000822F4 /* DATextUtil.h in CopyFiles */,
-				4A874F841D06CE97000822F4 /* AGCell+TextInputComponents.h in CopyFiles */,
+				4A874F841D06CE97000822F4 /* NSObject+TextInputComponents.h in CopyFiles */,
 				4A874F801D06CB54000822F4 /* DATextInputDelegate.h in CopyFiles */,
 				4ABC279B1CBF2EE300FA4D00 /* AGCellAction.h in CopyFiles */,
 				4A6E50931C92765600D8D46A /* DAButtonCell.h in CopyFiles */,
@@ -625,8 +634,8 @@
 		4A6E508F1C9273B600D8D46A /* DAButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAButtonItem.m; sourceTree = "<group>"; };
 		4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATextInputDelegate.h; sourceTree = "<group>"; };
 		4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextInputDelegate.m; sourceTree = "<group>"; };
-		4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGCell+TextInputComponents.h"; sourceTree = "<group>"; };
-		4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGCell+TextInputComponents.m"; sourceTree = "<group>"; };
+		4A874F811D06CB9C000822F4 /* NSObject+TextInputComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TextInputComponents.h"; sourceTree = "<group>"; };
+		4A874F821D06CB9C000822F4 /* NSObject+TextInputComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TextInputComponents.m"; sourceTree = "<group>"; };
 		4A874F891D070F0E000822F4 /* DATextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATextUtil.h; sourceTree = "<group>"; };
 		4A874F8A1D070F0E000822F4 /* DATextUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATextUtil.m; sourceTree = "<group>"; };
 		4A8CB9F31F8E5C98003BFB92 /* NSObject+VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+VC.h"; sourceTree = "<group>"; };
@@ -878,6 +887,12 @@
 		4AB6506B1D111D1E00F5735C /* UIViewController+CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomTransition.m"; sourceTree = "<group>"; };
 		4ABC27981CBF2EBF00FA4D00 /* AGCellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCellAction.h; sourceTree = "<group>"; };
 		4ABC27991CBF2EBF00FA4D00 /* AGCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCellAction.m; sourceTree = "<group>"; };
+		4ACE442B1F93A708004A04ED /* LITVCCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LITVCCore.m; sourceTree = "<group>"; };
+		4ACE442C1F93A709004A04ED /* LITVCCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LITVCCore.h; sourceTree = "<group>"; };
+		4ACE442E1F93A82A004A04ED /* LITVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LITVC.h; sourceTree = "<group>"; };
+		4ACE442F1F93A82A004A04ED /* LITVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LITVC.m; sourceTree = "<group>"; };
+		4ACE44311F93B04A004A04ED /* NSObject+Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Cell.h"; sourceTree = "<group>"; };
+		4ACE44321F93B04A004A04ED /* NSObject+Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Cell.m"; sourceTree = "<group>"; };
 		4ACFC9081D18E3D2006C2884 /* DACSVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACSVUtil.h; sourceTree = "<group>"; };
 		4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACSVUtil.m; sourceTree = "<group>"; };
 		4ACFC9B81D1A5C93006C2884 /* DAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAView.h; sourceTree = "<group>"; };
@@ -1057,6 +1072,10 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4ACE442E1F93A82A004A04ED /* LITVC.h */,
+				4ACE442F1F93A82A004A04ED /* LITVC.m */,
+				4ACE442C1F93A709004A04ED /* LITVCCore.h */,
+				4ACE442B1F93A708004A04ED /* LITVCCore.m */,
 				4A9133271F832AAB001608F9 /* LITTipCell */,
 				4A468F6C1F824A2300999BF1 /* LITSectionUnit */,
 				4A468F271F8245CD00999BF1 /* LITHeaderView */,
@@ -1109,6 +1128,8 @@
 				4A38B0E81F822A980020F122 /* LITWindow.m */,
 				4A8CB9F31F8E5C98003BFB92 /* NSObject+VC.h */,
 				4A8CB9F41F8E5C98003BFB92 /* NSObject+VC.m */,
+				4ACE44311F93B04A004A04ED /* NSObject+Cell.h */,
+				4ACE44321F93B04A004A04ED /* NSObject+Cell.m */,
 			);
 			path = AGUIKit;
 			sourceTree = "<group>";
@@ -1133,8 +1154,8 @@
 		4A8E88A21B686E9100F48CDD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4A874F811D06CB9C000822F4 /* AGCell+TextInputComponents.h */,
-				4A874F821D06CB9C000822F4 /* AGCell+TextInputComponents.m */,
+				4A874F811D06CB9C000822F4 /* NSObject+TextInputComponents.h */,
+				4A874F821D06CB9C000822F4 /* NSObject+TextInputComponents.m */,
 				4A874F7D1D06CAE8000822F4 /* DATextInputDelegate.h */,
 				4A874F7E1D06CAE8000822F4 /* DATextInputDelegate.m */,
 				4A6E50841C9272D500D8D46A /* DACell.h */,
@@ -1748,6 +1769,7 @@
 				4A8E8A461B68F99400F48CDD /* AGCellInnerView.m in Sources */,
 				4ABC279A1CBF2EBF00FA4D00 /* AGCellAction.m in Sources */,
 				4A8E898C1B686E9100F48CDD /* AGExpirationDateSelector.m in Sources */,
+				4ACE44301F93A82B004A04ED /* LITVC.m in Sources */,
 				4A38B0E91F822A980020F122 /* LITWindow.m in Sources */,
 				4A8EA8251F4DB429001E3853 /* UITableViewController+Message.m in Sources */,
 				4A8E897E1B686E9100F48CDD /* AGCollectionViewCell.m in Sources */,
@@ -1801,6 +1823,7 @@
 				4A8E89671B686E9100F48CDD /* AGSeparatorCell.m in Sources */,
 				4A8E895F1B686E9100F48CDD /* AGMultiHeaderView.m in Sources */,
 				4A8E89DD1B68DBF800F48CDD /* UILabel+AGUtil.m in Sources */,
+				4ACE442D1F93A709004A04ED /* LITVCCore.m in Sources */,
 				4A8EA8281F4DB429001E3853 /* AGViewController.m in Sources */,
 				4A8E89531B686E9100F48CDD /* AGButtonCell.m in Sources */,
 				4A8E895B1B686E9100F48CDD /* AGMultiLabelsCell.m in Sources */,
@@ -1821,7 +1844,7 @@
 				4A8E89931B686E9100F48CDD /* AGTabBarCell.m in Sources */,
 				4A8E89A71B68CDA400F48CDD /* AGButton.m in Sources */,
 				4A8E896D1B686E9100F48CDD /* AGTextCellStyleMore.m in Sources */,
-				4A874F831D06CB9C000822F4 /* AGCell+TextInputComponents.m in Sources */,
+				4A874F831D06CB9C000822F4 /* NSObject+TextInputComponents.m in Sources */,
 				4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */,
 				4A8E89601B686E9100F48CDD /* AGMultiValueCell.m in Sources */,
 				4A8E89801B686E9100F48CDD /* AGCollectionViewCellTab.m in Sources */,
@@ -1830,6 +1853,7 @@
 				4A8E89701B686E9100F48CDD /* AGTextfieldCell.m in Sources */,
 				4A8E89511B686E9100F48CDD /* AGAttributedStringCell.m in Sources */,
 				4A8E89821B686E9100F48CDD /* AGCollectionViewCellViewController.m in Sources */,
+				4ACE44331F93B04A004A04ED /* NSObject+Cell.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
 				4A22B4781F5026B600E7AFC7 /* LITInteractivePanelView.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,

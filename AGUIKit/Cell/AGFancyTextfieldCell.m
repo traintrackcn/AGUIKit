@@ -9,7 +9,7 @@
 #import "AGFancyTextfieldCell.h"
 #import "DSImage.h"
 #import "DSValueUtil.h"
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 
 @interface AGFancyTextfieldCell() <UITextFieldDelegate, UITextViewDelegate>{
     

@@ -15,13 +15,13 @@
     
 }
 
-@property (nonatomic, weak) AGCell *cell;
+@property (nonatomic, weak) UITableViewCell *cell;
 
 @end
 
 @implementation DATextInputDelegate
 
-- (instancetype)initWithCell:(AGCell *)cell{
+- (instancetype)initWithCell:(UITableViewCell *)cell{
     self = [super init];
     if (self) {
         [self setCell:cell];

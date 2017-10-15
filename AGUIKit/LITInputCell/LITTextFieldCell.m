@@ -8,7 +8,7 @@
 
 #import "LITTextFieldCell.h"
 #import "JVFloatLabeledTextField.h"
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 #import "AGUIDefine.h"
 
 @interface LITTextFieldCell(){
@@ -21,8 +21,8 @@
 
 @implementation LITTextFieldCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedViewController:(id)associatedViewController indexPath:(NSIndexPath *)indexPath{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier associatedViewController:associatedViewController indexPath:indexPath];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedVC:(id)associatedVC indexPath:(NSIndexPath *)indexPath{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier associatedVC:associatedVC indexPath:indexPath];
     if (self){
         [self.contentView addSubview:self.textF];
     }

@@ -12,7 +12,7 @@
 @class AGCell;
 @interface DATextInputDelegate : NSObject <UITextFieldDelegate, UITextViewDelegate>
 
-- (instancetype)initWithCell:(AGCell *)cell;
+- (instancetype)initWithCell:(UITableViewCell *)cell;
 - (AGCell *)cell;
 
 @end

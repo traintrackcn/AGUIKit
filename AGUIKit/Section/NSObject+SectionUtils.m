@@ -11,6 +11,7 @@
 #import "NSObject+ObjPool.h"
 #import "NSObject+AGVCConfig.h"
 #import "AGObjectPool.h"
+#import "AGVCConfiguration.h"
 
 #define KEY_SECTION_PREFIX @"KEY_SECTION_PREFIX"
 
@@ -28,7 +29,7 @@
 
 
 - (id)sectionItemWithClass:(Class)cls inSection:(NSInteger)section{
-    id item = [self sectionItemInSection:section];
+    id item = [self sectionInSection:section];
     if (!item) {
         item = [cls instanceWithSection:section config:self.config];
         [self.objPool setObject:item forKey:[self keyOfSection:section]];
@@ -38,7 +39,7 @@
 }
 
 - (id)sectionWithClass:(Class)cls withConfig:(AGVCConfiguration *)config inSection:(NSInteger)section{
-    id item = [self sectionItemInSection:section];
+    id item = [self sectionInSection:section];
     if (!item) {
         item = [cls instanceWithSection:section config:config];
         [self.objPool setObject:item forKey:[self keyOfSection:section]];
@@ -51,10 +52,23 @@
 }
 
 
+#pragma mark - LIT stuff
+
 - (id)sectionItemInSection:(NSInteger)section{
     NSString *key = [self keyOfSection:section];
     id item = [self.objPool objectForKey:key];
     return item;
+}
+
+- (id)sectionInSection:(NSInteger)section{
+    NSString *key = [self keyOfSection:section];
+    id item = [self.objPool objectForKey:key];
+    return item;
+}
+
+- (void)resetSection:(NSInteger)section{
+    NSString *key = [self keyOfSection:section];
+    [self.objPool removeObjectForKey:key];
 }
 
 #pragma mark - utils

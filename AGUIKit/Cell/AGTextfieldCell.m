@@ -11,7 +11,7 @@
 #import "DSValueUtil.h"
 #import "GlobalDefine.h"
 #import "DSDeviceUtil.h"
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 
 @interface AGTextfieldCell() {
 //    id obUIKeyboardWillShowNotification;

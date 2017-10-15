@@ -9,7 +9,7 @@
 #import "AGTextfieldCellStyleNoTitle.h"
 #import "AGAssembler.h"
 #import "AGStyleCoordinator.h"
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 
 @implementation AGTextfieldCellStyleNoTitle
 

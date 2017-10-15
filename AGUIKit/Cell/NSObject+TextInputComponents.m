@@ -6,17 +6,19 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 #import "AGObjectPool.h"
+#import "NSObject+ObjPool.h"
 #import "AGUIDefine.h"
+#import "NSObject+Cell.h"
 
 
-@interface AGCell ()<UITextViewDelegate, UITextFieldDelegate>{
+@interface NSObject ()<UITextViewDelegate, UITextFieldDelegate>{
 }
 
 @end
 
-@implementation AGCell (TextInputComponents)
+@implementation NSObject (TextInputComponents)
 
 #pragma mark - components
 

@@ -30,7 +30,7 @@
         NSArray *cells = [tableView visibleCells];
         CGPoint contentOffset = [[action objectForKey:@"value"] CGPointValue];
         for (NSInteger i = 0; i<cells.count; i++) {
-            AGCell *cell = [cells objectAtIndex:i];
+            UITableViewCell *cell = [cells objectAtIndex:i];
             if ([cell isEqual:targetCell]) continue;
             if (cell.indexPath.section != targetSection) continue;
             //            TLOG(@"cell -> %@", NSStringFromCGPoint(contentOffset));

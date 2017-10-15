@@ -6,10 +6,10 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
-#import "AGCell.h"
+@import UIKit;
 #import "DATextInputDelegate.h"
 
-@interface AGCell (TextInputComponents)
+@interface NSObject (TextInputComponents)
 
 - (UITextField *)textInputField;
 - (UITextView *)textInputBox;

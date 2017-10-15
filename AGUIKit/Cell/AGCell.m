@@ -248,7 +248,7 @@
 //        return [self.config cellHeightAtIndexPath:self.indexPath];
 //    }
 //    TLOG(@"h -> %f", h);
-    if (self.indexPath) return [self.config cellHeightAtIndexPath:self.indexPath forValue:nil];
+    if (self.indexPath && self.config) return [self.config cellHeightAtIndexPath:self.indexPath forValue:nil];
 //    TLOG(@"_height -> %@ indexPath -> %@", @(_height), self.indexPath);
     if (_height) return _height;
     return [self.class height];

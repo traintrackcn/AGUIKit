@@ -7,7 +7,7 @@
 //
 
 #import "AGTextfieldCellStyleLongNumber.h"
-#import "AGCell+TextInputComponents.h"
+#import "NSObject+TextInputComponents.h"
 
 @implementation AGTextfieldCellStyleLongNumber
 

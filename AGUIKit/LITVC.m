@@ -1,36 +1,27 @@
 //
-//  AGFormBaseViewController.m
-//  AboveGEM
+//  LITViewController.m
+//  iPhone
 //
-//  Created by traintrackcn on 16/7/14.
-//  Copyright (c) 2014 2ViVe. All rights reserved.
+//  Created by Tao Yunfei on 25/09/2017.
 //
 
-#import "AGViewController.h"
+#import "LITVC.h"
+#import "AGUIDefine.h"
 #import "UITableViewController+Message.h"
-#import "AGViewController+Separator.h"
-//#import "AGViewController+LoginUI.h"
 
-
-#import "AGCell.h"
-#import "AGSeparatorCell.h"
-#import "AGSectionUnit.h"
+#import "LITCell.h"
+#import "LITSectionUnit.h"
 #import "AGHeaderViewStyleDefault.h"
 
 #import "DSValueUtil.h"
 #import "DSDeviceUtil.h"
 #import "GlobalDefine.h"
 #import "AGUIDefine.h"
-
+#import "NSObject+SectionUtils.h"
 #import "AGRemoterError.h"
-#import "AGRemoterResult.h"
-#import "DATableView.h"
 
 
-
-@interface AGViewController (){
-    
-}
+@interface LITVC ()
 
 @property (nonatomic, strong) UIView *overlayContainer;
 @property (nonatomic, strong) NSMutableArray *externalViews;
@@ -39,10 +30,13 @@
 @property (nonatomic, assign) BOOL visible;
 //@property (nonatomic, strong) UIView *interactiveContainer;
 @property (nonatomic, assign) BOOL initialized;
+@property (nonatomic, strong) AGObjectPool *objPool;
+@property (nonatomic, weak) id ws;
+@property (nonatomic, strong) LITVCCore *core;
 
 @end
 
-@implementation AGViewController
+@implementation LITVC
 
 @synthesize previousViewController = _previousViewController;
 
@@ -53,11 +47,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        [self setConfig:[AGVCConfiguration instance]];
-        [self.config setTarget:self];
-        animationDuration = .33;
-        
-//        self.interactiveContainer.layer.borderWidth = 3;
+        [self setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
     }
     return self;
 }
@@ -70,16 +60,6 @@
 
 #pragma mark - life cycle
 
-//- (void)loadView{
-//    CGRect frame = CGRectMake(0, 0, STYLE_DEVICE_WIDTH, STYLE_DEVICE_HEIGHT);
-//    DATableView* tv = [[DATableView alloc]initWithFrame:frame style: UITableViewStylePlain];
-//    [tv setDataSource:self];
-//    [tv setDelegate:self];
-//    [tv setControllerClassName:self.className];
-//    [self setView:tv];
-//    [self setTableView:tv];
-//}
-
 - (void)viewDidLoad{
     TLOG(@"%@", self.className);
     [super viewDidLoad];
@@ -87,12 +67,12 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     if (self.backgroundColor) {
         UIView *bgV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, STYLE_DEVICE_WIDTH, STYLE_DEVICE_HEIGHT)];
-//        bgV.layer.borderWidth = 1;
-//        bgV.layer.borderColor = [UIColor redColor].CGColor;
+        //        bgV.layer.borderWidth = 1;
+        //        bgV.layer.borderColor = [UIColor redColor].CGColor;
         [bgV setBackgroundColor:self.backgroundColor];
         [self.tableView setBackgroundView:bgV];
-//        [self.view setBackgroundColor:self.backgroundColor];
-    
+        //        [self.view setBackgroundColor:self.backgroundColor];
+        
     }
 }
 
@@ -103,25 +83,15 @@
     [super viewWillAppear:animated];
     [self setNavigationController];
     [self showExternalViews];
-    
-//    if (!self.initialized) {
-//        [self.parentView addSubview:self.interactiveContainer];
-//        [self.parentView addSubview:self.overlayContainer];
-//        [self setInitialized:YES];
-//    }
-
-//    self.parentView.layer.borderColor = [UIColor redColor].CGColor;
-//    self.parentView.layer.borderWidth = 3;
-//    self.interactiveContainer.layer.borderWidth = 6;
 }
 
 - (void)viewWillLayoutSubviews{
-//    TLOG(@"%@", self.className);
+    //    TLOG(@"%@", self.className);
     [super viewWillLayoutSubviews];
 }
 
 - (void)viewDidLayoutSubviews{
-//    TLOG(@"%@", self.className);
+    //    TLOG(@"%@", self.className);
     [super viewDidLayoutSubviews];
     
 }
@@ -130,10 +100,10 @@
     TLOG(@"%@", self.className);
     [super viewDidAppear:animated];
     
-    if (self.flagDoReload) {
-        [self willDoReload];
-        [self setFlagDoReload:NO];
-    }
+//    if (self.flagDoReload) {
+//        [self willDoReload];
+//        [self setFlagDoReload:NO];
+//    }
     
     if (self.needsReloadIndexPath) {
         @try {
@@ -154,14 +124,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [self setVisible:NO];
-//    TLOG(@"%@", self.className);
+    //    TLOG(@"%@", self.className);
     [super viewWillDisappear:animated];
     [self hideExternalViews];
-//    [self.interactiveContainer setHidden:YES];
+    //    [self.interactiveContainer setHidden:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-//    TLOG(@"%@", self.className);
+    //    TLOG(@"%@", self.className);
     [super viewDidDisappear:animated];
 }
 
@@ -198,7 +168,7 @@
     
     _externalViews = nil;
     _overlayContainer = nil;
-//    _interactiveContainer = nil;
+    //    _interactiveContainer = nil;
 }
 
 - (void)setNavigationController{
@@ -239,21 +209,14 @@
     return [self.overlayContainer viewWithTag:tag];
 }
 
-- (UITableViewCell *)dummyCellInstanceAtIndex:(NSInteger)index{
-    AGCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@""];
-    [cell setAssociatedViewController:self];
-    [cell setIndexPath:[NSIndexPath indexPathForRow:index inSection:SectionDummy]];
-    return cell;
-}
-
 - (UIView *)overlayContainer{
     if (!_overlayContainer) {
         CGFloat y = self.subviewContainerY;
         CGFloat h = self.subviewContainerH;
         CGFloat w = self.tableView.frame.size.width;
         _overlayContainer =  [[UIView alloc] initWithFrame:CGRectMake(0, y, w, h)];
-//        _overlayContainer.layer.borderWidth = 3;
-//        _overlayContainer.layer.borderColor = [UIColor blueColor].CGColor;
+        //        _overlayContainer.layer.borderWidth = 3;
+        //        _overlayContainer.layer.borderColor = [UIColor blueColor].CGColor;
         [_overlayContainer setUserInteractionEnabled:NO];
         
         [self.externalViews addObject:_overlayContainer];
@@ -303,41 +266,18 @@
 
 #pragma mark - update table view actions
 
-- (void)willDoReload{
-    [self reloadVisibleIndexPaths];
-}
-
-- (void)willReloadVisibleIndexPaths{
-    
-}
-
-- (void)didReloadVisibleIndexPaths{
-    
-}
-
-- (void)didDismissLoginUI{
-    [self reloadVisibleIndexPaths];
-    dummyCell = nil;
-}
-
 - (void)reloadVisibleIndexPaths{
     TLOG(@"%@", NSStringFromClass(self.class));
-    [self willReloadVisibleIndexPaths];
     [self.tableView reloadData];
-    [self didReloadVisibleIndexPaths];
 }
 
-- (void)reloadAndLayoutImmediately{
-    [self.tableView reloadData];
-    [self.tableView layoutIfNeeded];
-}
 
 - (void)reloadIndexPath:(NSIndexPath *)indexPath{
     [self reloadIndexPath:indexPath animated:YES];
 }
 
 - (void)reloadIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated{
-//    TLOG(@"%@ indexPath -> %@", indexPath, self);
+    //    TLOG(@"%@ indexPath -> %@", indexPath, self);
     
     if (animated) {
         [self.tableView beginUpdates];
@@ -369,24 +309,20 @@
         [addedIndexPaths addObject:indexPath];
     }
     
-//    TLOG(@"deletedIndexPaths -> %@ addedIndexPaths -> %@" , deletedIndexPaths, addedIndexPaths);
-    [self willReloadVisibleIndexPaths];
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:deletedIndexPaths withRowAnimation:animation];
     [self.tableView insertRowsAtIndexPaths:addedIndexPaths withRowAnimation:animation];
     [self.tableView endUpdates];
-    [self didReloadVisibleIndexPaths];
 }
 
 - (void)reloadVisibleIndexPathsInSection:(NSInteger)section animated:(BOOL)animated{
     
-    [self willReloadVisibleIndexPaths];
     if (animated){
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
     }else{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     }
-    [self didReloadVisibleIndexPaths];
+    
 }
 
 
@@ -399,9 +335,9 @@
 
 - (AGViewController *)previousViewController{
     if (_previousViewController) return _previousViewController;
-//    TLOG(@"self.navigationController.viewControllers -> %@", self.navigationController.viewControllers);
+    //    TLOG(@"self.navigationController.viewControllers -> %@", self.navigationController.viewControllers);
     
-//    TLOG(@"self.presentingViewController -> %@ self.presentedViewController -> %@", self.presentingViewController, self.presentedViewController);
+    //    TLOG(@"self.presentingViewController -> %@ self.presentedViewController -> %@", self.presentingViewController, self.presentedViewController);
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     NSInteger idx = [viewControllers indexOfObject:self];
@@ -453,42 +389,18 @@
 
 #pragma mark - table view delegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    TLOG(@"");
-    return [self numberOfSections];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    TLOG(@"");
-    NSInteger numOfRowsInSection = [self numberOfRowsInSection:section];
-    
-    BOOL hasSeparator = [self.config separatorForSection:section];
-    if (hasSeparator) {
-        if ([self isSeparatorCellAvailableInSection:section]) {
-            numOfRowsInSection ++;
-        }
-    }
-    
-//    TLOG(@"section-%d rows -> %d", section,numOfRowsInSection);
-    
-    return numOfRowsInSection;
+    return [self numberOfRowsInSection:section];
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"indexPath -> %@", indexPath);    
+    //    TLOG(@"indexPath -> %@", indexPath);    
     CGFloat h = 0;
     BOOL visibility = [self visibilityAtIndexPath:indexPath];
-    id value = [self valueAtIndexPath:indexPath];
-    
-    if ([self isSeparatorCellAtIndexPath:indexPath]) {
-        h = [AGSeparatorCell height];
-    }else if(visibility){
-        h = [self.config cellHeightAtIndexPath:indexPath forValue:value];
-    }
-//    NSInteger section = indexPath.section;
-//    NSInteger idx = indexPath.row;
-//    TLOG(@"%@-%@ h -> %@ ",@(section), @(idx), @(h));
+    if(visibility) h = [self cellHeightAtIndexPath:indexPath];
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    TLOG(@"%@-%@ h -> %@ ",@(section), @(idx), @(h));
     return h;
 }
 
@@ -500,24 +412,22 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     //    TLOG(@"========================");
     Class cls = [self clsForHeaderOfSection:section];
-//    NSInteger rows = [self numberOfRowsInSection:section];
+    //    NSInteger rows = [self numberOfRowsInSection:section];
     CGFloat h = 0;
     if (cls) h = [cls height];
-//    TLOG(@"cls -> %@ h -> %@", cls, @(h));
+    //    TLOG(@"cls -> %@ h -> %@", cls, @(h));
     return h;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    TLOG(@"");
+    //    TLOG(@"");
     UIView *v = [self headerViewForSection:section];
-//    TLOG(@"v -> %@", v);
+    //    TLOG(@"v -> %@", v);
     return v;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"");
-    if ([self isSeparatorCellAtIndexPath:indexPath]) return [self assembleSeparatorCell];
-    UITableViewCell *cell = [self cellForIndexPath:indexPath];
+    LITCell *cell = [self cellForIndexPath:indexPath];
     if (!cell) return [self cellForException];
     return cell;
 }
@@ -526,9 +436,8 @@
     TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-//    TLOG(@"unit -> %@", unit);
-    if (unit) [unit didSelect:idx];
+    LITSectionUnit *unit = [self sectionInSection:section];
+    [unit didSelect:idx];
 }
 
 
@@ -541,9 +450,8 @@
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) return unit.numberOfRows;
-    return 0;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return unit.numberOfRows;
 }
 
 
@@ -567,7 +475,7 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self endEditing:YES];
-//    TLOG(@"self.parentView.subviews -> %@", self.parentView.subviews);
+    //    TLOG(@"self.parentView.subviews -> %@", self.parentView.subviews);
 }
 
 #pragma mark - error handlers
@@ -597,19 +505,13 @@
     return YES;
 }
 
-#pragma mark - dummy cell stuff
 
-- (void)pushViewController:(AGViewController *)viewController fromDummyCellAtIndex:(NSInteger)index{
-    dummyCell = [self dummyCellInstanceAtIndex:index];
-    [viewController setAssociatedIndexPath:dummyCell.indexPath];
-    [dummyCell pushViewController:viewController];
-}
 
 #pragma mark - associated cell ops
 
 - (void)setPreviousViewController:(AGViewController *)previousViewController{
     _previousViewController = previousViewController;
-//    TLOG(@"_previousViewController -> %@ self -> %@", previousViewController, self);
+    //    TLOG(@"_previousViewController -> %@ self -> %@", previousViewController, self);
 }
 
 - (void)setValueForAssociatedIndexPath:(id)value{
@@ -630,44 +532,22 @@
 
 #pragma mark - external requests
 
-
-//-(void)cellRequestSetValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
-////    TLOG(@"value -> %@ %@ %@", value, indexPath, self);
-//    NSInteger section = indexPath.section;
-//    NSInteger index = indexPath.row;
-//    
-//    if (section == SectionDummy){
-//        if (index == SectionDummyCellLoginUI){
-////            TLOG(@"value -> %@", value);
-//            [self didDismissLoginUI];
-//        }
-//    }
-//    
-//    @try {
-//        [self setValue:value atIndexPath:indexPath];
-//    }@catch (NSException *exception) {
-//        TLOG(@"exception -> %@", exception);
-////        [AGMonitor logClientException:exception fnName:CURRENT_FUNCTION_NAME];
-//    }
-//}
-
 - (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) [unit setValue:value atIndex:idx];
+    LITSectionUnit *unit = [self sectionInSection:section];
+    [unit setValue:value atIndex:idx];
 }
 
 
 
 - (id)parameterAtIndexPath:(NSIndexPath *)indexPath{
-//    TLOG(@"indexPath -> %@", indexPath);
+    //    TLOG(@"indexPath -> %@", indexPath);
     @try {
         NSInteger section = indexPath.section;
         NSInteger idx = indexPath.row;
-        AGSectionUnit *unit = [self.config unitOfSection:section];
-//        TLOG(@"section -> %d unit -> %@", section, unit);
-        if (unit) return [unit paramterAtIndex:idx];
+        LITSectionUnit *unit = [self sectionInSection:section];
+        return [unit paramterAtIndex:idx];
     }@catch (NSException *exception) {
         TLOG(@"exception -> %@", exception);
     }
@@ -678,9 +558,8 @@
 - (void)action:(id)action atIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-//    TLOG(@"unit -> %@", unit);
-    if (unit) return [unit action:action atIndex:idx];
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return [unit action:action atIndex:idx];
 }
 
 
@@ -710,83 +589,46 @@
     }
     
     
-    return [self dummyHeaderView];
+    return [[UIView alloc] init];
 }
 
 
 - (id)valueForHeaderOfSection:(NSInteger)section{
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) return unit.headerValue;
-    return nil;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return unit.headerValue;
 }
 
 - (id)titleForHeaderOfSection:(NSInteger)section{
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) return unit.headerTitle;
-    return nil;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return unit.headerTitle;
 }
 
 
 
 - (id)clsForHeaderOfSection:(NSInteger)section{
-    Class clsInConfig = [self.config headerClsOfSection:section];
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    //    TLOG(@"unit -> %@", unit);
-    if (unit) return unit.headerCls;
-    return clsInConfig;
-}
-
-- (UIView *)dummyHeaderView{
-    if (!_dummyHeaderView) {
-        _dummyHeaderView = [[UIView alloc] init];
-    }
-    return _dummyHeaderView;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return unit.headerCls;
 }
 
 #pragma mark - cell stuff
 
-- (UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath{
-    Class cls = [self.config cellClsOfIndexPath:indexPath];
-    
-    NSInteger section = indexPath.section;
-    NSInteger idx = indexPath.row;
+- (LITCell *)cellForIndexPath:(NSIndexPath *)indexPath{
+    Class cls = [self cellClsOfIndexPath:indexPath];
     NSString *cellId = NSStringFromClass(cls);
-    
-    if (self.cacheEveryCell) {
-        cellId = [NSString stringWithFormat:@"%@-%ld-%ld",NSStringFromClass(cls), (long)idx,(long)section];
-    }
-    
-    AGCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    //    TLOG(@"cellId -> %@ cell -> %@", cellId, cell);
-    
+    LITCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
     id value = [self valueAtIndexPath:indexPath];
     id title = [self titleAtIndexPath:indexPath];
     @try {
         if (!cell) {
             //            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedViewController:self indexPath:indexPath config:self.config];
-            [cell setAssociatedViewController:self];
+            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedVC:self indexPath:indexPath];
         }
         
-        NSInteger numberOfRows = [self numberOfRowsInSection:section];
-        BOOL bLastRow = (idx+1 == numberOfRows)?YES:NO;
-        BOOL bFirstRow = idx == 0?YES:NO;
         BOOL visibility = [self visibilityAtIndexPath:indexPath];
-        
-        //capatible with old AGCells
-        [cell setIndexPath:indexPath];
-        [cell setConfig:self.config];
-        //        cell.layer.borderWidth = 1;
-        
-        //        TLOG(@"cell title -> %@ visibility -> %@", title, @(visibility));
         
         if (visibility){
             [cell setHidden:NO];
-            [cell setIsLastRow:bLastRow];
-            [cell setIsFirstRow:bFirstRow];
-            [cell setTitle: title ];
-            [cell setIsOptional: [self.config isCellOptionalAtIndexPath: indexPath ] ];
+            [cell setTitle:title];
             [cell setValue:value];
         }else{
             [cell setHidden:YES];
@@ -803,40 +645,59 @@
     //    TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) return [unit valueAtIndex:idx];
-    return nil;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return [unit valueAtIndex:idx];
 }
 
 - (id)titleAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    id titleInConfig = [self.config cellTitleOfIndexPath:indexPath];
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (titleInConfig) return titleInConfig;
-    if (unit) return [unit titleAtIndex:idx];
-    
-    return nil;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return [unit titleAtIndex:idx];
 }
 
 - (BOOL)visibilityAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
-    AGSectionUnit *unit = [self.config unitOfSection:section];
-    if (unit) {
-        //        TLOG(@"idx -> %@ unit -> %@ %@", @(idx),unit, @([unit visibilityAtIndex:idx]));
-        return [unit visibilityAtIndex:idx];
-    }
-    return YES;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return [unit visibilityAtIndex:idx];
 }
 
-- (UITableViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+- (LITCell *)cellAtIndexPath:(NSIndexPath *)indexPath{
+    LITCell *cell = (LITCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     return cell;
 }
 
-- (UITableViewCell *)cellForException{
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+- (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath{
+    [self.core setCellH:@(height) atIndexPath:indexPath];
+}
+
+- (CGFloat)cellHeightAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    Class cellCls = [self cellClsOfIndexPath:indexPath];
+    LITSectionUnit *unit = [self sectionInSection:section];
+    NSInteger hFromUnit = [unit heightAtIndex:idx];
+    NSNumber *hFromCore = [self.core cellHAtIndexPath:indexPath];
+    
+    if (hFromCore) {
+        return [hFromCore floatValue];
+    }else if (unit) {
+        if (hFromUnit != NSNotFound) return hFromUnit;
+    }
+    
+    return [cellCls height];
+}
+
+- (Class)cellClsOfIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger idx = indexPath.row;
+    LITSectionUnit *unit = [self sectionInSection:section];
+    return [unit clsAtIndex:idx];
+}
+
+- (LITCell *)cellForException{
+    return [[LITCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([LITCell class])];
 }
 
 
