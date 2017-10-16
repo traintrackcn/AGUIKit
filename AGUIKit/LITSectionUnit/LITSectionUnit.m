@@ -16,7 +16,7 @@
 }
 
 - (void)reload:(BOOL)animated{
-    [self.associatedViewController reloadVisibleIndexPathsInSection:self.section animated:animated];
+    [self.associatedVC reloadVisibleIndexPathsInSection:self.section animated:animated];
 }
 
 @end

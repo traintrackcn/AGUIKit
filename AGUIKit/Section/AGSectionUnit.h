@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GlobalDefine.h"
 
 @class AGVCConfiguration;
 @class AGViewController;
@@ -24,7 +25,8 @@
 - (Class)clsAtIndex:(NSInteger)index;
 - (CGFloat)heightAtIndex:(NSInteger)index;
 - (BOOL)visibilityAtIndex:(NSInteger)index;
-- (id)paramterAtIndex:(NSInteger)index;
+- (id)paramterAtIndex:(NSInteger)index DEPRECATED_WITH_MSG("use parameterAtIndex instead");
+- (id)parameterAtIndex:(NSInteger)index;
 - (void)action:(id)action atIndex:(NSInteger)index;
 - (NSInteger)numberOfRows;
 - (void)didSelect:(NSInteger)index;
@@ -35,9 +37,11 @@
 
 - (AGVCConfiguration *)config;
 - (NSInteger)section;
+- (id)associatedViewController DEPRECATED_MSG_ATTRIBUTE("use associatedVC inst"); 
 
 @property (nonatomic, assign) BOOL readonly;
-@property (nonatomic, weak) AGViewController *associatedViewController;
+@property (nonatomic, weak) id associatedVC;
+
 @property (nonatomic, weak) AGSectionLoader *associatedSectionLoader;
 
 @end

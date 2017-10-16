@@ -31,6 +31,9 @@
     CGFloat h = self.height;
     [self.valueL setFrame:CGRectMake(x, y, w, h)];
     
+    
+//    TLOG(@"[%@] borderTop -> %@ borderBottom -> %@ borderBottomPaddingL -> %@ c -> %@ indexPath -> %@", value, @(self.character.borderTop), @(self.character.borderBottom), @(self.character.borderBottomPaddingL), self.character, self.indexPath);
+    
     [self layoutDefaultBordersByFlag];
 }
 

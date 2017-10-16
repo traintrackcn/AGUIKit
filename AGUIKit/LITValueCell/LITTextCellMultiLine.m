@@ -28,8 +28,8 @@
         [self.contentView addSubview:self.valueL];
 //        [self.contentView addGestureRecognizer:self.tapGestureRecognizer];
 //        [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        //        self.titleL.layer.borderWidth = 1;
-        //        self.valueL.layer.borderWidth = 1;
+//                self.titleL.layer.borderWidth = 1;
+//                self.valueL.layer.borderWidth = 1;
         
         [self initializeDefaultBorders];
     }
@@ -57,6 +57,7 @@
     CGFloat h = size.height;
     [self setHeight:h+y*2];
     [self.titleL setFrame:CGRectMake(x, y, w, h)];
+//    TLOG(@"cellH by title -> %@", @(self.height));
 }
 
 - (void)setValue:(id)value{
@@ -73,7 +74,7 @@
     
     if (cellHExpect > self.height) [self setHeight:cellHExpect];
     [self.valueL setFrame:CGRectMake(x, y, w, h)];
-    
+//    TLOG(@"cellH by value -> %@", @(self.height));
     [self layoutDefaultBordersByFlag];
 }
 

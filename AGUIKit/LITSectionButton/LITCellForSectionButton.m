@@ -18,8 +18,8 @@
 
 @implementation LITCellForSectionButton
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedVC:(id)associatedVC indexPath:(NSIndexPath *)indexPath{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier associatedVC:associatedVC indexPath:indexPath];
     if (self) {
         [self.contentView addSubview:self.borderTopViewStyleSolid];
         [self.contentView addSubview:self.borderBottomViewStyleSolid];

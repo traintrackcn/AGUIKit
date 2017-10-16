@@ -21,6 +21,7 @@
 
 @implementation AGSectionUnit
 
+
 + (instancetype)instanceWithSection:(NSInteger)section config:(AGVCConfiguration *)config{
     return [[self.class alloc] initWithSection:section config:config];
 }
@@ -32,7 +33,7 @@
         [self setSection:section];
         [self setReadonly:NO];
         [config setSectionUnit:self];
-        [self setAssociatedViewController:self.config.target];
+        [self setAssociatedVC:self.config.target];
     }
     return self;
 }
@@ -58,6 +59,10 @@
 
 - (id)paramterAtIndex:(NSInteger)index{
     return nil;
+}
+
+- (id)parameterAtIndex:(NSInteger)index{
+    return [self paramterAtIndex:index];
 }
 
 - (CGFloat)heightAtIndex:(NSInteger)index{
@@ -97,5 +102,11 @@
 //- (Class)headerClass{
 //    return [AGHeaderViewStyleDefault class];
 //}
+
+#pragma mark - properties
+
+- (AGViewController *)associatedViewController{
+    return self.associatedVC;
+}
 
 @end

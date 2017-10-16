@@ -12,6 +12,11 @@
 #import "NSObject+AGVCConfig.h"
 #import "AGObjectPool.h"
 #import "AGVCConfiguration.h"
+#import "NSObject+VC.h"
+#import "LITSectionUnit.h"
+#import "LITCell.h"
+#import "LITVC.h"
+
 
 #define KEY_SECTION_PREFIX @"KEY_SECTION_PREFIX"
 
@@ -47,22 +52,35 @@
     return item;
 }
 
-- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section{
-    return [self sectionWithClass:cls withConfig:self.config inSection:section];
-}
-
-
-#pragma mark - LIT stuff
-
 - (id)sectionItemInSection:(NSInteger)section{
     NSString *key = [self keyOfSection:section];
     id item = [self.objPool objectForKey:key];
     return item;
 }
 
+
+
+
+#pragma mark - LIT stuff
+
+- (id)sectionWithClass:(Class)cls inSection:(NSInteger)section{
+    LITSectionUnit *s = [self sectionWithClass:cls withConfig:self.config inSection:section];
+    
+    if ([self isKindOfClass:[LITCell class]]){
+        [s setAssociatedVC:[(LITCell *)self associatedVC]];
+    }else if ([self isKindOfClass:[LITVC class]]) {
+        [s setAssociatedVC:self];
+    }
+    
+    
+    return s;
+//    return [self sectionWithClass:cls withConfig:self.config inSection:section];
+}
+
 - (id)sectionInSection:(NSInteger)section{
     NSString *key = [self keyOfSection:section];
     id item = [self.objPool objectForKey:key];
+//    TLOG(@"key -> %@ item -> %@", key , item);
     return item;
 }
 

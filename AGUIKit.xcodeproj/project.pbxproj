@@ -356,6 +356,8 @@
 		4ACE44341F93B117004A04ED /* LITVC.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE442E1F93A82A004A04ED /* LITVC.h */; };
 		4ACE44351F93B117004A04ED /* LITVCCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE442C1F93A709004A04ED /* LITVCCore.h */; };
 		4ACE44361F93B117004A04ED /* NSObject+Cell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE44311F93B04A004A04ED /* NSObject+Cell.h */; };
+		4ACE445E1F94ECBA004A04ED /* LITHorizontalUnitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE445D1F94ECB9004A04ED /* LITHorizontalUnitsCell.m */; };
+		4ACE445F1F94EF64004A04ED /* LITHorizontalUnitsCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACE445C1F94ECB9004A04ED /* LITHorizontalUnitsCell.h */; };
 		4ACFC90A1D18E3D2006C2884 /* DACSVUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */; };
 		4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACFC9B91D1A5C93006C2884 /* DAView.m */; };
 		4ACFC9BB1D1A5CCA006C2884 /* DAView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ACFC9B81D1A5C93006C2884 /* DAView.h */; };
@@ -369,6 +371,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4ACE445F1F94EF64004A04ED /* LITHorizontalUnitsCell.h in CopyFiles */,
 				4ACE44341F93B117004A04ED /* LITVC.h in CopyFiles */,
 				4ACE44351F93B117004A04ED /* LITVCCore.h in CopyFiles */,
 				4ACE44361F93B117004A04ED /* NSObject+Cell.h in CopyFiles */,
@@ -893,6 +896,8 @@
 		4ACE442F1F93A82A004A04ED /* LITVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LITVC.m; sourceTree = "<group>"; };
 		4ACE44311F93B04A004A04ED /* NSObject+Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Cell.h"; sourceTree = "<group>"; };
 		4ACE44321F93B04A004A04ED /* NSObject+Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Cell.m"; sourceTree = "<group>"; };
+		4ACE445C1F94ECB9004A04ED /* LITHorizontalUnitsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LITHorizontalUnitsCell.h; sourceTree = "<group>"; };
+		4ACE445D1F94ECB9004A04ED /* LITHorizontalUnitsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LITHorizontalUnitsCell.m; sourceTree = "<group>"; };
 		4ACFC9081D18E3D2006C2884 /* DACSVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACSVUtil.h; sourceTree = "<group>"; };
 		4ACFC9091D18E3D2006C2884 /* DACSVUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACSVUtil.m; sourceTree = "<group>"; };
 		4ACFC9B81D1A5C93006C2884 /* DAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAView.h; sourceTree = "<group>"; };
@@ -1130,6 +1135,8 @@
 				4A8CB9F41F8E5C98003BFB92 /* NSObject+VC.m */,
 				4ACE44311F93B04A004A04ED /* NSObject+Cell.h */,
 				4ACE44321F93B04A004A04ED /* NSObject+Cell.m */,
+				4ACE445C1F94ECB9004A04ED /* LITHorizontalUnitsCell.h */,
+				4ACE445D1F94ECB9004A04ED /* LITHorizontalUnitsCell.m */,
 			);
 			path = AGUIKit;
 			sourceTree = "<group>";
@@ -1700,6 +1707,7 @@
 				4A468F4A1F82461300999BF1 /* LITHeaderViewHorizontalUnits.h in Sources */,
 				4A468F4B1F82461300999BF1 /* LITHeaderViewTitledCheckBox.h in Sources */,
 				4A468F4C1F82461300999BF1 /* LITHeaderViewMediumDark.h in Sources */,
+				4ACE445E1F94ECBA004A04ED /* LITHorizontalUnitsCell.m in Sources */,
 				4A468F4D1F82461300999BF1 /* LITHeaderViewTinyDark.h in Sources */,
 				4A468F4E1F82461300999BF1 /* LITHeaderView.h in Sources */,
 				4A468F4F1F82461300999BF1 /* LITTextFieldCellForm.m in Sources */,

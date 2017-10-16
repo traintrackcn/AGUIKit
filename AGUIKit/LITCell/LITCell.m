@@ -19,20 +19,27 @@
 
 
 - (id)init{
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ Failed to call designated initializer. Invoke `initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifie:` instead.", NSStringFromClass([self class])] userInfo:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@Invoke `[initWithStyle: reuseIdentifier: associatedVC:]` instead.", NSStringFromClass([self class])] userInfo:nil];
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@Invoke `[initWithStyle: reuseIdentifier: associatedVC:]` instead.", NSStringFromClass([self class])] userInfo:nil];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedVC:(id)associatedVC indexPath:(NSIndexPath *)indexPath{
-   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setAssociatedVC:associatedVC];
-        [self setIndexPath:indexPath];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [self setAssociatedVC:associatedVC];
+        [self setIndexPath:indexPath]; //make sure right indexPath when initializing cell
     }
     return self;
 }
 
+#pragma mark - interactive ops
+
 - (void)didTapAny:(id)sender{
+    
 }
 
 #pragma mark - setters
@@ -76,8 +83,6 @@
 }
 
 - (void)sendActionRequestToViewController:(id)action{
-    //    TLOG(@"_associatedViewController -> %@", _associatedViewController);
-    //    TLOG(@"action -> %@", action);
     [self.associatedVC action:action atIndexPath:self.indexPath];
 }
 
@@ -95,6 +100,10 @@
     return [self.associatedVC objPool];
 }
 
+- (id)associatedViewController{
+    return self.associatedVC;
+}
+
 - (LITCellCharacter *)character{
     return self.parametersFromViewController.firstObject;
 }
@@ -110,11 +119,21 @@
 }
 
 - (void)setHeight:(CGFloat)height{
-    [self.associatedVC setCellHeight:height atIndexPath:self.indexPath];
+//    TLOG(@"self.associatedVC -> %@", self.associatedVC);
+    if (self.associatedTV){
+        [self.associatedTV setCellHeight:height atIndexPath:self.indexPath];
+    }else{
+        [self.associatedVC setCellHeight:height atIndexPath:self.indexPath];
+    }
 }
 
 - (CGFloat)height{
+    if (self.associatedTV) {
+        CGFloat h = [self.associatedTV cellHeightAtIndexPath:self.indexPath];
+        if (h != NSNotFound) return h;
+    }
     return [self.associatedVC cellHeightAtIndexPath:self.indexPath];
+        
 }
 
 - (UIColor *)borderColor{
@@ -126,7 +145,15 @@
 }
 
 - (void)applySelectedStyle{
-    
+    [self setBackgroundColor:COLOR(AG_UI_DEFINE.RGB_CELL_BACKGROUND_HIGHLIGHT)];
+    self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_HIGHLIGHT);
+    self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_HIGHLIGHT);
+}
+
+- (void)applyUnselectedStyle{
+    [self setBackgroundColor:COLOR(RGB_WHITE)];
+    self.textLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_TITLE_NORMAL);
+    self.detailTextLabel.textColor = COLOR(AG_UI_DEFINE.RGB_CELL_CONTENT_NORMAL);
 }
 
 

@@ -46,7 +46,7 @@
 
 
 #pragma mark - table view stuff
-
+- (NSInteger)numberOfSections DEPRECATED_WITH_MSG("Use numberOfSectionsInTableView: instead");
 - (id)valueForHeaderOfSection:(NSInteger)section;
 - (void)setValue:(id)value atIndexPath:(NSIndexPath *)indexPath;
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath;
@@ -82,7 +82,7 @@
 - (void)action:(id)action atIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)visible;
 
-- (LITVCCore *)core;
+//- (LITVCCore *)core;
 - (AGObjectPool *)objPool;
 - (id)ws;
 

@@ -389,18 +389,25 @@
 
 #pragma mark - table view delegate
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self numberOfSections];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self numberOfRowsInSection:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //    TLOG(@"indexPath -> %@", indexPath);    
+//    TLOG(@"================")
     CGFloat h = 0;
     BOOL visibility = [self visibilityAtIndexPath:indexPath];
     if(visibility) h = [self cellHeightAtIndexPath:indexPath];
-    NSInteger section = indexPath.section;
-    NSInteger idx = indexPath.row;
-    TLOG(@"%@-%@ h -> %@ ",@(section), @(idx), @(h));
+//    Class cellCls = [self cellClsOfIndexPath:indexPath];
+//    NSInteger section = indexPath.section;
+//    NSInteger idx = indexPath.row;
+//    TLOG(@"%@ %@-%@ h -> %@ ", NSStringFromClass(cellCls), @(section), @(idx), @(h));
+//    TLOG(@"indexPath -> %@ h -> %@", indexPath, @(h));
     return h;
 }
 
@@ -433,7 +440,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    TLOG(@"");
+//    TLOG(@"");
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     LITSectionUnit *unit = [self sectionInSection:section];
@@ -547,7 +554,7 @@
         NSInteger section = indexPath.section;
         NSInteger idx = indexPath.row;
         LITSectionUnit *unit = [self sectionInSection:section];
-        return [unit paramterAtIndex:idx];
+        return [unit parameterAtIndex:idx];
     }@catch (NSException *exception) {
         TLOG(@"exception -> %@", exception);
     }
@@ -618,13 +625,14 @@
     LITCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
     id value = [self valueAtIndexPath:indexPath];
     id title = [self titleAtIndexPath:indexPath];
+    BOOL visibility = [self visibilityAtIndexPath:indexPath];
     @try {
         if (!cell) {
-            //            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
             cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId associatedVC:self indexPath:indexPath];
+            [cell setAssociatedVC:self]; //adapt to [initWithStyle: reuseIdentifier: ] initializer
         }
-        
-        BOOL visibility = [self visibilityAtIndexPath:indexPath];
+//        TLOG(@"%@ -> %@", NSStringFromClass(cls), cell.associatedVC);
+        [cell setIndexPath:indexPath]; // update indexPath for reusable cells
         
         if (visibility){
             [cell setHidden:NO];
@@ -669,6 +677,7 @@
 }
 
 - (void)setCellHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath{
+//    TLOG(@"self.core -> %@", self.core);
     [self.core setCellH:@(height) atIndexPath:indexPath];
 }
 
@@ -677,13 +686,18 @@
     NSInteger idx = indexPath.row;
     Class cellCls = [self cellClsOfIndexPath:indexPath];
     LITSectionUnit *unit = [self sectionInSection:section];
-    NSInteger hFromUnit = [unit heightAtIndex:idx];
+    CGFloat hFromUnit = [unit heightAtIndex:idx];
     NSNumber *hFromCore = [self.core cellHAtIndexPath:indexPath];
     
+//    TLOG(@"%@ hFromUnit -> %@ hFromCore -> %@ cellClsH -> %@ hFromUnitNotFound -> %@", NSStringFromClass(cellCls), @(hFromUnit), hFromCore, @([cellCls height]), @(hFromUnit==NSNotFound));
+    
     if (hFromCore) {
-        return [hFromCore floatValue];
-    }else if (unit) {
-        if (hFromUnit != NSNotFound) return hFromUnit;
+//        TLOG(@"%@ will use hFromCore",NSStringFromClass(cellCls));
+        return roundf([hFromCore floatValue]);
+    }else if (unit &&
+              hFromUnit != NSNotFound) {
+//        TLOG(@"%@ will use hFromUnit", NSStringFromClass(cellCls));
+        return roundf(hFromUnit);
     }
     
     return [cellCls height];
@@ -705,6 +719,13 @@
 
 - (UINavigationBar *)navigationBar{
     return self.navigationController.navigationBar;
+}
+
+- (LITVCCore *)core{
+    if (!_core) {
+        _core = [LITVCCore instance];
+    }
+    return _core;
 }
 
 #pragma mark - style

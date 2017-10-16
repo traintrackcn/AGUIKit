@@ -667,7 +667,7 @@
         NSInteger idx = indexPath.row;
         AGSectionUnit *unit = [self.config unitOfSection:section];
 //        TLOG(@"section -> %d unit -> %@", section, unit);
-        if (unit) return [unit paramterAtIndex:idx];
+        if (unit) return [unit parameterAtIndex:idx];
     }@catch (NSException *exception) {
         TLOG(@"exception -> %@", exception);
     }

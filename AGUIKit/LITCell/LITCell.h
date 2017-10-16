@@ -8,6 +8,7 @@
 
 #import "LITCellCharacter.h"
 #import "UIView+HeaderAndCell.h"
+#import "GlobalDefine.h"
 @import UIKit;
 
 @class AGObjectPool;
@@ -15,12 +16,11 @@
 
 @interface LITCell : UITableViewCell
 
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier associatedVC:(id)associatedVC indexPath:(NSIndexPath *)indexPath;
 
 - (void)_setValue:(id)value;
 - (void)_setTitle:(id)title;
-- (void)_setSelected:(BOOL)selected;
+//- (void)_setSelected:(BOOL)selected;
 
 #pragma mark - dispatchers
 - (void)reload;
@@ -40,7 +40,7 @@
 - (UITableView *)tableView;
 - (LITCellCharacter *)character;
 - (AGObjectPool *)objPoolOfAssociatedVC;
-
+- (id)associatedViewController DEPRECATED_WITH_MSG("use associatedVC instead");
 
 @property (nonatomic, strong) AGObjectPool *objPool;
 
@@ -49,5 +49,6 @@
 @property (nonatomic, strong) id value;
 @property (nonatomic, weak) id ws;
 @property (nonatomic, weak) id associatedVC;
+@property (nonatomic, weak) id associatedTV; // for LITCellTableView use
 
 @end

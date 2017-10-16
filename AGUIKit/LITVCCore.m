@@ -7,6 +7,7 @@
 
 #import "LITVCCore.h"
 #import "AGSectionUnit.h"
+#import "GlobalDefine.h"
 
 @interface LITVCCore ()
 
@@ -19,7 +20,7 @@
 - (void)setCellH:(NSNumber *)h atIndexPath:(NSIndexPath *)indexPath{
     NSString *key = [self keyOfIndexPath:indexPath];
     [self.cellHs setObject:h forKey:key];
-    //    TLOG(@"cellHeightDic -> %@ %@", cellHeightDic, self);
+//    TLOG(@"cellHs -> %@", self.cellHs);
 }
 
 - (NSNumber *)cellHAtIndexPath:(NSIndexPath *)indexPath{
