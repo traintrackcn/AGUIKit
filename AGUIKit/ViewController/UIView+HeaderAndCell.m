@@ -102,6 +102,25 @@
     return item;
 }
 
+
+- (UIView *)borderTopViewStylePaddingL{
+    NSString *key = CURRENT_FUNCTION_NAME;
+    UIView *item = [self.objPool objectForKey:key];
+    if (!item) {
+        CGFloat x = self.paddingLR;
+        CGFloat y = 0;
+        CGFloat w = STYLE_DEVICE_WIDTH - x;
+        CGFloat h = self.borderWidth;
+        CGRect frame = CGRectMake(x, y, w, h);
+        item = [self borderViewInstance];
+        [item setFrame:frame];
+        [self.objPool setObject:item forKey:key];
+    }
+    
+    return item;
+}
+
+
 - (UIView *)borderBottomViewStyleSolid{
     
     NSString *key = CURRENT_FUNCTION_NAME;

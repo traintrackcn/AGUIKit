@@ -260,7 +260,7 @@ static const NSInteger AG_MIN_QUANTITY = 0;
     if (_delegate && [_delegate respondsToSelector:@selector(quantityPickerViewWillChangeValue:)]) {
         return [_delegate quantityPickerViewWillChangeValue:value];
     }
-    return NO;
+    return YES;
 }
 
 - (void)dispatchDidChangeValue:(NSInteger)value{

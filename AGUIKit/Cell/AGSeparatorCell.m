@@ -28,7 +28,7 @@
 }
 
 - (void)applyUnselectedStyle{
-    
+    [self setBackgroundColor:[UIColor clearColor]];
 }
 
 //- (void)drawRect:(CGRect)rect {

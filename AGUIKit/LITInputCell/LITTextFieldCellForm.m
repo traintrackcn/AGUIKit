@@ -23,7 +23,7 @@
 #pragma mark - 
 
 - (void)setValue:(id)value{
-    [self layoutDefaultBordersByPosition];
+    [self layoutDefaultBordersByFlag];
     [self _setValue:value];
     if (!value) value = @"";
     [self.textF setText:[NSString stringWithFormat:@"%@", value]];

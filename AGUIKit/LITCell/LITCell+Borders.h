@@ -11,7 +11,7 @@
 @interface LITCell (Borders)
 
 - (void)initializeDefaultBorders;
-- (void)layoutDefaultBordersByPosition;
+//- (void)layoutDefaultBordersByPosition;
 - (void)layoutDefaultBordersByFlag;
 
 @end

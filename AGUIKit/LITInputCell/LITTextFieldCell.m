@@ -10,6 +10,7 @@
 #import "JVFloatLabeledTextField.h"
 #import "NSObject+TextInputComponents.h"
 #import "AGUIDefine.h"
+#import "LITCell+Borders.h"
 
 @interface LITTextFieldCell(){
     
@@ -25,6 +26,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier associatedVC:associatedVC indexPath:indexPath];
     if (self){
         [self.contentView addSubview:self.textF];
+        [self initializeDefaultBorders];
     }
     return self;
 }
@@ -43,6 +45,8 @@
 //    if (!value) return;
     [self _setValue:value];
     [self.textF setText:[NSString stringWithFormat:@"%@", value]];
+    
+    [self layoutDefaultBordersByFlag];
 }
 
 - (void)setReadOnly:(BOOL)readOnly{

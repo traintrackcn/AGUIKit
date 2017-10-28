@@ -27,4 +27,9 @@
     return 18.0;
 }
 
+
+- (void)applyUnselectedStyle{
+    [self setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
+}
+
 @end

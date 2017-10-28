@@ -24,6 +24,7 @@
 - (UIView *)borderLeftViewStyleBlock;
 - (UIView *)borderRightViewStyleBlock;
 - (UIView *)borderTopViewStyleSolid;
+- (UIView *)borderTopViewStylePaddingL;
 - (UIView *)borderBottomViewStyleSolid;
 - (CGRect)borderBottomFrameStyleSolid;
 - (UIView *)borderBottomViewStylePaddingLR;

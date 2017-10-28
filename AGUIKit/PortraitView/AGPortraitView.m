@@ -84,7 +84,7 @@
 
 - (void)setUrl:(NSString *)urlStr{
     NSURL *url = [NSURL URLWithString:urlStr];
-    TLOG(@"url -> %@", url);
+//    TLOG(@"url -> %@", url);
     [self.imageView cancelImageRequestOperation];
     
     

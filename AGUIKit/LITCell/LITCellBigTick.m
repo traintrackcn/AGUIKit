@@ -50,4 +50,8 @@
     return 55.0;
 }
 
+- (void)applySelectedStyle{
+    
+}
+
 @end
