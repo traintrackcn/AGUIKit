@@ -70,8 +70,8 @@
         }
         
 //        TLOG(@"key -> %@", key);
-        
-        value = [self.dic objectForKey:key];
+        if (!value) value = [self.rDic objectForKey:key];
+        if (!value) value = [self.dic objectForKey:key];
         if (!value) value = [self.dicForEN objectForKey:key];
         
         

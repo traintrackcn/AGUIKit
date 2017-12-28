@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 AboveGEM. All rights reserved.
 //
 
-#define KEY_LBL_OOPS @"title-oops"
-#define KEY_LBL_NETWORK_ERROR @"Network Error"
-#define KEY_LBL_SERVER_MAINTENANCE @"Server Maintenance"
-#define KEY_LBL_WARNING @"Warning"
-#define KEY_LBL_OK @"OK"
+#define KEY_LBL_OOPS @"KEY_LBL_OOPS|title-oops"
+#define KEY_LBL_NETWORK_ERROR @"KEY_LBL_NETWORK_ERROR|Network Error"
+#define KEY_LBL_SERVER_MAINTENANCE @"KEY_LBL_SERVER_MAINTENANCE|Server Maintenance"
+#define KEY_LBL_WARNING @"KEY_LBL_WARNING|Warning"
+#define KEY_LBL_OK @"KEY_LBL_OK|OK"
 
 #define KEY_BTN_UPLOAD @"KEY_BTN_UPLOAD|Upload"
 #define KEY_BTN_SEND @"KEY_BTN_SEND|Send"
