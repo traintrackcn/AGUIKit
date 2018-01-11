@@ -38,6 +38,7 @@
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
 //        [self setBackgroundColor:[UIColor clearColor]];
+        [self setWs:self];
     }
     return self;
 }

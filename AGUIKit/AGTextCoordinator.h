@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+Singleton.h"
 
+#define TEXT_C [AGTextCoordinator singleton]
 #define TEXT(key) [AGTextCoordinator textForKey:key roleCode:nil]
 #define TEXT_WITH_STAR(key) [AGTextCoordinator textWithStarForKey:key roleCode:nil]
 #define TEXT_FOR_KEY(key) [AGTextCoordinator textForKey:key roleCode:nil]
@@ -24,6 +26,6 @@
 - (void)reload;
 
 @property (nonatomic, assign) BOOL returnFirstKeyIfNoValue;
-@property (nonatomic, strong) NSDictionary *rDic; //remote dictionary
+@property (nonatomic, strong) NSDictionary *extraDic; 
 
 @end

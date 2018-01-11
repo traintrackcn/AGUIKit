@@ -7,8 +7,6 @@
 //
 
 #import "AGTextCoordinator.h"
-#import <Foundation/Foundation.h>
-#import "NSObject+Singleton.h"
 #import "GlobalDefine.h"
 //#import "DSLocaleManager.h"
 #import "CHCSVParser.h"
@@ -40,16 +38,16 @@
 #pragma mark - main ops
 
 + (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
-    return [[self singleton] textForKey:key roleCode:roleCode];
+    return [TEXT_C textForKey:key roleCode:roleCode];
 }
 
 + (NSString *)textWithStarForKey:(NSString *)key roleCode:(NSString *)roleCode{
-    NSString *text = [[self singleton] textForKey:key roleCode:roleCode];
+    NSString *text = [TEXT_C textForKey:key roleCode:roleCode];
     return [NSString stringWithFormat:@"%@ *", text];
 }
 
 + (BOOL)isAvailableTextKey:(NSString *)key roleCode:(NSString *)roleCode{
-    return [[self singleton] isAvailableTextKey:key roleCode:roleCode];
+    return [TEXT_C isAvailableTextKey:key roleCode:roleCode];
 }
 
 - (NSString *)textForKey:(NSString *)key roleCode:(NSString *)roleCode{
@@ -70,7 +68,10 @@
         }
         
 //        TLOG(@"key -> %@", key);
-        if (!value) value = [self.rDic objectForKey:key];
+        if (!value) {
+            value = [self.extraDic objectForKey:key];
+            if (value == [NSNull null]) value = nil;
+        }
         if (!value) value = [self.dic objectForKey:key];
         if (!value) value = [self.dicForEN objectForKey:key];
         

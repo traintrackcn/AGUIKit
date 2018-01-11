@@ -53,6 +53,7 @@
 - (id)init{
     self = [super init];
     if (self) {
+        [self setWs:self];
         [self setConfig:[AGVCConfiguration instance]];
         [self.config setTarget:self];
         animationDuration = .33;
@@ -435,10 +436,10 @@
     return _objPool;
 }
 
-- (id)ws{
-    _ws = self;
-    return _ws;
-}
+//- (id)ws{
+//    _ws = self;
+//    return _ws;
+//}
 
 - (NSString *)className{
     return NSStringFromClass(self.class);
@@ -479,11 +480,11 @@
 //    TLOG(@"indexPath -> %@", indexPath);    
     CGFloat h = 0;
     BOOL visibility = [self visibilityAtIndexPath:indexPath];
-    id value = [self valueAtIndexPath:indexPath];
     
     if ([self isSeparatorCellAtIndexPath:indexPath]) {
         h = [AGSeparatorCell height];
     }else if(visibility){
+        id value = [self valueAtIndexPath:indexPath];
         h = [self.config cellHeightAtIndexPath:indexPath forValue:value];
     }
 //    NSInteger section = indexPath.section;
@@ -759,9 +760,10 @@
     AGCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellId];
     
     //    TLOG(@"cellId -> %@ cell -> %@", cellId, cell);
+    BOOL isSeparator = [self isSeparatorCellAtIndexPath:indexPath];
+    id value = (!isSeparator)?[self valueAtIndexPath:indexPath]:nil;
+    id title = (!isSeparator)?[self titleAtIndexPath:indexPath]:nil;
     
-    id value = [self valueAtIndexPath:indexPath];
-    id title = [self titleAtIndexPath:indexPath];
     @try {
         if (!cell) {
             //            cell = [[cls alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
@@ -801,6 +803,8 @@
 
 - (id)valueAtIndexPath:(NSIndexPath *)indexPath{
     //    TLOG(@"");
+    if ([self isSeparatorCellAtIndexPath:indexPath]) return nil;
+    
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     AGSectionUnit *unit = [self.config unitOfSection:section];
@@ -809,6 +813,9 @@
 }
 
 - (id)titleAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([self isSeparatorCellAtIndexPath:indexPath]) return nil;
+    
     NSInteger section = indexPath.section;
     NSInteger idx = indexPath.row;
     id titleInConfig = [self.config cellTitleOfIndexPath:indexPath];

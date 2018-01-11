@@ -47,6 +47,7 @@
 - (id)init{
     self = [super init];
     if (self) {
+        [self setWs:self];
         [self setBackgroundColor:COLOR(RGB_BACKGROUND_NORMAL)];
     }
     return self;
@@ -371,10 +372,10 @@
     return _objPool;
 }
 
-- (id)ws{
-    _ws = self;
-    return _ws;
-}
+//- (id)ws{
+//    _ws = self;
+//    return _ws;
+//}
 
 - (NSString *)className{
     return NSStringFromClass(self.class);
