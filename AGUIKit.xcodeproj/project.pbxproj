@@ -344,6 +344,20 @@
 		4AA78173201CDB8700C16251 /* DSDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78171201CDB8600C16251 /* DSDraw.m */; };
 		4AA78174201CDB9500C16251 /* DSDraw.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AA78170201CDB8600C16251 /* DSDraw.h */; };
 		4AA78175201CDB9A00C16251 /* DSImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AA7816F201CDB8600C16251 /* DSImage.h */; };
+		4AA78227201CEBE800C16251 /* LITNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA78226201CEBE800C16251 /* LITNetwork.framework */; };
+		4AA7822F201CEF1800C16251 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7822A201CEF1800C16251 /* BEMAnimationManager.m */; };
+		4AA78230201CEF1800C16251 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7822B201CEF1800C16251 /* BEMPathManager.m */; };
+		4AA78231201CEF1800C16251 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7822D201CEF1800C16251 /* BEMCheckBox.m */; };
+		4AA78239201CEF2800C16251 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78233201CEF2700C16251 /* NSString+TextDirectionality.m */; };
+		4AA7823A201CEF2800C16251 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78234201CEF2800C16251 /* JVFloatLabeledTextField.m */; };
+		4AA7823B201CEF2800C16251 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78238201CEF2800C16251 /* JVFloatLabeledTextView.m */; };
+		4AA78240201CEF9E00C16251 /* CODialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7823F201CEF9E00C16251 /* CODialog.m */; };
+		4AA78244201CEFC100C16251 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78243201CEFC100C16251 /* CHCSVParser.m */; };
+		4AA7824C201CEFD000C16251 /* MDRadialProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78248201CEFD000C16251 /* MDRadialProgressView.m */; };
+		4AA7824D201CEFD000C16251 /* MDRadialProgressTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78249201CEFD000C16251 /* MDRadialProgressTheme.m */; };
+		4AA7824E201CEFD000C16251 /* MDRadialProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7824A201CEFD000C16251 /* MDRadialProgressLabel.m */; };
+		4AA78253201CEFE800C16251 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78251201CEFE700C16251 /* SVProgressHUD.m */; };
+		4AA78257201CF02000C16251 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78256201CF01F00C16251 /* BBBadgeBarButtonItem.m */; };
 		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
 		4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650651D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m */; };
 		4AB6506D1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650671D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m */; };
@@ -891,6 +905,34 @@
 		4AA78170201CDB8600C16251 /* DSDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDraw.h; sourceTree = "<group>"; };
 		4AA78171201CDB8600C16251 /* DSDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDraw.m; sourceTree = "<group>"; };
 		4AA78177201CDC3900C16251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4AA78226201CEBE800C16251 /* LITNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LITNetwork.framework; sourceTree = "<group>"; };
+		4AA78229201CEF1800C16251 /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		4AA7822A201CEF1800C16251 /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		4AA7822B201CEF1800C16251 /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		4AA7822C201CEF1800C16251 /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		4AA7822D201CEF1800C16251 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		4AA7822E201CEF1800C16251 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		4AA78233201CEF2700C16251 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		4AA78234201CEF2800C16251 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		4AA78235201CEF2800C16251 /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		4AA78236201CEF2800C16251 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		4AA78237201CEF2800C16251 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		4AA78238201CEF2800C16251 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		4AA7823E201CEF9E00C16251 /* CODialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CODialog.h; sourceTree = "<group>"; };
+		4AA7823F201CEF9E00C16251 /* CODialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CODialog.m; sourceTree = "<group>"; };
+		4AA78242201CEFC100C16251 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		4AA78243201CEFC100C16251 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		4AA78246201CEFD000C16251 /* MDRadialProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressLabel.h; sourceTree = "<group>"; };
+		4AA78247201CEFD000C16251 /* MDRadialProgressTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressTheme.h; sourceTree = "<group>"; };
+		4AA78248201CEFD000C16251 /* MDRadialProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressView.m; sourceTree = "<group>"; };
+		4AA78249201CEFD000C16251 /* MDRadialProgressTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressTheme.m; sourceTree = "<group>"; };
+		4AA7824A201CEFD000C16251 /* MDRadialProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRadialProgressLabel.m; sourceTree = "<group>"; };
+		4AA7824B201CEFD000C16251 /* MDRadialProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRadialProgressView.h; sourceTree = "<group>"; };
+		4AA78250201CEFE700C16251 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		4AA78251201CEFE700C16251 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		4AA78252201CEFE700C16251 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		4AA78255201CF01F00C16251 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
+		4AA78256201CF01F00C16251 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
 		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
 		4AB650641D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnimatedTransitioningSlideFromBottom.h; sourceTree = "<group>"; };
@@ -925,6 +967,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA77FC5201CCC5200C16251 /* LITCommon.framework in Frameworks */,
+				4AA78227201CEBE800C16251 /* LITNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1072,8 +1115,16 @@
 		4A8E84721B684E5300F48CDD = {
 			isa = PBXGroup;
 			children = (
+				4AA78226201CEBE800C16251 /* LITNetwork.framework */,
 				4AA77FC4201CCC5200C16251 /* LITCommon.framework */,
+				4AA78241201CEFC100C16251 /* CHCSVParser */,
+				4AA7823D201CEF9E00C16251 /* CODialog */,
+				4AA78254201CF01F00C16251 /* BBBadgeBarButtonItem */,
+				4AA78228201CEF1800C16251 /* BEMCheckBox */,
+				4AA78245201CEFD000C16251 /* MDRadialProgress */,
 				4A6107141CCA2418002C2245 /* UIImageView+Letters */,
+				4AA7824F201CEFE700C16251 /* SVProgressHUD */,
+				4AA78232201CEF2700C16251 /* JVFloatLabeledTextField */,
 				4A8E847D1B684E5300F48CDD /* AGUIKit */,
 				4A8E8DF51B6915D200F48CDD /* AGUIKitDemo */,
 				4A8E847C1B684E5300F48CDD /* Products */,
@@ -1593,6 +1644,82 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4AA78228201CEF1800C16251 /* BEMCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78229201CEF1800C16251 /* BEMCheckBox.h */,
+				4AA7822A201CEF1800C16251 /* BEMAnimationManager.m */,
+				4AA7822B201CEF1800C16251 /* BEMPathManager.m */,
+				4AA7822C201CEF1800C16251 /* BEMAnimationManager.h */,
+				4AA7822D201CEF1800C16251 /* BEMCheckBox.m */,
+				4AA7822E201CEF1800C16251 /* BEMPathManager.h */,
+			);
+			path = BEMCheckBox;
+			sourceTree = "<group>";
+		};
+		4AA78232201CEF2700C16251 /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78233201CEF2700C16251 /* NSString+TextDirectionality.m */,
+				4AA78234201CEF2800C16251 /* JVFloatLabeledTextField.m */,
+				4AA78235201CEF2800C16251 /* JVFloatLabeledTextView.h */,
+				4AA78236201CEF2800C16251 /* NSString+TextDirectionality.h */,
+				4AA78237201CEF2800C16251 /* JVFloatLabeledTextField.h */,
+				4AA78238201CEF2800C16251 /* JVFloatLabeledTextView.m */,
+			);
+			path = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
+		4AA7823D201CEF9E00C16251 /* CODialog */ = {
+			isa = PBXGroup;
+			children = (
+				4AA7823E201CEF9E00C16251 /* CODialog.h */,
+				4AA7823F201CEF9E00C16251 /* CODialog.m */,
+			);
+			path = CODialog;
+			sourceTree = "<group>";
+		};
+		4AA78241201CEFC100C16251 /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78242201CEFC100C16251 /* CHCSVParser.h */,
+				4AA78243201CEFC100C16251 /* CHCSVParser.m */,
+			);
+			path = CHCSVParser;
+			sourceTree = "<group>";
+		};
+		4AA78245201CEFD000C16251 /* MDRadialProgress */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78246201CEFD000C16251 /* MDRadialProgressLabel.h */,
+				4AA78247201CEFD000C16251 /* MDRadialProgressTheme.h */,
+				4AA78248201CEFD000C16251 /* MDRadialProgressView.m */,
+				4AA78249201CEFD000C16251 /* MDRadialProgressTheme.m */,
+				4AA7824A201CEFD000C16251 /* MDRadialProgressLabel.m */,
+				4AA7824B201CEFD000C16251 /* MDRadialProgressView.h */,
+			);
+			path = MDRadialProgress;
+			sourceTree = "<group>";
+		};
+		4AA7824F201CEFE700C16251 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78250201CEFE700C16251 /* SVProgressHUD.h */,
+				4AA78251201CEFE700C16251 /* SVProgressHUD.m */,
+				4AA78252201CEFE700C16251 /* SVProgressHUD.bundle */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		4AA78254201CF01F00C16251 /* BBBadgeBarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78255201CF01F00C16251 /* BBBadgeBarButtonItem.h */,
+				4AA78256201CF01F00C16251 /* BBBadgeBarButtonItem.m */,
+			);
+			path = BBBadgeBarButtonItem;
+			sourceTree = "<group>";
+		};
 		4AB3F1D71B88CAFA008DC70F /* TableRow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1733,7 +1860,9 @@
 				4A468F481F82461300999BF1 /* LITHeaderViewMediumDark.m in Sources */,
 				4A468F491F82461300999BF1 /* LITHeaderView.m in Sources */,
 				4A468F4A1F82461300999BF1 /* LITHeaderViewHorizontalUnits.h in Sources */,
+				4AA78253201CEFE800C16251 /* SVProgressHUD.m in Sources */,
 				4A468F4B1F82461300999BF1 /* LITHeaderViewTitledCheckBox.h in Sources */,
+				4AA78244201CEFC100C16251 /* CHCSVParser.m in Sources */,
 				4A468F4C1F82461300999BF1 /* LITHeaderViewMediumDark.h in Sources */,
 				4ACE445E1F94ECBA004A04ED /* LITHorizontalUnitsCell.m in Sources */,
 				4A468F4D1F82461300999BF1 /* LITHeaderViewTinyDark.h in Sources */,
@@ -1762,6 +1891,7 @@
 				4A468F641F82461300999BF1 /* LITCellBigTick.m in Sources */,
 				4A468F651F82461300999BF1 /* LITCellForSectionButton.m in Sources */,
 				4A468F661F82461300999BF1 /* LITItemForSectionButton.m in Sources */,
+				4AA78231201CEF1800C16251 /* BEMCheckBox.m in Sources */,
 				4A468F671F82461300999BF1 /* LITSectionButton.m in Sources */,
 				4A61071C1CCA272F002C2245 /* UIImageView+Letters.m in Sources */,
 				4A8EA82F1F4DB429001E3853 /* AGVCSuccessMessagesView.m in Sources */,
@@ -1769,6 +1899,7 @@
 				4A8E8B641B69093600F48CDD /* AGQuantitySelector.m in Sources */,
 				4A8EA82C1F4DB429001E3853 /* AGMeta.m in Sources */,
 				4A8E8A701B68FBE500F48CDD /* AGLineProgressCell.m in Sources */,
+				4AA78239201CEF2800C16251 /* NSString+TextDirectionality.m in Sources */,
 				4A6E50921C9273B600D8D46A /* DAButtonItem.m in Sources */,
 				4A8E89731B686E9100F48CDD /* AGTextfieldCellStyleNoTitle.m in Sources */,
 				4A8E89611B686E9100F48CDD /* AGMultiValueCellLabel.m in Sources */,
@@ -1783,6 +1914,7 @@
 				4A8E89DC1B68DBF800F48CDD /* DSLayoutUtil.m in Sources */,
 				4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */,
 				4A8E8A6E1B68FBE500F48CDD /* AGCircleProgressCell.m in Sources */,
+				4AA78240201CEF9E00C16251 /* CODialog.m in Sources */,
 				4A8E89771B686E9100F48CDD /* AGTransparentButtonCell.m in Sources */,
 				4A8E898F1B686E9100F48CDD /* AGSelector.m in Sources */,
 				4A8EA8261F4DB429001E3853 /* UITableViewController+NavigationBar.m in Sources */,
@@ -1811,6 +1943,7 @@
 				4A8EA8251F4DB429001E3853 /* UITableViewController+Message.m in Sources */,
 				4A8E897E1B686E9100F48CDD /* AGCollectionViewCell.m in Sources */,
 				4A874F7F1D06CAE8000822F4 /* DATextInputDelegate.m in Sources */,
+				4AA7823A201CEF2800C16251 /* JVFloatLabeledTextField.m in Sources */,
 				4A91332F1F832AB6001608F9 /* LITTipCell.m in Sources */,
 				4A8DDEFA1F5EEAA600C65B8F /* DAIconAdd.m in Sources */,
 				4A8E89811B686E9100F48CDD /* AGCollectionViewCellValue.m in Sources */,
@@ -1865,6 +1998,7 @@
 				4A8EA8281F4DB429001E3853 /* AGViewController.m in Sources */,
 				4A8E89531B686E9100F48CDD /* AGButtonCell.m in Sources */,
 				4A8E895B1B686E9100F48CDD /* AGMultiLabelsCell.m in Sources */,
+				4AA7822F201CEF1800C16251 /* BEMAnimationManager.m in Sources */,
 				4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */,
 				4A8E8A711B68FBE500F48CDD /* AGLineProgressInnerView.m in Sources */,
 				4A8E898B1B686E9100F48CDD /* AGDateSelector.m in Sources */,
@@ -1879,6 +2013,7 @@
 				4A8E89B51B68CED800F48CDD /* AGHeaderView.m in Sources */,
 				4A8E89921B686E9100F48CDD /* AGTextSelector.m in Sources */,
 				4A8E8A771B68FC3600F48CDD /* AGProgressViewCellValue.m in Sources */,
+				4AA78257201CF02000C16251 /* BBBadgeBarButtonItem.m in Sources */,
 				4A8E89931B686E9100F48CDD /* AGTabBarCell.m in Sources */,
 				4A8E89A71B68CDA400F48CDD /* AGButton.m in Sources */,
 				4A8E896D1B686E9100F48CDD /* AGTextCellStyleMore.m in Sources */,
@@ -1892,16 +2027,21 @@
 				4A8E89511B686E9100F48CDD /* AGAttributedStringCell.m in Sources */,
 				4A8E89821B686E9100F48CDD /* AGCollectionViewCellViewController.m in Sources */,
 				4ACE44331F93B04A004A04ED /* NSObject+Cell.m in Sources */,
+				4AA7823B201CEF2800C16251 /* JVFloatLabeledTextView.m in Sources */,
 				4A8E89831B686E9100F48CDD /* AGCollectionViewLayout.m in Sources */,
+				4AA7824E201CEFD000C16251 /* MDRadialProgressLabel.m in Sources */,
 				4A22B4781F5026B600E7AFC7 /* LITInteractivePanelView.m in Sources */,
 				4A8E8A731B68FBE500F48CDD /* AGLineProgressViewLabel.m in Sources */,
+				4AA7824D201CEFD000C16251 /* MDRadialProgressTheme.m in Sources */,
 				4ADE77001E293E1D00AFBCBF /* XYPieChart.m in Sources */,
 				4A8E89871B686E9100F48CDD /* AGHorizontalPagesCell.m in Sources */,
 				4A8EA82E1F4DB429001E3853 /* AGVCMessagesView.m in Sources */,
 				4ACFC9BA1D1A5C93006C2884 /* DAView.m in Sources */,
 				4A6E50861C9272D500D8D46A /* DACell.m in Sources */,
+				4AA78230201CEF1800C16251 /* BEMPathManager.m in Sources */,
 				4A8EA8291F4DB429001E3853 /* DATableView.m in Sources */,
 				4A8E89841B686E9100F48CDD /* AGCollectionViewLayoutHorizontalPages.m in Sources */,
+				4AA7824C201CEFD000C16251 /* MDRadialProgressView.m in Sources */,
 				4A8E89B31B68CED800F48CDD /* AGHeader3Cell.m in Sources */,
 				4A8E89891B686E9100F48CDD /* AGHorizontalViewControllersCell.m in Sources */,
 			);
@@ -2026,22 +2166,12 @@
 					"$(PROJECT_DIR)",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					../3rd/AGNetwork,
-					../3rd/thirdPartyOpenResources,
-					"\"../3rd/AGThirdParty\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-lAGNetwork",
-					"-ObjC",
-					"-lthirdPartyOpenResources",
-					"-l\"AGThirdParty\"",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -2053,21 +2183,11 @@
 					"$(PROJECT_DIR)",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					../3rd/AGNetwork,
-					../3rd/thirdPartyOpenResources,
-					"\"../3rd/AGThirdParty\"",
-				);
-				OTHER_LDFLAGS = (
-					"-lAGNetwork",
-					"-ObjC",
-					"-lthirdPartyOpenResources",
-					"-l\"AGThirdParty\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

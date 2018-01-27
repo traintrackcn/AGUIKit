@@ -7,16 +7,12 @@
 //
 
 @import LITCommon;
+@import LITNetwork;
 
 #import "AGPortraitView.h"
-//#import "GlobalDefine.h"
-//#import "DSImage.h"
 #import "AGStyleCoordinator.h"
-//#import "DAFileLoader.h"
 #import "DSImage.h"
 #import "UIImageView+Letters.h"
-#import "UIImageView+AFNetworking.h"
-#import "AFURLResponseSerialization.h"
 
 @interface AGPortraitView(){
     
