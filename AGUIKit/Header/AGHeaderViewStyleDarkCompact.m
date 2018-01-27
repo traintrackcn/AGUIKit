@@ -6,9 +6,11 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGHeaderViewStyleDarkCompact.h"
 #import "AGStyleCoordinator.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @interface AGHeaderViewStyleDarkCompact(){
     UILabel *_titleLabel;

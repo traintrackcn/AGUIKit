@@ -6,12 +6,14 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGLineProgressCell.h"
 #import "AGLineProgressView.h"
 #import "AGProgressViewCellValue.h"
 #import "AGStyleCoordinator.h"
 #import "AGUIDefine.h"
-#import "DSValueUtil.h"
+//#import "DSValueUtil.h"
 
 @interface AGLineProgressCell(){
 //    AGLineProgressView *progressView;

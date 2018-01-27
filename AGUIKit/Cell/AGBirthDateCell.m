@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGBirthDateCell.h"
 #import "AGDateSelector.h"
-#import "NSObject+Singleton.h"
-#import "NSDate+AGUtils.h"
+//#import "NSDate+AGUtils.h"
 
 @implementation AGBirthDateCell
 

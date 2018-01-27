@@ -5,8 +5,12 @@
 //  Created by Tao Yunfei on 26/09/2017.
 //
 
-#import "AGModel.h"
+
+
+//#import "AGModel.h"
+
 @import UIKit;
+@import LITCommon;
 
 @interface LITItemForSectionButton : AGModel
 

@@ -6,11 +6,13 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGPieChartCell.h"
 #import "XYPieChart.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "DSImage.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 
 @interface AGPieChartCell()<XYPieChartDelegate, XYPieChartDataSource>{

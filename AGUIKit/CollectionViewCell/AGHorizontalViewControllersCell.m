@@ -6,12 +6,14 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGHorizontalViewControllersCell.h"
 #import "AGCollectionViewCellViewController.h"
 #import "AGCollectionViewLayout.h"
 #import "AGCollectionViewLayoutHorizontalPages.h"
 #import "AGViewController.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "AGVCConfiguration.h"
 
 NSString *AGHorizontalViewControllersCellDidChange = @"AGHorizontalViewControllersCellDidChange";

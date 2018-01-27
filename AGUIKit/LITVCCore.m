@@ -5,9 +5,11 @@
 //  Created by Tao Yunfei on 15/10/2017.
 //
 
+@import LITCommon;
+
 #import "LITVCCore.h"
 #import "AGSectionUnit.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @interface LITVCCore ()
 

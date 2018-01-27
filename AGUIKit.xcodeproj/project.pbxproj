@@ -339,6 +339,11 @@
 		4A9133331F832AC9001608F9 /* LITTipCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A91332C1F832AAB001608F9 /* LITTipCell.h */; };
 		4A96DF181BFC5B7400958BBB /* AGTextfieldCellStyleLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */; };
 		4A96DF191BFC5BF600958BBB /* AGTextfieldCellStyleLong.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */; };
+		4AA77FC5201CCC5200C16251 /* LITCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA77FC4201CCC5200C16251 /* LITCommon.framework */; };
+		4AA78172201CDB8600C16251 /* DSImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7816E201CDB8600C16251 /* DSImage.m */; };
+		4AA78173201CDB8700C16251 /* DSDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA78171201CDB8600C16251 /* DSDraw.m */; };
+		4AA78174201CDB9500C16251 /* DSDraw.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AA78170201CDB8600C16251 /* DSDraw.h */; };
+		4AA78175201CDB9A00C16251 /* DSImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AA7816F201CDB8600C16251 /* DSImage.h */; };
 		4AB3F1DA1B88CB56008DC70F /* DATableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3F1D91B88CB56008DC70F /* DATableRow.m */; };
 		4AB6506C1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650651D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.m */; };
 		4AB6506D1D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB650671D111D1E00F5735C /* AGAnimatedTransitioningSlideFromRight.m */; };
@@ -371,6 +376,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				4AA78175201CDB9A00C16251 /* DSImage.h in CopyFiles */,
+				4AA78174201CDB9500C16251 /* DSDraw.h in CopyFiles */,
 				4ACE445F1F94EF64004A04ED /* LITHorizontalUnitsCell.h in CopyFiles */,
 				4ACE44341F93B117004A04ED /* LITVC.h in CopyFiles */,
 				4ACE44351F93B117004A04ED /* LITVCCore.h in CopyFiles */,
@@ -878,6 +885,12 @@
 		4A91332D1F832AAB001608F9 /* LITTipCellDarkTextNormalBG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LITTipCellDarkTextNormalBG.m; sourceTree = "<group>"; };
 		4A96DF161BFC5B7400958BBB /* AGTextfieldCellStyleLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTextfieldCellStyleLong.h; sourceTree = "<group>"; };
 		4A96DF171BFC5B7400958BBB /* AGTextfieldCellStyleLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTextfieldCellStyleLong.m; sourceTree = "<group>"; };
+		4AA77FC4201CCC5200C16251 /* LITCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LITCommon.framework; sourceTree = "<group>"; };
+		4AA7816E201CDB8600C16251 /* DSImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSImage.m; sourceTree = "<group>"; };
+		4AA7816F201CDB8600C16251 /* DSImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSImage.h; sourceTree = "<group>"; };
+		4AA78170201CDB8600C16251 /* DSDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDraw.h; sourceTree = "<group>"; };
+		4AA78171201CDB8600C16251 /* DSDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDraw.m; sourceTree = "<group>"; };
+		4AA78177201CDC3900C16251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4AB3F1D81B88CB56008DC70F /* DATableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableRow.h; sourceTree = "<group>"; };
 		4AB3F1D91B88CB56008DC70F /* DATableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableRow.m; sourceTree = "<group>"; };
 		4AB650641D111D1E00F5735C /* AGAnimatedTransitioningSlideFromBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnimatedTransitioningSlideFromBottom.h; sourceTree = "<group>"; };
@@ -911,6 +924,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA77FC5201CCC5200C16251 /* LITCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,10 +1072,12 @@
 		4A8E84721B684E5300F48CDD = {
 			isa = PBXGroup;
 			children = (
+				4AA77FC4201CCC5200C16251 /* LITCommon.framework */,
 				4A6107141CCA2418002C2245 /* UIImageView+Letters */,
 				4A8E847D1B684E5300F48CDD /* AGUIKit */,
 				4A8E8DF51B6915D200F48CDD /* AGUIKitDemo */,
 				4A8E847C1B684E5300F48CDD /* Products */,
+				4AA78176201CDC3800C16251 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1077,6 +1093,10 @@
 		4A8E847D1B684E5300F48CDD /* AGUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4AA78170201CDB8600C16251 /* DSDraw.h */,
+				4AA78171201CDB8600C16251 /* DSDraw.m */,
+				4AA7816F201CDB8600C16251 /* DSImage.h */,
+				4AA7816E201CDB8600C16251 /* DSImage.m */,
 				4ACE442E1F93A82A004A04ED /* LITVC.h */,
 				4ACE442F1F93A82A004A04ED /* LITVC.m */,
 				4ACE442C1F93A709004A04ED /* LITVCCore.h */,
@@ -1565,6 +1585,14 @@
 			path = LITTipCell;
 			sourceTree = "<group>";
 		};
+		4AA78176201CDC3800C16251 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AA78177201CDC3900C16251 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4AB3F1D71B88CAFA008DC70F /* TableRow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1750,6 +1778,7 @@
 				4A8EA8271F4DB429001E3853 /* AGViewController+Separator.m in Sources */,
 				4A8E89861B686E9100F48CDD /* AGCollectionViewLayoutVerticalPages.m in Sources */,
 				4A8E89711B686E9100F48CDD /* AGTextfieldCellStyleEditor.m in Sources */,
+				4AA78173201CDB8700C16251 /* DSDraw.m in Sources */,
 				4A8E89541B686E9100F48CDD /* AGCell.m in Sources */,
 				4A8E89DC1B68DBF800F48CDD /* DSLayoutUtil.m in Sources */,
 				4A8E89421B686E9100F48CDD /* AGStyleCoordinator.m in Sources */,
@@ -1788,6 +1817,7 @@
 				4A8E89C71B68D29200F48CDD /* AGTipCellStyleMore.m in Sources */,
 				4A8E89681B686E9100F48CDD /* AGSpaceCell.m in Sources */,
 				4A8E89571B686E9100F48CDD /* AGFancyTextfieldCell.m in Sources */,
+				4AA78172201CDB8600C16251 /* DSImage.m in Sources */,
 				4A8CB9F51F8E5C98003BFB92 /* NSObject+VC.m in Sources */,
 				4A8EA82A1F4DB429001E3853 /* DSTabBarViewController.m in Sources */,
 				4A8E89911B686E9100F48CDD /* AGTextfieldEditor.m in Sources */,
@@ -1991,10 +2021,13 @@
 		4A8E84901B684E5300F48CDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../3rd/libOpen,
 					../3rd/AGNetwork,
 					../3rd/thirdPartyOpenResources,
 					"\"../3rd/AGThirdParty\"",
@@ -2002,38 +2035,39 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lAGNetwork",
-					"-llibOpen",
 					"-ObjC",
 					"-lthirdPartyOpenResources",
 					"-l\"AGThirdParty\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
+				USER_HEADER_SEARCH_PATHS = "\"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
 			};
 			name = Debug;
 		};
 		4A8E84911B684E5300F48CDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../3rd/libOpen,
 					../3rd/AGNetwork,
 					../3rd/thirdPartyOpenResources,
 					"\"../3rd/AGThirdParty\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lAGNetwork",
-					"-llibOpen",
 					"-ObjC",
 					"-lthirdPartyOpenResources",
 					"-l\"AGThirdParty\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"../3rd/libOpen/include\" \"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
+				USER_HEADER_SEARCH_PATHS = "\"../3rd/AGNetwork/include\" \"../3rd/thirdPartyOpenResources/include\" \"../3rd/AGThirdParty/include\"";
 			};
 			name = Release;
 		};

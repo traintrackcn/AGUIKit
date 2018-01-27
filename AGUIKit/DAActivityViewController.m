@@ -6,8 +6,10 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "DAActivityViewController.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 
 @interface UIActivityViewController (Private)

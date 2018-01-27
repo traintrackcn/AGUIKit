@@ -6,9 +6,11 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGCellInnerView.h"
-#import "GlobalDefine.h"
-#import "DSDeviceUtil.h"
+//#import "GlobalDefine.h"
+//#import "DSDeviceUtil.h"
 
 @implementation AGCellInnerView
 

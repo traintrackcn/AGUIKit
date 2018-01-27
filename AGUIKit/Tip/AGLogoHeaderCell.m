@@ -6,9 +6,11 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGLogoHeaderCell.h"
-#import "NSString+AGUtils.h"
-#import "DSDeviceUtil.h"
+//#import "NSString+AGUtils.h"
+//#import "DSDeviceUtil.h"
 #import "AGUIDefine.h"
 
 @interface AGLogoHeaderCell(){

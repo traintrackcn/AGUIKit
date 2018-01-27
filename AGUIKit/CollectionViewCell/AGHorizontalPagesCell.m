@@ -6,13 +6,15 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGHorizontalPagesCell.h"
 #import "AGCollectionViewLayoutHorizontalPages.h"
 #import "AGCollectionViewLayoutHorizontalUnits.h"
 #import "AGCollectionViewCell.h"
-#import "DSDeviceUtil.h"
-#import "DSValueUtil.h"
-#import "GlobalDefine.h"
+//#import "DSDeviceUtil.h"
+//#import "DSValueUtil.h"
+//#import "GlobalDefine.h"
 
 @interface AGHorizontalPagesCell() <UICollectionViewDataSource, UICollectionViewDelegate>{
     

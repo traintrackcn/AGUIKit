@@ -6,9 +6,11 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGButton.h"
 #import "AGUIDefine.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "DSImage.h"
 
 @implementation AGButton

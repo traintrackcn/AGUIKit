@@ -8,6 +8,7 @@
 
 @import Foundation;
 @import UIKit;
+@import LITCommon;
 
 enum{
     SectionDummy = NSIntegerMin
@@ -17,9 +18,10 @@ typedef NS_ENUM(NSInteger, SectionDummyCell){
     SectionDummyCellLoginUI = NSIntegerMin
 };
 
+
 #import "AGVCConfiguration.h"
-#import "AGObjectPool.h"
-#import "GlobalDefine.h"
+//#import "AGObjectPool.h"
+//#import "GlobalDefine.h"
 
 @class UITableViewCell;
 @class AGRemoterResultError;

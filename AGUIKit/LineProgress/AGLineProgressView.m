@@ -6,12 +6,14 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGLineProgressView.h"
 #import "AGLineProgressInnerView.h"
 #import "AGLineProgressViewLabel.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "AGStyleCoordinator.h"
-#import "NSNumber+AGUtils.h"
+//#import "NSNumber+AGUtils.h"
 
 @interface AGLineProgressView(){
     AGLineProgressViewLabel *textLabel;

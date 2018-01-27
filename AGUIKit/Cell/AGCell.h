@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+@import LITCommon;
+
 #import "AGRemoter.h"
 #import "UIView+HeaderAndCell.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @class AGVCConfiguration;
 @class AGObjectPool;

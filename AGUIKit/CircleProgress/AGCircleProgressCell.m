@@ -6,11 +6,13 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGCircleProgressCell.h"
 #import "AGCircleProgressView.h"
-#import "GlobalDefine.h"
-#import "DSDeviceUtil.h"
-#import "DSValueUtil.h"
+//#import "GlobalDefine.h"
+//#import "DSDeviceUtil.h"
+//#import "DSValueUtil.h"
 
 @interface AGCircleProgressCell(){
     AGCircleProgressView *progressView;

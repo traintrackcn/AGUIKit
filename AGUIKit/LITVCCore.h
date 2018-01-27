@@ -5,8 +5,13 @@
 //  Created by Tao Yunfei on 15/10/2017.
 //
 
-#import "AGModel.h"
+//#import "AGModel.h"
+
+@import LITCommon;
+
 @class LITVC;
+
+
 @interface LITVCCore : AGModel
 
 - (void)setCellH:(NSNumber *)h atIndexPath:(NSIndexPath *)indexPath;

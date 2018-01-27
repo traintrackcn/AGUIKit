@@ -10,4 +10,6 @@
 
 @interface AGLabel : UILabel
 
+@property (nonatomic, assign) UIEdgeInsets edgeInsets;
+
 @end

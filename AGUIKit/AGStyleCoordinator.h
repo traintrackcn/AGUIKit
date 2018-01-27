@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 2ViVe. All rights reserved.
 //
 
-#import "NSObject+Singleton.h"
+
 #import "AGUIDefine.h"
 @import UIKit;
 

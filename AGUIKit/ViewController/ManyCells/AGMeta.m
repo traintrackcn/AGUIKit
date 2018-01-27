@@ -6,8 +6,10 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGMeta.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @implementation AGMeta
 

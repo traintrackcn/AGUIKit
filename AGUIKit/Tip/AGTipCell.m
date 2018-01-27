@@ -6,10 +6,12 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGTipCell.h"
-#import "GlobalDefine.h"
-#import "DSValueUtil.h"
-#import "DSDeviceUtil.h"
+//#import "GlobalDefine.h"
+//#import "DSValueUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGUIDefine.h"
 
 @interface AGTipCell(){

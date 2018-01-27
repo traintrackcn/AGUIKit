@@ -6,8 +6,10 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGMultiLabelsCell.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 
 @interface AGMultiLabelsCell(){

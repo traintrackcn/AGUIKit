@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGHeaderView.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 #import "AGViewController.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "AGUIDefine.h"
-#import "NSObject+Singleton.h"
 #import "AGCell.h"
 
 @implementation AGHeaderView

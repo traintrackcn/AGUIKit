@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
-#import "AGModel.h"
+@import LITCommon;
+
+//#import "AGModel.h"
 
 @interface AGButtonItem : AGModel
 

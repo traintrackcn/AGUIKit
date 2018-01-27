@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGSearchCell.h"
-#import "DSDeviceUtil.h"
-#import "GlobalDefine.h"
+//#import "DSDeviceUtil.h"
+//#import "GlobalDefine.h"
 #import "DSAlertUtil.h"
 #import "DSImage.h"
 #import "AGStyleCoordinator.h"

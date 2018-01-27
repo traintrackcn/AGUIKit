@@ -6,10 +6,13 @@
 //
 //
 
+@import LITCommon;
+@import UIKit;
+
 #import "LITCellCharacter.h"
 #import "UIView+HeaderAndCell.h"
-#import "GlobalDefine.h"
-@import UIKit;
+//#import "GlobalDefine.h"
+
 
 @class AGObjectPool;
 @class LITVCCore;

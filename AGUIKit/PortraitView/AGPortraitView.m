@@ -6,13 +6,14 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGPortraitView.h"
-#import "GlobalDefine.h"
-#import "DSImage.h"
+//#import "GlobalDefine.h"
+//#import "DSImage.h"
 #import "AGStyleCoordinator.h"
 //#import "DAFileLoader.h"
 #import "DSImage.h"
-#import "NSObject+Singleton.h"
 #import "UIImageView+Letters.h"
 #import "UIImageView+AFNetworking.h"
 #import "AFURLResponseSerialization.h"

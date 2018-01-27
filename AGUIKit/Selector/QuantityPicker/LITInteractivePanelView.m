@@ -6,8 +6,10 @@
 //  Copyright © 2017 AboveGEM. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "LITInteractivePanelView.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @interface LITInteractivePanelView(){
     

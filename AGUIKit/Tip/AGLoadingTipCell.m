@@ -6,8 +6,10 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGLoadingTipCell.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @implementation AGLoadingTipCell
 

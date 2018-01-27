@@ -8,9 +8,10 @@
 
 
 @import UIKit;
+@import LITCommon;
 
-#import "AGObjectPool.h"
-#import "GlobalDefine.h"
+//#import "AGObjectPool.h"
+//#import "GlobalDefine.h"
 #import "LITVCCore.h"
 #import "LITCell.h"
 

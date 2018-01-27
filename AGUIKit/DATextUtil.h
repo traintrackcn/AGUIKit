@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+Singleton.h"
+@import LITCommon;
 @import UIKit;
 
 #define DA_TEXT_UTIL [DATextUtil singleton]

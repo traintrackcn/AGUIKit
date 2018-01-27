@@ -6,16 +6,17 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGCell.h"
 #import "AGVCConfiguration.h"
 #import "AGViewController.h"
 #import "AGStyleCoordinator.h"
-#import "DSValueUtil.h"
-#import "NSObject+Singleton.h"
-#import "DSDeviceUtil.h"
+//#import "DSValueUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGUIDefine.h"
-#import "GlobalDefine.h"
-#import "AGObjectPool.h"
+//#import "GlobalDefine.h"
+//#import "AGObjectPool.h"
 
 @interface AGCell(){
     

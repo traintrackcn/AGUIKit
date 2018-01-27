@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 2ViVe. All rights reserved.
 //
 
+
+@import LITCommon;
+
 #import "AGStyleCoordinator.h"
-#import "NSObject+Singleton.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "DSImage.h"
-#import "DSDeviceUtil.h"
-#import "DSValueUtil.h"
-#import "NSObject+Singleton.h"
+//#import "DSDeviceUtil.h"
+//#import "DSValueUtil.h"
 #import "AGUIDefine.h"
 #import "CHCSVParser.h"
 #import "DACSVUtil.h"

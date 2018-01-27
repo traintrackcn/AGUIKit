@@ -6,11 +6,13 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGCircleProgressView.h"
 #import "MDRadialProgressTheme.h"
 #import "MDRadialProgressView.h"
 #import "MDRadialProgressLabel.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "AGStyleCoordinator.h"
 
 @interface AGCircleProgressView(){

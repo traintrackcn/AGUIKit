@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GlobalDefine.h"
+@import UIKit;
+@import LITCommon;
+//#import "GlobalDefine.h"
 
 @class AGVCConfiguration;
 @class AGViewController;
 @class AGSectionLoader;
-@import UIKit;
+
 
 @interface AGSectionUnit : NSObject
 

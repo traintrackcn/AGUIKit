@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "DSLayoutUtil.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGAssembler.h"
 
 @implementation DSLayoutUtil

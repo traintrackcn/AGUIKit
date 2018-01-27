@@ -6,13 +6,15 @@
 //  Copyright © 2015 AboveGEM. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "UITableViewController+NavigationBar.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "AGTextCoordinator.h"
 #import "AGUITextKeyDefine.h"
 #import "DSImage.h"
-#import "NSObject+ObjPool.h"
-#import "AGObjectPool.h"
+//#import "NSObject+ObjPool.h"
+//#import "AGObjectPool.h"
 
 
 

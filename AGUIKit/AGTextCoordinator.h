@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+Singleton.h"
+@import LITCommon;
 
 #define TEXT_C [AGTextCoordinator singleton]
 #define TEXT(key) [AGTextCoordinator textForKey:key roleCode:nil]

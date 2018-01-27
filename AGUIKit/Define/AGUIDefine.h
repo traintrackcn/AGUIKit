@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 AboveGEM. All rights reserved.
 //
 
+@import LITCommon;
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "DSDeviceUtil.h"
-#import "GlobalDefine.h"
-#import "NSObject+Singleton.h"
+
+//#import "DSDeviceUtil.h"
+//#import "GlobalDefine.h"
 #import "AGStyleCoordinator.h"
 
 #define AG_UI_DEFINE [AGUIDefine singleton]

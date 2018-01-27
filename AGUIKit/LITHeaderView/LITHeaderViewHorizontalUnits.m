@@ -6,10 +6,12 @@
 //
 //
 
+@import LITCommon;
+
 #import "LITHeaderViewHorizontalUnits.h"
 #import "AGCollectionViewLayoutHorizontalUnits.h"
 #import "AGCollectionViewCell.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 #import "AGStyleCoordinator.h"
 #import "AGUIDefine.h"
 

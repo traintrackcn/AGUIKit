@@ -6,9 +6,11 @@
 //
 //
 
+@import LITCommon;
+
 #import "LITCell.h"
 #import "AGUIDefine.h"
-#import "AGObjectPool.h"
+//#import "AGObjectPool.h"
 #import "LITVC.h"
 
 @interface LITCell ()

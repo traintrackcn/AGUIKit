@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
-#import "AGModel.h"
-
+//#import "AGModel.h"
+@import LITCommon;
 
 enum{
     AGIndexInvalid = -1,

@@ -6,10 +6,12 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGSectionLoader.h"
 #import "AGSectionUnit.h"
 #import "AGVCConfiguration.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 
 @interface AGSectionLoader(){
     

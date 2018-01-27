@@ -6,7 +6,9 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
-#import "GlobalDefine.h"
+@import LITCommon;
+
+//#import "GlobalDefine.h"
 #import <Foundation/Foundation.h>
 
 @class DASectionButton;

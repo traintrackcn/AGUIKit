@@ -6,11 +6,13 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGCollectionViewCellOfMultiValueCell.h"
 #import "AGCollectionViewCellValue.h"
 #import "AGMultiValueCellLabel.h"
-#import "DSValueUtil.h"
-#import "GlobalDefine.h"
+//#import "DSValueUtil.h"
+//#import "GlobalDefine.h"
 #import "AGStyleCoordinator.h"
 
 @interface AGCollectionViewCellOfMultiValueCell(){

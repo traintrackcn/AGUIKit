@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGTextCoordinator.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 //#import "DSLocaleManager.h"
 #import "CHCSVParser.h"
 #import "DACSVUtil.h"

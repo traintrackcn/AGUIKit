@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGHtmlCell.h"
-#import "GlobalDefine.h"
-#import "DSDeviceUtil.h"
+//#import "GlobalDefine.h"
+//#import "DSDeviceUtil.h"
 #import "AGViewController.h"
 #import "AGVCConfiguration.h"
 

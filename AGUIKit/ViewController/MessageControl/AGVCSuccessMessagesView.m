@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGVCSuccessMessagesView.h"
 #import "AGStyleCoordinator.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 
 @interface AGVCSuccessMessagesView(){
     UILabel *contentLabel;

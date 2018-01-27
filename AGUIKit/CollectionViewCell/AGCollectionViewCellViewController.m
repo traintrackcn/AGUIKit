@@ -6,12 +6,14 @@
 //
 //
 
+@import LITCommon;
+
 #import "AGCollectionViewCellViewController.h"
 #import "AGViewController.h"
 #import "AGCollectionViewCellValue.h"
 #import "AGStyleCoordinator.h"
-#import "DSValueUtil.h"
-#import "GlobalDefine.h"
+//#import "DSValueUtil.h"
+//#import "GlobalDefine.h"
 
 @interface AGCollectionViewCellViewController(){
 //    Class vcCls;

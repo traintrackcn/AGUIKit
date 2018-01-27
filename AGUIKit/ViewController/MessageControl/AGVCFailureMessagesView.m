@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 2ViVe. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "AGVCFailureMessagesView.h"
 #import "AGUIDefine.h"
-#import "DSDeviceUtil.h"
+//#import "DSDeviceUtil.h"
 
 @interface AGVCFailureMessagesView(){
     UILabel *contentLabel;

@@ -6,11 +6,13 @@
 //  Copyright © 2016 AboveGEM. All rights reserved.
 //
 
+@import LITCommon;
+
 #import "DAButtonFactory.h"
-#import "GlobalDefine.h"
+//#import "GlobalDefine.h"
 #import "DSImage.h"
 #import "DAButtonItem.h"
-#import "NSObject+Singleton.h"
+@import LITCommon;
 
 @interface DAButtonFactory(){
     
